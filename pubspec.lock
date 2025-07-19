@@ -943,10 +943,11 @@ packages:
   stream_value:
     dependency: "direct main"
     description:
-      path: "../packages/stream_value"
-      relative: true
-    source: path
-    version: "0.0.4"
+      name: stream_value
+      sha256: "3fb6840979ad9491a0ae6396b4259ff0170dd9fd92ae79d8fb1706a3f569cbd8"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.6"
   string_scanner:
     dependency: transitive
     description:
@@ -1027,12 +1028,13 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.5.1"
-  value_objects:
+  value_object_pattern:
     dependency: "direct main"
     description:
-      path: "../packages/value_objects"
-      relative: true
-    source: path
+      name: value_object_pattern
+      sha256: "1f31aaac15076cdce353128b1e4de16053c32988042af44764e896eac7a28b02"
+      url: "https://pub.dev"
+    source: hosted
     version: "0.0.5"
   vector_graphics:
     dependency: transitive

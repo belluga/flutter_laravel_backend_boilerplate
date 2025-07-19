@@ -43,18 +43,8 @@ dependencies:
   package_info_plus: ^8.3.0
   platform_device_id_plus: ^1.0.7
   sentry_flutter: ^9.1.0
-
-  stream_value:
-    path: ../packages/stream_value
-    # git:
-    #   url: https://github.com/belluga/stream_value.git
-    #   ref: v0.0.4
-
-  value_objects:
-    path: ../packages/value_objects
-    # git:
-    #   url: https://github.com/belluga/value_objects.git
-    #   ref: v0.0.4
+  stream_value: ^0.0.6
+  value_object_pattern: ^0.0.5
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
