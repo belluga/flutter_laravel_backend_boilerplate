@@ -105,17 +105,6 @@ class MockBackend extends BackendContract {
     return Future.value(_courses);
   }
 
-  CourseItemDetailsDTO? _findCourseById({
-    required String needle,
-    required List<Map<String, dynamic>> haystack,
-  }) {
-    final Map<String, dynamic> _courseItemDetailsRaw = haystack.firstWhere(
-      (item) => item['id'] == needle,
-    );
-
-    return CourseItemDetailsDTO.fromJson(_courseItemDetailsRaw);
-  }
-
   @override
   Future<List<NoteDTO>> getNotes(String courseItemId) {
     // Simulate fetching notes for a course item
