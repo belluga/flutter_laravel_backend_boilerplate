@@ -63,7 +63,7 @@ abstract class CoursesRepositoryContract {
 
   Future<void> _refreshFastTracksList() async {
     final List<CourseItemSummaryDTO> _dashboardSummary = await backend
-        .getLastFastTrackCourses();
+        .getUnifastTracks();
 
     final _courses = _dashboardSummary
         .map((courseDto) => CourseBaseModel.fromDto(courseDto))
