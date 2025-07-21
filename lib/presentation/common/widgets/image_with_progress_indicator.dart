@@ -11,8 +11,8 @@ class ImageWithProgressIndicator extends StatelessWidget {
   const ImageWithProgressIndicator({
     super.key,
     this.thumb,
-    this.width = 80,
-    this.height = 80,
+    this.width,
+    this.height,
     this.borderRadius,
   });
 
