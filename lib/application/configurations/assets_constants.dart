@@ -2,9 +2,7 @@ class AssetsConstants {
   
   static final courses = _Courses();
   static final login = _LoginAssets();
-
-  static final String placeholderGeneric =
-      "assets/images/placeholder.jpg";
+  
 }
 
 class _LoginAssets {
