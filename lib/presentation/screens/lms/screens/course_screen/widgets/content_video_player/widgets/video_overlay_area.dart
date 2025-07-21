@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:stream_value/core/stream_value_builder.dart';
 import 'package:unifast_portal/domain/courses/course_item_model.dart';
+import 'package:unifast_portal/presentation/common/widgets/image_with_progress_indicator.dart';
 import 'package:unifast_portal/presentation/screens/lms/screens/course_screen/controllers/course_screen_controller.dart';
 import 'package:unifast_portal/presentation/screens/lms/screens/course_screen/widgets/content_video_player/enums/video_playing_status.dart';
 import 'package:unifast_portal/presentation/screens/lms/screens/course_screen/widgets/content_video_player/widgets/next_video_button.dart';
@@ -70,26 +71,11 @@ class _VideoOverlayAreaState extends State<VideoOverlayArea> {
         return GestureDetector(
           onTap: _overlayAction,
           child: Stack(
+            fit: StackFit.expand,
             children: [
-              Container(
-                decoration: BoxDecoration(
-                  image:
-                      !_controller
-                          .contentVideoPlayerController
-                          .alreadyStarted
-                      ? DecorationImage(
-                          image: NetworkImage(
-                            widget.courseItemModel.thumb.thumbUri
-                                .toString(),
-                          ),
-                          fit: BoxFit.cover,
-                          colorFilter: ColorFilter.mode(
-                            Colors.black.withAlpha(150),
-                            BlendMode.darken,
-                          ),
-                        )
-                      : null,
-                ),
+              ImageWithProgressIndicator(
+                borderRadius: BorderRadius.circular(0),
+                thumb: widget.courseItemModel.content?.video?.thumb,
               ),
               Container(
                 color: _controller.contentVideoPlayerController.alreadyStarted

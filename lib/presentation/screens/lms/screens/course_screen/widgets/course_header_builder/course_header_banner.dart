@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:unifast_portal/domain/courses/course_category_model.dart';
 import 'package:unifast_portal/domain/courses/course_item_model.dart';
+import 'package:unifast_portal/presentation/common/widgets/image_with_progress_indicator.dart';
 import 'package:unifast_portal/presentation/screens/lms/screens/course_screen/controllers/course_screen_controller.dart';
 import 'package:unifast_portal/presentation/screens/lms/widgets/category_chip.dart';
 
@@ -26,19 +27,11 @@ class _CourseHeaderBannerState extends State<CourseHeaderBanner> {
       child: Stack(
         children: [
           ClipRRect(
-            // borderRadius: BorderRadius.circular(12.0),
             child: Stack(
               fit: StackFit.expand,
               children: [
-                Container(
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      fit: BoxFit.cover,
-                      image: NetworkImage(
-                        widget.courseItemModel.thumb.thumbUri.toString(),
-                      ),
-                    ),
-                  ),
+                ImageWithProgressIndicator(
+                  thumb: widget.courseItemModel.thumb,
                 ),
                 BackdropFilter(
                   filter: ImageFilter.blur(sigmaX: 5.0, sigmaY: 5.0),
