@@ -1,4 +1,6 @@
 class AssetsConstants {
+  
+  static final courses = _Courses();
   static final login = _LoginAssets();
 
   static final String placeholderGeneric =
@@ -11,4 +13,8 @@ class _LoginAssets {
 
   String get headerBackground =>
       "assets/images/login_header_background.jpg";
+}
+
+class _Courses {
+  String get placeholder => "assets/images/placeholder.png";
 }
