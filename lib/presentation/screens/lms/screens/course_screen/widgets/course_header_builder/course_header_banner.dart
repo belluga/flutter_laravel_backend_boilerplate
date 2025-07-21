@@ -1,15 +1,24 @@
 import 'dart:ui';
 
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
 import 'package:unifast_portal/domain/courses/course_category_model.dart';
 import 'package:unifast_portal/domain/courses/course_item_model.dart';
-import 'package:unifast_portal/presentation/common/widgets/image_with_progress_indicator.dart';
+import 'package:unifast_portal/presentation/screens/lms/screens/course_screen/controllers/course_screen_controller.dart';
 import 'package:unifast_portal/presentation/screens/lms/widgets/category_chip.dart';
 
-class CourseHeaderBanner extends StatelessWidget {
+class CourseHeaderBanner extends StatefulWidget {
   final CourseItemModel courseItemModel;
 
   const CourseHeaderBanner({super.key, required this.courseItemModel});
+
+  @override
+  State<CourseHeaderBanner> createState() => _CourseHeaderBannerState();
+}
+
+class _CourseHeaderBannerState extends State<CourseHeaderBanner> {
+  final _controller = GetIt.I.get<CourseScreenController>();
 
   @override
   Widget build(BuildContext context) {
@@ -17,11 +26,19 @@ class CourseHeaderBanner extends StatelessWidget {
       child: Stack(
         children: [
           ClipRRect(
+            // borderRadius: BorderRadius.circular(12.0),
             child: Stack(
               fit: StackFit.expand,
               children: [
-                ImageWithProgressIndicator(
-                  thumb: courseItemModel.thumb,
+                Container(
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      fit: BoxFit.cover,
+                      image: NetworkImage(
+                        widget.courseItemModel.thumb.thumbUri.toString(),
+                      ),
+                    ),
+                  ),
                 ),
                 BackdropFilter(
                   filter: ImageFilter.blur(sigmaX: 5.0, sigmaY: 5.0),
@@ -45,7 +62,7 @@ class CourseHeaderBanner extends StatelessWidget {
                 SafeArea(
                   bottom: false,
                   child: Row(
-                    children: [BackButton()],
+                    children: [BackButton(onPressed: _backNavigation)],
                   ),
                 ),
                 Row(
@@ -55,14 +72,14 @@ class CourseHeaderBanner extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
                           Text(
-                            courseItemModel.title.value,
+                            widget.courseItemModel.title.value,
                             maxLines: 2,
                             style: TextTheme.of(context).headlineSmall,
                           ),
                           Builder(
                             builder: (context) {
                               final List<CourseCategoryModel>? _categories =
-                                  courseItemModel.categories;
+                                  widget.courseItemModel.categories;
 
                               if (_categories == null || _categories.isEmpty) {
                                 return SizedBox.shrink();
@@ -92,4 +109,16 @@ class CourseHeaderBanner extends StatelessWidget {
       ),
     );
   }
+
+  void _backNavigation() {
+    if (_controller.parentExists) {
+      return _navigateToParent();
+    }
+
+    return _pop();
+  }
+
+  void _navigateToParent() => _controller.backToParent();
+
+  void _pop() => context.router.pop();
 }

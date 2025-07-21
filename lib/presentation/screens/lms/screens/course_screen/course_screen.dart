@@ -1,5 +1,4 @@
 import 'package:auto_route/annotations.dart';
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:unifast_portal/domain/courses/course_item_model.dart';
 import 'package:unifast_portal/domain/notes/note_model.dart';
@@ -39,91 +38,87 @@ class _CourseScreenState extends State<CourseScreen>
 
   @override
   Widget build(BuildContext context) {
-    return PopScope(
-      canPop: false,
-      onPopInvokedWithResult: _onPop,
-      child: Scaffold(
-        resizeToAvoidBottomInset: false,
-        body: StreamValueBuilder<CourseItemModel>(
-          streamValue: _controller.currentCourseItemStreamValue,
-          onNullWidget: Center(child: CircularProgressIndicator()),
-          builder: (context, courseModel) {
-            return SafeArea(
-              top: false,
-              child: Column(
-                children: [
-                  Expanded(
-                    flex: 1,
-                    child: CourseHeaderBuilder(courseItemModel: courseModel),
+    return Scaffold(
+      resizeToAvoidBottomInset: false,
+      body: StreamValueBuilder<CourseItemModel>(
+        streamValue: _controller.currentCourseItemStreamValue,
+        onNullWidget: Center(child: CircularProgressIndicator()),
+        builder: (context, courseModel) {
+          return SafeArea(
+            top: false,
+            child: Column(
+              children: [
+                Expanded(
+                  flex: 1,
+                  child: CourseHeaderBuilder(courseItemModel: courseModel),
+                ),
+                SizedBox(height: 16),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 16),
+                  child: Container(
+                    color: Theme.of(context).colorScheme.surfaceDim,
+                    child: TabBar(
+                      controller: _controller.tabController,
+                      dividerColor: Colors.transparent,
+                      indicatorSize: TabBarIndicatorSize.label,
+                      labelColor: Theme.of(context).colorScheme.onPrimary,
+                      tabs: List.generate(_controller.tabContentTypes.length, (
+                        index,
+                      ) {
+                        final TabContentType contentType =
+                            _controller.tabContentTypes[index];
+            
+                        switch (contentType) {
+                          case TabContentType.childrens:
+                            return Tab(
+                              text: courseModel
+                                  .childrensSummary
+                                  ?.label
+                                  .valueFormated,
+                            );
+                          case TabContentType.files:
+                            return Tab(text: 'Arquivos');
+                          case TabContentType.notes:
+                            return Tab(text: 'Anotações');
+                        }
+                      }),
+                    ),
                   ),
-                  SizedBox(height: 16),
-                  Padding(
+                ),
+                Expanded(
+                  flex: 2,
+                  child: Padding(
                     padding: EdgeInsets.symmetric(horizontal: 16),
-                    child: Container(
-                      color: Theme.of(context).colorScheme.surfaceDim,
-                      child: TabBar(
-                        controller: _controller.tabController,
-                        dividerColor: Colors.transparent,
-                        indicatorSize: TabBarIndicatorSize.label,
-                        labelColor: Theme.of(context).colorScheme.onPrimary,
-                        tabs: List.generate(_controller.tabContentTypes.length, (
-                          index,
-                        ) {
+                    child: TabBarView(
+                      controller: _controller.tabController,
+                      children: List.generate(
+                        _controller.tabContentTypes.length,
+                        (index) {
                           final TabContentType contentType =
                               _controller.tabContentTypes[index];
-              
+            
                           switch (contentType) {
                             case TabContentType.childrens:
-                              return Tab(
-                                text: courseModel
-                                    .childrensSummary
-                                    ?.label
-                                    .valueFormated,
-                              );
+                              return ChildrensList();
                             case TabContentType.files:
-                              return Tab(text: 'Arquivos');
+                              return FilesList();
                             case TabContentType.notes:
-                              return Tab(text: 'Anotações');
+                              return NotesList(
+                                onCardTap: _showNotesAddBottomSheet,
+                              );
                           }
-                        }),
+                        },
                       ),
                     ),
                   ),
-                  Expanded(
-                    flex: 2,
-                    child: Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 16),
-                      child: TabBarView(
-                        controller: _controller.tabController,
-                        children: List.generate(
-                          _controller.tabContentTypes.length,
-                          (index) {
-                            final TabContentType contentType =
-                                _controller.tabContentTypes[index];
-              
-                            switch (contentType) {
-                              case TabContentType.childrens:
-                                return ChildrensList();
-                              case TabContentType.files:
-                                return FilesList();
-                              case TabContentType.notes:
-                                return NotesList(
-                                  onCardTap: _showNotesAddBottomSheet,
-                                );
-                            }
-                          },
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            );
-          },
-        ),
-        floatingActionButton: CourseFloatingActionButtons(
-          onPressed: _showNotesAddBottomSheet,
-        ),
+                ),
+              ],
+            ),
+          );
+        },
+      ),
+      floatingActionButton: CourseFloatingActionButtons(
+        onPressed: _showNotesAddBottomSheet,
       ),
     );
   }
@@ -148,24 +143,6 @@ class _CourseScreenState extends State<CourseScreen>
       ),
     );
   }
-
-  void _onPop(bool canPop, _) {
-    if (canPop) return;
-
-    return _backNavigation();
-  }
-
-  void _backNavigation() {
-    if (_controller.parentExists) {
-      return _navigateToParent();
-    }
-
-    return _pop();
-  }
-
-  void _navigateToParent() => _controller.backToParent();
-
-  void _pop() => context.router.pop();
 
   @override
   void dispose() {

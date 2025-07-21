@@ -28,10 +28,7 @@ class _FileCardState extends State<FileCard> {
               SizedBox(
                 height: 56,
                 width: 56,
-                child: ImageWithProgressIndicator(
-                  width: 80,
-                  height: 80,
-                  thumb: widget.fileModel.thumb),
+                child: ImageWithProgressIndicator(thumb: widget.fileModel.thumb),
               ),
               Expanded(
                 child: Padding(
