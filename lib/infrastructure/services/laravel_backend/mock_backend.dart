@@ -63,7 +63,6 @@ class MockBackend extends BackendContract {
 
   @override
   Future<List<CourseItemSummaryDTO>> getUnifastTracks() async {
-    
     final _unifastTracksList = await _unifastTracks();
     final _courses = _unifastTracksList
         .map((item) => CourseItemSummaryDTO.fromJson(item))
@@ -103,6 +102,17 @@ class MockBackend extends BackendContract {
         .toList();
 
     return Future.value(_courses);
+  }
+
+  CourseItemDetailsDTO? _findCourseById({
+    required String needle,
+    required List<Map<String, dynamic>> haystack,
+  }) {
+    final Map<String, dynamic> _courseItemDetailsRaw = haystack.firstWhere(
+      (item) => item['id'] == needle,
+    );
+
+    return CourseItemDetailsDTO.fromJson(_courseItemDetailsRaw);
   }
 
   @override

@@ -23,7 +23,6 @@ class _CourseRowCardState extends State<CourseRowCard> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             ImageWithProgressIndicator(
-              width: 100,
               borderRadius: BorderRadius.horizontal(left: Radius.circular(8)),
               thumb: widget.course.thumb,
             ),
