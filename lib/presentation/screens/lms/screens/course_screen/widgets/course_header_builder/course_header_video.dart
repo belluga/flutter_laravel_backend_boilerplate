@@ -14,16 +14,10 @@ class CourseHeaderVideo extends StatefulWidget {
 class _CourseHeaderVideoState extends State<CourseHeaderVideo> {
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      child: SafeArea(
-        top: true,
-        bottom: false,
-        child: Column(
-          children: [
-            ContentVideoPlayer(courseItemModel: widget.courseItemModel),
-          ],
-        ),
-      ),
+    return SafeArea(
+      top: true,
+      bottom: false,
+      child: ContentVideoPlayer(courseItemModel: widget.courseItemModel),
     );
   }
 }
