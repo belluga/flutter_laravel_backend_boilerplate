@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:unifast_portal/domain/notes/note_model.dart';
 import 'package:unifast_portal/presentation/screens/lms/screens/course_screen/controllers/course_screen_controller.dart';
 import 'package:unifast_portal/presentation/screens/lms/screens/course_screen/note_card.dart';
-import 'package:unifast_portal/presentation/screens/lms/screens/course_screen/widgets/empty_list.dart';
 import 'package:get_it/get_it.dart';
 import 'package:stream_value/core/stream_value_builder.dart';
+import 'package:unifast_portal/presentation/screens/lms/screens/course_screen/widgets/empty_list_notes.dart';
 
 class NotesList extends StatefulWidget {
 
@@ -32,7 +32,7 @@ class _NotesListState extends State<NotesList> {
       onNullWidget: Center(child: CircularProgressIndicator()),
       builder: (context, notesList) {
         if (notesList.isEmpty) {
-          return EmptyListMessage();
+          return EmptyListNotes();
         }
 
         return SingleChildScrollView(

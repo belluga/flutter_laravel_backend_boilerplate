@@ -24,6 +24,9 @@ class _MyCoursesDashboardState extends State<MyCoursesDashboard> {
       streamValue: _controller.myCoursesSummaryStreamValue,
       onNullWidget: SizedBox.shrink(),
       builder: (context, myCourseSuummary) {
+
+        if(myCourseSuummary.items.isEmpty) return SizedBox.shrink();
+
         final _showInScreen = myCourseSuummary.total == 1 ? 1.1 : 1.3;
 
         return DashboardItemsSummary(
