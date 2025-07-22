@@ -52,38 +52,25 @@ class _DashboardScreenState extends State<DashboardScreen> {
       ),
       body: CustomScrollView(
         slivers: [
-          SliverToBoxAdapter(
-            child: Padding(
-              padding: const EdgeInsets.only(top: 16.0),
-              child: NextEventsDashboard(),
-            ),
-          ),
-          SliverToBoxAdapter(
-            child: Padding(
-              padding: const EdgeInsets.only(top: 16.0),
-              child: MyCoursesDashboard(),
-            ),
-          ),
-          SliverToBoxAdapter(
-            child: Padding(
-              padding: const EdgeInsets.only(top: 16.0),
-              child: ExternalCoursesDashboard(),
-            ),
-          ),
-          SliverPadding(
-            padding: EdgeInsets.only(top: 16),
-            sliver: StreamValueBuilder<List<CourseBaseModel>>(
-              onNullWidget: SliverToBoxAdapter(child: SizedBox.shrink()),
-              streamValue: _controller.fastTracksItemsStreamValue,
-              builder: (context, fastTracks) {
-                return CourseTracksSliver(
-                  showAllLabel: "Ver Todas",
-                  onShowAllPressed: () =>
-                      context.router.push(FastTrackListRoute()),
-                  fastTracks: fastTracks,
-                );
-              },
-            ),
+          SliverToBoxAdapter(child: NextEventsDashboard()),
+          SliverToBoxAdapter(child: MyCoursesDashboard()),
+          SliverToBoxAdapter(child: ExternalCoursesDashboard()),
+          StreamValueBuilder<List<CourseBaseModel>>(
+            onNullWidget: SliverToBoxAdapter(child: SizedBox.shrink()),
+            streamValue: _controller.fastTracksItemsStreamValue,
+            builder: (context, fastTracks) {
+
+              if(fastTracks.isEmpty){
+                return SliverToBoxAdapter(child: SizedBox.shrink());
+              }
+
+              return CourseTracksSliver(
+                showAllLabel: "Ver Todas",
+                onShowAllPressed: () =>
+                    context.router.push(FastTrackListRoute()),
+                fastTracks: fastTracks,
+              );
+            },
           ),
         ],
       ),

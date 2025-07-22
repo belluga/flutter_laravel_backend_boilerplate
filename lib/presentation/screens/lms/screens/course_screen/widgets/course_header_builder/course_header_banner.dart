@@ -1,24 +1,15 @@
 import 'dart:ui';
 
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:get_it/get_it.dart';
 import 'package:unifast_portal/domain/courses/course_category_model.dart';
 import 'package:unifast_portal/domain/courses/course_item_model.dart';
-import 'package:unifast_portal/presentation/screens/lms/screens/course_screen/controllers/course_screen_controller.dart';
+import 'package:unifast_portal/presentation/common/widgets/image_with_progress_indicator.dart';
 import 'package:unifast_portal/presentation/screens/lms/widgets/category_chip.dart';
 
-class CourseHeaderBanner extends StatefulWidget {
+class CourseHeaderBanner extends StatelessWidget {
   final CourseItemModel courseItemModel;
 
   const CourseHeaderBanner({super.key, required this.courseItemModel});
-
-  @override
-  State<CourseHeaderBanner> createState() => _CourseHeaderBannerState();
-}
-
-class _CourseHeaderBannerState extends State<CourseHeaderBanner> {
-  final _controller = GetIt.I.get<CourseScreenController>();
 
   @override
   Widget build(BuildContext context) {
@@ -26,19 +17,11 @@ class _CourseHeaderBannerState extends State<CourseHeaderBanner> {
       child: Stack(
         children: [
           ClipRRect(
-            // borderRadius: BorderRadius.circular(12.0),
             child: Stack(
               fit: StackFit.expand,
               children: [
-                Container(
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      fit: BoxFit.cover,
-                      image: NetworkImage(
-                        widget.courseItemModel.thumb.thumbUri.toString(),
-                      ),
-                    ),
-                  ),
+                ImageWithProgressIndicator(
+                  thumb: courseItemModel.thumb,
                 ),
                 BackdropFilter(
                   filter: ImageFilter.blur(sigmaX: 5.0, sigmaY: 5.0),
@@ -62,7 +45,7 @@ class _CourseHeaderBannerState extends State<CourseHeaderBanner> {
                 SafeArea(
                   bottom: false,
                   child: Row(
-                    children: [BackButton(onPressed: _backNavigation)],
+                    children: [BackButton()],
                   ),
                 ),
                 Row(
@@ -72,14 +55,14 @@ class _CourseHeaderBannerState extends State<CourseHeaderBanner> {
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
                           Text(
-                            widget.courseItemModel.title.value,
+                            courseItemModel.title.value,
                             maxLines: 2,
                             style: TextTheme.of(context).headlineSmall,
                           ),
                           Builder(
                             builder: (context) {
                               final List<CourseCategoryModel>? _categories =
-                                  widget.courseItemModel.categories;
+                                  courseItemModel.categories;
 
                               if (_categories == null || _categories.isEmpty) {
                                 return SizedBox.shrink();
@@ -109,16 +92,4 @@ class _CourseHeaderBannerState extends State<CourseHeaderBanner> {
       ),
     );
   }
-
-  void _backNavigation() {
-    if (_controller.parentExists) {
-      return _navigateToParent();
-    }
-
-    return _pop();
-  }
-
-  void _navigateToParent() => _controller.backToParent();
-
-  void _pop() => context.router.pop();
 }

@@ -36,7 +36,11 @@ class _ChildrenCardState extends State<ChildrenCard> {
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              ImageWithProgressIndicator(thumb: widget.courseItemModel.thumb),
+              ImageWithProgressIndicator(
+                width: 80,
+                height: 80,
+                thumb: widget.courseItemModel.thumb,
+              ),
               Expanded(
                 child: Padding(
                   padding: EdgeInsetsGeometry.symmetric(horizontal: 16),
