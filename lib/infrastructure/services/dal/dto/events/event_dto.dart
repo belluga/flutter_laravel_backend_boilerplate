@@ -1,29 +1,46 @@
-import 'package:unifast_portal/infrastructure/services/dal/dto/course/course_item_summary_dto.dart';
 import 'package:unifast_portal/infrastructure/services/dal/dto/course/teacher_dto.dart';
+import 'package:unifast_portal/infrastructure/services/dal/dto/events/event_actions_dto.dart';
 import 'package:unifast_portal/infrastructure/services/dal/dto/events/event_type_dto.dart';
 import 'package:unifast_portal/infrastructure/services/dal/dto/thumb_dto.dart';
 
 class EventDTO {
-  String? id;
-  String title;
-  String content;
-  EventTypeDTO type;
-  ThumbDTO? thumb;
-  String dateTimeStart;
-  String dateTimeEnd;
-  CourseItemSummaryDTO? courseItemSummary;
-  List<TeacherDTO> teachers;
-  List<ActionsDTO> actions;
+  final String? id;
+  final EventTypeDTO type;
+  final String title;
+  final String content;
+  final String? colorHex;
+  final ThumbDTO? thumb;
+  final String dateTimeStart;
+  final List<TeacherDTO> teachers;
+  final List<EventActionsDTO> actions;
 
-  EventDTO({required this.id, required this.courseItemId, required this.content, this.position, this.colorHex});
+  EventDTO({
+    this.id,
+    required this.type,
+    required this.title,
+    required this.content,
+    this.colorHex,
+    this.thumb,
+    required this.dateTimeStart,
+    required this.teachers,
+    required this.actions,
+  });
 
   factory EventDTO.fromJson(Map<String, dynamic> json) {
     return EventDTO(
-      id: json['id'] as String,
-      content: json['content'] as String,
-      colorHex: json['color_hex'] as String?,
-      position: json['position'] as String?,
-      courseItemId: json['course_item_id'] as String,
+      id: json['id'],
+      type: EventTypeDTO.fromJson(json['type']),
+      title: json['title'],
+      content: json['content'],
+      colorHex: json['colorHex'],
+      thumb: ThumbDTO.fromJson(json['thumb']),
+      dateTimeStart: json['dateTimeStart'],
+      teachers: (json['teachers'] as List)
+          .map((teacher) => TeacherDTO.fromJson(teacher))
+          .toList(),
+      actions: (json['actions'] as List)
+          .map((action) => EventActionsDTO.fromJson(action))
+          .toList(),
     );
   }
 }
