@@ -1,5 +1,3 @@
-import 'package:unifast_portal/infrastructure/services/dal/dto/course/course_item_summary_dto.dart';
-
 class EventActionsDTO {
   final String id;
   final String type;
@@ -7,7 +5,8 @@ class EventActionsDTO {
   final String? color;
   final String? externalUrl;
   final String? openIn;
-  final CourseItemSummaryDTO? courseItem;
+  final String? itemType;
+  final String? itemId;
 
   EventActionsDTO({
     required this.id,
@@ -16,7 +15,8 @@ class EventActionsDTO {
     this.color,
     this.externalUrl,
     this.openIn,
-    this.courseItem,
+    this.itemType,
+    this.itemId,
   });
 
   factory EventActionsDTO.fromJson(Map<String, dynamic> json) {
@@ -27,7 +27,8 @@ class EventActionsDTO {
       color: json['color'],
       externalUrl: json['externalUrl'],
       openIn: json['openIn'],
-      courseItem: CourseItemSummaryDTO.fromJson(json['courseItem']),
+      itemType: json['itemType'],
+      itemId: json['itemId'],
     );
   }
 }

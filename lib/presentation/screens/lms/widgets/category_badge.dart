@@ -8,13 +8,16 @@ class CategoryBadge extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final Color _color =
+        category.color.value ?? Theme.of(context).colorScheme.tertiary;
+
     return CircleAvatar(
       backgroundColor: category.color.value,
       radius: 16,
       child: Icon(
         Icons.category_outlined,
         size: 16,
-        color: category.color.value.computeLuminance() > 0.5
+        color: _color.computeLuminance() > 0.5
             ? Theme.of(context).colorScheme.primaryContainer
             : Theme.of(context).colorScheme.onPrimaryContainer,
       ),

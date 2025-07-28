@@ -1,0 +1,4 @@
+enum EventActionTypes {
+  externalUrl,
+  courseItem,
+}

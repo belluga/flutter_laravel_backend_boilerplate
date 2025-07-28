@@ -8,14 +8,14 @@ class CategoryChip extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
-    
+    final Color _color =
+        category.color.value ?? Theme.of(context).colorScheme.tertiary;
 
     return Chip(
       avatar: Icon(
         Icons.category_outlined,
         size: 16,
-        color: category.color.value.computeLuminance() > 0.5
+        color: _color.computeLuminance() > 0.5
             ? Theme.of(context).colorScheme.primaryContainer
             : Theme.of(context).colorScheme.onPrimaryContainer,
       ),
@@ -23,10 +23,10 @@ class CategoryChip extends StatelessWidget {
       label: Text(
         category.name.value,
         style: TextTheme.of(context).labelSmall?.copyWith(
-          color: category.color.value.computeLuminance() > 0.5
-              ? Theme.of(context).colorScheme.primaryContainer
-              : Theme.of(context).colorScheme.onPrimaryContainer,
-        ),
+              color: _color.computeLuminance() > 0.5
+                  ? Theme.of(context).colorScheme.primaryContainer
+                  : Theme.of(context).colorScheme.onPrimaryContainer,
+            ),
       ),
       backgroundColor: category.color.value,
     );

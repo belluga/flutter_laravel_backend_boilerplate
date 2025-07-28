@@ -1,6 +1,6 @@
 import 'package:unifast_portal/infrastructure/services/dal/dto/course/teacher_dto.dart';
-import 'package:unifast_portal/infrastructure/services/dal/dto/events/event_actions_dto.dart';
-import 'package:unifast_portal/infrastructure/services/dal/dto/events/event_type_dto.dart';
+import 'package:unifast_portal/infrastructure/services/dal/dto/schedule/event_actions_dto.dart';
+import 'package:unifast_portal/infrastructure/services/dal/dto/schedule/event_type_dto.dart';
 import 'package:unifast_portal/infrastructure/services/dal/dto/thumb_dto.dart';
 
 class EventDTO {
