@@ -5,8 +5,8 @@ import 'package:get_it/get_it.dart';
 import 'package:stream_value/core/stream_value.dart';
 
 class DateRowController implements Disposable {
-  final int totalItems = 81;
-  late int initialIndex = totalItems ~/ 2;
+  late final int totalItems;
+  late final int initialIndex;
 
   static DateTime get today =>
       DateTime(DateTime.now().year, DateTime.now().month, DateTime.now().day);
@@ -14,6 +14,7 @@ class DateRowController implements Disposable {
   DateRowController() {
     visibleDatesStreamValue.stream.listen(updateCurrentMonth);
     invisibleDatesStreamValue.stream.listen(updateCurrentMonth);
+    setCountItems();
   }
 
   final scrollController = ScrollController();
@@ -65,9 +66,29 @@ class DateRowController implements Disposable {
   int getIndexByDate(DateTime date) =>
       initialIndex + (date.difference(DateRowController.today).inDays);
 
+  void setCountItems() {
+    
+    final lastDayOfNext2Month = DateTime(
+      DateRowController.today.year,
+      DateRowController.today.month + 3,
+      1,
+    ).subtract(Duration(days: 1));
+
+    final firstDayOfprevious2Month = DateTime(
+      DateRowController.today.year,
+      DateRowController.today.month -2,
+      1,
+    );
+
+    final int previous2Date = DateRowController.today.difference(firstDayOfprevious2Month).inDays;
+    final int date2Last = lastDayOfNext2Month.difference(DateRowController.today).inDays;
+
+    totalItems = previous2Date + date2Last + 1;
+    initialIndex = previous2Date;
+  }
+
   @override
   FutureOr onDispose() {
-    print("onDispose");
     scrollController.dispose();
     selectedDateStreamValue.dispose();
     firsVisibleDateStreamValue.dispose();

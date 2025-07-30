@@ -1,8 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
-import 'package:intl/intl.dart';
-import 'package:stream_value/core/stream_value_builder.dart';
 import 'package:unifast_portal/presentation/screens/schedule/controller/date_row_controller.dart';
 import 'package:unifast_portal/presentation/screens/schedule/widgets/dates_row.dart';
 
@@ -15,15 +13,6 @@ class ScheduleScreen extends StatefulWidget {
 }
 
 class _ScheduleScreenState extends State<ScheduleScreen> {
-
-  late DateRowController _rowDateController;
-
-  @override
-  void initState() {
-    super.initState();
-    _rowDateController = GetIt.I.registerSingleton(DateRowController());
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

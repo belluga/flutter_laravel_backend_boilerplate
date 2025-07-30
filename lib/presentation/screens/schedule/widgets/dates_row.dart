@@ -16,7 +16,7 @@ class DateRow extends StatefulWidget {
 }
 
 class _DateRowState extends State<DateRow> {
-  final _controller = GetIt.I<DateRowController>();
+  late DateRowController _controller;
 
   static const double _itemWidth = 70.0;
   static const double _itemPadding = 8.0;
@@ -25,6 +25,7 @@ class _DateRowState extends State<DateRow> {
   @override
   void initState() {
     super.initState();
+    _controller = GetIt.I.registerSingleton(DateRowController());
     WidgetsBinding.instance.addPostFrameCallback((_) {
       _jumpToToday();
     });
@@ -82,7 +83,6 @@ class _DateRowState extends State<DateRow> {
                               visibilityInfo.visibleFraction;
                           if (mounted) {
                             if (visibleFraction > 0.0) {
-                              print("index: $index, date: ${date.day}");
                               _controller.becomeVisible(date);
                             } else {
                               _controller.becomeInvisible(date);
@@ -122,9 +122,6 @@ class _DateRowState extends State<DateRow> {
   void _navigateToPreviousMonth() {
     final referenceDate = _controller.firsVisibleDateStreamValue.value;
     final firstDayOfPrevioustMonth = DateTime(referenceDate.year, referenceDate.month - 1, 1);
-
-    print(referenceDate);
-    print(firstDayOfPrevioustMonth);
 
     final int _indexToGo = _controller.getIndexByDate(firstDayOfPrevioustMonth);
     final double _offset = _indexToGo * _DateRowState._totalItemWidth;
