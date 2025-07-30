@@ -71,6 +71,9 @@ abstract class ApplicationContract extends StatelessWidget {
 
   ThemeData getThemeData() {
     return ThemeData(
+      appBarTheme: AppBarTheme(
+        backgroundColor: Color(0xFF1C2530),
+        foregroundColor: Color(0xFFFFFFFF),),
       progressIndicatorTheme: ProgressIndicatorThemeData(
         color: Color(0xFF00E6B8),
         strokeWidth: 4,

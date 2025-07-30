@@ -7,7 +7,7 @@ import 'package:unifast_portal/domain/courses/course_base_model.dart';
 import 'package:unifast_portal/presentation/common/widgets/main_logo.dart';
 import 'package:unifast_portal/presentation/common/widgets/profile_action_button/profile_action_button.dart';
 import 'package:unifast_portal/presentation/screens/dashboard/controllers/my_courses_dashboard_controller.dart';
-import 'package:unifast_portal/presentation/screens/events/widgets/next_events_dashboard.dart';
+import 'package:unifast_portal/presentation/screens/schedule/widgets/next_events_dashboard.dart';
 import 'package:unifast_portal/presentation/screens/dashboard/widgets/external_courses_dashboard/external_courses_dashboard.dart';
 import 'package:unifast_portal/presentation/screens/dashboard/widgets/my_courses_dashboard/my_courses_dashboard.dart';
 import 'package:unifast_portal/presentation/widgets/course_tracks_sliver.dart';

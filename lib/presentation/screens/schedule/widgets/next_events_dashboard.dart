@@ -1,4 +1,6 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:unifast_portal/application/router/app_router.gr.dart';
 import 'package:unifast_portal/presentation/common/widgets/calendar_box.dart';
 import 'package:unifast_portal/presentation/common/widgets/dashboard_items_summary.dart';
 
@@ -15,7 +17,7 @@ class _NextEventsDashboardState extends State<NextEventsDashboard> {
     return DashboardItemsSummary(
       title: "Próximos Eventos",
       itemsPerRow: 1.2,
-      // itemHeight: 90,
+      onShowAllPressed: _navigateToSchedule,
       showAllLabel: "Ver todos",
       itemsBuilder: _itemsBuilder,
     );
@@ -55,5 +57,10 @@ class _NextEventsDashboardState extends State<NextEventsDashboard> {
         ),
       ),
     );
+  }
+
+  void _navigateToSchedule() {
+    print("_navigateToSchedule");
+    context.router.push(const ScheduleRoute());
   }
 }
