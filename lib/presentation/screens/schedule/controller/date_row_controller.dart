@@ -7,6 +7,8 @@ import 'package:stream_value/core/stream_value.dart';
 class DateRowController implements Disposable {
   late final int totalItems;
   late final int initialIndex;
+  late final DateTime lastDayRange;
+  late final DateTime firstDayRange;
 
   static DateTime get today =>
       DateTime(DateTime.now().year, DateTime.now().month, DateTime.now().day);
@@ -14,7 +16,8 @@ class DateRowController implements Disposable {
   DateRowController() {
     visibleDatesStreamValue.stream.listen(updateCurrentMonth);
     invisibleDatesStreamValue.stream.listen(updateCurrentMonth);
-    setCountItems();
+    _setBoundaries();
+    _setCountItems();
   }
 
   final scrollController = ScrollController();
@@ -66,22 +69,26 @@ class DateRowController implements Disposable {
   int getIndexByDate(DateTime date) =>
       initialIndex + (date.difference(DateRowController.today).inDays);
 
-  void setCountItems() {
-    
-    final lastDayOfNext2Month = DateTime(
+  void _setBoundaries() {
+    lastDayRange = DateTime(
       DateRowController.today.year,
       DateRowController.today.month + 3,
       1,
     ).subtract(Duration(days: 1));
 
-    final firstDayOfprevious2Month = DateTime(
+    firstDayRange = DateTime(
       DateRowController.today.year,
       DateRowController.today.month -2,
       1,
     );
+  }
 
-    final int previous2Date = DateRowController.today.difference(firstDayOfprevious2Month).inDays;
-    final int date2Last = lastDayOfNext2Month.difference(DateRowController.today).inDays;
+  void _setCountItems() {
+    
+    
+
+    final int previous2Date = DateRowController.today.difference(firstDayRange).inDays;
+    final int date2Last = lastDayRange.difference(DateRowController.today).inDays;
 
     totalItems = previous2Date + date2Last + 1;
     initialIndex = previous2Date;

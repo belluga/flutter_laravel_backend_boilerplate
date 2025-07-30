@@ -41,8 +41,21 @@ class _DateRowState extends State<DateRow> {
           color: Theme.of(context).colorScheme.surfaceDim,
           padding: const EdgeInsets.symmetric(horizontal: 32),
           child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Expanded(
+              StreamValueBuilder<DateTime>(
+                  streamValue: _controller.firsVisibleDateStreamValue,
+                  builder: (context, firstDate) {
+                    final bool _isFirstMonth =
+                        firstDate.month <= _controller.firstDayRange.month;
+
+                    return IconButton(
+                        onPressed:
+                            _isFirstMonth ? null : _navigateToPreviousMonth,
+                        iconSize: 16,
+                        icon: Icon(Icons.arrow_back_ios));
+                  }),
+              Flexible(
                 child: StreamValueBuilder<DateTime>(
                     streamValue: _controller.firsVisibleDateStreamValue,
                     builder: (context, firstDate) {
@@ -51,15 +64,27 @@ class _DateRowState extends State<DateRow> {
                       final capitalizedMonth =
                           currentVisibleMonth[0].toUpperCase() +
                               currentVisibleMonth.substring(1);
-                      return Text(capitalizedMonth);
+                      return InkWell(
+                        onTap: _jumpToToday,
+                        child: Text(
+                          capitalizedMonth,
+                          textAlign: TextAlign.center,
+                          style: TextTheme.of(context).titleMedium,
+                        ),
+                      );
                     }),
               ),
-              IconButton(
-                  onPressed: _navigateToPreviousMonth,
-                  icon: Icon(Icons.arrow_back_ios)),
-              IconButton(
-                  onPressed: _navigateToNextMonth,
-                  icon: Icon(Icons.arrow_forward_ios)),
+              StreamValueBuilder<DateTime>(
+                  streamValue: _controller.firsVisibleDateStreamValue,
+                  builder: (context, firstDate) {
+                    bool _isLastMonth =
+                        firstDate.month >= _controller.lastDayRange.month;
+
+                    return IconButton(
+                        onPressed: _isLastMonth ? null : _navigateToNextMonth,
+                        iconSize: 16,
+                        icon: Icon(Icons.arrow_forward_ios));
+                  }),
             ],
           ),
         ),
@@ -117,11 +142,14 @@ class _DateRowState extends State<DateRow> {
     final _scrollTo =
         (_controller.initialIndex * _totalItemWidth) - _centerOffset;
     _controller.scrollController.jumpTo(_scrollTo);
+
+    _controller.selectDate(DateRowController.today);
   }
 
   void _navigateToPreviousMonth() {
     final referenceDate = _controller.firsVisibleDateStreamValue.value;
-    final firstDayOfPrevioustMonth = DateTime(referenceDate.year, referenceDate.month - 1, 1);
+    final firstDayOfPrevioustMonth =
+        DateTime(referenceDate.year, referenceDate.month - 1, 1);
 
     final int _indexToGo = _controller.getIndexByDate(firstDayOfPrevioustMonth);
     final double _offset = _indexToGo * _DateRowState._totalItemWidth;
@@ -134,7 +162,8 @@ class _DateRowState extends State<DateRow> {
 
   void _navigateToNextMonth() {
     final referenceDate = _controller.firsVisibleDateStreamValue.value;
-    final firstDayOfNextMonth = DateTime(referenceDate.year, referenceDate.month + 1, 1);
+    final firstDayOfNextMonth =
+        DateTime(referenceDate.year, referenceDate.month + 1, 1);
     final int _indexToGo = _controller.getIndexByDate(firstDayOfNextMonth);
     final double _offset = _indexToGo * _DateRowState._totalItemWidth;
 
