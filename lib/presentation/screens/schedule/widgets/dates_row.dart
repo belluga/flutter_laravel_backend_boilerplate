@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
+import 'package:intl/intl.dart';
 import 'package:stream_value/core/stream_value_builder.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 import 'package:unifast_portal/presentation/screens/schedule/controller/date_row_controller.dart';
@@ -17,8 +18,6 @@ class DateRow extends StatefulWidget {
 class _DateRowState extends State<DateRow> {
   final _controller = GetIt.I<DateRowController>();
 
-  static const int _veryLargeNumber = 81;
-  static const int _initialIndex = _veryLargeNumber ~/ 2;
   static const double _itemWidth = 70.0;
   static const double _itemPadding = 8.0;
   static const double _totalItemWidth = _itemWidth + (_itemPadding * 2);
@@ -27,59 +26,124 @@ class _DateRowState extends State<DateRow> {
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      print("_jumpToToday");
       _jumpToToday();
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 120,
-      child: ListView.builder(
-          itemCount: _veryLargeNumber,
-          scrollDirection: Axis.horizontal,
-          controller: _controller.scrollController,
-          itemBuilder: (context, index) {
-            final int difference = index - _initialIndex;
-            final DateTime date =
-                DateTime.now().add(Duration(days: difference));
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        Container(
+          color: Theme.of(context).colorScheme.surfaceDim,
+          padding: const EdgeInsets.symmetric(horizontal: 32),
+          child: Row(
+            children: [
+              Expanded(
+                child: StreamValueBuilder<DateTime>(
+                    streamValue: _controller.firsVisibleDateStreamValue,
+                    builder: (context, firstDate) {
+                      final currentVisibleMonth =
+                          DateFormat.MMMM().format(firstDate);
+                      final capitalizedMonth =
+                          currentVisibleMonth[0].toUpperCase() +
+                              currentVisibleMonth.substring(1);
+                      return Text(capitalizedMonth);
+                    }),
+              ),
+              IconButton(
+                  onPressed: _navigateToPreviousMonth,
+                  icon: Icon(Icons.arrow_back_ios)),
+              IconButton(
+                  onPressed: _navigateToNextMonth,
+                  icon: Icon(Icons.arrow_forward_ios)),
+            ],
+          ),
+        ),
+        SizedBox(
+          height: 120,
+          child: Row(
+            children: [
+              Expanded(
+                child: ListView.builder(
+                    itemCount: _controller.totalItems,
+                    scrollDirection: Axis.horizontal,
+                    controller: _controller.scrollController,
+                    itemBuilder: (context, index) {
+                      final DateTime date = _controller.getDateByIndex(index);
+                      final int eventCount = Random.secure().nextInt(10);
 
-            final int eventCount = Random.secure().nextInt(10);
-
-            return VisibilityDetector(
-              key: Key('date_item_$index'),
-              onVisibilityChanged: (visibilityInfo) {
-                final visibleFraction = visibilityInfo.visibleFraction;
-                if (mounted) {
-                  if (visibleFraction > 0.0) {
-                    _controller.becomeVisible(date);
-                  } else {
-                    _controller.becomeInvisible(date);
-                  }
-                }
-              },
-              child: StreamValueBuilder<DateTime>(
-                  streamValue: _controller.selectedDateStreamValue,
-                  builder: (context, asyncSnapshot) {
-                    return DateItem(
-                      date: date,
-                      padding: EdgeInsets.symmetric(horizontal: 8),
-                      onTap: _controller.selectDate,
-                      isSelected: _controller.isSameDay(
-                          date, _controller.selectedDateStreamValue.value),
-                      eventCount: eventCount,
-                    );
-                  }),
-            );
-          }),
+                      return VisibilityDetector(
+                        key: Key('date_item_$index'),
+                        onVisibilityChanged: (visibilityInfo) {
+                          final visibleFraction =
+                              visibilityInfo.visibleFraction;
+                          if (mounted) {
+                            if (visibleFraction > 0.0) {
+                              print("index: $index, date: ${date.day}");
+                              _controller.becomeVisible(date);
+                            } else {
+                              _controller.becomeInvisible(date);
+                            }
+                          }
+                        },
+                        child: StreamValueBuilder<DateTime>(
+                            streamValue: _controller.selectedDateStreamValue,
+                            builder: (context, asyncSnapshot) {
+                              return DateItem(
+                                date: date,
+                                padding: EdgeInsets.symmetric(horizontal: 8),
+                                onTap: _controller.selectDate,
+                                isSelected: _controller.isSameDay(date,
+                                    _controller.selectedDateStreamValue.value),
+                                eventCount: eventCount,
+                              );
+                            }),
+                      );
+                    }),
+              ),
+            ],
+          ),
+        ),
+      ],
     );
   }
 
   void _jumpToToday() {
     final _screenWidth = MediaQuery.of(context).size.width;
     final _centerOffset = (_screenWidth / 2) - (_totalItemWidth / 2);
-    final _scrollTo = (_initialIndex * _totalItemWidth) - _centerOffset;
+    final _scrollTo =
+        (_controller.initialIndex * _totalItemWidth) - _centerOffset;
     _controller.scrollController.jumpTo(_scrollTo);
+  }
+
+  void _navigateToPreviousMonth() {
+    final referenceDate = _controller.firsVisibleDateStreamValue.value;
+    final firstDayOfPrevioustMonth = DateTime(referenceDate.year, referenceDate.month - 1, 1);
+
+    print(referenceDate);
+    print(firstDayOfPrevioustMonth);
+
+    final int _indexToGo = _controller.getIndexByDate(firstDayOfPrevioustMonth);
+    final double _offset = _indexToGo * _DateRowState._totalItemWidth;
+
+    _controller.scrollController.animateTo(_offset,
+        duration: Duration(milliseconds: 300), curve: Curves.bounceIn);
+
+    _controller.selectDate(firstDayOfPrevioustMonth);
+  }
+
+  void _navigateToNextMonth() {
+    final referenceDate = _controller.firsVisibleDateStreamValue.value;
+    final firstDayOfNextMonth = DateTime(referenceDate.year, referenceDate.month + 1, 1);
+    final int _indexToGo = _controller.getIndexByDate(firstDayOfNextMonth);
+    final double _offset = _indexToGo * _DateRowState._totalItemWidth;
+
+    _controller.scrollController.animateTo(_offset,
+        duration: Duration(milliseconds: 300), curve: Curves.bounceIn);
+
+    _controller.selectDate(firstDayOfNextMonth);
   }
 }

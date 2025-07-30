@@ -31,28 +31,9 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
         title: const Text("Agenda"),
       ),
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Container(
-            color: Theme.of(context).colorScheme.surfaceDim,
-            padding: const EdgeInsets.symmetric(horizontal: 32),
-            child: Row(
-              children: [
-                Expanded(
-                  child: StreamValueBuilder<DateTime>(
-                    streamValue: _rowDateController.firsVisibleDateStreamValue,
-                    builder: (context, firstDate) {
-                      final currentVisibleMonth = DateFormat.MMMM().format(firstDate);
-                      final capitalizedMonth = currentVisibleMonth[0].toUpperCase() + currentVisibleMonth.substring(1);
-                      return Text(capitalizedMonth);
-                    }
-                  ),
-                ),
-                IconButton(onPressed: () {}, icon: Icon(Icons.arrow_back_ios)),
-                IconButton(
-                    onPressed: () {}, icon: Icon(Icons.arrow_forward_ios)),
-              ],
-            ),
-          ),
+          
           Row(
             children: [
               Expanded(
