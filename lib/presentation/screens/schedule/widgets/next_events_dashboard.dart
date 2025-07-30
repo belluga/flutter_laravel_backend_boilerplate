@@ -59,8 +59,5 @@ class _NextEventsDashboardState extends State<NextEventsDashboard> {
     );
   }
 
-  void _navigateToSchedule() {
-    print("_navigateToSchedule");
-    context.router.push(const ScheduleRoute());
-  }
+  void _navigateToSchedule() => context.router.push(const ScheduleRoute());
 }
