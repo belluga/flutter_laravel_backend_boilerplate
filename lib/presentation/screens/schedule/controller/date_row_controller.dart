@@ -15,12 +15,16 @@ class DateRowController implements Disposable {
 
   DateRowController() {
     visibleDatesStreamValue.stream.listen(updateCurrentMonth);
+    visibleDatesStreamValue.stream.listen(todayBecomeVisible);
     invisibleDatesStreamValue.stream.listen(updateCurrentMonth);
+    invisibleDatesStreamValue.stream.listen(todayBecomeInvisible);
     _setBoundaries();
     _setCountItems();
   }
 
   final scrollController = ScrollController();
+
+  final isTodayVisible = StreamValue<bool>(defaultValue: true);
 
   final selectedDateStreamValue =
       StreamValue<DateTime>(defaultValue: DateRowController.today);
@@ -47,6 +51,15 @@ class DateRowController implements Disposable {
     _dates.add(date);
     _dates.sort((a, b) => a.compareTo(b));
     invisibleDatesStreamValue.addValue(_dates);
+  }
+
+  void todayBecomeInvisible(List<DateTime> invisibleDates) {
+    final bool _becomeInvisible = invisibleDates.contains(DateRowController.today);
+    isTodayVisible.addValue(!_becomeInvisible);
+  }
+
+  void todayBecomeVisible(List<DateTime> visibleDates) {
+    isTodayVisible.addValue(visibleDates.contains(DateRowController.today));
   }
 
   bool isSameDay(DateTime a, DateTime b) {
@@ -78,17 +91,16 @@ class DateRowController implements Disposable {
 
     firstDayRange = DateTime(
       DateRowController.today.year,
-      DateRowController.today.month -2,
+      DateRowController.today.month - 2,
       1,
     );
   }
 
   void _setCountItems() {
-    
-    
-
-    final int previous2Date = DateRowController.today.difference(firstDayRange).inDays;
-    final int date2Last = lastDayRange.difference(DateRowController.today).inDays;
+    final int previous2Date =
+        DateRowController.today.difference(firstDayRange).inDays;
+    final int date2Last =
+        lastDayRange.difference(DateRowController.today).inDays;
 
     totalItems = previous2Date + date2Last + 1;
     initialIndex = previous2Date;
