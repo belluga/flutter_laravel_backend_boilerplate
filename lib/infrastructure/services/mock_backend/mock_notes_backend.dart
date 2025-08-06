@@ -7,7 +7,6 @@ import 'package:flutter/rendering.dart';
 class MockNotesBackend extends NotesBackendContract with MockFunctions {
   @override
   Future<List<NoteDTO>> getNotes(String courseItemId) {
-    // Simulate fetching notes for a course item
     return Future.delayed(Duration(seconds: 1), () {
       if (!_notes.containsKey(courseItemId)) {
         return [];
@@ -23,7 +22,6 @@ class MockNotesBackend extends NotesBackendContract with MockFunctions {
     Duration? position,
     required Color color,
   }) {
-    // Simulate saving a note
     return Future.delayed(Duration(seconds: 1), () {
       final NoteDTO _note = NoteDTO(
         id: fakeMongoId,
