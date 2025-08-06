@@ -1,0 +1,62 @@
+[
+    {
+        "date_time_start": "2025-07-10T10:00:00.000Z",
+        "color": "#FF6B6B"
+    },
+    {
+        "date_time_start": "2025-07-15T14:00:00.000Z",
+        "color": "#4ECDC4"
+    },
+    {
+        "date_time_start": "2025-07-21T18:00:00.000Z",
+        "color": "#45B7D1"
+    },
+    {
+        "date_time_start": "2025-07-29T09:00:00.000Z",
+        "color": "#FF6B6B"
+    },
+    {
+        "date_time_start": "2025-08-05T11:00:00.000Z",
+        "color": "#4ECDC4"
+    },
+    {
+        "date_time_start": "2025-08-11T15:30:00.000Z",
+        "color": "#45B7D1"
+    },
+    {
+        "date_time_start": "2025-08-19T10:00:00.000Z",
+        "color": "#FF6B6B"
+    },
+    {
+        "date_time_start": "2025-08-26T12:00:00.000Z",
+        "color": "#4ECDC4"
+    },
+    {
+        "date_time_start": "2025-09-02T16:00:00.000Z",
+        "color": "#45B7D1"
+    },
+    {
+        "date_time_start": "2025-09-10T09:30:00.000Z",
+        "color": "#FF6B6B"
+    },
+    {
+        "date_time_start": "2025-09-17T13:00:00.000Z",
+        "color": "#4ECDC4"
+    },
+    {
+        "date_time_start": "2025-09-25T19:00:00.000Z",
+        "color": "#45B7D1"
+    },
+    {
+        "date_time_start": "2025-10-03T11:00:00.000Z",
+        "color": "#FF6B6B"
+    },
+    {
+        "date_time_start": "2025-10-14T14:00:00.000Z",
+        "color": "#4ECDC4"
+    },
+    {
+        "date_time_start": "2025-10-22T17:00:00.000Z",
+        "color": "#45B7D1"
+    }
+]

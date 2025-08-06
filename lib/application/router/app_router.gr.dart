@@ -30,7 +30,7 @@ import 'package:unifast_portal/presentation/screens/lms/screens/fast_tracks_list
     as _i6;
 import 'package:unifast_portal/presentation/screens/profile/profile_screen.dart'
     as _i9;
-import 'package:unifast_portal/presentation/screens/schedule/schedule_screen.dart'
+import 'package:unifast_portal/presentation/screens/schedule/screens/schedule_screen.dart'
     as _i11;
 
 /// generated route for

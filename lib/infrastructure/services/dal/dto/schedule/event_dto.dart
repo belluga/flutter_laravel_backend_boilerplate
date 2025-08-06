@@ -8,7 +8,6 @@ class EventDTO {
   final EventTypeDTO type;
   final String title;
   final String content;
-  final String? colorHex;
   final ThumbDTO? thumb;
   final String dateTimeStart;
   final List<TeacherDTO> teachers;
@@ -19,7 +18,6 @@ class EventDTO {
     required this.type,
     required this.title,
     required this.content,
-    this.colorHex,
     this.thumb,
     required this.dateTimeStart,
     required this.teachers,
@@ -32,7 +30,6 @@ class EventDTO {
       type: EventTypeDTO.fromJson(json['type']),
       title: json['title'],
       content: json['content'],
-      colorHex: json['colorHex'],
       thumb: ThumbDTO.fromJson(json['thumb']),
       dateTimeStart: json['dateTimeStart'],
       teachers: (json['teachers'] as List)

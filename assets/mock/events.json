@@ -1,0 +1,464 @@
+[
+    {
+        "id": "67a2c6d7e8f9a0b1c2d3e4f5",
+        "type": {
+            "id": "67a2c6d7e8f9a0b1c2d3e4a1",
+            "name": "Matrícula",
+            "slug": "matricula",
+            "description": "Período para a realização da matrícula acadêmica nos cursos.",
+            "icon": "how_to_reg",
+            "color_hex": "#4ECDC4"
+        },
+        "title": "Matrícula - 2º Semestre de 2025",
+        "content": "<h1>Período de Matrícula</h1><p>Atenção, alunos! O período para a realização da matrícula para o <strong>segundo semestre de 2025</strong> começa hoje. Acesse o portal do aluno para selecionar suas disciplinas.</p><p>Não perca o prazo!</p>",
+        "thumb": {
+            "type": "image",
+            "data": {
+                "url": "https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=1600"
+            }
+        },
+        "date_time_start": "2025-07-10T10:00:00.000Z",
+        "teachers": [],
+        "actions": [
+            {
+                "id": "67a2c6d7e8f9a0b1c2d3e4b1",
+                "label": "Acessar Portal do Aluno",
+                "color_hex": "#4ECDC4",
+                "open_in": "external",
+                "open_data": {
+                    "external_url": "https://portal.universidadeexemplo.edu.br/login"
+                }
+            },
+            {
+                "id": "67a2c6d7e8f9a0b1c2d3e4c2",
+                "label": "Ver Edital",
+                "color_hex": "#6c757d",
+                "open_in": "external",
+                "open_data": {
+                    "external_url": "https://universidadeexemplo.edu.br/docs/edital_matricula.pdf"
+                }
+            }
+        ]
+    },
+    {
+        "id": "67a2c6d7e8f9a0b1c2d3e4f6",
+        "type": {
+            "id": "67a2c6d7e8f9a0b1c2d3e4a2",
+            "name": "Início das Aulas",
+            "slug": "inicio-das-aulas",
+            "description": "Data oficial do início do período letivo.",
+            "icon": "school",
+            "color_hex": "#45B7D1"
+        },
+        "title": "Início das Aulas do 2º Semestre",
+        "content": "<h1>Boas-vindas ao novo semestre!</h1><p>As aulas do segundo semestre de 2025 começam oficialmente hoje. Consulte seu horário e a localização das salas no portal acadêmico. Desejamos a todos um excelente período de aprendizado!</p>",
+        "thumb": {
+            "type": "image",
+            "data": {
+                "url": "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?q=80&w=1600"
+            }
+        },
+        "date_time_start": "2025-07-15T14:00:00.000Z",
+        "teachers": [],
+        "actions": [
+            {
+                "id": "67a2c6d7e8f9a0b1c2d3e4b2",
+                "label": "Ver Horários",
+                "color_hex": "#45B7D1",
+                "open_in": "in_app",
+                "open_data": {
+                    "item_type": "course_item",
+                    "item_id": "67a2c6d7e8f9a0b1c2d3e4c1"
+                }
+            },
+            {
+                "id": "67a2c6d7e8f9a0b1c2d3e4c3",
+                "label": "Mapa do Campus",
+                "color_hex": "#6c757d",
+                "open_in": "external",
+                "open_data": {
+                    "external_url": "https://universidadeexemplo.edu.br/mapa_campus.pdf"
+                }
+            }
+        ]
+    },
+    {
+        "id": "67a2c6d7e8f9a0b1c2d3e4f7",
+        "type": {
+            "id": "67a2c6d7e8f9a0b1c2d3e4a3",
+            "name": "Palestra",
+            "slug": "palestra",
+            "description": "Eventos e palestras com convidados especiais.",
+            "icon": "campaign",
+            "color_hex": "#FF6B6B"
+        },
+        "title": "Palestra: IA Generativa e o Futuro do Trabalho",
+        "content": "<h2>Participe da palestra com a Dra. Ana Beatriz Costa</h2><p>Neste evento, discutiremos as implicações da Inteligência Artificial Generativa no mercado de trabalho e nas profissões do futuro. Evento aberto a todos os alunos e comunidade.</p><p><strong>Local:</strong> Auditório Principal</p>",
+        "thumb": {
+            "type": "image",
+            "data": {
+                "url": "https://images.unsplash.com/photo-1677756119517-756a188d2d94?q=80&w=1600"
+            }
+        },
+        "date_time_start": "2025-07-21T18:00:00.000Z",
+        "teachers": [
+            {
+                "id": "67a2c6d7e8f9a0b1c2d3e4d1",
+                "name": "Dra. Ana Beatriz Costa",
+                "avatar_url": "https://i.pravatar.cc/150?u=anabeatriz",
+                "highlight": false
+            }
+        ],
+        "actions": [
+            {
+                "id": "67a2c6d7e8f9a0b1c2d3e4b3",
+                "label": "Inscrever-se",
+                "color_hex": "#FF6B6B",
+                "open_in": "external",
+                "open_data": {
+                    "external_url": "https://forms.gle/exemploInscricao"
+                }
+            }
+        ]
+    },
+    {
+        "id": "67a2c6d7e8f9a0b1c2d3e4f8",
+        "type": {
+            "id": "67a2c6d7e8f9a0b1c2d3e4a1",
+            "name": "Matrícula",
+            "slug": "matricula",
+            "description": "Período para a realização da matrícula acadêmica nos cursos.",
+            "icon": "how_to_reg",
+            "color_hex": "#4ECDC4"
+        },
+        "title": "Último dia para ajuste de Matrícula",
+        "content": "<h1>Ajuste de Matrícula</h1><p>Hoje é o último dia para realizar ajustes na sua matrícula, como inclusão ou exclusão de disciplinas. O sistema fechará às 23:59.</p>",
+        "thumb": {
+            "type": "image",
+            "data": {
+                "url": "https://images.unsplash.com/photo-1516321497487-e288fb19713f?q=80&w=1600"
+            }
+        },
+        "date_time_start": "2025-07-29T09:00:00.000Z",
+        "teachers": [],
+        "actions": [
+            {
+                "id": "67a2c6d7e8f9a0b1c2d3e4b1",
+                "label": "Acessar Portal do Aluno",
+                "color_hex": "#4ECDC4",
+                "open_in": "external",
+                "open_data": {
+                    "external_url": "https://portal.universidadeexemplo.edu.br/login"
+                }
+            }
+        ]
+    },
+    {
+        "id": "67a2c6d7e8f9a0b1c2d3e4f9",
+        "type": {
+            "id": "67a2c6d7e8f9a0b1c2d3e4a3",
+            "name": "Palestra",
+            "slug": "palestra",
+            "description": "Eventos e palestras com convidados especiais.",
+            "icon": "campaign",
+            "color_hex": "#FF6B6B"
+        },
+        "title": "Workshop: Gestão de Projetos Ágeis com Scrum",
+        "content": "<h2>Workshop prático com Dr. Ricardo Almeida</h2><p>Aprenda os fundamentos do Scrum e como aplicá-lo em seus projetos acadêmicos e profissionais. Vagas limitadas.</p>",
+        "thumb": {
+            "type": "image",
+            "data": {
+                "url": "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=1600"
+            }
+        },
+        "date_time_start": "2025-08-05T11:00:00.000Z",
+        "teachers": [
+            {
+                "id": "67a2c6d7e8f9a0b1c2d3e4d2",
+                "name": "Dr. Ricardo Almeida",
+                "avatar_url": "https://i.pravatar.cc/150?u=ricardoalmeida",
+                "highlight": false
+            }
+        ],
+        "actions": []
+    },
+    {
+        "id": "67a2c6d7e8f9a0b1c2d3e4fa",
+        "type": {
+            "id": "67a2c6d7e8f9a0b1c2d3e4a4",
+            "name": "Feriado Acadêmico",
+            "slug": "feriado-academico",
+            "description": "Datas em que não há atividades acadêmicas.",
+            "icon": "celebration",
+            "color_hex": "#45B7D1"
+        },
+        "title": "Feriado - Dia do Estudante",
+        "content": "<h1>Feriado do Dia do Estudante</h1><p>Não haverá atividades acadêmicas nesta data em comemoração ao Dia do Estudante. Aproveitem o dia!</p>",
+        "thumb": {
+            "type": "image",
+            "data": {
+                "url": "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=1600"
+            }
+        },
+        "date_time_start": "2025-08-11T15:30:00.000Z",
+        "teachers": [],
+        "actions": []
+    },
+    {
+        "id": "67a2c6d7e8f9a0b1c2d3e4fb",
+        "type": {
+            "id": "67a2c6d7e8f9a0b1c2d3e4a5",
+            "name": "Período de Provas",
+            "slug": "periodo-de-provas",
+            "description": "Semana de avaliações parciais ou finais.",
+            "icon": "assignment",
+            "color_hex": "#FF6B6B"
+        },
+        "title": "Início do Período de Provas Parciais (AP1)",
+        "content": "<h1>Provas Parciais</h1><p>Começa hoje o período de aplicação das primeiras avaliações parciais (AP1). Verifique o calendário específico de cada disciplina.</p>",
+        "thumb": {
+            "type": "image",
+            "data": {
+                "url": "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?q=80&w=1600"
+            }
+        },
+        "date_time_start": "2025-08-19T10:00:00.000Z",
+        "teachers": [],
+        "actions": [
+            {
+                "id": "67a2c6d7e8f9a0b1c2d3e4b4",
+                "label": "Ver Calendário de Provas",
+                "color_hex": "#FF6B6B",
+                "open_in": "external",
+                "open_data": {
+                    "external_url": "https://universidadeexemplo.edu.br/docs/calendario_provas.pdf"
+                }
+            }
+        ]
+    },
+    {
+        "id": "67a2c6d7e8f9a0b1c2d3e4fc",
+        "type": {
+            "id": "67a2c6d7e8f9a0b1c2d3e4a5",
+            "name": "Período de Provas",
+            "slug": "periodo-de-provas",
+            "description": "Semana de avaliações parciais ou finais.",
+            "icon": "assignment",
+            "color_hex": "#FF6B6B"
+        },
+        "title": "Fim do Período de Provas Parciais (AP1)",
+        "content": "<h1>Fim das Provas Parciais</h1><p>Último dia para a realização das avaliações parciais (AP1). Certifique-se de ter completado todas as suas provas.</p>",
+        "thumb": {
+            "type": "image",
+            "data": {
+                "url": "https://images.unsplash.com/photo-1517486808906-6538cb3b8656?q=80&w=1600"
+            }
+        },
+        "date_time_start": "2025-08-26T12:00:00.000Z",
+        "teachers": [],
+        "actions": []
+    },
+    {
+        "id": "67a2c6d7e8f9a0b1c2d3e4fd",
+        "type": {
+            "id": "67a2c6d7e8f9a0b1c2d3e4a4",
+            "name": "Feriado Acadêmico",
+            "slug": "feriado-academico",
+            "description": "Datas em que não há atividades acadêmicas.",
+            "icon": "celebration",
+            "color_hex": "#45B7D1"
+        },
+        "title": "Recesso Acadêmico",
+        "content": "<h1>Recesso</h1><p>Não haverá atividades acadêmicas nesta data. As aulas retornam normalmente no dia seguinte.</p>",
+        "thumb": {
+            "type": "image",
+            "data": {
+                "url": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1600"
+            }
+        },
+        "date_time_start": "2025-09-02T16:00:00.000Z",
+        "teachers": [],
+        "actions": []
+    },
+    {
+        "id": "67a2c6d7e8f9a0b1c2d3e4fe",
+        "type": {
+            "id": "67a2c6d7e8f9a0b1c2d3e4a3",
+            "name": "Palestra",
+            "slug": "palestra",
+            "description": "Eventos e palestras com convidados especiais.",
+            "icon": "campaign",
+            "color_hex": "#FF6B6B"
+        },
+        "title": "Palestra: Carreira em Desenvolvimento Mobile",
+        "content": "<h2>Descubra o futuro do desenvolvimento mobile com Dr. Carlos Monteiro</h2><p>Uma conversa sobre plataformas, tecnologias e oportunidades de carreira no mercado de desenvolvimento de aplicativos.</p>",
+        "thumb": {
+            "type": "video",
+            "data": {
+                "url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+            }
+        },
+        "date_time_start": "2025-09-10T09:30:00.000Z",
+        "teachers": [
+            {
+                "id": "67a2c6d7e8f9a0b1c2d3e4d3",
+                "name": "Dr. Carlos Monteiro",
+                "avatar_url": "https://i.pravatar.cc/150?u=carlosmonteiro",
+                "highlight": false
+            }
+        ],
+        "actions": []
+    },
+    {
+        "id": "67a2c6d7e8f9a0b1c2d3e4ff",
+        "type": {
+            "id": "67a2c6d7e8f9a0b1c2d3e4a2",
+            "name": "Início das Aulas",
+            "slug": "inicio-das-aulas",
+            "description": "Data oficial do início do período letivo.",
+            "icon": "school",
+            "color_hex": "#45B7D1"
+        },
+        "title": "Apresentação dos Trabalhos de Conclusão",
+        "content": "<h1>Bancas de TCC</h1><p>Início do período de apresentação dos Trabalhos de Conclusão de Curso (TCC). Consulte o cronograma para assistir às apresentações.</p>",
+        "thumb": {
+            "type": "image",
+            "data": {
+                "url": "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1600"
+            }
+        },
+        "date_time_start": "2025-09-17T13:00:00.000Z",
+        "teachers": [
+            {
+                "id": "67a2c6d7e8f9a0b1c2d3e4d1",
+                "name": "Dra. Ana Beatriz Costa",
+                "avatar_url": "https://i.pravatar.cc/150?u=anabeatriz",
+                "highlight": false
+            },
+            {
+                "id": "67a2c6d7e8f9a0b1c2d3e4d2",
+                "name": "Dr. Ricardo Almeida",
+                "avatar_url": "https://i.pravatar.cc/150?u=ricardoalmeida",
+                "highlight": false
+            }
+        ],
+        "actions": [
+            {
+                "id": "67a2c6d7e8f9a0b1c2d3e4b5",
+                "label": "Ver Cronograma",
+                "color_hex": "#45B7D1",
+                "open_in": "external",
+                "open_data": {
+                    "external_url": "https://universidadeexemplo.edu.br/docs/cronograma_tcc.pdf"
+                }
+            },
+            {
+                "id": "67a2c6d7e8f9a0b1c2d3e4c4",
+                "label": "Diretrizes para Apresentação",
+                "color_hex": "#6c757d",
+                "open_in": "external",
+                "open_data": {
+                    "external_url": "https://universidadeexemplo.edu.br/docs/diretrizes_tcc.pdf"
+                }
+            }
+        ]
+    },
+    {
+        "id": "67a2c6d7e8f9a0b1c2d3e500",
+        "type": {
+            "id": "67a2c6d7e8f9a0b1c2d3e4a3",
+            "name": "Palestra",
+            "slug": "palestra",
+            "description": "Eventos e palestras com convidados especiais.",
+            "icon": "campaign",
+            "color_hex": "#FF6B6B"
+        },
+        "title": "Feira de Carreiras 2025",
+        "content": "<h1>Conecte-se com o mercado!</h1><p>A Feira de Carreiras anual está de volta, com a presença de grandes empresas da área de tecnologia e engenharia. Traga seu currículo!</p>",
+        "thumb": {
+            "type": "image",
+            "data": {
+                "url": "https://images.unsplash.com/photo-1573497491208-6b1acb260507?q=80&w=1600"
+            }
+        },
+        "date_time_start": "2025-09-25T19:00:00.000Z",
+        "teachers": [],
+        "actions": []
+    },
+    {
+        "id": "67a2c6d7e8f9a0b1c2d3e501",
+        "type": {
+            "id": "67a2c6d7e8f9a0b1c2d3e4a5",
+            "name": "Período de Provas",
+            "slug": "periodo-de-provas",
+            "description": "Semana de avaliações parciais ou finais.",
+            "icon": "assignment",
+            "color_hex": "#FF6B6B"
+        },
+        "title": "Início das Provas Finais (AP2)",
+        "content": "<h1>Avaliações Finais</h1><p>Começa hoje o período de provas finais (AP2). Desejamos boa sorte e concentração a todos os alunos!</p>",
+        "thumb": {
+            "type": "image",
+            "data": {
+                "url": "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=1600"
+            }
+        },
+        "date_time_start": "2025-10-03T11:00:00.000Z",
+        "teachers": [],
+        "actions": [
+            {
+                "id": "67a2c6d7e8f9a0b1c2d3e4b4",
+                "label": "Ver Calendário de Provas",
+                "color_hex": "#FF6B6B",
+                "open_in": "external",
+                "open_data": {
+                    "external_url": "https://universidadeexemplo.edu.br/docs/calendario_provas.pdf"
+                }
+            }
+        ]
+    },
+    {
+        "id": "67a2c6d7e8f9a0b1c2d3e502",
+        "type": {
+            "id": "67a2c6d7e8f9a0b1c2d3e4a4",
+            "name": "Feriado Acadêmico",
+            "slug": "feriado-academico",
+            "description": "Datas em que não há atividades acadêmicas.",
+            "icon": "celebration",
+            "color_hex": "#45B7D1"
+        },
+        "title": "Feriado - Dia do Professor",
+        "content": "<h1>Parabéns, mestres!</h1><p>Em homenagem ao Dia do Professor, não haverá atividades acadêmicas. Uma data para celebrar aqueles que se dedicam a ensinar.</p>",
+        "thumb": {
+            "type": "image",
+            "data": {
+                "url": "https://images.unsplash.com/photo-1588239333339-165aaa45455c?q=80&w=1600"
+            }
+        },
+        "date_time_start": "2025-10-14T14:00:00.000Z",
+        "teachers": [],
+        "actions": []
+    },
+    {
+        "id": "67a2c6d7e8f9a0b1c2d3e503",
+        "type": {
+            "id": "67a2c6d7e8f9a0b1c2d3e4a2",
+            "name": "Encerramento",
+            "slug": "encerramento",
+            "description": "Finalização do período letivo.",
+            "icon": "flag",
+            "color_hex": "#4ECDC4"
+        },
+        "title": "Fim do Período Letivo de 2025.2",
+        "content": "<h1>Fim do Semestre</h1><p>Chegamos ao fim de mais um semestre letivo. Agradecemos o empenho de todos! As notas finais estarão disponíveis no portal a partir da próxima semana.</p><p>Boas férias!</p>",
+        "thumb": {
+            "type": "image",
+            "data": {
+                "url": "https://images.unsplash.com/photo-1606761568499-6d2451b23c66?q=80&w=1600"
+            }
+        },
+        "date_time_start": "2025-10-22T17:00:00.000Z",
+        "teachers": [],
+        "actions": []
+    }
+]

@@ -2,7 +2,6 @@ import 'package:unifast_portal/domain/courses/teacher_model.dart';
 import 'package:unifast_portal/domain/courses/thumb_model.dart';
 import 'package:unifast_portal/domain/schedule/event_action_model.dart';
 import 'package:unifast_portal/domain/schedule/event_type_model.dart';
-import 'package:unifast_portal/domain/value_objects/color_value.dart';
 import 'package:unifast_portal/domain/value_objects/title_value.dart';
 import 'package:unifast_portal/infrastructure/services/dal/dto/schedule/event_dto.dart';
 import 'package:value_object_pattern/domain/value_objects/date_time_value.dart';
@@ -14,7 +13,6 @@ class EventModel {
   final EventTypeModel type;
   final TitleValue title;
   final HTMLContentValue content;
-  final ColorValue? color;
   final ThumbModel? thumb;
   final DateTimeValue dateTimeStart;
   final List<TeacherModel> teachers;
@@ -25,7 +23,6 @@ class EventModel {
     required this.type,
     required this.title,
     required this.content,
-    required this.color,
     required this.thumb,
     required this.dateTimeStart,
     required this.teachers,
@@ -38,7 +35,6 @@ class EventModel {
       type: EventTypeModel.fromDTO(dto.type),
       title: TitleValue()..parse(dto.title),
       content: HTMLContentValue()..parse(dto.content),
-      color: ColorValue()..tryParse(dto.colorHex),
       thumb: dto.thumb != null ? ThumbModel.fromDTO(dto.thumb!) : null,
       dateTimeStart: DateTimeValue()..parse(dto.dateTimeStart),
       teachers: dto.teachers.map((e) => TeacherModel.fromDTO(e)).toList(),

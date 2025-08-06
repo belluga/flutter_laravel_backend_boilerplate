@@ -24,11 +24,11 @@ class EventActionsDTO {
       id: json['id'],
       type: json['type'],
       label: json['label'],
-      color: json['color'],
-      externalUrl: json['externalUrl'],
-      openIn: json['openIn'],
-      itemType: json['itemType'],
-      itemId: json['itemId'],
+      color: json['color_hex'],
+      externalUrl: json['external_url'],
+      openIn: json['open_in'],
+      itemType: json['item_type'],
+      itemId: json['item_id'],
     );
   }
 }
