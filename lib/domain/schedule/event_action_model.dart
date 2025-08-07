@@ -1,5 +1,6 @@
+import 'package:unifast_portal/domain/schedule/event_action_item_types.dart';
 import 'package:unifast_portal/domain/schedule/event_action_types.dart';
-import 'package:unifast_portal/domain/schedule/value_objects/event_action_type_value.dart';
+import 'package:unifast_portal/domain/schedule/value_objects/event_action_Item_type_value.dart';
 import 'package:unifast_portal/domain/value_objects/color_value.dart';
 import 'package:unifast_portal/domain/value_objects/title_value.dart';
 import 'package:unifast_portal/infrastructure/services/dal/dto/schedule/event_actions_dto.dart';
@@ -22,31 +23,35 @@ abstract class EventActionModel {
     final TitleValue _label = TitleValue()..parse(dto.label);
     final ColorValue _color = ColorValue()..tryParse(dto.color);
 
-    final EventActionTypes _type = EventActionTypes.values.byName(dto.type);
+    final EventActionTypes _openIn = EventActionTypes.values.byName(dto.openIn);
 
-    return switch (_type) {
-      EventActionTypes.externalUrl => EventActionExternalUrl(
+    switch (_openIn) {
+      case EventActionTypes.external:
+        return EventActionExternalNavigation(
           id: _id,
           label: _label,
           color: _color,
           externalUrl: URIValue()..tryParse(dto.externalUrl),
-          // openIn: dto.openIn,
-        ),
-      EventActionTypes.courseItem => EventActionCourseNavigation(
-          id: _id,
-          label: _label,
-          color: _color,
-          itemType: EventActionTypeValue()..parse(dto.itemType),
-          itemId: MongoIDValue()..tryParse(dto.itemId),
-        ),
-    };
+        );
+      case EventActionTypes.inApp:
+        final _itemType = EventActionItemTypes.values.byName(dto.itemType!);
+        return switch (_itemType) {
+          EventActionItemTypes.courseItem => EventActionCourseNavigation(
+              id: _id,
+              label: _label,
+              color: _color,
+              itemType: EventActionItemTypeValue()..parse(dto.itemType),
+              itemId: MongoIDValue()..tryParse(dto.itemId),
+            )
+        };
+    }
   }
 }
 
-class EventActionExternalUrl extends EventActionModel {
+class EventActionExternalNavigation extends EventActionModel {
   final URIValue externalUrl;
 
-  EventActionExternalUrl({
+  EventActionExternalNavigation({
     required super.id,
     required super.label,
     required super.color,
@@ -54,11 +59,11 @@ class EventActionExternalUrl extends EventActionModel {
   });
 }
 
-abstract class EventActionAppContentNavigation extends EventActionModel {
+abstract class EventActionInAppNavigation extends EventActionModel {
   final MongoIDValue itemId;
-  final EventActionTypeValue itemType;
+  final EventActionItemTypeValue itemType;
 
-  EventActionAppContentNavigation({
+  EventActionInAppNavigation({
     required super.id,
     required super.label,
     required super.color,
@@ -67,12 +72,13 @@ abstract class EventActionAppContentNavigation extends EventActionModel {
   });
 }
 
-class EventActionCourseNavigation extends EventActionAppContentNavigation {
+class EventActionCourseNavigation extends EventActionInAppNavigation {
   EventActionCourseNavigation({
     required super.id,
     required super.label,
     required super.color,
     required super.itemId,
     required super.itemType,
-  }) : assert(itemType.value == EventActionTypes.courseItem);
+  }) : assert(itemType.value == EventActionItemTypes.courseItem,
+            'EventActionCourseNavigation must be used with CourseItem type');
 }

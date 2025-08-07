@@ -9,8 +9,8 @@ class EventSummaryItemDTO {
 
   factory EventSummaryItemDTO.fromJson(Map<String, dynamic> json) {
     return EventSummaryItemDTO(
-      color: json['color'],
-      dateTimeStart: json['dateTimeStart'],
+      color: json['color_hex'],
+      dateTimeStart: json['date_time_start'],
     );
   }
 }

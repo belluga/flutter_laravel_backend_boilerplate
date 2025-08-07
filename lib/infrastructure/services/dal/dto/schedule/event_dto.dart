@@ -31,7 +31,7 @@ class EventDTO {
       title: json['title'],
       content: json['content'],
       thumb: ThumbDTO.fromJson(json['thumb']),
-      dateTimeStart: json['dateTimeStart'],
+      dateTimeStart: json['date_time_start'],
       teachers: (json['teachers'] as List)
           .map((teacher) => TeacherDTO.fromJson(teacher))
           .toList(),

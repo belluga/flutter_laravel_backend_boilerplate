@@ -1,16 +1,16 @@
 import 'package:unifast_portal/infrastructure/services/dal/dto/schedule/event_summary_item_dto.dart';
 
-class EventSummaryItemModel {
+class ScheduleSummaryItemModel {
   final String? color;
   final DateTime dateTimeStart;
 
-  EventSummaryItemModel({
+  ScheduleSummaryItemModel({
     this.color,
     required this.dateTimeStart,
   });
 
-  factory EventSummaryItemModel.fromDTO(EventSummaryItemDTO dto) {
-    return EventSummaryItemModel(
+  factory ScheduleSummaryItemModel.fromDTO(EventSummaryItemDTO dto) {
+    return ScheduleSummaryItemModel(
       color: dto.color,
       dateTimeStart: DateTime.parse(dto.dateTimeStart),
     );

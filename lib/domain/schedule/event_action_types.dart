@@ -1,4 +1,4 @@
 enum EventActionTypes {
-  externalUrl,
-  courseItem,
+  external,
+  inApp,
 }

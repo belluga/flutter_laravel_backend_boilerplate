@@ -58,7 +58,14 @@ class MockScheduleBackend extends ScheduleBackendContract {
     final _events = _eventsSummaryItemsJsonList.cast<Map<String, dynamic>>();
 
     final _eventsOnDate = _events
-        .where((item) => DateTime.parse(item['dateTimeStart']).isSameDay(date))
+        .where((item) {
+
+          final _testDate = DateTime.parse(item['date_time_start']);
+
+          _testDate.isSameDay(date);
+
+          return DateTime.parse(item['date_time_start']).isSameDay(date);
+        })
         .toList();
 
     return _eventsOnDate.map((event) => EventDTO.fromJson(event)).toList();

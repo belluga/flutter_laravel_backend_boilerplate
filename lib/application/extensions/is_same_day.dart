@@ -1,5 +1,5 @@
 extension IsSameDay on DateTime {
-  
+
   bool isSameDay(DateTime other) {
     return year == other.year &&
         month == other.month &&

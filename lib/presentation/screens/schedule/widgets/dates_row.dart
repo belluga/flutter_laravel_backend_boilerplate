@@ -1,11 +1,11 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:intl/intl.dart';
 import 'package:stream_value/core/stream_value_builder.dart';
+import 'package:unifast_portal/application/functions/today.dart';
+import 'package:unifast_portal/domain/schedule/schedule_summary_model.dart';
+import 'package:unifast_portal/presentation/screens/schedule/controller/schedule_screen_controller.dart';
 import 'package:visibility_detector/visibility_detector.dart';
-import 'package:unifast_portal/presentation/screens/schedule/controller/date_row_controller.dart';
 import 'date_item.dart';
 
 class DateRow extends StatefulWidget {
@@ -16,160 +16,172 @@ class DateRow extends StatefulWidget {
 }
 
 class _DateRowState extends State<DateRow> {
-  late DateRowController _controller;
+  final _controller = GetIt.I.get<ScheduleScreenController>();
 
   static const double _itemWidth = 70.0;
   static const double _itemPadding = 8.0;
   static const double _totalItemWidth = _itemWidth + (_itemPadding * 2);
 
   @override
-  void initState() {
-    super.initState();
-    _controller = GetIt.I.registerSingleton(DateRowController());
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      _jumpToToday();
-    });
-  }
-
-  @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [
-        Container(
-          color: Theme.of(context).colorScheme.surfaceDim,
-          padding: const EdgeInsets.symmetric(horizontal: 32),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    return StreamValueBuilder<ScheduleSummaryModel>(
+        streamValue: _controller.scheduleSummaryStreamValue,
+        onNullWidget: SizedBox.shrink(),
+        builder: (context, scheduleSummary) {
+          WidgetsBinding.instance.addPostFrameCallback((_) {
+            if(mounted){
+              _navigateToToday();
+            }
+          });
+
+          return Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  StreamValueBuilder<DateTime>(
-                      streamValue: _controller.firsVisibleDateStreamValue,
-                      builder: (context, firstDate) {
-                        final bool _isFirstMonth =
-                            firstDate.month <= _controller.firstDayRange.month;
+              Container(
+                color: Theme.of(context).colorScheme.surfaceDim,
+                padding: const EdgeInsets.symmetric(horizontal: 32),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        StreamValueBuilder<DateTime>(
+                            streamValue: _controller.firsVisibleDateStreamValue,
+                            builder: (context, firstDate) {
+                              final bool _isFirstMonth = firstDate.month <=
+                                  _controller.firstDayRange.month;
 
-                        return IconButton(
-                            onPressed:
-                                _isFirstMonth ? null : _navigateToPreviousMonth,
-                            iconSize: 16,
-                            icon: Icon(Icons.arrow_back_ios));
-                      }),
-                  Flexible(
-                    child: StreamValueBuilder<DateTime>(
-                        streamValue: _controller.firsVisibleDateStreamValue,
-                        builder: (context, firstDate) {
-                          final currentVisibleMonth =
-                              DateFormat.MMMM().format(firstDate);
-                          final capitalizedMonth =
-                              currentVisibleMonth[0].toUpperCase() +
-                                  currentVisibleMonth.substring(1);
-                          return InkWell(
-                            onTap: _jumpToToday,
-                            child: Text(
-                              capitalizedMonth,
-                              textAlign: TextAlign.center,
-                              style: TextTheme.of(context).titleMedium,
-                            ),
-                          );
-                        }),
-                  ),
-                  StreamValueBuilder<DateTime>(
-                      streamValue: _controller.firsVisibleDateStreamValue,
-                      builder: (context, firstDate) {
-                        bool _isLastMonth =
-                            firstDate.month >= _controller.lastDayRange.month;
-
-                        return IconButton(
-                            onPressed:
-                                _isLastMonth ? null : _navigateToNextMonth,
-                            iconSize: 16,
-                            icon: Icon(Icons.arrow_forward_ios));
-                      }),
-                ],
-              ),
-              StreamValueBuilder<bool>(
-                  streamValue: _controller.isTodayVisible,
-                  builder: (context, isTodayVisible) {
-                    if (isTodayVisible) {
-                      return SizedBox.shrink();
-                    }
-
-                    return ElevatedButton.icon(
-                        onPressed: _navigateToToday,
-                        style: ButtonStyle(
-                          backgroundColor: WidgetStateColor.resolveWith(
-                              (_) => Theme.of(context).colorScheme.secondary),
-                          visualDensity: VisualDensity.compact,
-                          padding: WidgetStateProperty.resolveWith((_) =>
-                              EdgeInsets.symmetric(
-                                  horizontal: 12, vertical: 4)),
-                        ),
-                        label: Text('Hoje',
-                            style: TextTheme.of(context).labelSmall?.copyWith(
-                                  color:
-                                      Theme.of(context).colorScheme.onSecondary,
-                                )),
-                        // iconSize: 1)),
-                        // iconSize: 16,
-                        icon: Icon(
-                          Icons.calendar_today,
-                          size: 12,
-                          color: Theme.of(context).colorScheme.onSecondary,
-                        ));
-                  }),
-            ],
-          ),
-        ),
-        SizedBox(
-          height: 120,
-          child: Row(
-            children: [
-              Expanded(
-                child: ListView.builder(
-                    itemCount: _controller.totalItems,
-                    scrollDirection: Axis.horizontal,
-                    controller: _controller.scrollController,
-                    itemBuilder: (context, index) {
-                      final DateTime date = _controller.getDateByIndex(index);
-                      final int eventCount = Random.secure().nextInt(10);
-
-                      return VisibilityDetector(
-                        key: Key('date_item_$index'),
-                        onVisibilityChanged: (visibilityInfo) {
-                          final visibleFraction =
-                              visibilityInfo.visibleFraction;
-                          if (mounted) {
-                            if (visibleFraction > 0.0) {
-                              _controller.becomeVisible(date);
-                            } else {
-                              _controller.becomeInvisible(date);
-                            }
-                          }
-                        },
-                        child: StreamValueBuilder<DateTime>(
-                            streamValue: _controller.selectedDateStreamValue,
-                            builder: (context, asyncSnapshot) {
-                              return DateItem(
-                                date: date,
-                                padding: EdgeInsets.symmetric(horizontal: 8),
-                                onTap: _controller.selectDate,
-                                isSelected: _controller.isSameDay(date,
-                                    _controller.selectedDateStreamValue.value),
-                                eventCount: eventCount,
-                              );
+                              return IconButton(
+                                  onPressed: _isFirstMonth
+                                      ? null
+                                      : _navigateToPreviousMonth,
+                                  iconSize: 16,
+                                  icon: Icon(Icons.arrow_back_ios));
                             }),
-                      );
-                    }),
+                        Flexible(
+                          child: StreamValueBuilder<DateTime>(
+                              streamValue:
+                                  _controller.firsVisibleDateStreamValue,
+                              builder: (context, firstDate) {
+                                final currentVisibleMonth =
+                                    DateFormat.MMMM().format(firstDate);
+                                final capitalizedMonth =
+                                    currentVisibleMonth[0].toUpperCase() +
+                                        currentVisibleMonth.substring(1);
+                                return InkWell(
+                                  onTap: _jumpToToday,
+                                  child: Text(
+                                    capitalizedMonth,
+                                    textAlign: TextAlign.center,
+                                    style: TextTheme.of(context).titleMedium,
+                                  ),
+                                );
+                              }),
+                        ),
+                        StreamValueBuilder<DateTime>(
+                            streamValue: _controller.firsVisibleDateStreamValue,
+                            builder: (context, firstDate) {
+                              bool _isLastMonth = firstDate.month >=
+                                  _controller.lastDayRange.month;
+
+                              return IconButton(
+                                  onPressed: _isLastMonth
+                                      ? null
+                                      : _navigateToNextMonth,
+                                  iconSize: 16,
+                                  icon: Icon(Icons.arrow_forward_ios));
+                            }),
+                      ],
+                    ),
+                    StreamValueBuilder<bool>(
+                        streamValue: _controller.isTodayVisible,
+                        builder: (context, isTodayVisible) {
+                          if (isTodayVisible) {
+                            return SizedBox.shrink();
+                          }
+
+                          return ElevatedButton.icon(
+                              onPressed: _navigateToToday,
+                              style: ButtonStyle(
+                                backgroundColor: WidgetStateColor.resolveWith(
+                                    (_) => Theme.of(context)
+                                        .colorScheme
+                                        .secondary),
+                                visualDensity: VisualDensity.compact,
+                                padding: WidgetStateProperty.resolveWith((_) =>
+                                    EdgeInsets.symmetric(
+                                        horizontal: 12, vertical: 4)),
+                              ),
+                              label: Text('Hoje',
+                                  style: TextTheme.of(context)
+                                      .labelSmall
+                                      ?.copyWith(
+                                        color: Theme.of(context)
+                                            .colorScheme
+                                            .onSecondary,
+                                      )),
+                              icon: Icon(
+                                Icons.calendar_today,
+                                size: 12,
+                                color:
+                                    Theme.of(context).colorScheme.onSecondary,
+                              ));
+                        }),
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: 120,
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: ListView.builder(
+                          itemCount: _controller.totalItems,
+                          scrollDirection: Axis.horizontal,
+                          controller: _controller.scrollController,
+                          itemBuilder: (context, index) {
+                            final DateTime date =
+                                _controller.getDateByIndex(index);
+
+                            return VisibilityDetector(
+                              key: Key('date_item_$index'),
+                              onVisibilityChanged: (visibilityInfo) {
+                                final visibleFraction =
+                                    visibilityInfo.visibleFraction;
+                                if (mounted) {
+                                  if (visibleFraction > 0.0) {
+                                    _controller.becomeVisible(date);
+                                  } else {
+                                    _controller.becomeInvisible(date);
+                                  }
+                                }
+                              },
+                              child: StreamValueBuilder<DateTime>(
+                                  streamValue:
+                                      _controller.selectedDateStreamValue,
+                                  builder: (context, asyncSnapshot) {
+                                    return DateItem(
+                                      date: date,
+                                      padding:
+                                          EdgeInsets.symmetric(horizontal: 8),
+                                      onTap: _controller.selectDate,
+                                      isSelected: _controller.isSameDay(
+                                          date,
+                                          _controller
+                                              .selectedDateStreamValue.value),
+                                    );
+                                  }),
+                            );
+                          }),
+                    ),
+                  ],
+                ),
               ),
             ],
-          ),
-        ),
-      ],
-    );
+          );
+        });
   }
 
   void _jumpToToday() {
@@ -179,7 +191,7 @@ class _DateRowState extends State<DateRow> {
         (_controller.initialIndex * _totalItemWidth) - _centerOffset;
     _controller.scrollController.jumpTo(_scrollTo);
 
-    _controller.selectDate(DateRowController.today);
+    _controller.selectDate(Today.today);
   }
 
   void _navigateToToday() {
@@ -190,7 +202,7 @@ class _DateRowState extends State<DateRow> {
     _controller.scrollController.animateTo(_scrollTo,
         duration: Duration(milliseconds: 300), curve: Curves.bounceIn);
 
-    _controller.selectDate(DateRowController.today);
+    _controller.selectDate(Today.today);
   }
 
   void _navigateToPreviousMonth() {

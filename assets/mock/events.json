@@ -58,16 +58,16 @@
                 "url": "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?q=80&w=1600"
             }
         },
-        "date_time_start": "2025-07-15T14:00:00.000Z",
+        "date_time_start": "2025-07-10T14:00:00.000Z",
         "teachers": [],
         "actions": [
             {
                 "id": "67a2c6d7e8f9a0b1c2d3e4b2",
                 "label": "Ver Horários",
                 "color_hex": "#45B7D1",
-                "open_in": "in_app",
+                "open_in": "inApp",
                 "open_data": {
-                    "item_type": "course_item",
+                    "item_type": "courseItem",
                     "item_id": "67a2c6d7e8f9a0b1c2d3e4c1"
                 }
             },
