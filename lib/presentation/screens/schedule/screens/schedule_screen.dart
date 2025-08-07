@@ -5,6 +5,7 @@ import 'package:stream_value/core/stream_value_builder.dart';
 import 'package:unifast_portal/domain/schedule/event_model.dart';
 import 'package:unifast_portal/presentation/screens/schedule/controller/schedule_screen_controller.dart';
 import 'package:unifast_portal/presentation/screens/schedule/widgets/dates_row.dart';
+import 'package:unifast_portal/presentation/screens/schedule/widgets/event_card.dart';
 
 @RoutePage()
 class ScheduleScreen extends StatefulWidget {
@@ -44,20 +45,34 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
             ],
           ),
           Expanded(
-              child: SingleChildScrollView(
+              child: SafeArea(
+                top: false,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
                   child: StreamValueBuilder<List<EventModel>>(
                       streamValue: _controller.eventsStreamValue,
-                      onNullWidget: Center(child: CircularProgressIndicator(),),
+                      onNullWidget: Center(
+                        child: CircularProgressIndicator(),
+                      ),
                       builder: (context, events) {
-                        return Column(
-                          children: List.generate(
-                            events.length,
-                            (index) => ListTile(
-                              title: Text(events[index].title.value),
+                        if (events.isEmpty) {
+                          return Center(
+                            child: Text("Nenhum evento encontrado."),
+                          );
+                        }
+                  
+                        return SingleChildScrollView(
+                          padding: EdgeInsets.only(top: 16),
+                          child: Column(
+                            children: List.generate(
+                              events.length,
+                              (index) => EventCard(event: events[index]),
                             ),
                           ),
                         );
-                      }))),
+                      }),
+                ),
+              )),
         ],
       ),
     );
