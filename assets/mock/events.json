@@ -293,7 +293,7 @@
         "title": "Palestra: Carreira em Desenvolvimento Mobile",
         "content": "<h2>Descubra o futuro do desenvolvimento mobile com Dr. Carlos Monteiro</h2><p>Uma conversa sobre plataformas, tecnologias e oportunidades de carreira no mercado de desenvolvimento de aplicativos.</p>",
         "thumb": {
-            "type": "video",
+            "type": "image",
             "data": {
                 "url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
             }
