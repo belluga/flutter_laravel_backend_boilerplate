@@ -10,4 +10,6 @@ abstract class ScheduleBackendContract {
   Future<List<EventDTO>> getEventsByDate(DateTime date);
 
   Future<List<EventDTO>> filterEvents({String? typeId, String? itemId});
+
+  Future<List<EventDTO>> getLastEvents();
 }

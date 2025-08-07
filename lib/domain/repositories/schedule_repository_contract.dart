@@ -30,4 +30,9 @@ class ScheduleRepositoryContract {
      return _events.map((event) => EventModel.fromDTO(event)).toList();
   }
 
+  Future<List<EventModel>> getLastEvents() async {
+    final List<EventDTO> _events = await backend.schedule.getLastEvents();
+     return _events.map((event) => EventModel.fromDTO(event)).toList();
+  }
+
 }

@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/services.dart';
 import 'package:unifast_portal/application/extensions/is_same_day.dart';
+import 'package:unifast_portal/application/functions/today.dart';
 import 'package:unifast_portal/infrastructure/services/dal/dto/schedule/event_dto.dart';
 import 'package:unifast_portal/infrastructure/services/dal/dto/schedule/event_summary_dto.dart';
 import 'package:unifast_portal/infrastructure/services/dal/dto/schedule/event_summary_item_dto.dart';
@@ -58,14 +59,9 @@ class MockScheduleBackend extends ScheduleBackendContract {
     final _events = _eventsSummaryItemsJsonList.cast<Map<String, dynamic>>();
 
     final _eventsOnDate = _events
-        .where((item) {
-
-          final _testDate = DateTime.parse(item['date_time_start']);
-
-          _testDate.isSameDay(date);
-
-          return DateTime.parse(item['date_time_start']).isSameDay(date);
-        })
+        .where(
+          (item) => DateTime.parse(item['date_time_start']).isSameDay(date),
+        )
         .toList();
 
     return _eventsOnDate.map((event) => EventDTO.fromJson(event)).toList();
@@ -94,5 +90,28 @@ class MockScheduleBackend extends ScheduleBackendContract {
     }).toList();
 
     return _eventsFiltered.map((event) => EventDTO.fromJson(event)).toList();
+  }
+
+  @override
+  Future<List<EventDTO>> getLastEvents() async {
+    await Future.delayed(Duration(seconds: 2));
+
+    final scheduleSummaryJson =
+        await rootBundle.loadString('assets/mock/events.json');
+
+    final List<dynamic> _eventsSummaryItemsJsonList =
+        json.decode(scheduleSummaryJson);
+
+    final _events = _eventsSummaryItemsJsonList.cast<Map<String, dynamic>>();
+
+    final DateTime _startDate = Today.today;
+    final DateTime _endDate = DateTime(Today.today.year, (Today.today.month +2), 1).subtract(Duration(days: 1));
+
+    final _eventsOnDate = _events.where((item) {
+      final _testDate = DateTime.parse(item['date_time_start']);
+      return _testDate.compareTo(_startDate) > 0 && _testDate.compareTo(_endDate) < 0;
+    }).toList();
+
+    return _eventsOnDate.map((event) => EventDTO.fromJson(event)).toList();
   }
 }
