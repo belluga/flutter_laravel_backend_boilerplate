@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:intl/intl.dart';
 import 'package:unifast_portal/domain/schedule/event_model.dart';
+import 'package:unifast_portal/presentation/screens/schedule/widgets/event_action_button.dart';
 
 class EventCard extends StatelessWidget {
   final EventModel event;
@@ -45,31 +46,10 @@ class EventCard extends StatelessWidget {
             ),
             Wrap(
               spacing: 8,
-              children: List.generate(event.actions.length, (index) {
-                final _action = event.actions[index];
-
-                final _buttonColor = _action.color?.value ??
-                    Theme.of(context).colorScheme.secondary;
-
-                final _foregroundColor =
-                    ThemeData.estimateBrightnessForColor(_buttonColor) ==
-                            Brightness.dark
-                        ? Theme.of(context).colorScheme.onPrimary
-                        : Theme.of(context).colorScheme.surfaceDim;
-
-                return ElevatedButton(
-                    style: ButtonStyle(
-                      visualDensity: VisualDensity.compact,
-                      foregroundColor: WidgetStateColor.resolveWith(
-                          (_) => _foregroundColor),
-                      backgroundColor: WidgetStateProperty.resolveWith(
-                          (states) =>
-                              _action.color?.value ??
-                              Theme.of(context).colorScheme.secondary),
-                    ),
-                    onPressed: () {},
-                    child: Text(_action.label.value));
-              }),
+              children: List.generate(
+                  event.actions.length,
+                  (index) =>
+                      EventActionButton(eventAction: event.actions[index])),
             ),
           ],
         ),

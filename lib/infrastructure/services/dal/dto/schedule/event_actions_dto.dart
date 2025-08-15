@@ -22,7 +22,7 @@ class EventActionsDTO {
       id: json['id'],
       label: json['label'],
       color: json['color_hex'],
-      externalUrl: json['external_url'],
+      externalUrl: json['open_data']['external_url'],
       openIn: json['open_in'],
       itemType: json['open_data']['item_type'],
       itemId: json['open_data']['item_id'],

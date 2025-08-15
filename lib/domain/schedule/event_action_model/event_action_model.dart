@@ -1,4 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:unifast_portal/domain/schedule/event_action_item_types.dart';
+import 'package:unifast_portal/domain/schedule/event_action_model/event_action_external_navigation.dart';
+import 'package:unifast_portal/domain/schedule/event_action_model/event_action_course_navigation.dart';
 import 'package:unifast_portal/domain/schedule/event_action_types.dart';
 import 'package:unifast_portal/domain/schedule/value_objects/event_action_Item_type_value.dart';
 import 'package:unifast_portal/domain/value_objects/color_value.dart';
@@ -46,39 +49,6 @@ abstract class EventActionModel {
         };
     }
   }
-}
 
-class EventActionExternalNavigation extends EventActionModel {
-  final URIValue externalUrl;
-
-  EventActionExternalNavigation({
-    required super.id,
-    required super.label,
-    required super.color,
-    required this.externalUrl,
-  });
-}
-
-abstract class EventActionInAppNavigation extends EventActionModel {
-  final MongoIDValue itemId;
-  final EventActionItemTypeValue itemType;
-
-  EventActionInAppNavigation({
-    required super.id,
-    required super.label,
-    required super.color,
-    required this.itemId,
-    required this.itemType,
-  });
-}
-
-class EventActionCourseNavigation extends EventActionInAppNavigation {
-  EventActionCourseNavigation({
-    required super.id,
-    required super.label,
-    required super.color,
-    required super.itemId,
-    required super.itemType,
-  }) : assert(itemType.value == EventActionItemTypes.courseItem,
-            'EventActionCourseNavigation must be used with CourseItem type');
+  void open(BuildContext context);
 }
