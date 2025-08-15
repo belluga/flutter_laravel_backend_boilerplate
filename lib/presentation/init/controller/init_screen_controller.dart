@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:unifast_portal/application/router/app_router.gr.dart';
-import 'package:unifast_portal/domain/controllers/belluga_init_screen_controller_contract.dart';
+import 'package:belluga_now/application/router/app_router.gr.dart';
+import 'package:belluga_now/domain/controllers/belluga_init_screen_controller_contract.dart';
 import 'package:stream_value/core/stream_value.dart';
 
 final class InitScreenController extends BellugaInitScreenControllerContract {
@@ -27,5 +27,5 @@ final class InitScreenController extends BellugaInitScreenControllerContract {
   //   _behaviorController.saveEvent(type: EventTrackingTypes.openApp);
   // }
 
-  PageRouteInfo _getInitialRoute() => const HomeRoute();
+  PageRouteInfo _getInitialRoute() => const TenantHomeRoute();
 }
