@@ -1,6 +1,6 @@
 import 'package:unifast_portal/domain/external_course/external_course_model.dart';
 import 'package:unifast_portal/infrastructure/services/dal/dto/external_course_dto.dart';
-import 'package:unifast_portal/infrastructure/services/laravel_backend/backend_contract.dart';
+import 'package:unifast_portal/infrastructure/services/backend_contract.dart';
 import 'package:unifast_portal/presentation/screens/dashboard/view_models/external_courses_summary.dart';
 import 'package:get_it/get_it.dart';
 import 'package:stream_value/core/stream_value.dart';
@@ -27,8 +27,8 @@ abstract class ExternalCoursesRepositoryContract {
   }
 
   Future<void> _refreshDashboardSummary() async {
-    final List<ExternalCourseDTO> _dashboardSummary = await backend
-        .getExternalCourses();
+    final List<ExternalCourseDTO> _dashboardSummary =
+        await backend.courses.getExternalCourses();
 
     final _externalCourses = _dashboardSummary
         .map(

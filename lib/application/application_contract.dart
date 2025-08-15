@@ -6,11 +6,13 @@ import 'package:unifast_portal/domain/repositories/auth_repository_contract.dart
 import 'package:unifast_portal/domain/repositories/external_courses_repository_contract.dart';
 import 'package:unifast_portal/domain/repositories/courses_repository_contract.dart';
 import 'package:unifast_portal/domain/repositories/notes_repository_contract.dart';
+import 'package:unifast_portal/domain/repositories/schedule_repository_contract.dart';
 import 'package:unifast_portal/domain/tenant/tenant.dart';
 import 'package:unifast_portal/infrastructure/repositories/courses_repository.dart';
 import 'package:unifast_portal/infrastructure/repositories/external_courses_repository.dart';
 import 'package:unifast_portal/infrastructure/repositories/notes_repository.dart';
-import 'package:unifast_portal/infrastructure/services/laravel_backend/backend_contract.dart';
+import 'package:unifast_portal/infrastructure/repositories/schedule_repository.dart';
+import 'package:unifast_portal/infrastructure/services/backend_contract.dart';
 import 'package:get_it/get_it.dart';
 import 'package:intl/intl_standalone.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
@@ -64,6 +66,9 @@ abstract class ApplicationContract extends StatelessWidget {
       () => NotesRepository(),
     );
 
+    GetIt.I.registerLazySingleton<ScheduleRepositoryContract>(
+        () => ScheduleRepository());
+
     final tenant = Tenant();
     await tenant.initialize();
     GetIt.I.registerSingleton(tenant);
@@ -71,6 +76,10 @@ abstract class ApplicationContract extends StatelessWidget {
 
   ThemeData getThemeData() {
     return ThemeData(
+      appBarTheme: AppBarTheme(
+        backgroundColor: Color(0xFF1C2530),
+        foregroundColor: Color(0xFFFFFFFF),
+      ),
       progressIndicatorTheme: ProgressIndicatorThemeData(
         color: Color(0xFF00E6B8),
         strokeWidth: 4,

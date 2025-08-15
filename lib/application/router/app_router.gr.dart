@@ -1,5 +1,5 @@
-// dart format width=80
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// dart format width=80
 
 // **************************************************************************
 // AutoRouterGenerator
@@ -9,8 +9,8 @@
 // coverage:ignore-file
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:auto_route/auto_route.dart' as _i11;
-import 'package:flutter/material.dart' as _i12;
+import 'package:auto_route/auto_route.dart' as _i12;
+import 'package:flutter/foundation.dart' as _i13;
 import 'package:unifast_portal/presentation/init/init_screen.dart' as _i8;
 import 'package:unifast_portal/presentation/screens/auth/create_new_password/auth_create_new_password.dart'
     as _i1;
@@ -30,16 +30,18 @@ import 'package:unifast_portal/presentation/screens/lms/screens/fast_tracks_list
     as _i6;
 import 'package:unifast_portal/presentation/screens/profile/profile_screen.dart'
     as _i9;
+import 'package:unifast_portal/presentation/screens/schedule/screens/schedule_screen.dart'
+    as _i11;
 
 /// generated route for
 /// [_i1.AuthCreateNewPasswordScreen]
-class AuthCreateNewPasswordRoute extends _i11.PageRouteInfo<void> {
-  const AuthCreateNewPasswordRoute({List<_i11.PageRouteInfo>? children})
+class AuthCreateNewPasswordRoute extends _i12.PageRouteInfo<void> {
+  const AuthCreateNewPasswordRoute({List<_i12.PageRouteInfo>? children})
     : super(AuthCreateNewPasswordRoute.name, initialChildren: children);
 
   static const String name = 'AuthCreateNewPasswordRoute';
 
-  static _i11.PageInfo page = _i11.PageInfo(
+  static _i12.PageInfo page = _i12.PageInfo(
     name,
     builder: (data) {
       return const _i1.AuthCreateNewPasswordScreen();
@@ -49,13 +51,13 @@ class AuthCreateNewPasswordRoute extends _i11.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i2.AuthLoginScreen]
-class AuthLoginRoute extends _i11.PageRouteInfo<void> {
-  const AuthLoginRoute({List<_i11.PageRouteInfo>? children})
+class AuthLoginRoute extends _i12.PageRouteInfo<void> {
+  const AuthLoginRoute({List<_i12.PageRouteInfo>? children})
     : super(AuthLoginRoute.name, initialChildren: children);
 
   static const String name = 'AuthLoginRoute';
 
-  static _i11.PageInfo page = _i11.PageInfo(
+  static _i12.PageInfo page = _i12.PageInfo(
     name,
     builder: (data) {
       return const _i2.AuthLoginScreen();
@@ -65,11 +67,11 @@ class AuthLoginRoute extends _i11.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i3.CourseScreen]
-class CourseRoute extends _i11.PageRouteInfo<CourseRouteArgs> {
+class CourseRoute extends _i12.PageRouteInfo<CourseRouteArgs> {
   CourseRoute({
-    _i12.Key? key,
+    _i13.Key? key,
     required String courseItemId,
-    List<_i11.PageRouteInfo>? children,
+    List<_i12.PageRouteInfo>? children,
   }) : super(
          CourseRoute.name,
          args: CourseRouteArgs(key: key, courseItemId: courseItemId),
@@ -79,7 +81,7 @@ class CourseRoute extends _i11.PageRouteInfo<CourseRouteArgs> {
 
   static const String name = 'CourseRoute';
 
-  static _i11.PageInfo page = _i11.PageInfo(
+  static _i12.PageInfo page = _i12.PageInfo(
     name,
     builder: (data) {
       final pathParams = data.inheritedPathParams;
@@ -95,7 +97,7 @@ class CourseRoute extends _i11.PageRouteInfo<CourseRouteArgs> {
 class CourseRouteArgs {
   const CourseRouteArgs({this.key, required this.courseItemId});
 
-  final _i12.Key? key;
+  final _i13.Key? key;
 
   final String courseItemId;
 
@@ -117,13 +119,13 @@ class CourseRouteArgs {
 
 /// generated route for
 /// [_i4.CoursesListScreen]
-class CoursesListRoute extends _i11.PageRouteInfo<void> {
-  const CoursesListRoute({List<_i11.PageRouteInfo>? children})
+class CoursesListRoute extends _i12.PageRouteInfo<void> {
+  const CoursesListRoute({List<_i12.PageRouteInfo>? children})
     : super(CoursesListRoute.name, initialChildren: children);
 
   static const String name = 'CoursesListRoute';
 
-  static _i11.PageInfo page = _i11.PageInfo(
+  static _i12.PageInfo page = _i12.PageInfo(
     name,
     builder: (data) {
       return const _i4.CoursesListScreen();
@@ -133,13 +135,13 @@ class CoursesListRoute extends _i11.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i5.DashboardScreen]
-class DashboardRoute extends _i11.PageRouteInfo<void> {
-  const DashboardRoute({List<_i11.PageRouteInfo>? children})
+class DashboardRoute extends _i12.PageRouteInfo<void> {
+  const DashboardRoute({List<_i12.PageRouteInfo>? children})
     : super(DashboardRoute.name, initialChildren: children);
 
   static const String name = 'DashboardRoute';
 
-  static _i11.PageInfo page = _i11.PageInfo(
+  static _i12.PageInfo page = _i12.PageInfo(
     name,
     builder: (data) {
       return const _i5.DashboardScreen();
@@ -149,13 +151,13 @@ class DashboardRoute extends _i11.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i6.FastTrackListScreen]
-class FastTrackListRoute extends _i11.PageRouteInfo<void> {
-  const FastTrackListRoute({List<_i11.PageRouteInfo>? children})
+class FastTrackListRoute extends _i12.PageRouteInfo<void> {
+  const FastTrackListRoute({List<_i12.PageRouteInfo>? children})
     : super(FastTrackListRoute.name, initialChildren: children);
 
   static const String name = 'FastTrackListRoute';
 
-  static _i11.PageInfo page = _i11.PageInfo(
+  static _i12.PageInfo page = _i12.PageInfo(
     name,
     builder: (data) {
       return const _i6.FastTrackListScreen();
@@ -165,13 +167,13 @@ class FastTrackListRoute extends _i11.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i7.HomeScreen]
-class HomeRoute extends _i11.PageRouteInfo<void> {
-  const HomeRoute({List<_i11.PageRouteInfo>? children})
+class HomeRoute extends _i12.PageRouteInfo<void> {
+  const HomeRoute({List<_i12.PageRouteInfo>? children})
     : super(HomeRoute.name, initialChildren: children);
 
   static const String name = 'HomeRoute';
 
-  static _i11.PageInfo page = _i11.PageInfo(
+  static _i12.PageInfo page = _i12.PageInfo(
     name,
     builder: (data) {
       return const _i7.HomeScreen();
@@ -181,13 +183,13 @@ class HomeRoute extends _i11.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i8.InitScreen]
-class InitRoute extends _i11.PageRouteInfo<void> {
-  const InitRoute({List<_i11.PageRouteInfo>? children})
+class InitRoute extends _i12.PageRouteInfo<void> {
+  const InitRoute({List<_i12.PageRouteInfo>? children})
     : super(InitRoute.name, initialChildren: children);
 
   static const String name = 'InitRoute';
 
-  static _i11.PageInfo page = _i11.PageInfo(
+  static _i12.PageInfo page = _i12.PageInfo(
     name,
     builder: (data) {
       return const _i8.InitScreen();
@@ -197,13 +199,13 @@ class InitRoute extends _i11.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i9.ProfileScreen]
-class ProfileRoute extends _i11.PageRouteInfo<void> {
-  const ProfileRoute({List<_i11.PageRouteInfo>? children})
+class ProfileRoute extends _i12.PageRouteInfo<void> {
+  const ProfileRoute({List<_i12.PageRouteInfo>? children})
     : super(ProfileRoute.name, initialChildren: children);
 
   static const String name = 'ProfileRoute';
 
-  static _i11.PageInfo page = _i11.PageInfo(
+  static _i12.PageInfo page = _i12.PageInfo(
     name,
     builder: (data) {
       return const _i9.ProfileScreen();
@@ -214,11 +216,11 @@ class ProfileRoute extends _i11.PageRouteInfo<void> {
 /// generated route for
 /// [_i10.RecoveryPasswordScreen]
 class RecoveryPasswordRoute
-    extends _i11.PageRouteInfo<RecoveryPasswordRouteArgs> {
+    extends _i12.PageRouteInfo<RecoveryPasswordRouteArgs> {
   RecoveryPasswordRoute({
-    _i12.Key? key,
+    _i13.Key? key,
     String? initialEmmail,
-    List<_i11.PageRouteInfo>? children,
+    List<_i12.PageRouteInfo>? children,
   }) : super(
          RecoveryPasswordRoute.name,
          args: RecoveryPasswordRouteArgs(
@@ -230,7 +232,7 @@ class RecoveryPasswordRoute
 
   static const String name = 'RecoveryPasswordRoute';
 
-  static _i11.PageInfo page = _i11.PageInfo(
+  static _i12.PageInfo page = _i12.PageInfo(
     name,
     builder: (data) {
       final args = data.argsAs<RecoveryPasswordRouteArgs>(
@@ -247,7 +249,7 @@ class RecoveryPasswordRoute
 class RecoveryPasswordRouteArgs {
   const RecoveryPasswordRouteArgs({this.key, this.initialEmmail});
 
-  final _i12.Key? key;
+  final _i13.Key? key;
 
   final String? initialEmmail;
 
@@ -265,4 +267,20 @@ class RecoveryPasswordRouteArgs {
 
   @override
   int get hashCode => key.hashCode ^ initialEmmail.hashCode;
+}
+
+/// generated route for
+/// [_i11.ScheduleScreen]
+class ScheduleRoute extends _i12.PageRouteInfo<void> {
+  const ScheduleRoute({List<_i12.PageRouteInfo>? children})
+    : super(ScheduleRoute.name, initialChildren: children);
+
+  static const String name = 'ScheduleRoute';
+
+  static _i12.PageInfo page = _i12.PageInfo(
+    name,
+    builder: (data) {
+      return const _i11.ScheduleScreen();
+    },
+  );
 }

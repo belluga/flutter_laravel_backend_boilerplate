@@ -120,15 +120,19 @@ class _VideoOverlayAreaState extends State<VideoOverlayArea> {
                                           mainAxisAlignment:
                                               MainAxisAlignment.center,
                                           children: [
-                                            // IconButton(
-                                            //   onPressed: _replay10Seconds,
-                                            //   iconSize: 32,
-                                            //   icon: Icon(Icons.replay_10),
-                                            // ),
-                                            // SizedBox(width: 4),
+                                            IconButton(
+                                              onPressed: _replay10Seconds,
+                                              iconSize: 32,
+                                              icon: Icon(Icons.replay_10),
+                                            ),
+                                            SizedBox(width: 4),
                                             PlayButton(onPressed: _action),
-                                            // SizedBox(width: 4),
-                                            // SizedBox.shrink()
+                                            SizedBox(width: 4),
+                                            IconButton(
+                                              onPressed: _forward10Seconds,
+                                              iconSize: 32,
+                                              icon: Icon(Icons.forward_10),
+                                            ),
                                           ],
                                         ),
                                       ],
@@ -155,8 +159,7 @@ class _VideoOverlayAreaState extends State<VideoOverlayArea> {
                                                     videoPercentage:
                                                         percentage ?? 0.0,
                                                     courseItem: widget
-                                                        .courseItemModel
-                                                        .next!,
+                                                        .courseItemModel.next!,
                                                   ),
                                                 ],
                                               ),
@@ -227,6 +230,22 @@ class _VideoOverlayAreaState extends State<VideoOverlayArea> {
 
   void _play() {
     _controller.contentVideoPlayerController.videoPlayerController.play();
+  }
+
+  void _replay10Seconds() {
+    final Duration _currentPosition = _controller
+        .contentVideoPlayerController.videoPlayerController.value.position;
+
+    _controller.contentVideoPlayerController.videoPlayerController
+        .seekTo(_currentPosition - Duration(seconds: 10));
+  }
+
+  void _forward10Seconds() {
+    final Duration _currentPosition = _controller
+        .contentVideoPlayerController.videoPlayerController.value.position;
+
+    _controller.contentVideoPlayerController.videoPlayerController
+        .seekTo(_currentPosition + Duration(seconds: 10));
   }
 
   void _rewindAndPlay() {

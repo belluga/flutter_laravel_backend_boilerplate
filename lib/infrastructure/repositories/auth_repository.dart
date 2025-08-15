@@ -1,7 +1,7 @@
 import 'package:unifast_portal/domain/repositories/auth_repository_contract.dart';
 import 'package:unifast_portal/domain/user/user_belluga.dart';
 import 'package:unifast_portal/infrastructure/services/dal/dto/user_dto.dart';
-import 'package:unifast_portal/infrastructure/services/laravel_backend/backend_contract.dart';
+import 'package:unifast_portal/infrastructure/services/backend_contract.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get_it/get_it.dart';
 import 'package:stream_value/main.dart';
@@ -49,7 +49,7 @@ final class AuthRepository extends AuthRepositoryContract<UserBelluga> {
 
     userTokenUpdate(token);
 
-    final user = await backend.loginCheck();
+    final user = await backend.auth.loginCheck();
 
     userStreamValue.addValue(UserBelluga.fromDTO(user));
 
@@ -58,7 +58,7 @@ final class AuthRepository extends AuthRepositoryContract<UserBelluga> {
 
   @override
   Future<void> loginWithEmailPassword(String email, String password) async {
-    var (UserDTO _user, String _token) = await backend.loginWithEmailPassword(
+    var (UserDTO _user, String _token) = await backend.auth.loginWithEmailPassword(
       email,
       password,
     );
@@ -71,7 +71,7 @@ final class AuthRepository extends AuthRepositoryContract<UserBelluga> {
 
   @override
   Future<void> logout() async {
-    await backend.logout();
+    await backend.auth.logout();
 
     userStreamValue.addValue(null);
     _userTokenStreamValue.addValue(null);
