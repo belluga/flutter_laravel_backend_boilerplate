@@ -1,23 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:unifast_portal/application/app_data.dart';
 import 'package:unifast_portal/application/configurations/custom_scroll_behavior.dart';
 import 'package:unifast_portal/application/router/app_router.dart';
+import 'package:unifast_portal/domain/app_data/app_data.dart';
 import 'package:unifast_portal/domain/repositories/auth_repository_contract.dart';
 import 'package:unifast_portal/domain/repositories/external_courses_repository_contract.dart';
 import 'package:unifast_portal/domain/repositories/courses_repository_contract.dart';
 import 'package:unifast_portal/domain/repositories/notes_repository_contract.dart';
 import 'package:unifast_portal/domain/repositories/schedule_repository_contract.dart';
-import 'package:unifast_portal/domain/tenant/tenant.dart';
 import 'package:unifast_portal/infrastructure/repositories/courses_repository.dart';
 import 'package:unifast_portal/infrastructure/repositories/external_courses_repository.dart';
 import 'package:unifast_portal/infrastructure/repositories/notes_repository.dart';
 import 'package:unifast_portal/infrastructure/repositories/schedule_repository.dart';
+import 'package:unifast_portal/infrastructure/repositories/tenant_repository.dart';
 import 'package:unifast_portal/infrastructure/services/backend_contract.dart';
 import 'package:get_it/get_it.dart';
 import 'package:intl/intl_standalone.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:intl/date_symbol_data_local.dart';
-import 'package:unifast_portal/application/platform_app_data/platform_app_data.dart';
+import 'package:unifast_portal/infrastructure/services/tenant_repository_contract.dart';
 
 abstract class ApplicationContract extends StatelessWidget {
   final _appRouter = AppRouter();
@@ -31,8 +31,12 @@ abstract class ApplicationContract extends StatelessWidget {
   Future<void> initialSettingsPlatform();
 
   Future<void> init() async {
+    debugPrint("init");
+    debugPrint("initialSettings");
     await initialSettings();
+    debugPrint("_initInjections");
     await _initInjections();
+    debugPrint("initialSettingsPlatform");
     await initialSettingsPlatform();
   }
 
@@ -42,14 +46,28 @@ abstract class ApplicationContract extends StatelessWidget {
     await dotenv.load(fileName: ".env");
     await initializeDateFormatting();
     await findSystemLocale();
+    await _initAppData();
+    await _initBackend();
+    await _initTenant();
+  }
 
-    final appData = await getPlatformAppData();
+  Future<void> _initAppData() async {
+    final appData = AppData();
+    await appData.initialize();
     GetIt.I.registerSingleton<AppData>(appData);
   }
 
-  Future<void> _initInjections() async {
+  Future<void> _initBackend() async {
     GetIt.I.registerSingleton<BackendContract>(initBackendRepository());
+  }
 
+  Future<void> _initTenant() async {
+    final _tenant = TenantRepository();
+    await _tenant.init();
+    GetIt.I.registerSingleton<TenantRepositoryContract>(_tenant);
+  }
+
+  Future<void> _initInjections() async {
     GetIt.I.registerLazySingleton<AuthRepositoryContract>(
       () => initAuthRepository(),
     );
@@ -68,10 +86,6 @@ abstract class ApplicationContract extends StatelessWidget {
 
     GetIt.I.registerLazySingleton<ScheduleRepositoryContract>(
         () => ScheduleRepository());
-
-    final tenant = Tenant();
-    await tenant.initialize();
-    GetIt.I.registerSingleton(tenant);
   }
 
   ThemeData getThemeData() {

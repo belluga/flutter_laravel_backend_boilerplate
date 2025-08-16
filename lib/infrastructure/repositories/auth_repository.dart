@@ -11,6 +11,7 @@ final class AuthRepository extends AuthRepositoryContract<UserBelluga> {
     _userTokenStreamValue.stream.listen(_onUpdateUserTokenOnLocalStorage);
   }
 
+  @override
   BackendContract get backend => GetIt.I.get<BackendContract>();
 
   @override
@@ -71,6 +72,7 @@ final class AuthRepository extends AuthRepositoryContract<UserBelluga> {
 
   @override
   Future<void> logout() async {
+    await backend.auth.logout();
     await backend.auth.logout();
 
     userStreamValue.addValue(null);
