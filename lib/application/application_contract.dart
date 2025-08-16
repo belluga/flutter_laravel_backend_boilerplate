@@ -17,7 +17,7 @@ import 'package:get_it/get_it.dart';
 import 'package:intl/intl_standalone.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:intl/date_symbol_data_local.dart';
-import 'package:unifast_portal/infrastructure/services/tenant_repository_contract.dart';
+import 'package:unifast_portal/domain/repositories/tenant_repository_contract.dart';
 
 abstract class ApplicationContract extends StatelessWidget {
   final _appRouter = AppRouter();
@@ -31,12 +31,8 @@ abstract class ApplicationContract extends StatelessWidget {
   Future<void> initialSettingsPlatform();
 
   Future<void> init() async {
-    debugPrint("init");
-    debugPrint("initialSettings");
     await initialSettings();
-    debugPrint("_initInjections");
     await _initInjections();
-    debugPrint("initialSettingsPlatform");
     await initialSettingsPlatform();
   }
 
@@ -52,7 +48,7 @@ abstract class ApplicationContract extends StatelessWidget {
   }
 
   Future<void> _initAppData() async {
-    final appData = AppData();
+    final appData = AppData()..initialize();
     await appData.initialize();
     GetIt.I.registerSingleton<AppData>(appData);
   }

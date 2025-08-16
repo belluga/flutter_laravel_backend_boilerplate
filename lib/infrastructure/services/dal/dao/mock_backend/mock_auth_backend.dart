@@ -1,8 +1,8 @@
-import 'package:belluga_now/domain/auth/errors/belluga_auth_errors.dart';
-import 'package:belluga_now/infrastructure/services/dal/dao/auth_backend_contract.dart';
-import 'package:belluga_now/infrastructure/services/dal/dao/mock_backend/helpers/mock_functions.dart';
-import 'package:belluga_now/infrastructure/services/dal/dto/user_dto.dart';
-import 'package:belluga_now/infrastructure/services/dal/dto/user_profile_dto.dart';
+import 'package:unifast_portal/domain/auth/errors/belluga_auth_errors.dart';
+import 'package:unifast_portal/infrastructure/services/auth_backend_contract.dart';
+import 'package:unifast_portal/infrastructure/services/dal/dto/user_dto.dart';
+import 'package:unifast_portal/infrastructure/services/dal/dto/user_profile_dto.dart';
+import 'package:unifast_portal/infrastructure/services/dal/dao/mock_backend/mock_functions.dart';
 
 class MockAuthBackend extends AuthBackendContract with MockFunctions {
   @override

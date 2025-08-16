@@ -13,14 +13,14 @@ import 'package:unifast_portal/presentation/screens/dashboard/widgets/my_courses
 import 'package:unifast_portal/presentation/widgets/course_tracks_sliver.dart';
 
 @RoutePage()
-class LandlordHomeScreen extends StatefulWidget {
-  const LandlordHomeScreen({super.key});
+class DashboardScreen extends StatefulWidget {
+  const DashboardScreen({super.key});
 
   @override
-  State<LandlordHomeScreen> createState() => _LandlordHomeScreenState();
+  State<DashboardScreen> createState() => _DashboardScreenState();
 }
 
-class _LandlordHomeScreenState extends State<LandlordHomeScreen> {
+class _DashboardScreenState extends State<DashboardScreen> {
   late MyCoursesDashboardController _controller;
 
   @override

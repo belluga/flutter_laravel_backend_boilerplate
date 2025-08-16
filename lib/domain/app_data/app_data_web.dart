@@ -1,6 +1,6 @@
 import 'dart:js_interop';
 
-import 'package:belluga_now/domain/app_data/app_type.dart';
+import 'package:unifast_portal/domain/app_data/app_type.dart';
 
 @JS()
 @staticInterop
@@ -25,10 +25,18 @@ class AppData {
   late String device;
 
   Future<void> initialize() async {
+    print({
+      "appDataJS.port": appDataJS.port,
+      "appDataJS.hostname": appDataJS.hostname,
+      "appDataJS.href": appDataJS.href,
+    });
+    
     port = appDataJS.port;
     hostname = appDataJS.hostname;
     href = appDataJS.href;
     device = "web";
+
+    print(this);
   }
 
   String get schema => href.split(hostname).first;
