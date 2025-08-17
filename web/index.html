@@ -1,97 +1,70 @@
 <!DOCTYPE html>
 <html>
-
 <head>
   <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
-  <!--
-    If you are serving your web app in a path other than the root, change the
-    href value below to reflect the base path you are serving from.
-
-    The path provided below has to start and end with a slash "/" in order for
-    it to work correctly.
-
-    For more details:
-    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
-
-    This is a placeholder for base href that will be replaced by the value of
-    the `--base-href` argument provided to `flutter build`.
-  -->
   <base href="/">
-
   <meta charset="UTF-8">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
   <meta name="description" content="A new Flutter project.">
-
-  <!-- iOS meta tags & icons -->
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   <meta name="apple-mobile-web-app-title" content="belluga_now">
   <link rel="apple-touch-icon" href="icons/Icon-192.png">
-
-  <!-- Favicon -->
   <link id="favicon" rel="icon" type="image/png" href="favicon.png">
-
   <title>Fast Campus</title>
   <link rel="manifest" href="manifest.json">
-
-
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+  
   <style>
     /* Estilo do container principal do splash */
     #splash-screen {
-      position: fixed;
-      /* Ocupa a tela inteira, sobrepondo outro conteúdo */
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100vh;
-      /* Usa a altura da viewport */
-      display: flex;
-      /* Para centralizar o conteúdo */
-      justify-content: center;
-      align-items: center;
-      /* Cor de fundo padrão, será substituída pelo JavaScript */
+      position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
+      display: flex; justify-content: center; align-items: center;
       background-color: #ffffff;
     }
 
-    /* Estilo para a imagem do logo */
-    .splash-logo {
-      max-width: 200px;
-      /* Limita o tamanho do logo */
-      max-height: 150px;
-      /* Limita a altura */
+    /* --- MUDANÇA 1: CSS ATUALIZADO PARA A ANIMAÇÃO --- */
+    #splash-logo-container {
+      position: relative;
+      width: 200px;
+      height: 150px;
     }
+    .splash-logo {
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      object-fit: contain; /* Mantém a proporção da imagem */
+    }
+    #splash-logo-background {
+      opacity: 0.3;
+    }
+    #splash-logo-foreground {
+      mask-image: linear-gradient(to right, transparent 20%, black 50%, transparent 80%);
+      mask-size: 200% 100%;
+      animation: shimmer-animation 2s infinite linear;
+    }
+    @keyframes shimmer-animation {
+      from { mask-position: 150% 0; }
+      to { mask-position: -50% 0; }
+    }
+    /* --- FIM DA MUDANÇA 1 --- */
 
     /* Estilo do spinner de carregamento */
     .loader {
       border: 4px solid rgba(243, 243, 243, 0.8);
-      /* Cinza claro transparente */
       border-top: 4px solid rgba(220, 220, 220, 0.8);
-      /* Verde do seu tema */
-      border-radius: 50%;
-      width: 40px;
-      height: 40px;
+      border-radius: 50%; width: 40px; height: 40px;
       animation: spin 1s linear infinite;
     }
-
-    /* Animação de rotação para o spinner */
     @keyframes spin {
-      0% {
-        transform: rotate(0deg);
-      }
-
-      100% {
-        transform: rotate(360deg);
-      }
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
     }
   </style>
+  
   <script>
-    // Espera até que todo o HTML da página seja carregado antes de executar o código
     window.addEventListener('DOMContentLoaded', (event) => {
       (async function () {
         try {
-          // const response = await fetch('/api/branding');
-          await new Promise(resolve => setTimeout(resolve, 3000));
+          await new Promise(resolve => setTimeout(resolve, 1000)); // Delay para visualização
           const response = {
             ok: true,
             json: async () => ({
@@ -99,10 +72,7 @@
               iconUrl: "favicon.png",
               splash: {
                 backgroundColor: "#004b7c",
-                logoUrl1x: "splash/img/dark-1x.png",
-                logoUrl2x: "splash/img/dark-2x.png",
-                logoUrl3x: "splash/img/dark-3x.png",
-                logoUrl4x: "splash/img/dark-4x.png",
+                logoUrl: "splash/img/dark-2x.png", // Usaremos uma única URL para o logo
               },
             }),
           };
@@ -110,29 +80,24 @@
             const branding = await response.json();
             const splashData = branding.splash;
 
-            console.log(splashData);
-
             // Atualiza Título e Favicon
             if (branding.title) document.title = branding.title;
             if (branding.iconUrl) document.getElementById('favicon').href = branding.iconUrl;
 
-            // Atualiza o Splash Screen Responsivo
+            // Atualiza o Splash Screen
             if (splashData) {
               document.getElementById('splash-screen').style.backgroundColor = splashData.backgroundColor;
 
-              if (splashData.logoUrl1x) {
-                // Preenche as fontes de imagem
-                document.getElementById('splash-logo-src-3x').srcset = splashData.logoUrl3x || splashData.logoUrl2x || splashData.logoUrl1x;
-                document.getElementById('splash-logo-src-2x').srcset = splashData.logoUrl2x || splashData.logoUrl1x;
-                // A linha abaixo estava faltando no seu HTML, mas adicionei no corpo da resposta
-                if (document.getElementById('splash-logo-src-4x')) {
-                  document.getElementById('splash-logo-src-4x').srcset = splashData.logoUrl4x || splashData.logoUrl3x || splashData.logoUrl2x || splashData.logoUrl1x;
-                }
-                document.getElementById('splash-logo-img').src = splashData.logoUrl1x;
+              if (splashData.logoUrl) {
+                // --- MUDANÇA 2: JAVASCRIPT SIMPLIFICADO ---
+                // Define a imagem para os dois logos empilhados
+                document.getElementById('splash-logo-background').src = splashData.logoUrl;
+                document.getElementById('splash-logo-foreground').src = splashData.logoUrl;
 
-                // Mostra o container da imagem e esconde o spinner
+                // Mostra o container do logo e esconde o spinner. A animação CSS começa sozinha.
                 document.getElementById('splash-logo-container').style.display = 'block';
                 document.getElementById('splash-loader').style.display = 'none';
+                // --- FIM DA MUDANÇA 2 ---
               }
             }
           }
@@ -143,19 +108,14 @@
     });
   </script>
 </head>
-
 <body>
   <div id="splash-screen" class="splash">
-    <picture id="splash-logo-container" style="display: none;">
-      <source id="splash-logo-src-4x" srcset="" media="(min-resolution: 4dppx)">
-      <source id="splash-logo-src-3x" srcset="" media="(min-resolution: 3dppx)">
-      <source id="splash-logo-src-2x" srcset="" media="(min-resolution: 2dppx)">
-      <img id="splash-logo-img" src="" class="splash-logo" alt="Logo" />
-    </picture>
+    <div id="splash-logo-container" style="display: none;">
+        <img id="splash-logo-background" class="splash-logo" alt="Logo background" />
+        <img id="splash-logo-foreground" class="splash-logo" alt="Logo foreground" />
+    </div>
     <div id="splash-loader" class="loader"></div>
   </div>
-
   <script src="flutter_bootstrap.js" async></script>
 </body>
-
 </html>
