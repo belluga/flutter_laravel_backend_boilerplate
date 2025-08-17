@@ -1,4 +1,7 @@
-<!DOCTYPE html><html><head>
+<!DOCTYPE html>
+<html>
+
+<head>
   <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
   <!--
     If you are serving your web app in a path other than the root, change the
@@ -13,7 +16,7 @@
     This is a placeholder for base href that will be replaced by the value of
     the `--base-href` argument provided to `flutter build`.
   -->
-  <base href="$FLUTTER_BASE_HREF">
+  <base href="/">
 
   <meta charset="UTF-8">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
@@ -26,87 +29,133 @@
   <link rel="apple-touch-icon" href="icons/Icon-192.png">
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="favicon.png">
+  <link id="favicon" rel="icon" type="image/png" href="favicon.png">
 
-  <title>belluga_now</title>
+  <title>Fast Campus</title>
   <link rel="manifest" href="manifest.json">
-  
-  
+
+
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
-  <style id="splash-screen-style">
-    html {
-      height: 100%
-    }
-
-    body {
-      margin: 0;
-      min-height: 100%;
-      background-color: #004b7c;
-          background-size: 100% 100%;
-    }
-
-    .center {
-      margin: 0;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      -ms-transform: translate(-50%, -50%);
-      transform: translate(-50%, -50%);
-    }
-
-    .contain {
-      display:block;
-      width:100%; height:100%;
-      object-fit: contain;
-    }
-
-    .stretch {
-      display:block;
-      width:100%; height:100%;
-    }
-
-    .cover {
-      display:block;
-      width:100%; height:100%;
-      object-fit: cover;
-    }
-
-    .bottom {
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      -ms-transform: translate(-50%, 0);
-      transform: translate(-50%, 0);
-    }
-
-    .bottomLeft {
-      position: absolute;
-      bottom: 0;
+  <style>
+    /* Estilo do container principal do splash */
+    #splash-screen {
+      position: fixed;
+      /* Ocupa a tela inteira, sobrepondo outro conteúdo */
+      top: 0;
       left: 0;
+      width: 100%;
+      height: 100vh;
+      /* Usa a altura da viewport */
+      display: flex;
+      /* Para centralizar o conteúdo */
+      justify-content: center;
+      align-items: center;
+      /* Cor de fundo padrão, será substituída pelo JavaScript */
+      background-color: #ffffff;
     }
 
-    .bottomRight {
-      position: absolute;
-      bottom: 0;
-      right: 0;
+    /* Estilo para a imagem do logo */
+    .splash-logo {
+      max-width: 200px;
+      /* Limita o tamanho do logo */
+      max-height: 150px;
+      /* Limita a altura */
+    }
+
+    /* Estilo do spinner de carregamento */
+    .loader {
+      border: 4px solid rgba(243, 243, 243, 0.8);
+      /* Cinza claro transparente */
+      border-top: 4px solid rgba(220, 220, 220, 0.8);
+      /* Verde do seu tema */
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      animation: spin 1s linear infinite;
+    }
+
+    /* Animação de rotação para o spinner */
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
     }
   </style>
-  <script id="splash-screen-script">
-    function removeSplashFromWeb() {
-      document.getElementById("splash")?.remove();
-      document.getElementById("splash-branding")?.remove();
-      document.body.style.background = "transparent";
-    }
+  <script>
+    // Espera até que todo o HTML da página seja carregado antes de executar o código
+    window.addEventListener('DOMContentLoaded', (event) => {
+      (async function () {
+        try {
+          // const response = await fetch('/api/branding');
+          await new Promise(resolve => setTimeout(resolve, 3000));
+          const response = {
+            ok: true,
+            json: async () => ({
+              title: "Portal Unifast",
+              iconUrl: "favicon.png",
+              splash: {
+                backgroundColor: "#004b7c",
+                logoUrl1x: "splash/img/dark-1x.png",
+                logoUrl2x: "splash/img/dark-2x.png",
+                logoUrl3x: "splash/img/dark-3x.png",
+                logoUrl4x: "splash/img/dark-4x.png",
+              },
+            }),
+          };
+          if (response.ok) {
+            const branding = await response.json();
+            const splashData = branding.splash;
+
+            console.log(splashData);
+
+            // Atualiza Título e Favicon
+            if (branding.title) document.title = branding.title;
+            if (branding.iconUrl) document.getElementById('favicon').href = branding.iconUrl;
+
+            // Atualiza o Splash Screen Responsivo
+            if (splashData) {
+              document.getElementById('splash-screen').style.backgroundColor = splashData.backgroundColor;
+
+              if (splashData.logoUrl1x) {
+                // Preenche as fontes de imagem
+                document.getElementById('splash-logo-src-3x').srcset = splashData.logoUrl3x || splashData.logoUrl2x || splashData.logoUrl1x;
+                document.getElementById('splash-logo-src-2x').srcset = splashData.logoUrl2x || splashData.logoUrl1x;
+                // A linha abaixo estava faltando no seu HTML, mas adicionei no corpo da resposta
+                if (document.getElementById('splash-logo-src-4x')) {
+                  document.getElementById('splash-logo-src-4x').srcset = splashData.logoUrl4x || splashData.logoUrl3x || splashData.logoUrl2x || splashData.logoUrl1x;
+                }
+                document.getElementById('splash-logo-img').src = splashData.logoUrl1x;
+
+                // Mostra o container da imagem e esconde o spinner
+                document.getElementById('splash-logo-container').style.display = 'block';
+                document.getElementById('splash-loader').style.display = 'none';
+              }
+            }
+          }
+        } catch (error) {
+          console.error('Failed to fetch branding config:', error);
+        }
+      })();
+    });
   </script>
 </head>
+
 <body>
-  <picture id="splash">
-      <source srcset="splash/img/light-1x.png 1x, splash/img/light-2x.png 2x, splash/img/light-3x.png 3x, splash/img/light-4x.png 4x" media="(prefers-color-scheme: light)">
-      <source srcset="splash/img/dark-1x.png 1x, splash/img/dark-2x.png 2x, splash/img/dark-3x.png 3x, splash/img/dark-4x.png 4x" media="(prefers-color-scheme: dark)">
-      <img class="center" aria-hidden="true" src="splash/img/light-1x.png" alt="">
-  </picture>
-  
-  <script src="flutter_bootstrap.js" async=""></script>
+  <div id="splash-screen" class="splash">
+    <picture id="splash-logo-container" style="display: none;">
+      <source id="splash-logo-src-4x" srcset="" media="(min-resolution: 4dppx)">
+      <source id="splash-logo-src-3x" srcset="" media="(min-resolution: 3dppx)">
+      <source id="splash-logo-src-2x" srcset="" media="(min-resolution: 2dppx)">
+      <img id="splash-logo-img" src="" class="splash-logo" alt="Logo" />
+    </picture>
+    <div id="splash-loader" class="loader"></div>
+  </div>
 
+  <script src="flutter_bootstrap.js" async></script>
+</body>
 
-</body></html>
+</html>

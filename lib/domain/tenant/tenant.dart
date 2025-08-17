@@ -30,8 +30,6 @@ class Tenant {
   String get subdomainFull => "${subdomain.value}.$landlordUrl";
 
   bool hasDomain(String domainTry) {
-    print("domainTry");
-    print(domainTry);
     switch (appData.appType) {
       case AppType.web:
         return hasWebDomain(domainTry);
@@ -51,10 +49,7 @@ class Tenant {
   bool hasWebDomain(String domainTry) {
     final List<String> _splitted = domainTry.split(".$landlordUrl");
 
-    print(_splitted);
-
     if (_splitted.length == 1) {
-      print("if 1");
       return domains?.any((domain) {
             return domain.value!.host == _splitted.first;
           }) ??
@@ -62,9 +57,6 @@ class Tenant {
     }
 
     if (_splitted.length > 1) {
-      print("if > 1");
-      print("subdomainFull: $subdomainFull");
-      print("domainTry: $domainTry");
       return subdomainFull == domainTry;
     }
 
