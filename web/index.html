@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
   <base href="/">
@@ -9,17 +10,23 @@
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   <meta name="apple-mobile-web-app-title" content="belluga_now">
-  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+  <link id="apple-touch-icon" rel="apple-touch-icon" href="icons/Icon-192.png">
   <link id="favicon" rel="icon" type="image/png" href="favicon.png">
   <title>Fast Campus</title>
   <link rel="manifest" href="manifest.json">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
-  
+
   <style>
     /* Estilo do container principal do splash */
     #splash-screen {
-      position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
-      display: flex; justify-content: center; align-items: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       background-color: #ffffff;
     }
 
@@ -29,37 +36,60 @@
       width: 200px;
       height: 150px;
     }
+
     .splash-logo {
-      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-      object-fit: contain; /* Mantém a proporção da imagem */
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      /* Mantém a proporção da imagem */
     }
+
     #splash-logo-background {
       opacity: 0.3;
     }
+
     #splash-logo-foreground {
       mask-image: linear-gradient(to right, transparent 20%, black 50%, transparent 80%);
       mask-size: 200% 100%;
       animation: shimmer-animation 2s infinite linear;
     }
+
     @keyframes shimmer-animation {
-      from { mask-position: 150% 0; }
-      to { mask-position: -50% 0; }
+      from {
+        mask-position: 150% 0;
+      }
+
+      to {
+        mask-position: -50% 0;
+      }
     }
+
     /* --- FIM DA MUDANÇA 1 --- */
 
     /* Estilo do spinner de carregamento */
     .loader {
       border: 4px solid rgba(243, 243, 243, 0.8);
       border-top: 4px solid rgba(220, 220, 220, 0.8);
-      border-radius: 50%; width: 40px; height: 40px;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
       animation: spin 1s linear infinite;
     }
+
     @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
     }
   </style>
-  
+
   <script>
     window.addEventListener('DOMContentLoaded', (event) => {
       (async function () {
@@ -70,6 +100,7 @@
             json: async () => ({
               title: "Portal Unifast",
               iconUrl: "favicon.png",
+              appleTouchIconUrl: "icons/Icon-192.png",
               splash: {
                 backgroundColor: "#004b7c",
                 logoUrl: "splash/img/dark-2x.png", // Usaremos uma única URL para o logo
@@ -83,6 +114,10 @@
             // Atualiza Título e Favicon
             if (branding.title) document.title = branding.title;
             if (branding.iconUrl) document.getElementById('favicon').href = branding.iconUrl;
+
+            if (branding.appleTouchIconUrl) {
+              document.getElementById('apple-touch-icon').href = branding.appleTouchIconUrl;
+            }
 
             // Atualiza o Splash Screen
             if (splashData) {
@@ -108,14 +143,16 @@
     });
   </script>
 </head>
+
 <body>
   <div id="splash-screen" class="splash">
     <div id="splash-logo-container" style="display: none;">
-        <img id="splash-logo-background" class="splash-logo" alt="Logo background" />
-        <img id="splash-logo-foreground" class="splash-logo" alt="Logo foreground" />
+      <img id="splash-logo-background" class="splash-logo" alt="Logo background" />
+      <img id="splash-logo-foreground" class="splash-logo" alt="Logo foreground" />
     </div>
     <div id="splash-loader" class="loader"></div>
   </div>
   <script src="flutter_bootstrap.js" async></script>
 </body>
+
 </html>
