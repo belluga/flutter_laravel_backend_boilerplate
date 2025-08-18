@@ -94,40 +94,32 @@
     window.addEventListener('DOMContentLoaded', (event) => {
       (async function () {
         try {
-          
           const response = await fetch('/api/branding/style');
 
           if (response.ok) {
             const branding = await response.json();
-            const splashData = branding.splash;
+            document.title = branding.title || document.title;
+            document.getElementById('favicon').href = branding.iconUrl || 'favicon.png';
 
-            // Atualiza Título e Favicon
-            if (branding.title) document.title = branding.title;
-            if (branding.iconUrl) document.getElementById('favicon').href = branding.iconUrl;
-
-            if (branding.appleTouchIconUrl) {
-              document.getElementById('apple-touch-icon').href = branding.appleTouchIconUrl;
-            }
-
-            // Atualiza o Splash Screen
-            if (splashData) {
-              document.getElementById('splash-screen').style.backgroundColor = splashData.backgroundColor;
-
-              if (splashData.logoUrl) {
-                // --- MUDANÇA 2: JAVASCRIPT SIMPLIFICADO ---
-                // Define a imagem para os dois logos empilhados
-                document.getElementById('splash-logo-background').src = splashData.logoUrl;
-                document.getElementById('splash-logo-foreground').src = splashData.logoUrl;
-
-                // Mostra o container do logo e esconde o spinner. A animação CSS começa sozinha.
-                document.getElementById('splash-logo-container').style.display = 'block';
-                document.getElementById('splash-loader').style.display = 'none';
-                // --- FIM DA MUDANÇA 2 ---
-              }
+            const splash = branding.splash;
+            if (splash && splash.logoUrl) {
+              document.getElementById('splash-screen').style.backgroundColor = splash.backgroundColor;
+              document.getElementById('splash-logo-background').src = splash.logoUrl;
+              document.getElementById('splash-logo-foreground').src = splash.logoUrl;
+              document.getElementById('splash-logo-container').style.display = 'block';
+              document.getElementById('splash-loader').style.display = 'none';
             }
           }
+          else {
+            console.warn('API de branding não encontrada ou retornou erro. Carregando com estado padrão.');
+            document.getElementById('splash-loader').style.display = 'none';
+            document.getElementById('splash-screen').style.backgroundColor = '#FFFFFF';
+          }
+
         } catch (error) {
-          console.error('Failed to fetch branding config:', error);
+          console.error("Falha de rede ao buscar branding. Carregando com estado padrão.", error);
+          document.getElementById('splash-loader').style.display = 'none';
+          document.getElementById('splash-screen').style.backgroundColor = '#FFFFFF';
         }
       })();
     });

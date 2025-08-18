@@ -18,11 +18,7 @@ Future<void> main() async {
     },
     appRunner: () async {
       try {
-        print("appRunner");
-        Future.delayed(Duration(seconds: 5));
         await GetIt.I.get<ApplicationContract>().init();
-        print("init Application");
-        Future.delayed(Duration(seconds: 5));
         runApp(GetIt.I.get<ApplicationContract>());
       } catch (error, stackTrace) {
         await Sentry.captureException(error, stackTrace: stackTrace);

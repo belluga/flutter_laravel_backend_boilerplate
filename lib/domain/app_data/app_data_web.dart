@@ -24,19 +24,11 @@ class AppData {
   late String href;
   late String device;
 
-  Future<void> initialize() async {
-    print({
-      "appDataJS.port": appDataJS.port,
-      "appDataJS.hostname": appDataJS.hostname,
-      "appDataJS.href": appDataJS.href,
-    });
-    
+  Future<void> initialize() async {    
     port = appDataJS.port;
     hostname = appDataJS.hostname;
     href = appDataJS.href;
     device = "web";
-
-    print(this);
   }
 
   String get schema => href.split(hostname).first;
