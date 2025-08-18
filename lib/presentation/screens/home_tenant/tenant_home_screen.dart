@@ -1,8 +1,10 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:belluga_now/application/configurations/custom_scroll_behavior.dart';
-import 'package:belluga_now/presentation/screens/home_tenant/controllers/tenant_home_screen_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
+import 'package:unifast_portal/application/configurations/belluga_constants.dart';
+import 'package:unifast_portal/application/configurations/widget_keys.dart';
+import 'package:unifast_portal/application/router/app_router.gr.dart';
+import 'package:unifast_portal/presentation/screens/home_tenant/controllers/tenant_home_screen_controller.dart';
 
 @RoutePage()
 class TenantHomeScreen extends StatefulWidget {
@@ -13,7 +15,6 @@ class TenantHomeScreen extends StatefulWidget {
 }
 
 class _TenantHomeScreenState extends State<TenantHomeScreen> {
-
   late TenantHomeScreenController _controller;
 
   @override
@@ -27,31 +28,27 @@ class _TenantHomeScreenState extends State<TenantHomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: CustomScrollView(
-        physics: const BouncingScrollPhysics(),
-        scrollBehavior: CustomScrollBehavior(),
-        slivers: [
-          SliverAppBar(
-            title: Text(_controller.tenant.name.value),
-            centerTitle: true,
-            floating: true,
-            snap: true,
-          ),
-          SliverList(
-            delegate: SliverChildBuilderDelegate(
-              (context, index) {
-                return ListTile(
-                  title: Text('Item $index'),
-                  onTap: () {
-                    // Handle item tap
-                  },
-                );
-              },
-              childCount: 20, // Example item count
+      body: Center(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            const Text("This is HOME"),
+            Text(_controller.tenant.name.value),
+            Text(BellugaConstants.settings.platform),
+            ElevatedButton(
+              key: WidgetKeys.auth.navigateToProtectedButton,
+              onPressed: () => context.router.push(const DashboardRoute()),
+              child: const Text("goto Protected"),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    GetIt.I.unregister<TenantHomeScreenController>();
+    super.dispose();
   }
 }

@@ -1,0 +1,9 @@
+flutter_native_splash:
+  color: "#004b7c" 
+  image: "assets/tenants/unifast/splash_screen/splash_logo.png"
+
+  web: false
+
+  android_12:
+    color: "#004b7c"
+    image: "assets/tenants/unifast/splash_screen/splash_logo.png"

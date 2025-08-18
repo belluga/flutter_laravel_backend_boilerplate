@@ -1,15 +1,23 @@
-import 'package:belluga_now/domain/repositories/tenant_repository_contract.dart';
-import 'package:belluga_now/infrastructure/repositories/tenant_repository.dart';
 import 'package:flutter/material.dart';
-import 'package:belluga_now/domain/app_data/app_data.dart';
-import 'package:belluga_now/application/configurations/custom_scroll_behavior.dart';
-import 'package:belluga_now/application/router/app_router.dart';
-import 'package:belluga_now/domain/repositories/auth_repository_contract.dart';
-import 'package:belluga_now/infrastructure/services/dal/dao/backend_contract.dart';
+import 'package:unifast_portal/application/configurations/custom_scroll_behavior.dart';
+import 'package:unifast_portal/application/router/app_router.dart';
+import 'package:unifast_portal/domain/app_data/app_data.dart';
+import 'package:unifast_portal/domain/repositories/auth_repository_contract.dart';
+import 'package:unifast_portal/domain/repositories/external_courses_repository_contract.dart';
+import 'package:unifast_portal/domain/repositories/courses_repository_contract.dart';
+import 'package:unifast_portal/domain/repositories/notes_repository_contract.dart';
+import 'package:unifast_portal/domain/repositories/schedule_repository_contract.dart';
+import 'package:unifast_portal/infrastructure/repositories/courses_repository.dart';
+import 'package:unifast_portal/infrastructure/repositories/external_courses_repository.dart';
+import 'package:unifast_portal/infrastructure/repositories/notes_repository.dart';
+import 'package:unifast_portal/infrastructure/repositories/schedule_repository.dart';
+import 'package:unifast_portal/infrastructure/repositories/tenant_repository.dart';
+import 'package:unifast_portal/infrastructure/services/backend_contract.dart';
 import 'package:get_it/get_it.dart';
 import 'package:intl/intl_standalone.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:intl/date_symbol_data_local.dart';
+import 'package:unifast_portal/domain/repositories/tenant_repository_contract.dart';
 
 abstract class ApplicationContract extends StatelessWidget {
   final _appRouter = AppRouter();
@@ -23,12 +31,8 @@ abstract class ApplicationContract extends StatelessWidget {
   Future<void> initialSettingsPlatform();
 
   Future<void> init() async {
-    debugPrint("init");
-    debugPrint("initialSettings");
     await initialSettings();
-    debugPrint("_initInjections");
     await _initInjections();
-    debugPrint("initialSettingsPlatform");
     await initialSettingsPlatform();
   }
 
@@ -44,7 +48,7 @@ abstract class ApplicationContract extends StatelessWidget {
   }
 
   Future<void> _initAppData() async {
-    final appData = AppData();
+    final appData = AppData()..initialize();
     await appData.initialize();
     GetIt.I.registerSingleton<AppData>(appData);
   }
@@ -63,10 +67,29 @@ abstract class ApplicationContract extends StatelessWidget {
     GetIt.I.registerLazySingleton<AuthRepositoryContract>(
       () => initAuthRepository(),
     );
+
+    GetIt.I.registerLazySingleton<ExternalCoursesRepositoryContract>(
+      () => ExternalCoursesRepository(),
+    );
+
+    GetIt.I.registerLazySingleton<CoursesRepositoryContract>(
+      () => CoursesRepository(),
+    );
+
+    GetIt.I.registerLazySingleton<NotesRepositoryContract>(
+      () => NotesRepository(),
+    );
+
+    GetIt.I.registerLazySingleton<ScheduleRepositoryContract>(
+        () => ScheduleRepository());
   }
 
   ThemeData getThemeData() {
     return ThemeData(
+      appBarTheme: AppBarTheme(
+        backgroundColor: Color(0xFF1C2530),
+        foregroundColor: Color(0xFFFFFFFF),
+      ),
       progressIndicatorTheme: ProgressIndicatorThemeData(
         color: Color(0xFF00E6B8),
         strokeWidth: 4,

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:belluga_now/domain/courses/thumb_model.dart';
+import 'package:unifast_portal/domain/courses/thumb_model.dart';
 
 class ImageWithProgressIndicator extends StatelessWidget {
-  final ThumbModel thumb;
+  final ThumbModel? thumb;
   final double? width;
   final double? height;
   final BorderRadius? borderRadius;
@@ -17,6 +17,8 @@ class ImageWithProgressIndicator extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final ThumbModel? _thumbModel = thumb;
+
     return SizedBox(
       width: width,
       height: height,
@@ -29,15 +31,16 @@ class ImageWithProgressIndicator extends StatelessWidget {
               child: CircularProgressIndicator(),
             ),
           ),
-          Container(
-            decoration: BoxDecoration(
-              borderRadius: borderRadius ?? BorderRadius.circular(8),
-              image: DecorationImage(
-                image: Image.network(thumb.thumbUri.toString()).image,
-                fit: BoxFit.cover,
+          if (_thumbModel != null)
+            Container(
+              decoration: BoxDecoration(
+                borderRadius: borderRadius ?? BorderRadius.circular(8),
+                image: DecorationImage(
+                  image: Image.network(_thumbModel.thumbUri.toString()).image,
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
-          ),
         ],
       ),
     );

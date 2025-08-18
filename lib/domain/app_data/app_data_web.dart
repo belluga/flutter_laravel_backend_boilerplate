@@ -1,6 +1,6 @@
 import 'dart:js_interop';
 
-import 'package:belluga_now/domain/app_data/app_type.dart';
+import 'package:unifast_portal/domain/app_data/app_type.dart';
 
 @JS()
 @staticInterop
@@ -24,7 +24,7 @@ class AppData {
   late String href;
   late String device;
 
-  Future<void> initialize() async {
+  Future<void> initialize() async {    
     port = appDataJS.port;
     hostname = appDataJS.hostname;
     href = appDataJS.href;

@@ -1,39 +1,140 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
-  <!--
-    If you are serving your web app in a path other than the root, change the
-    href value below to reflect the base path you are serving from.
-
-    The path provided below has to start and end with a slash "/" in order for
-    it to work correctly.
-
-    For more details:
-    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
-
-    This is a placeholder for base href that will be replaced by the value of
-    the `--base-href` argument provided to `flutter build`.
-  -->
-  <base href="$FLUTTER_BASE_HREF">
-
+  <base href="/">
   <meta charset="UTF-8">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
   <meta name="description" content="A new Flutter project.">
-
-  <!-- iOS meta tags & icons -->
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   <meta name="apple-mobile-web-app-title" content="belluga_now">
-  <link rel="apple-touch-icon" href="icons/Icon-192.png">
-
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="favicon.png"/>
-
-  <title>belluga_now</title>
+  <link id="apple-touch-icon" rel="apple-touch-icon" href="icons/Icon-192.png">
+  <link id="favicon" rel="icon" type="image/x-icon" href="favicon.ico">
+  <title>Fast Campus</title>
   <link rel="manifest" href="manifest.json">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+
+  <style>
+    /* Estilo do container principal do splash */
+    #splash-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #ffffff;
+    }
+
+    /* --- MUDANÇA 1: CSS ATUALIZADO PARA A ANIMAÇÃO --- */
+    #splash-logo-container {
+      position: relative;
+      width: 200px;
+      height: 150px;
+    }
+
+    .splash-logo {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      /* Mantém a proporção da imagem */
+    }
+
+    #splash-logo-background {
+      opacity: 0.3;
+    }
+
+    #splash-logo-foreground {
+      mask-image: linear-gradient(to right, transparent 20%, black 50%, transparent 80%);
+      mask-size: 200% 100%;
+      animation: shimmer-animation 2s infinite linear;
+    }
+
+    @keyframes shimmer-animation {
+      from {
+        mask-position: 150% 0;
+      }
+
+      to {
+        mask-position: -50% 0;
+      }
+    }
+
+    /* --- FIM DA MUDANÇA 1 --- */
+
+    /* Estilo do spinner de carregamento */
+    .loader {
+      border: 4px solid rgba(243, 243, 243, 0.8);
+      border-top: 4px solid rgba(220, 220, 220, 0.8);
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
+
+  <script>
+    window.addEventListener('DOMContentLoaded', (event) => {
+      (async function () {
+        try {
+          const response = await fetch('/api/branding/style');
+
+          if (response.ok) {
+            const branding = await response.json();
+            document.title = branding.title || document.title;
+            document.getElementById('favicon').href = branding.iconUrl || 'favicon.png';
+
+            const splash = branding.splash;
+            if (splash && splash.logoUrl) {
+              document.getElementById('splash-screen').style.backgroundColor = splash.backgroundColor;
+              document.getElementById('splash-logo-background').src = splash.logoUrl;
+              document.getElementById('splash-logo-foreground').src = splash.logoUrl;
+              document.getElementById('splash-logo-container').style.display = 'block';
+              document.getElementById('splash-loader').style.display = 'none';
+            }
+          }
+          else {
+            console.warn('API de branding não encontrada ou retornou erro. Carregando com estado padrão.');
+            document.getElementById('splash-loader').style.display = 'none';
+            document.getElementById('splash-screen').style.backgroundColor = '#FFFFFF';
+          }
+
+        } catch (error) {
+          console.error("Falha de rede ao buscar branding. Carregando com estado padrão.", error);
+          document.getElementById('splash-loader').style.display = 'none';
+          document.getElementById('splash-screen').style.backgroundColor = '#FFFFFF';
+        }
+      })();
+    });
+  </script>
 </head>
+
 <body>
+  <div id="splash-screen" class="splash">
+    <div id="splash-logo-container" style="display: none;">
+      <img id="splash-logo-background" class="splash-logo" alt="Logo background" />
+      <img id="splash-logo-foreground" class="splash-logo" alt="Logo foreground" />
+    </div>
+    <div id="splash-loader" class="loader"></div>
+  </div>
   <script src="flutter_bootstrap.js" async></script>
 </body>
+
 </html>

@@ -1,4 +1,4 @@
-import 'package:belluga_now/domain/app_data/app_data.dart';
+import 'package:unifast_portal/domain/app_data/app_data.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'dart:io' show Platform;
 import 'package:flutter/foundation.dart';
@@ -47,7 +47,6 @@ class _ApiConstants {
 }
 
 class _SettingsConstants {
-  String get appID => "com.belluga_now";
   String get platform {
     if (kIsWeb) {
       return "web";

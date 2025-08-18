@@ -1,10 +1,10 @@
-import 'package:belluga_now/domain/app_data/app_data_stub.dart';
-import 'package:belluga_now/domain/app_data/app_type.dart';
-import 'package:belluga_now/domain/tenant/value_objects/app_domain_value.dart';
-import 'package:belluga_now/domain/tenant/value_objects/domain_value.dart';
-import 'package:belluga_now/domain/tenant/value_objects/main_logo_url_value.dart';
-import 'package:belluga_now/domain/tenant/value_objects/subdomain_value.dart';
-import 'package:belluga_now/domain/tenant/value_objects/tenant_name_value.dart';
+import 'package:unifast_portal/domain/app_data/app_data.dart';
+import 'package:unifast_portal/domain/app_data/app_type.dart';
+import 'package:unifast_portal/domain/tenant/value_objects/app_domain_value.dart';
+import 'package:unifast_portal/domain/tenant/value_objects/domain_value.dart';
+import 'package:unifast_portal/domain/tenant/value_objects/main_logo_url_value.dart';
+import 'package:unifast_portal/domain/tenant/value_objects/subdomain_value.dart';
+import 'package:unifast_portal/domain/tenant/value_objects/tenant_name_value.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:get_it/get_it.dart';
 

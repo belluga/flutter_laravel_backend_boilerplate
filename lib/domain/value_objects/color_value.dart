@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:value_object_pattern/value_object.dart';
 
-class ColorValue extends ValueObject<Color> {
+class ColorValue extends ValueObject<Color?> {
 
   ColorValue({
-    required super.defaultValue,
-    super.isRequired = true,
+    super.defaultValue,
+    super.isRequired = false,
   });
 
   @override
