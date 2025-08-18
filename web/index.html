@@ -11,7 +11,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   <meta name="apple-mobile-web-app-title" content="belluga_now">
   <link id="apple-touch-icon" rel="apple-touch-icon" href="icons/Icon-192.png">
-  <link id="favicon" rel="icon" type="image/png" href="favicon.png">
+  <link id="favicon" rel="icon" type="image/x-icon" href="favicon.ico">
   <title>Fast Campus</title>
   <link rel="manifest" href="manifest.json">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
@@ -94,19 +94,9 @@
     window.addEventListener('DOMContentLoaded', (event) => {
       (async function () {
         try {
-          await new Promise(resolve => setTimeout(resolve, 1000)); // Delay para visualização
-          const response = {
-            ok: true,
-            json: async () => ({
-              title: "Portal Unifast",
-              iconUrl: "favicon.png",
-              appleTouchIconUrl: "icons/Icon-192.png",
-              splash: {
-                backgroundColor: "#004b7c",
-                logoUrl: "splash/img/dark-2x.png", // Usaremos uma única URL para o logo
-              },
-            }),
-          };
+          
+          const response = await fetch('/api/branding/style');
+
           if (response.ok) {
             const branding = await response.json();
             const splashData = branding.splash;
