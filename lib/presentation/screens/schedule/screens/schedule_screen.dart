@@ -2,10 +2,10 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:stream_value/core/stream_value_builder.dart';
-import 'package:unifast_portal/domain/schedule/event_model.dart';
-import 'package:unifast_portal/presentation/screens/schedule/controller/schedule_screen_controller.dart';
-import 'package:unifast_portal/presentation/screens/schedule/widgets/dates_row.dart';
-import 'package:unifast_portal/presentation/screens/schedule/widgets/event_card.dart';
+import 'package:belluga_boilerplate/domain/schedule/event_model.dart';
+import 'package:belluga_boilerplate/presentation/screens/schedule/controller/schedule_screen_controller.dart';
+import 'package:belluga_boilerplate/presentation/screens/schedule/widgets/dates_row.dart';
+import 'package:belluga_boilerplate/presentation/screens/schedule/widgets/event_card.dart';
 
 @RoutePage()
 class ScheduleScreen extends StatefulWidget {

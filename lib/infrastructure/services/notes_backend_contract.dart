@@ -1,5 +1,5 @@
 import 'package:flutter/rendering.dart';
-import 'package:unifast_portal/infrastructure/services/dal/dto/notes/note_dto.dart';
+import 'package:belluga_boilerplate/infrastructure/services/dal/dto/notes/note_dto.dart';
 
 abstract class NotesBackendContract {
   Future<List<NoteDTO>> getNotes(String courseItemId);

@@ -1,9 +1,9 @@
 import 'package:get_it/get_it.dart';
-import 'package:unifast_portal/domain/schedule/event_model.dart';
-import 'package:unifast_portal/domain/schedule/schedule_summary_model.dart';
-import 'package:unifast_portal/infrastructure/services/backend_contract.dart';
-import 'package:unifast_portal/infrastructure/services/dal/dto/schedule/event_dto.dart';
-import 'package:unifast_portal/infrastructure/services/dal/dto/schedule/event_summary_dto.dart';
+import 'package:belluga_boilerplate/domain/schedule/event_model.dart';
+import 'package:belluga_boilerplate/domain/schedule/schedule_summary_model.dart';
+import 'package:belluga_boilerplate/infrastructure/services/backend_contract.dart';
+import 'package:belluga_boilerplate/infrastructure/services/dal/dto/schedule/event_dto.dart';
+import 'package:belluga_boilerplate/infrastructure/services/dal/dto/schedule/event_summary_dto.dart';
 
 class ScheduleRepositoryContract {
   BackendContract get backend => GetIt.I.get<BackendContract>();

@@ -1,12 +1,12 @@
 import 'dart:convert';
 
 import 'package:flutter/services.dart';
-import 'package:unifast_portal/infrastructure/services/courses_backend_contract.dart';
-import 'package:unifast_portal/infrastructure/services/dal/dto/course/category_dto.dart';
-import 'package:unifast_portal/infrastructure/services/dal/dto/course/course_item_dto.dart';
-import 'package:unifast_portal/infrastructure/services/dal/dto/course/course_item_summary_dto.dart';
-import 'package:unifast_portal/infrastructure/services/dal/dto/external_course_dto.dart';
-import 'package:unifast_portal/infrastructure/services/dal/dao/mock_backend/mock_functions.dart';
+import 'package:belluga_boilerplate/infrastructure/services/courses_backend_contract.dart';
+import 'package:belluga_boilerplate/infrastructure/services/dal/dto/course/category_dto.dart';
+import 'package:belluga_boilerplate/infrastructure/services/dal/dto/course/course_item_dto.dart';
+import 'package:belluga_boilerplate/infrastructure/services/dal/dto/course/course_item_summary_dto.dart';
+import 'package:belluga_boilerplate/infrastructure/services/dal/dto/external_course_dto.dart';
+import 'package:belluga_boilerplate/infrastructure/services/dal/dao/mock_backend/mock_functions.dart';
 
 class MockCoursesBackend extends CoursesBackendContract with MockFunctions {
   @override

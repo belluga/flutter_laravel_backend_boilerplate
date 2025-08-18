@@ -1,8 +1,8 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:unifast_portal/application/router/app_router.gr.dart';
-import 'package:unifast_portal/domain/schedule/event_action_item_types.dart';
-import 'package:unifast_portal/domain/schedule/event_action_model/event_action_in_app_navigation.dart';
+import 'package:belluga_boilerplate/application/router/app_router.gr.dart';
+import 'package:belluga_boilerplate/domain/schedule/event_action_item_types.dart';
+import 'package:belluga_boilerplate/domain/schedule/event_action_model/event_action_in_app_navigation.dart';
 
 class EventActionCourseNavigation extends EventActionInAppNavigation {
   EventActionCourseNavigation({

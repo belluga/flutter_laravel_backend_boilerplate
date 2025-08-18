@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:unifast_portal/domain/courses/course_base_model.dart';
-import 'package:unifast_portal/presentation/common/widgets/image_with_progress_indicator.dart';
+import 'package:belluga_boilerplate/domain/courses/course_base_model.dart';
+import 'package:belluga_boilerplate/presentation/common/widgets/image_with_progress_indicator.dart';
 
 class CourseRowCard extends StatefulWidget {
   final CourseBaseModel course;

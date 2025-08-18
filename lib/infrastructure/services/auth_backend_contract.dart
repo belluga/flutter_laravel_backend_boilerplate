@@ -1,4 +1,4 @@
-import 'package:unifast_portal/infrastructure/services/dal/dto/user_dto.dart';
+import 'package:belluga_boilerplate/infrastructure/services/dal/dto/user_dto.dart';
 
 abstract class AuthBackendContract {
   Future<(UserDTO, String)> loginWithEmailPassword(

@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:intl/intl.dart';
 import 'package:stream_value/core/stream_value_builder.dart';
-import 'package:unifast_portal/application/functions/today.dart';
-import 'package:unifast_portal/domain/schedule/schedule_summary_model.dart';
-import 'package:unifast_portal/presentation/screens/schedule/controller/schedule_screen_controller.dart';
+import 'package:belluga_boilerplate/application/functions/today.dart';
+import 'package:belluga_boilerplate/domain/schedule/schedule_summary_model.dart';
+import 'package:belluga_boilerplate/presentation/screens/schedule/controller/schedule_screen_controller.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 import 'date_item.dart';
 

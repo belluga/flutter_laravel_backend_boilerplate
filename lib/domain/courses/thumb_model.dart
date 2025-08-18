@@ -1,7 +1,7 @@
-import 'package:unifast_portal/domain/courses/enums/thumb_types.dart';
-import 'package:unifast_portal/domain/courses/value_objects/thumb_type_value.dart';
-import 'package:unifast_portal/domain/value_objects/thumb_uri_value.dart';
-import 'package:unifast_portal/infrastructure/services/dal/dto/thumb_dto.dart';
+import 'package:belluga_boilerplate/domain/courses/enums/thumb_types.dart';
+import 'package:belluga_boilerplate/domain/courses/value_objects/thumb_type_value.dart';
+import 'package:belluga_boilerplate/domain/value_objects/thumb_uri_value.dart';
+import 'package:belluga_boilerplate/infrastructure/services/dal/dto/thumb_dto.dart';
 
 class ThumbModel {
   ThumbTypeValue thumbType;

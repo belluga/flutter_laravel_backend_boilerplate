@@ -1,23 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:unifast_portal/application/configurations/custom_scroll_behavior.dart';
-import 'package:unifast_portal/application/router/app_router.dart';
-import 'package:unifast_portal/domain/app_data/app_data.dart';
-import 'package:unifast_portal/domain/repositories/auth_repository_contract.dart';
-import 'package:unifast_portal/domain/repositories/external_courses_repository_contract.dart';
-import 'package:unifast_portal/domain/repositories/courses_repository_contract.dart';
-import 'package:unifast_portal/domain/repositories/notes_repository_contract.dart';
-import 'package:unifast_portal/domain/repositories/schedule_repository_contract.dart';
-import 'package:unifast_portal/infrastructure/repositories/courses_repository.dart';
-import 'package:unifast_portal/infrastructure/repositories/external_courses_repository.dart';
-import 'package:unifast_portal/infrastructure/repositories/notes_repository.dart';
-import 'package:unifast_portal/infrastructure/repositories/schedule_repository.dart';
-import 'package:unifast_portal/infrastructure/repositories/tenant_repository.dart';
-import 'package:unifast_portal/infrastructure/services/backend_contract.dart';
+import 'package:belluga_boilerplate/application/configurations/custom_scroll_behavior.dart';
+import 'package:belluga_boilerplate/application/router/app_router.dart';
+import 'package:belluga_boilerplate/domain/app_data/app_data.dart';
+import 'package:belluga_boilerplate/domain/repositories/auth_repository_contract.dart';
+import 'package:belluga_boilerplate/domain/repositories/external_courses_repository_contract.dart';
+import 'package:belluga_boilerplate/domain/repositories/courses_repository_contract.dart';
+import 'package:belluga_boilerplate/domain/repositories/notes_repository_contract.dart';
+import 'package:belluga_boilerplate/domain/repositories/schedule_repository_contract.dart';
+import 'package:belluga_boilerplate/infrastructure/repositories/courses_repository.dart';
+import 'package:belluga_boilerplate/infrastructure/repositories/external_courses_repository.dart';
+import 'package:belluga_boilerplate/infrastructure/repositories/notes_repository.dart';
+import 'package:belluga_boilerplate/infrastructure/repositories/schedule_repository.dart';
+import 'package:belluga_boilerplate/infrastructure/repositories/tenant_repository.dart';
+import 'package:belluga_boilerplate/infrastructure/services/backend_contract.dart';
 import 'package:get_it/get_it.dart';
 import 'package:intl/intl_standalone.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:intl/date_symbol_data_local.dart';
-import 'package:unifast_portal/domain/repositories/tenant_repository_contract.dart';
+import 'package:belluga_boilerplate/domain/repositories/tenant_repository_contract.dart';
 
 abstract class ApplicationContract extends StatelessWidget {
   final _appRouter = AppRouter();

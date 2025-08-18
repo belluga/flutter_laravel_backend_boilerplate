@@ -1,12 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get_it/get_it.dart';
 import 'package:stream_value/core/stream_value.dart';
-import 'package:unifast_portal/application/extensions/is_same_day.dart';
-import 'package:unifast_portal/application/functions/today.dart';
-import 'package:unifast_portal/domain/repositories/schedule_repository_contract.dart';
-import 'package:unifast_portal/domain/schedule/event_model.dart';
-import 'package:unifast_portal/domain/schedule/schedule_summary_item_model.dart';
-import 'package:unifast_portal/domain/schedule/schedule_summary_model.dart';
+import 'package:belluga_boilerplate/application/extensions/is_same_day.dart';
+import 'package:belluga_boilerplate/application/functions/today.dart';
+import 'package:belluga_boilerplate/domain/repositories/schedule_repository_contract.dart';
+import 'package:belluga_boilerplate/domain/schedule/event_model.dart';
+import 'package:belluga_boilerplate/domain/schedule/schedule_summary_item_model.dart';
+import 'package:belluga_boilerplate/domain/schedule/schedule_summary_model.dart';
 
 class ScheduleScreenController implements Disposable {
   final _scheduleRepository = GetIt.I.get<ScheduleRepositoryContract>();

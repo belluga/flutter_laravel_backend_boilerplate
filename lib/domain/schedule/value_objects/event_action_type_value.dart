@@ -1,4 +1,4 @@
-import 'package:unifast_portal/domain/schedule/event_action_types.dart';
+import 'package:belluga_boilerplate/domain/schedule/event_action_types.dart';
 import 'package:value_object_pattern/value_object.dart';
 
 class EventActionTypeValue extends ValueObject<EventActionTypes?>{

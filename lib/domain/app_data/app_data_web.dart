@@ -1,6 +1,6 @@
 import 'dart:js_interop';
 
-import 'package:unifast_portal/domain/app_data/app_type.dart';
+import 'package:belluga_boilerplate/domain/app_data/app_type.dart';
 
 @JS()
 @staticInterop

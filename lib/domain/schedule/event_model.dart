@@ -1,9 +1,9 @@
-import 'package:unifast_portal/domain/courses/teacher_model.dart';
-import 'package:unifast_portal/domain/courses/thumb_model.dart';
-import 'package:unifast_portal/domain/schedule/event_action_model/event_action_model.dart';
-import 'package:unifast_portal/domain/schedule/event_type_model.dart';
-import 'package:unifast_portal/domain/value_objects/title_value.dart';
-import 'package:unifast_portal/infrastructure/services/dal/dto/schedule/event_dto.dart';
+import 'package:belluga_boilerplate/domain/courses/teacher_model.dart';
+import 'package:belluga_boilerplate/domain/courses/thumb_model.dart';
+import 'package:belluga_boilerplate/domain/schedule/event_action_model/event_action_model.dart';
+import 'package:belluga_boilerplate/domain/schedule/event_type_model.dart';
+import 'package:belluga_boilerplate/domain/value_objects/title_value.dart';
+import 'package:belluga_boilerplate/infrastructure/services/dal/dto/schedule/event_dto.dart';
 import 'package:value_object_pattern/domain/value_objects/date_time_value.dart';
 import 'package:value_object_pattern/domain/value_objects/html_content_value.dart';
 import 'package:value_object_pattern/domain/value_objects/mongo_id_value.dart';

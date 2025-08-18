@@ -1,16 +1,16 @@
 // import 'package:dio/dio.dart';
 // import 'package:flutter/rendering.dart';
-// import 'package:unifast_portal/application/configurations/belluga_constants.dart';
-// import 'package:unifast_portal/domain/auth/errors/belluga_auth_errors.dart';
-// import 'package:unifast_portal/domain/repositories/auth_repository_contract.dart';
-// import 'package:unifast_portal/domain/tenant/tenant.dart';
-// import 'package:unifast_portal/infrastructure/services/dal/dto/course/category_dto.dart';
-// import 'package:unifast_portal/infrastructure/services/dal/dto/course/course_item_summary_dto.dart';
-// import 'package:unifast_portal/infrastructure/services/dal/dto/course/course_item_dto.dart';
-// import 'package:unifast_portal/infrastructure/services/dal/dto/external_course_dto.dart';
-// import 'package:unifast_portal/infrastructure/services/dal/dto/notes/note_dto.dart';
-// import 'package:unifast_portal/infrastructure/services/dal/dto/user_dto.dart';
-// import 'package:unifast_portal/infrastructure/services/backend_contract.dart';
+// import 'package:belluga_boilerplate/application/configurations/belluga_constants.dart';
+// import 'package:belluga_boilerplate/domain/auth/errors/belluga_auth_errors.dart';
+// import 'package:belluga_boilerplate/domain/repositories/auth_repository_contract.dart';
+// import 'package:belluga_boilerplate/domain/tenant/tenant.dart';
+// import 'package:belluga_boilerplate/infrastructure/services/dal/dto/course/category_dto.dart';
+// import 'package:belluga_boilerplate/infrastructure/services/dal/dto/course/course_item_summary_dto.dart';
+// import 'package:belluga_boilerplate/infrastructure/services/dal/dto/course/course_item_dto.dart';
+// import 'package:belluga_boilerplate/infrastructure/services/dal/dto/external_course_dto.dart';
+// import 'package:belluga_boilerplate/infrastructure/services/dal/dto/notes/note_dto.dart';
+// import 'package:belluga_boilerplate/infrastructure/services/dal/dto/user_dto.dart';
+// import 'package:belluga_boilerplate/infrastructure/services/backend_contract.dart';
 // import 'package:get_it/get_it.dart';
 
 // class LaravelBackend extends BackendContract {

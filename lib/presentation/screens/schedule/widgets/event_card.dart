@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:intl/intl.dart';
-import 'package:unifast_portal/domain/schedule/event_model.dart';
-import 'package:unifast_portal/presentation/screens/schedule/widgets/event_action_button.dart';
+import 'package:belluga_boilerplate/domain/schedule/event_model.dart';
+import 'package:belluga_boilerplate/presentation/screens/schedule/widgets/event_action_button.dart';
 
 class EventCard extends StatelessWidget {
   final EventModel event;

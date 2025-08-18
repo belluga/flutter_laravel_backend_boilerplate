@@ -1,4 +1,4 @@
-import 'package:unifast_portal/domain/external_course/external_course_model.dart';
+import 'package:belluga_boilerplate/domain/external_course/external_course_model.dart';
 
 class ExternalCoursesSummary {
   final int total;

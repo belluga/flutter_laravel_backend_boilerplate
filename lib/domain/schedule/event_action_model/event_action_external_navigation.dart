@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:unifast_portal/domain/schedule/event_action_model/event_action_model.dart';
+import 'package:belluga_boilerplate/domain/schedule/event_action_model/event_action_model.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:value_object_pattern/domain/value_objects/uri_value.dart';
 

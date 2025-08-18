@@ -1,12 +1,12 @@
 import 'package:flutter/cupertino.dart';
-import 'package:unifast_portal/domain/schedule/event_action_item_types.dart';
-import 'package:unifast_portal/domain/schedule/event_action_model/event_action_external_navigation.dart';
-import 'package:unifast_portal/domain/schedule/event_action_model/event_action_course_navigation.dart';
-import 'package:unifast_portal/domain/schedule/event_action_types.dart';
-import 'package:unifast_portal/domain/schedule/value_objects/event_action_Item_type_value.dart';
-import 'package:unifast_portal/domain/value_objects/color_value.dart';
-import 'package:unifast_portal/domain/value_objects/title_value.dart';
-import 'package:unifast_portal/infrastructure/services/dal/dto/schedule/event_actions_dto.dart';
+import 'package:belluga_boilerplate/domain/schedule/event_action_item_types.dart';
+import 'package:belluga_boilerplate/domain/schedule/event_action_model/event_action_external_navigation.dart';
+import 'package:belluga_boilerplate/domain/schedule/event_action_model/event_action_course_navigation.dart';
+import 'package:belluga_boilerplate/domain/schedule/event_action_types.dart';
+import 'package:belluga_boilerplate/domain/schedule/value_objects/event_action_Item_type_value.dart';
+import 'package:belluga_boilerplate/domain/value_objects/color_value.dart';
+import 'package:belluga_boilerplate/domain/value_objects/title_value.dart';
+import 'package:belluga_boilerplate/infrastructure/services/dal/dto/schedule/event_actions_dto.dart';
 import 'package:value_object_pattern/domain/value_objects/mongo_id_value.dart';
 import 'package:value_object_pattern/domain/value_objects/uri_value.dart';
 

@@ -1,8 +1,8 @@
-import 'package:unifast_portal/domain/courses/value_objects/slug_value.dart';
-import 'package:unifast_portal/domain/value_objects/color_value.dart';
-import 'package:unifast_portal/domain/value_objects/description_value.dart';
-import 'package:unifast_portal/domain/value_objects/title_value.dart';
-import 'package:unifast_portal/infrastructure/services/dal/dto/schedule/event_type_dto.dart';
+import 'package:belluga_boilerplate/domain/courses/value_objects/slug_value.dart';
+import 'package:belluga_boilerplate/domain/value_objects/color_value.dart';
+import 'package:belluga_boilerplate/domain/value_objects/description_value.dart';
+import 'package:belluga_boilerplate/domain/value_objects/title_value.dart';
+import 'package:belluga_boilerplate/infrastructure/services/dal/dto/schedule/event_type_dto.dart';
 import 'package:value_object_pattern/domain/value_objects/mongo_id_value.dart';
 
 class EventTypeModel {

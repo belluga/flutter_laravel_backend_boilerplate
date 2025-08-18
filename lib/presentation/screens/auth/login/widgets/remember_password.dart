@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:unifast_portal/domain/controllers/remember_password_contract.dart';
+import 'package:belluga_boilerplate/domain/controllers/remember_password_contract.dart';
 import 'package:get_it/get_it.dart';
 
 class RememberPassword extends StatelessWidget {

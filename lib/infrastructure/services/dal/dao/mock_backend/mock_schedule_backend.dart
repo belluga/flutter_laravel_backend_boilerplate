@@ -1,12 +1,12 @@
 import 'dart:convert';
 
 import 'package:flutter/services.dart';
-import 'package:unifast_portal/application/extensions/is_same_day.dart';
-import 'package:unifast_portal/application/functions/today.dart';
-import 'package:unifast_portal/infrastructure/services/dal/dto/schedule/event_dto.dart';
-import 'package:unifast_portal/infrastructure/services/dal/dto/schedule/event_summary_dto.dart';
-import 'package:unifast_portal/infrastructure/services/dal/dto/schedule/event_summary_item_dto.dart';
-import 'package:unifast_portal/infrastructure/services/schedule_backend_contract.dart';
+import 'package:belluga_boilerplate/application/extensions/is_same_day.dart';
+import 'package:belluga_boilerplate/application/functions/today.dart';
+import 'package:belluga_boilerplate/infrastructure/services/dal/dto/schedule/event_dto.dart';
+import 'package:belluga_boilerplate/infrastructure/services/dal/dto/schedule/event_summary_dto.dart';
+import 'package:belluga_boilerplate/infrastructure/services/dal/dto/schedule/event_summary_item_dto.dart';
+import 'package:belluga_boilerplate/infrastructure/services/schedule_backend_contract.dart';
 
 class MockScheduleBackend extends ScheduleBackendContract {
   @override

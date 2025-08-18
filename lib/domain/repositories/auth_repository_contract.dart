@@ -1,5 +1,5 @@
-import 'package:unifast_portal/infrastructure/services/backend_contract.dart';
-import 'package:unifast_portal/domain/user/user_contract.dart';
+import 'package:belluga_boilerplate/infrastructure/services/backend_contract.dart';
+import 'package:belluga_boilerplate/domain/user/user_contract.dart';
 import 'package:stream_value/core/stream_value.dart';
 
 abstract class AuthRepositoryContract<T extends UserContract> {

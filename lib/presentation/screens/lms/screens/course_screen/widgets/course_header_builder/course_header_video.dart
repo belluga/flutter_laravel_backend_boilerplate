@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:unifast_portal/domain/courses/course_item_model.dart';
-import 'package:unifast_portal/presentation/screens/lms/screens/course_screen/widgets/content_video_player/content_video_player.dart';
+import 'package:belluga_boilerplate/domain/courses/course_item_model.dart';
+import 'package:belluga_boilerplate/presentation/screens/lms/screens/course_screen/widgets/content_video_player/content_video_player.dart';
 
 class CourseHeaderVideo extends StatefulWidget {
   final CourseItemModel courseItemModel;

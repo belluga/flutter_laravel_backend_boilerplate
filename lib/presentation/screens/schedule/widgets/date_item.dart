@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:intl/intl.dart';
-import 'package:unifast_portal/domain/schedule/schedule_summary_item_model.dart';
-import 'package:unifast_portal/presentation/screens/schedule/controller/schedule_screen_controller.dart';
+import 'package:belluga_boilerplate/domain/schedule/schedule_summary_item_model.dart';
+import 'package:belluga_boilerplate/presentation/screens/schedule/controller/schedule_screen_controller.dart';
 
 class DateItem extends StatefulWidget {
   final DateTime date;

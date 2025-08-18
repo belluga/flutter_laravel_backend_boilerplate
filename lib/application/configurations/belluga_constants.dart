@@ -1,4 +1,4 @@
-import 'package:unifast_portal/domain/app_data/app_data.dart';
+import 'package:belluga_boilerplate/domain/app_data/app_data.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'dart:io' show Platform;
 import 'package:flutter/foundation.dart';

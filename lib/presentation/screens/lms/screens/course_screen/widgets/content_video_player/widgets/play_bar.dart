@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
-import 'package:unifast_portal/presentation/screens/lms/screens/course_screen/controllers/course_screen_controller.dart';
+import 'package:belluga_boilerplate/presentation/screens/lms/screens/course_screen/controllers/course_screen_controller.dart';
 import 'package:stream_value/core/stream_value_builder.dart';
-import 'package:unifast_portal/presentation/view_model/time_label.dart';
+import 'package:belluga_boilerplate/presentation/view_model/time_label.dart';
 import 'package:video_player/video_player.dart';
 
 class PlayBar extends StatefulWidget {

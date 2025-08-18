@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:unifast_portal/application/configurations/widget_keys.dart';
-import 'package:unifast_portal/domain/controllers/recovery_password_token_controller_contract.dart';
-import 'package:unifast_portal/presentation/screens/auth/recovery_password_bug/controller/recovery_password_token_controller.dart';
-import 'package:unifast_portal/presentation/screens/auth/widgets/auth_email_field.dart';
+import 'package:belluga_boilerplate/application/configurations/widget_keys.dart';
+import 'package:belluga_boilerplate/domain/controllers/recovery_password_token_controller_contract.dart';
+import 'package:belluga_boilerplate/presentation/screens/auth/recovery_password_bug/controller/recovery_password_token_controller.dart';
+import 'package:belluga_boilerplate/presentation/screens/auth/widgets/auth_email_field.dart';
 import 'package:get_it/get_it.dart';
 import 'package:stream_value/core/stream_value_builder.dart';
 

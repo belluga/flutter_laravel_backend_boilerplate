@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:unifast_portal/application/router/app_router.gr.dart';
-import 'package:unifast_portal/application/router/guards/auth_route_guard.dart';
-import 'package:unifast_portal/application/router/guards/tenant_route_guard.dart';
+import 'package:belluga_boilerplate/application/router/app_router.gr.dart';
+import 'package:belluga_boilerplate/application/router/guards/auth_route_guard.dart';
+import 'package:belluga_boilerplate/application/router/guards/tenant_route_guard.dart';
 
 @AutoRouterConfig()
 class AppRouter extends RootStackRouter {

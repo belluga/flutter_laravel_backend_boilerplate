@@ -1,6 +1,6 @@
-import 'package:unifast_portal/domain/app_data/app_data.dart';
-import 'package:unifast_portal/domain/tenant/tenant.dart';
-import 'package:unifast_portal/infrastructure/services/backend_contract.dart';
+import 'package:belluga_boilerplate/domain/app_data/app_data.dart';
+import 'package:belluga_boilerplate/domain/tenant/tenant.dart';
+import 'package:belluga_boilerplate/infrastructure/services/backend_contract.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 abstract class TenantRepositoryContract {

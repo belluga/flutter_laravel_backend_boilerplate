@@ -1,4 +1,4 @@
-import 'package:unifast_portal/domain/tenant/tenant.dart';
+import 'package:belluga_boilerplate/domain/tenant/tenant.dart';
 
 abstract class TenantBackendContract {
 

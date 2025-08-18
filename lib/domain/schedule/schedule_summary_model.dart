@@ -1,5 +1,5 @@
-import 'package:unifast_portal/domain/schedule/schedule_summary_item_model.dart';
-import 'package:unifast_portal/infrastructure/services/dal/dto/schedule/event_summary_dto.dart';
+import 'package:belluga_boilerplate/domain/schedule/schedule_summary_item_model.dart';
+import 'package:belluga_boilerplate/infrastructure/services/dal/dto/schedule/event_summary_dto.dart';
 
 class ScheduleSummaryModel {
   final List<ScheduleSummaryItemModel> items;

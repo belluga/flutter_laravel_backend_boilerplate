@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:unifast_portal/presentation/screens/home_landlord/controllers/landlord_home_screen_controller.dart';
+import 'package:belluga_boilerplate/presentation/screens/home_landlord/controllers/landlord_home_screen_controller.dart';
 import 'package:flutter/material.dart';
-import 'package:unifast_portal/application/configurations/belluga_constants.dart';
+import 'package:belluga_boilerplate/application/configurations/belluga_constants.dart';
 import 'package:get_it/get_it.dart';
 
 @RoutePage()

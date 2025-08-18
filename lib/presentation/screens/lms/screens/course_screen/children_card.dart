@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:unifast_portal/domain/courses/course_base_model.dart';
-import 'package:unifast_portal/presentation/common/widgets/image_with_progress_indicator.dart';
+import 'package:belluga_boilerplate/domain/courses/course_base_model.dart';
+import 'package:belluga_boilerplate/presentation/common/widgets/image_with_progress_indicator.dart';
 import 'package:get_it/get_it.dart';
-import 'package:unifast_portal/presentation/screens/lms/screens/course_screen/controllers/course_screen_controller.dart';
+import 'package:belluga_boilerplate/presentation/screens/lms/screens/course_screen/controllers/course_screen_controller.dart';
 
 class ChildrenCard extends StatefulWidget {
   final CourseBaseModel courseItemModel;

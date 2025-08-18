@@ -1,4 +1,4 @@
-import 'package:unifast_portal/infrastructure/services/dal/dto/schedule/event_summary_item_dto.dart';
+import 'package:belluga_boilerplate/infrastructure/services/dal/dto/schedule/event_summary_item_dto.dart';
 
 class ScheduleSummaryItemModel {
   final String? color;

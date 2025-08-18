@@ -1,7 +1,7 @@
 import 'package:get_it/get_it.dart';
 import 'package:stream_value/main.dart';
-import 'package:unifast_portal/domain/repositories/schedule_repository_contract.dart';
-import 'package:unifast_portal/domain/schedule/event_model.dart';
+import 'package:belluga_boilerplate/domain/repositories/schedule_repository_contract.dart';
+import 'package:belluga_boilerplate/domain/schedule/event_model.dart';
 
 class NextEventsDashboardController {
   final _scheduleRepository = GetIt.I.get< ScheduleRepositoryContract>();

@@ -1,18 +1,18 @@
 import 'package:auto_route/annotations.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:unifast_portal/domain/courses/course_item_model.dart';
-import 'package:unifast_portal/domain/notes/note_model.dart';
-import 'package:unifast_portal/presentation/screens/lms/screens/course_screen/controllers/course_screen_controller.dart';
-import 'package:unifast_portal/presentation/screens/lms/screens/course_screen/widgets/content_video_player/enums/tab_content_type.dart';
-import 'package:unifast_portal/presentation/screens/lms/screens/course_screen/widgets/course_floating_action_buttons.dart';
-import 'package:unifast_portal/presentation/screens/lms/screens/course_screen/widgets/course_header_builder/course_header_builder.dart';
-import 'package:unifast_portal/presentation/screens/lms/screens/course_screen/widgets/tabs/childrens_list.dart';
-import 'package:unifast_portal/presentation/screens/lms/screens/course_screen/widgets/tabs/files_list.dart';
+import 'package:belluga_boilerplate/domain/courses/course_item_model.dart';
+import 'package:belluga_boilerplate/domain/notes/note_model.dart';
+import 'package:belluga_boilerplate/presentation/screens/lms/screens/course_screen/controllers/course_screen_controller.dart';
+import 'package:belluga_boilerplate/presentation/screens/lms/screens/course_screen/widgets/content_video_player/enums/tab_content_type.dart';
+import 'package:belluga_boilerplate/presentation/screens/lms/screens/course_screen/widgets/course_floating_action_buttons.dart';
+import 'package:belluga_boilerplate/presentation/screens/lms/screens/course_screen/widgets/course_header_builder/course_header_builder.dart';
+import 'package:belluga_boilerplate/presentation/screens/lms/screens/course_screen/widgets/tabs/childrens_list.dart';
+import 'package:belluga_boilerplate/presentation/screens/lms/screens/course_screen/widgets/tabs/files_list.dart';
 import 'package:get_it/get_it.dart';
 import 'package:stream_value/core/stream_value_builder.dart';
-import 'package:unifast_portal/presentation/screens/lms/screens/course_screen/widgets/tabs/notes_list.dart';
-import 'package:unifast_portal/presentation/screens/notes/widgets/add_note/add_note_bottom_modal.dart';
+import 'package:belluga_boilerplate/presentation/screens/lms/screens/course_screen/widgets/tabs/notes_list.dart';
+import 'package:belluga_boilerplate/presentation/screens/notes/widgets/add_note/add_note_bottom_modal.dart';
 
 @RoutePage()
 class CourseScreen extends StatefulWidget {

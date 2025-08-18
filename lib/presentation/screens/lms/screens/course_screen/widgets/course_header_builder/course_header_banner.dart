@@ -1,10 +1,10 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:unifast_portal/domain/courses/course_category_model.dart';
-import 'package:unifast_portal/domain/courses/course_item_model.dart';
-import 'package:unifast_portal/presentation/common/widgets/image_with_progress_indicator.dart';
-import 'package:unifast_portal/presentation/screens/lms/widgets/category_chip.dart';
+import 'package:belluga_boilerplate/domain/courses/course_category_model.dart';
+import 'package:belluga_boilerplate/domain/courses/course_item_model.dart';
+import 'package:belluga_boilerplate/presentation/common/widgets/image_with_progress_indicator.dart';
+import 'package:belluga_boilerplate/presentation/screens/lms/widgets/category_chip.dart';
 
 class CourseHeaderBanner extends StatelessWidget {
   final CourseItemModel courseItemModel;

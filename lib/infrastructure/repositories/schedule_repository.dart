@@ -1,3 +1,3 @@
-import 'package:unifast_portal/domain/repositories/schedule_repository_contract.dart';
+import 'package:belluga_boilerplate/domain/repositories/schedule_repository_contract.dart';
 
 class ScheduleRepository extends ScheduleRepositoryContract {}

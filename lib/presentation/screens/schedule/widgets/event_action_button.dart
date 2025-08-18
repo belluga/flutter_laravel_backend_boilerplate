@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:unifast_portal/domain/schedule/event_action_model/event_action_model.dart';
+import 'package:belluga_boilerplate/domain/schedule/event_action_model/event_action_model.dart';
 
 class EventActionButton extends StatefulWidget {
   final EventActionModel eventAction;
