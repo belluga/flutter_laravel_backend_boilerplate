@@ -28,8 +28,6 @@ class _NextVideoButtonState extends State<NextVideoButton> {
           widget.videoPercentage,
         );
 
-        print("_buttonOpacity: $_buttonOpacity");
-
         if(_buttonOpacity == 0.0){
           return SizedBox.shrink();
         }

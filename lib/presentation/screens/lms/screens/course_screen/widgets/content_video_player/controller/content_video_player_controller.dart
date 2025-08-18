@@ -108,7 +108,6 @@ class ContentVideoPlayerController extends Disposable {
       final playedPercentage =
           position.inMilliseconds / duration.inMilliseconds;
 
-      print("playedPercentage: $playedPercentage");
       videoWatchPercentage.addValue(playedPercentage);
     }
 
