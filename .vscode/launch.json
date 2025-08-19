@@ -4,29 +4,17 @@
     "configurations": [
         {
             // O nome que vai aparecer no menu do VS Code
-            "name": "Portal Unifast (Debug)",
+            "name": "Belluga (Debug)",
             "request": "launch",
             "type": "dart",
             "flutterMode": "debug",
             // Aqui está a mágica: os argumentos que você usava no terminal
             "args": [
                 "--flavor",
-                "unifast",
+                "belluga",
                 "--dart-define=FLAVOR=unifast"
             ]
         },
-        {
-            // Exemplo para um segundo flavor
-            "name": "Dra Jéssica (Debug)",
-            "request": "launch",
-            "type": "dart",
-            "flutterMode": "debug",
-            "args": [
-                "--flavor",
-                "drajessica",
-                "--dart-define=FLAVOR=drajessica"
-            ]
-        }
         // Você pode adicionar mais configurações para "profile" ou "release" aqui
     ]
 }

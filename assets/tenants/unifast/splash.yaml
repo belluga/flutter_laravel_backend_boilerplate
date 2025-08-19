@@ -5,5 +5,5 @@ flutter_native_splash:
   web: false
 
   android_12:
-    color: "#004b7c"
-    image: "assets/tenants/unifast/splash_screen/splash_logo.png"
+    color: "#ffffff"
+    image: "assets/tenants/unifast/launcher_icons/adaptive_icon_foreground.png"

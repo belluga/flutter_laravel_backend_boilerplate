@@ -10,14 +10,14 @@ class MockTenantBackend extends TenantBackendContract {
   @override
   Future<Tenant> getTenant() async {
     return Tenant(
-      name: TenantNameValue()..parse("Portal Unifast"),
+      name: TenantNameValue()..parse("Belluga Tenant"),
       mainLogoUrl: MainLogoUrlValue()..parse("https://logodownload.org/wp-content/uploads/2018/08/aurora-logo-0.png"),
-      subdomain: SubdomainValue()..parse("unifast"),
+      subdomain: SubdomainValue()..parse("belluga"),
       domains: [
         // DomainValue()..parse("https://guarappari.com.br"),
       ],
       appDomains: [
-        AppDomainValue()..parse("com.unifastportal.app"),
+        AppDomainValue()..parse("com.boilerplatebelluga.app"),
       ]
     );
   }
