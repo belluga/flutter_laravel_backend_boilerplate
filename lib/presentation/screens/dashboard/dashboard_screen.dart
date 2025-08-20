@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:belluga_boilerplate/presentation/widgets/sliver_dashboard_widget_animated.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:stream_value/core/stream_value_builder.dart';
@@ -59,16 +60,18 @@ class _DashboardScreenState extends State<DashboardScreen> {
             onNullWidget: SliverToBoxAdapter(child: SizedBox.shrink()),
             streamValue: _controller.fastTracksItemsStreamValue,
             builder: (context, fastTracks) {
-
-              if(fastTracks.isEmpty){
+              if (fastTracks.isEmpty) {
                 return SliverToBoxAdapter(child: SizedBox.shrink());
               }
 
-              return CourseTracksSliver(
-                showAllLabel: "Ver Todas",
-                onShowAllPressed: () =>
-                    context.router.push(FastTrackListRoute()),
-                fastTracks: fastTracks,
+              return SliverDashboardWidgetAnimated(
+                isVisible: fastTracks.isNotEmpty,
+                sliver: CourseTracksSliver(
+                  showAllLabel: "Ver Todas",
+                  onShowAllPressed: () =>
+                      context.router.push(FastTrackListRoute()),
+                  fastTracks: fastTracks,
+                ),
               );
             },
           ),

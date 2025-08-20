@@ -1,3 +1,4 @@
+import 'package:belluga_boilerplate/presentation/widgets/dashboard_widget_animated.dart';
 import 'package:flutter/material.dart';
 import 'package:belluga_boilerplate/presentation/common/widgets/dashboard_items_summary.dart';
 import 'package:belluga_boilerplate/presentation/screens/dashboard/controllers/external_course_dashboard_controller.dart';
@@ -33,14 +34,14 @@ class _ExternalCoursesDashboardState extends State<ExternalCoursesDashboard> {
       streamValue: _controller.externalCoursesSummaryStreamValue,
       onNullWidget: SizedBox.shrink(),
       builder: (context, courseSummary) {
-        if (courseSummary.items.isEmpty) {
-          return SizedBox.shrink();
-        }
-
-        return DashboardItemsSummary(
-          title: "Cursos Externos",
-          itemsPerRow: 1.1,
-          itemsBuilder: _itemsBuilder,
+        
+        return DashboardWidgetAnimated(
+          isVisible: courseSummary.items.isNotEmpty,
+          child: DashboardItemsSummary(
+            title: "Cursos Externos",
+            itemsPerRow: 1.1,
+            itemsBuilder: _itemsBuilder,
+          ),
         );
       },
     );

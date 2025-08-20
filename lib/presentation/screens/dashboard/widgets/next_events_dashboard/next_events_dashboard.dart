@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:belluga_boilerplate/presentation/widgets/dashboard_widget_animated.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:stream_value/core/stream_value_builder.dart';
@@ -28,20 +29,20 @@ class _NextEventsDashboardState extends State<NextEventsDashboard> {
   @override
   Widget build(BuildContext context) {
     return StreamValueBuilder<List<EventModel>?>(
-        streamValue: _controller.nextEventsStreamValue,
-        builder: (context, evemts) {
-          return AnimatedSlide(
-            offset: evemts != null ? Offset.zero : Offset(1, 0),
-            duration: Duration(milliseconds: 300),
-            child: DashboardItemsSummary(
-              title: "Próximos Eventos",
-              itemsPerRow: 1.2,
-              onShowAllPressed: _navigateToSchedule,
-              showAllLabel: "Ver todos",
-              itemsBuilder: _itemsBuilder,
-            ),
-          );
-        });
+      streamValue: _controller.nextEventsStreamValue,
+      builder: (context, events) {
+        return DashboardWidgetAnimated(
+          isVisible: events != null && events.isNotEmpty,
+          child: DashboardItemsSummary(
+            title: "Próximos Eventos",
+            itemsPerRow: 1.2,
+            onShowAllPressed: _navigateToSchedule,
+            showAllLabel: "Ver todos",
+            itemsBuilder: _itemsBuilder,
+          ),
+        );
+      },
+    );
   }
 
   Widget? _itemsBuilder(BuildContext context, int index) {

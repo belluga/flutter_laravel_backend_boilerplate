@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:belluga_boilerplate/presentation/widgets/dashboard_widget_animated.dart';
 import 'package:flutter/material.dart';
 import 'package:belluga_boilerplate/application/router/app_router.gr.dart';
 import 'package:belluga_boilerplate/presentation/common/widgets/dashboard_items_summary.dart';
@@ -25,17 +26,18 @@ class _MyCoursesDashboardState extends State<MyCoursesDashboard> {
       onNullWidget: SizedBox.shrink(),
       builder: (context, myCourseSuummary) {
 
-        if(myCourseSuummary.items.isEmpty) return SizedBox.shrink();
-
         final _showInScreen = myCourseSuummary.total == 1 ? 1.1 : 1.3;
 
-        return DashboardItemsSummary(
-          title: "Meus Cursos",
-          itemHeight: 150,
-          itemsPerRow: _showInScreen,
-          showAllLabel: "Ver todos",
-          onShowAllPressed: _navigateToAllCourses,
-          itemsBuilder: _itemsBuilder,
+        return DashboardWidgetAnimated(
+          isVisible: myCourseSuummary.items.isNotEmpty,
+          child: DashboardItemsSummary(
+            title: "Meus Cursos",
+            itemHeight: 150,
+            itemsPerRow: _showInScreen,
+            showAllLabel: "Ver todos",
+            onShowAllPressed: _navigateToAllCourses,
+            itemsBuilder: _itemsBuilder,
+          ),
         );
       },
     );

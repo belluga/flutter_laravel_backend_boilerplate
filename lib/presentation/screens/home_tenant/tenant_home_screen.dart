@@ -20,7 +20,6 @@ class _TenantHomeScreenState extends State<TenantHomeScreen> {
   @override
   void initState() {
     super.initState();
-    print("INIT TENANT HOME");
     _controller = GetIt.I.registerSingleton<TenantHomeScreenController>(
       TenantHomeScreenController(),
     );
@@ -49,7 +48,6 @@ class _TenantHomeScreenState extends State<TenantHomeScreen> {
 
   @override
   void dispose() {
-    print("TENANT HOME DISPOSE");
     super.dispose();
     GetIt.I.unregister<TenantHomeScreenController>();
   }
