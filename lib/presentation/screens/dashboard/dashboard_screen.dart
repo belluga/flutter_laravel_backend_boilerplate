@@ -76,4 +76,10 @@ class _DashboardScreenState extends State<DashboardScreen> {
       ),
     );
   }
+
+  @override
+  void dispose() {
+    super.dispose();
+    GetIt.I.unregister<MyCoursesDashboardController>();
+  }
 }

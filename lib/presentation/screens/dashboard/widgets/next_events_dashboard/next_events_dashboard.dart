@@ -91,4 +91,10 @@ class _NextEventsDashboardState extends State<NextEventsDashboard> {
   }
 
   void _navigateToSchedule() => context.router.push(const ScheduleRoute());
+
+  @override
+  void dispose() {
+    super.dispose();
+    GetIt.I.unregister<NextEventsDashboardController>();
+  }
 }

@@ -58,4 +58,10 @@ class _ExternalCoursesDashboardState extends State<ExternalCoursesDashboard> {
 
     return ExternalCourseCard(course: _course);
   }
+
+  @override
+  void dispose() {
+    GetIt.I.unregister<ExternalCourseDashboardController>();
+    super.dispose();
+  }
 }

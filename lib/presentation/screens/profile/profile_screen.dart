@@ -160,7 +160,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
   }
 
   void _navigateToHome() {
+    print("pop until home");
     context.router.popUntilRoot();
+    print(context.router.stack);
   }
 
   @override
