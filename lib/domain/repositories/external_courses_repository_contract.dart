@@ -1,7 +1,7 @@
 import 'package:belluga_boilerplate/domain/external_course/external_course_model.dart';
 import 'package:belluga_boilerplate/infrastructure/services/dal/dto/external_course_dto.dart';
 import 'package:belluga_boilerplate/infrastructure/services/backend_contract.dart';
-import 'package:belluga_boilerplate/presentation/screens/dashboard/view_models/external_courses_summary.dart';
+import 'package:belluga_boilerplate/presentation/screens/tenants/dashboard/view_models/external_courses_summary.dart';
 import 'package:get_it/get_it.dart';
 import 'package:stream_value/core/stream_value.dart';
 

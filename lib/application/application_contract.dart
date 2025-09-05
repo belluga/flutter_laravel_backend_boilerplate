@@ -1,3 +1,5 @@
+import 'package:belluga_boilerplate/domain/repositories/landlord_repository_contract.dart';
+import 'package:belluga_boilerplate/infrastructure/repositories/landlord_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:belluga_boilerplate/application/configurations/custom_scroll_behavior.dart';
 import 'package:belluga_boilerplate/application/router/app_router.dart';
@@ -64,6 +66,11 @@ abstract class ApplicationContract extends StatelessWidget {
   }
 
   Future<void> _initInjections() async {
+
+    GetIt.I.registerLazySingleton<LandlordRepositoryContract>(
+      () => LandlordRepository(),
+    );
+
     GetIt.I.registerLazySingleton<AuthRepositoryContract>(
       () => initAuthRepository(),
     );

@@ -1,4 +1,5 @@
 import 'package:belluga_boilerplate/infrastructure/services/auth_backend_contract.dart';
+import 'package:belluga_boilerplate/infrastructure/services/landlord_backend_contract.dart';
 import 'package:belluga_boilerplate/infrastructure/services/tenant_backend_contract.dart';
 import 'package:belluga_boilerplate/infrastructure/services/notes_backend_contract.dart';
 import 'package:belluga_boilerplate/infrastructure/services/courses_backend_contract.dart';
@@ -11,4 +12,5 @@ abstract class BackendContract {
   CoursesBackendContract get courses;
   ScheduleBackendContract get schedule;
   TenantBackendContract get tenant;
+  LandlordBackendContract get landlord;
 }

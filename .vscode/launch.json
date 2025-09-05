@@ -4,7 +4,7 @@
     "configurations": [
         {
             // O nome que vai aparecer no menu do VS Code
-            "name": "Belluga (Debug)",
+            "name": "Belluga - Tenant (Debug)",
             "request": "launch",
             "type": "dart",
             "flutterMode": "debug",
@@ -12,7 +12,20 @@
             "args": [
                 "--flavor",
                 "belluga",
-                "--dart-define=FLAVOR=unifast"
+                "--dart-define=FLAVOR=belluga"
+            ]
+        },
+        {
+            // O nome que vai aparecer no menu do VS Code
+            "name": "Belluga NOW - Landlord (Debug)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "debug",
+            // Aqui está a mágica: os argumentos que você usava no terminal
+            "args": [
+                "--flavor",
+                "landlord",
+                "--dart-define=FLAVOR=landlord"
             ]
         },
         // Você pode adicionar mais configurações para "profile" ou "release" aqui

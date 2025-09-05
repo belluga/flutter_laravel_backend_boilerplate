@@ -2,7 +2,9 @@ import 'package:belluga_boilerplate/infrastructure/services/auth_backend_contrac
 import 'package:belluga_boilerplate/infrastructure/services/courses_backend_contract.dart';
 import 'package:belluga_boilerplate/infrastructure/services/backend_contract.dart';
 import 'package:belluga_boilerplate/infrastructure/services/dal/dao/mock_backend/mock_auth_backend.dart';
+import 'package:belluga_boilerplate/infrastructure/services/dal/dao/mock_backend/mock_landlord_backend.dart';
 import 'package:belluga_boilerplate/infrastructure/services/dal/dao/mock_backend/mock_tenant_backend.dart';
+import 'package:belluga_boilerplate/infrastructure/services/landlord_backend_contract.dart';
 import 'package:belluga_boilerplate/infrastructure/services/tenant_backend_contract.dart';
 import 'package:belluga_boilerplate/infrastructure/services/dal/dao/mock_backend/mock_courses_backend.dart';
 import 'package:belluga_boilerplate/infrastructure/services/dal/dao/mock_backend/mock_notes_backend.dart';
@@ -25,4 +27,7 @@ class MockBackend extends BackendContract {
 
   @override
   final TenantBackendContract tenant = MockTenantBackend();
+
+  @override
+  final LandlordBackendContract landlord = MockLandlordBackend();
 }

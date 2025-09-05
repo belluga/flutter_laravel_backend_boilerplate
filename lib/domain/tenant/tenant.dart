@@ -5,6 +5,7 @@ import 'package:belluga_boilerplate/domain/tenant/value_objects/domain_value.dar
 import 'package:belluga_boilerplate/domain/tenant/value_objects/main_logo_url_value.dart';
 import 'package:belluga_boilerplate/domain/tenant/value_objects/subdomain_value.dart';
 import 'package:belluga_boilerplate/domain/tenant/value_objects/tenant_name_value.dart';
+import 'package:belluga_boilerplate/domain/theme_data_settings/theme_data_settings.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:get_it/get_it.dart';
 
@@ -14,11 +15,13 @@ class Tenant {
   final MainLogoUrlValue mainLogoUrl;
   final List<DomainValue>? domains;
   final List<AppDomainValue>? appDomains;
+  final ThemeDataSettings themeDataSettings;
 
   Tenant({
     required this.name,
     required this.subdomain,
     required this.mainLogoUrl,
+    required this.themeDataSettings,
     this.domains,
     this.appDomains,
   });
