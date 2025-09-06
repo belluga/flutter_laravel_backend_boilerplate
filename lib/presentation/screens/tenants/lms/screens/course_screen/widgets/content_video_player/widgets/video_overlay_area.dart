@@ -74,7 +74,7 @@ class _VideoOverlayAreaState extends State<VideoOverlayArea> {
             children: [
               ImageWithProgressIndicator(
                 borderRadius: BorderRadius.circular(0),
-                thumb: widget.courseItemModel.content?.video?.thumb,
+                uri: widget.courseItemModel.content?.video?.thumb.thumbUri.value,
               ),
               Container(
                 color: _controller.contentVideoPlayerController.alreadyStarted

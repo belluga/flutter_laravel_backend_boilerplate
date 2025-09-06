@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:belluga_boilerplate/domain/courses/thumb_model.dart';
 
 class ImageWithProgressIndicator extends StatelessWidget {
-  final ThumbModel? thumb;
-  final double? width;
-  final double? height;
+  final Uri? uri;
+  final double width;
+  final double height;
   final BorderRadius? borderRadius;
 
   const ImageWithProgressIndicator({
     super.key,
-    required this.thumb,
+    required this.uri,
     this.width = 80,
     this.height = 80,
     this.borderRadius,
@@ -17,31 +16,47 @@ class ImageWithProgressIndicator extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final ThumbModel? _thumbModel = thumb;
+    final Uri? _uri = uri;
+    if (_uri == null) {
+      return Container(
+        width: width,
+        height: height,
+        decoration: BoxDecoration(
+          borderRadius: borderRadius ?? BorderRadius.circular(8),
+        ),
+        child: const Icon(Icons.broken_image),
+      );
+    }
 
-    return SizedBox(
-      width: width,
-      height: height,
-      child: Stack(
-        children: [
-          Center(
-            child: SizedBox(
-              width: 24,
-              height: 24,
-              child: CircularProgressIndicator(),
+    return ClipRRect(
+      borderRadius: borderRadius ?? BorderRadius.circular(8),
+      child: Image.network(
+        _uri.toString(),
+        width: width,
+        height: height,
+        fit: BoxFit.cover,
+        loadingBuilder: (BuildContext context, Widget child,
+            ImageChunkEvent? loadingProgress) {
+          if (loadingProgress == null) {
+            return child;
+          }
+          return SizedBox(
+            width: width,
+            height: height,
+            child: const Center(
+              child: SizedBox(
+                  width: 20, height: 20, child: CircularProgressIndicator()),
             ),
-          ),
-          if (_thumbModel != null)
-            Container(
-              decoration: BoxDecoration(
-                borderRadius: borderRadius ?? BorderRadius.circular(8),
-                image: DecorationImage(
-                  image: Image.network(_thumbModel.thumbUri.toString()).image,
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ),
-        ],
+          );
+        },
+        errorBuilder: (context, error, stackTrace) {
+          return SizedBox(
+            width: width,
+            height: height,
+            child: Icon(Icons.error_outline,
+                color: Theme.of(context).colorScheme.error),
+          );
+        },
       ),
     );
   }

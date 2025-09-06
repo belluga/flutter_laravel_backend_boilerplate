@@ -30,7 +30,7 @@ class ExternalCourseDetailsBottomSheetContent extends StatelessWidget {
               ),
             ),
           ),
-          ImageWithProgressIndicator(thumb: course.thumb),
+          ImageWithProgressIndicator(uri: course.thumb.thumbUri.value),
           Padding(
             padding: const EdgeInsets.fromLTRB(24, 24, 24, 32),
             child: Column(

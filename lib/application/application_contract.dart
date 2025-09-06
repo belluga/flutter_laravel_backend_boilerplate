@@ -53,7 +53,6 @@ abstract class ApplicationContract extends StatefulWidget {
     final appData = AppData()..initialize();
     await appData.initialize();
     GetIt.I.registerSingleton<AppData>(appData);
-    GetIt.I.registerLazySingleton(() => ThemeRepository());
   }
 
   Future<void> _initBackend() async {
@@ -67,9 +66,15 @@ abstract class ApplicationContract extends StatefulWidget {
   }
 
   Future<void> _initInjections() async {
+    
+    final _landlordRepository = LandlordRepository();
+    await _landlordRepository.init();
+
     GetIt.I.registerLazySingleton<LandlordRepositoryContract>(
-      () => LandlordRepository(),
+      () => _landlordRepository,
     );
+
+    GetIt.I.registerLazySingleton(() => ThemeRepository());
 
     GetIt.I.registerLazySingleton<AuthRepositoryContract>(
       () => initAuthRepository(),

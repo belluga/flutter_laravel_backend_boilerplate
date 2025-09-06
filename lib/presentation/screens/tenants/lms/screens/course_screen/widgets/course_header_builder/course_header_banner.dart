@@ -21,7 +21,7 @@ class CourseHeaderBanner extends StatelessWidget {
               fit: StackFit.expand,
               children: [
                 ImageWithProgressIndicator(
-                  thumb: courseItemModel.thumb,
+                  uri: courseItemModel.thumb.thumbUri.value,
                 ),
                 BackdropFilter(
                   filter: ImageFilter.blur(sigmaX: 5.0, sigmaY: 5.0),

@@ -39,7 +39,7 @@ class _ChildrenCardState extends State<ChildrenCard> {
               ImageWithProgressIndicator(
                 width: 80,
                 height: 80,
-                thumb: widget.courseItemModel.thumb,
+                uri: widget.courseItemModel.thumb.thumbUri.value,
               ),
               Expanded(
                 child: Padding(

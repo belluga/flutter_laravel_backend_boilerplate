@@ -1,10 +1,11 @@
 import 'package:belluga_boilerplate/application/extensions/to_hex.dart';
 import 'package:belluga_boilerplate/domain/tenant/tenant.dart';
 import 'package:belluga_boilerplate/domain/tenant/value_objects/app_domain_value.dart';
-import 'package:belluga_boilerplate/domain/tenant/value_objects/main_logo_url_value.dart';
+import 'package:belluga_boilerplate/domain/tenant/value_objects/logo_url_value.dart';
 import 'package:belluga_boilerplate/domain/tenant/value_objects/subdomain_value.dart';
 import 'package:belluga_boilerplate/domain/tenant/value_objects/tenant_name_value.dart';
 import 'package:belluga_boilerplate/domain/theme_data_settings/color_scheme_data.dart';
+import 'package:belluga_boilerplate/domain/theme_data_settings/logo_settings.dart';
 import 'package:belluga_boilerplate/domain/theme_data_settings/theme_data_settings.dart';
 import 'package:belluga_boilerplate/domain/theme_data_settings/value_objects/brightness_value.dart';
 import 'package:belluga_boilerplate/domain/theme_data_settings/value_objects/use_material3_value.dart';
@@ -16,9 +17,20 @@ class MockTenantBackend extends TenantBackendContract {
   Future<Tenant> getTenant() async {
     return Tenant(
         name: TenantNameValue()..parse("Belluga Tenant"),
-        mainLogoUrl: MainLogoUrlValue()
-          ..parse(
-              "https://logodownload.org/wp-content/uploads/2018/08/aurora-logo-0.png"),
+        logoSettings: LogoSettings(
+          lightLogoUri: LogoUriValue()
+            ..parse(
+                "https://unifast.com.br/wp-content/uploads/2022/05/unifast-Principal_2.png"),
+          darkLogoUri: LogoUriValue()
+            ..parse(
+                "https://unifast.com.br/wp-content/uploads/2022/05/Principal_1-fundoescuro1.png"),
+          lightIconUri: LogoUriValue()
+            ..parse(
+                "https://unifast.com.br/wp-content/uploads/2022/05/favicon-unifast.png"),
+          darkIconUri: LogoUriValue()
+            ..parse(
+                "https://unifast.com.br/wp-content/uploads/2022/05/favicon-unifast.png"),
+        ),
         subdomain: SubdomainValue()..parse("belluga"),
         themeDataSettings: ThemeDataSettings(
           darkSchemeData: ColorSchemeData(

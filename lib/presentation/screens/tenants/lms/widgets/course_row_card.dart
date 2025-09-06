@@ -25,7 +25,7 @@ class _CourseRowCardState extends State<CourseRowCard> {
             ImageWithProgressIndicator(
               width: 100,
               borderRadius: BorderRadius.horizontal(left: Radius.circular(8)),
-              thumb: widget.course.thumb,
+              uri: widget.course.thumb.thumbUri.value,
             ),
             Expanded(
               child: Padding(

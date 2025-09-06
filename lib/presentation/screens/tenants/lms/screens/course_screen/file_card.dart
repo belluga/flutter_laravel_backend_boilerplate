@@ -31,7 +31,8 @@ class _FileCardState extends State<FileCard> {
                 child: ImageWithProgressIndicator(
                   width: 80,
                   height: 80,
-                  thumb: widget.fileModel.thumb),
+                  uri: widget.fileModel.thumb.thumbUri.value,
+                ),
               ),
               Expanded(
                 child: Padding(
@@ -81,8 +82,8 @@ class _FileCardState extends State<FileCard> {
         content: Text(
           'O arquivo ${widget.fileModel.title.valueFormated} não pôde ser baixado. Tente mais tarde.',
           style: TextTheme.of(context).bodyMedium?.copyWith(
-            color: Theme.of(context).colorScheme.onErrorContainer,
-          ),
+                color: Theme.of(context).colorScheme.onErrorContainer,
+              ),
         ),
       ),
     );

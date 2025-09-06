@@ -1,8 +1,8 @@
 import 'package:value_object_pattern/domain/value_objects/uri_value.dart';
 
-class MainLogoUrlValue extends URIValue {
-  MainLogoUrlValue({
+class LogoUriValue extends URIValue {
+  LogoUriValue({
     super.defaultValue,
-    super.isRequired = false,
+    super.isRequired = true,
   });
 }

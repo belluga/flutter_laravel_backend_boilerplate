@@ -25,7 +25,7 @@ class _FastTrackCardState extends State<FastTrackCard> {
         child: Stack(
           children: [
             ImageWithProgressIndicator(
-              thumb: widget.courseModel.thumb,
+              uri: widget.courseModel.thumb.thumbUri.value,
               width: double.infinity,
               height: 200,
             ),

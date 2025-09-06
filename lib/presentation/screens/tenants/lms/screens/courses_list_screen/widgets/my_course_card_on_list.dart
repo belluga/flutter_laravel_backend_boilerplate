@@ -31,7 +31,9 @@ class _MyCourseCardOnListState extends State<MyCourseCardOnList> {
             ),
             child: Row(
               children: [
-                ImageWithProgressIndicator(thumb: widget.course.thumb),
+                ImageWithProgressIndicator(
+                  uri: widget.course.thumb.thumbUri.value,
+                ),
                 Expanded(
                   child: Padding(
                     padding: EdgeInsetsGeometry.all(16),

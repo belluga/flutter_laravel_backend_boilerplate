@@ -30,7 +30,7 @@ class _ExternalCourseCardState extends State<ExternalCourseCard> {
           children: [
             ImageWithProgressIndicator(
               borderRadius: BorderRadius.horizontal(left: Radius.circular(8)),
-              thumb: widget.course.thumb,
+              uri: widget.course.thumb.thumbUri.value,
             ),
             Expanded(
               child: Padding(
