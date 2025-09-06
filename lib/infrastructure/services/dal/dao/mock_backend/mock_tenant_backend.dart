@@ -1,3 +1,4 @@
+import 'package:belluga_boilerplate/application/extensions/to_hex.dart';
 import 'package:belluga_boilerplate/domain/tenant/tenant.dart';
 import 'package:belluga_boilerplate/domain/tenant/value_objects/app_domain_value.dart';
 import 'package:belluga_boilerplate/domain/tenant/value_objects/main_logo_url_value.dart';
@@ -9,7 +10,6 @@ import 'package:belluga_boilerplate/domain/theme_data_settings/value_objects/bri
 import 'package:belluga_boilerplate/domain/theme_data_settings/value_objects/use_material3_value.dart';
 import 'package:belluga_boilerplate/domain/value_objects/color_required_value.dart';
 import 'package:belluga_boilerplate/infrastructure/services/tenant_backend_contract.dart';
-import 'package:flutter/material.dart';
 
 class MockTenantBackend extends TenantBackendContract {
   @override
@@ -24,16 +24,16 @@ class MockTenantBackend extends TenantBackendContract {
           darkSchemeData: ColorSchemeData(
             brightnessValue: BrightnessValue()..parse("dark"),
             primarySeedColorValue:
-                ColorRequiredValue(defaultValue: Colors.black),
+                ColorRequiredValue(defaultValue: "007FF9".toColor()),
             secondarySeedColorValue:
-                ColorRequiredValue(defaultValue: Colors.yellow),
+                ColorRequiredValue(defaultValue: "00E6B8".toColor()),
           ),
           lightSchemeData: ColorSchemeData(
             brightnessValue: BrightnessValue()..parse("light"),
             primarySeedColorValue:
-                ColorRequiredValue(defaultValue: Colors.yellow),
+                ColorRequiredValue(defaultValue: "FFFFFF".toColor()),
             secondarySeedColorValue:
-                ColorRequiredValue(defaultValue: Colors.black),
+                ColorRequiredValue(defaultValue: "007FF9".toColor()),
           ),
           useMaterial3Value: UseMaterial3Value()..parse("true"),
         ),

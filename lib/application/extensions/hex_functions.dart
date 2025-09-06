@@ -1,6 +1,6 @@
 import 'package:flutter/rendering.dart';
 
-extension ColorToHex on Color {
+extension HexFunctions on Color {
   /// Converts an integer channel value (0-255) to a two-character hex string.
   String _intToHex(int v) => v.toRadixString(16).padLeft(2, '0');
 

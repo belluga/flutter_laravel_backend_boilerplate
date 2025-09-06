@@ -1,3 +1,4 @@
+import 'package:belluga_boilerplate/application/extensions/compute_on_color.dart';
 import 'package:flutter/material.dart';
 import 'package:belluga_boilerplate/domain/courses/course_category_model.dart';
 
@@ -8,24 +9,19 @@ class CategoryChip extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Color _color =
-        category.color.value ?? Theme.of(context).colorScheme.tertiary;
+    final Color _color = category.color.value.computeIconColor(context);
 
     return Chip(
       avatar: Icon(
         Icons.category_outlined,
         size: 16,
-        color: _color.computeLuminance() > 0.5
-            ? Theme.of(context).colorScheme.primaryContainer
-            : Theme.of(context).colorScheme.onPrimaryContainer,
+        color: _color,
       ),
       visualDensity: VisualDensity.compact,
       label: Text(
         category.name.value,
         style: TextTheme.of(context).labelSmall?.copyWith(
-              color: _color.computeLuminance() > 0.5
-                  ? Theme.of(context).colorScheme.primaryContainer
-                  : Theme.of(context).colorScheme.onPrimaryContainer,
+              color: _color,
             ),
       ),
       backgroundColor: category.color.value,

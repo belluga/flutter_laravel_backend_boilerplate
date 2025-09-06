@@ -1,3 +1,4 @@
+import 'package:belluga_boilerplate/application/extensions/compute_on_color.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
@@ -23,27 +24,35 @@ class _CalendarBoxState extends State<CalendarBox> {
             padding: EdgeInsets.all(4),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.vertical(top: Radius.circular(8)),
-              color: Theme.of(context).colorScheme.primaryContainer,
+              color: Theme.of(context).colorScheme.surfaceDim,
             ),
             child: Text(
               DateFormat.MMM().format(widget.date).toUpperCase(),
               textAlign: TextAlign.center,
-              style: TextTheme.of(context).labelLarge,
-            ),
-          ),
-          Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.vertical(bottom: Radius.circular(8)),
-              color: Theme.of(context).colorScheme.onPrimary,
-            ),
-            child: Text(
-              widget.date.day.toString(),
-              textAlign: TextAlign.center,
-              style: TextTheme.of(context).titleLarge?.copyWith(
-                    color: Theme.of(context).colorScheme.onTertiary,
+              style: TextTheme.of(context).labelLarge?.copyWith(
+                    color: Theme.of(context).colorScheme.onPrimaryContainer,
                   ),
             ),
           ),
+          Builder(builder: (context) {
+            final _frontColor = Theme.of(context)
+                .colorScheme
+                .surfaceBright
+                .computeIconColor(context);
+            return Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.vertical(bottom: Radius.circular(8)),
+                color: Theme.of(context).colorScheme.surfaceBright,
+              ),
+              child: Text(
+                widget.date.day.toString(),
+                textAlign: TextAlign.center,
+                style: TextTheme.of(context).titleLarge?.copyWith(
+                      color: _frontColor,
+                    ),
+              ),
+            );
+          }),
         ],
       ),
     );

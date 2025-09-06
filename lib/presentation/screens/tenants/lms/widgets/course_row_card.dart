@@ -16,7 +16,7 @@ class _CourseRowCardState extends State<CourseRowCard> {
   @override
   Widget build(BuildContext context) {
     return Card.filled(
-      color: Theme.of(context).colorScheme.surfaceDim,
+      color: Theme.of(context).colorScheme.surfaceContainer,
       child: InkWell(
         onTap: widget.onNavigateToCourse,
         child: Row(

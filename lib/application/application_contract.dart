@@ -1,5 +1,6 @@
 import 'package:belluga_boilerplate/domain/repositories/landlord_repository_contract.dart';
 import 'package:belluga_boilerplate/infrastructure/repositories/landlord_repository.dart';
+import 'package:belluga_boilerplate/infrastructure/repositories/theme_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:belluga_boilerplate/application/configurations/custom_scroll_behavior.dart';
 import 'package:belluga_boilerplate/application/router/app_router.dart';
@@ -20,16 +21,15 @@ import 'package:intl/intl_standalone.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:belluga_boilerplate/domain/repositories/tenant_repository_contract.dart';
+import 'package:stream_value/core/stream_value_builder.dart';
 
-abstract class ApplicationContract extends StatelessWidget {
-  final _appRouter = AppRouter();
-
-  ApplicationContract({super.key});
-
-  final navigatorKey = GlobalKey<NavigatorState>();
+abstract class ApplicationContract extends StatefulWidget {
+  const ApplicationContract({super.key});
 
   BackendContract initBackendRepository();
+
   AuthRepositoryContract initAuthRepository();
+
   Future<void> initialSettingsPlatform();
 
   Future<void> init() async {
@@ -53,6 +53,7 @@ abstract class ApplicationContract extends StatelessWidget {
     final appData = AppData()..initialize();
     await appData.initialize();
     GetIt.I.registerSingleton<AppData>(appData);
+    GetIt.I.registerLazySingleton(() => ThemeRepository());
   }
 
   Future<void> _initBackend() async {
@@ -66,7 +67,6 @@ abstract class ApplicationContract extends StatelessWidget {
   }
 
   Future<void> _initInjections() async {
-
     GetIt.I.registerLazySingleton<LandlordRepositoryContract>(
       () => LandlordRepository(),
     );
@@ -91,79 +91,55 @@ abstract class ApplicationContract extends StatelessWidget {
         () => ScheduleRepository());
   }
 
+  @override
+  State<ApplicationContract> createState() => _ApplicationContractState();
+}
+
+class _ApplicationContractState extends State<ApplicationContract> {
+  final _appRouter = AppRouter();
+
+  final navigatorKey = GlobalKey<NavigatorState>();
+
   ThemeData getThemeData() {
     return ThemeData(
-      appBarTheme: AppBarTheme(
-        backgroundColor: Color(0xFF1C2530),
-        foregroundColor: Color(0xFFFFFFFF),
-      ),
       progressIndicatorTheme: ProgressIndicatorThemeData(
-        color: Color(0xFF00E6B8),
         strokeWidth: 4,
       ),
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
-          backgroundColor: Color(0xFF004B7C),
-          foregroundColor: Color(0xFFFFFFFF),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(100.0),
           ),
           padding: EdgeInsets.symmetric(vertical: 16.0, horizontal: 32.0),
         ),
       ),
-      inputDecorationTheme: InputDecorationTheme(
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(4.0),
-          borderSide: BorderSide(color: Color(0xFFFFFFFF)),
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(4.0),
-          borderSide: BorderSide(color: Color(0xFF00E6B8)),
-        ),
-        errorBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(4.0),
-          borderSide: BorderSide(color: Color(0xFFFF0000)),
-        ),
-        labelStyle: TextStyle(color: Color(0xFFFFFFFF)),
-      ),
-      colorScheme: ColorScheme(
-        brightness: Brightness.dark,
-        primary: Color(0xFF007FF9),
-        onPrimary: Color(0xFFFFFFFF),
-        primaryContainer: Color(0xFF004B7C),
-        onPrimaryContainer: Color(0xFFFFFFFF),
-        secondary: Color(0xFF00E6B8),
-        onSecondary: Color(0xFF000000),
-        secondaryContainer: Color(0xFF004B7C),
-        onSecondaryContainer: Color(0xFFFFFFFF),
-        error: Color(0xFFFF0000),
-        onError: Color(0xFFFFFFFF),
-        errorContainer: Color(0xFFB00020),
-        onErrorContainer: Color(0xFFFFFFFF),
-        tertiary: Color(0xFFEADDFF),
-        onTertiary: Color(0xFF000000),
-        tertiaryContainer: Color(0xFF3700B3),
-        onTertiaryContainer: Color(0xFFFFFFFF),
-        surface: Color(0xFF2E405C),
-        surfaceDim: Color(0xFF1C2530),
-        onSurface: Color(0xFFFFFFFF),
-        onSurfaceVariant: Color(0xFFB0BEC5),
-        outline: Color(0xFFB0BEC5),
-        outlineVariant: Color(0xFF37474F),
-        inverseSurface: Color(0xFF37474F),
-        inversePrimary: Color(0xFF004B7C),
-        scrim: Color(0xFF000000),
-        shadow: Color(0xFF000000),
-      ),
+      // inputDecorationTheme: InputDecorationTheme(
+      //   border: OutlineInputBorder(
+      //     borderRadius: BorderRadius.circular(4.0),
+      //   ),
+      //   focusedBorder: OutlineInputBorder(
+      //     borderRadius: BorderRadius.circular(4.0),
+      //   ),
+      //   errorBorder: OutlineInputBorder(
+      //     borderRadius: BorderRadius.circular(4.0),
+      //   ),
+      // ),
+      colorScheme: ColorScheme.fromSeed(seedColor: Color(0xFF00E6B8)),
     );
   }
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      theme: getThemeData(),
-      scrollBehavior: CustomScrollBehavior(),
-      routerConfig: _appRouter.config(),
-    );
+    return StreamValueBuilder<ThemeData?>(
+        streamValue: GetIt.I.get<ThemeRepository>().themeStreamValue,
+        builder: (context, themeData) {
+          final ThemeData _themeData = themeData ?? getThemeData();
+
+          return MaterialApp.router(
+            theme: _themeData,
+            scrollBehavior: CustomScrollBehavior(),
+            routerConfig: _appRouter.config(),
+          );
+        });
   }
 }

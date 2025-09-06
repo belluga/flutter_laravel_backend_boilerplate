@@ -31,7 +31,7 @@ class CourseHeaderBanner extends StatelessWidget {
                   decoration: BoxDecoration(
                     color: Theme.of(
                       context,
-                    ).colorScheme.surfaceDim.withAlpha(180),
+                    ).colorScheme.surfaceContainer.withAlpha(180),
                   ),
                 ),
               ],

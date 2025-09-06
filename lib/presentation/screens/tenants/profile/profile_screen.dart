@@ -51,8 +51,27 @@ class _ProfileScreenState extends State<ProfileScreen> {
         leading: const BackButtonBelluga(),
         actions: [
           IconButton(onPressed: _logout, icon: const Icon(Icons.exit_to_app)),
+          Builder(
+            builder: (context) {
+              return IconButton(onPressed: () => _rightDrawer(context), icon: const Icon(Icons.settings));
+            }
+          ),
         ],
       ),
+      endDrawer: SafeArea(child: Drawer(
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              Row(
+                children: [
+                  IconButton(onPressed: () =>_controller.setTheme(Brightness.dark), icon: Icon(Icons.dark_mode)),
+                  IconButton(onPressed: () =>_controller.setTheme(Brightness.light), icon: Icon(Icons.light_mode)),
+                ],
+              ),
+            ],
+          ),
+        ),
+      )),
       body: Padding(
         padding: const EdgeInsets.all(16),
         child: StreamValueBuilder<UserContract>(
@@ -154,15 +173,17 @@ class _ProfileScreenState extends State<ProfileScreen> {
     );
   }
 
+  void _rightDrawer(BuildContext context) async {
+    Scaffold.of(context).openEndDrawer();
+  }
+
   Future<void> _logout() async {
     await _controller.logout();
     _navigateToHome();
   }
 
   void _navigateToHome() {
-    print("pop until home");
     context.router.popUntilRoot();
-    print(context.router.stack);
   }
 
   @override

@@ -1,4 +1,4 @@
-import 'package:belluga_boilerplate/application/extensions/color_to_hex.dart';
+import 'package:belluga_boilerplate/application/extensions/hex_functions.dart';
 import 'package:belluga_boilerplate/infrastructure/services/dal/dto/notes/note_dto.dart';
 import 'package:belluga_boilerplate/infrastructure/services/dal/dao/mock_backend/mock_functions.dart';
 import 'package:belluga_boilerplate/infrastructure/services/notes_backend_contract.dart';

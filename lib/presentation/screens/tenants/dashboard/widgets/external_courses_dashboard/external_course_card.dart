@@ -24,7 +24,7 @@ class _ExternalCourseCardState extends State<ExternalCourseCard> {
     return InkWell(
       onTap: _showCourseDetailsBottomModal,
       child: Card.filled(
-        color: Theme.of(context).colorScheme.surfaceDim,
+        color: Theme.of(context).colorScheme.surfaceContainer,
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [

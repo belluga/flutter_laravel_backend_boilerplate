@@ -6,13 +6,13 @@ class DashboardItemsSummary extends StatefulWidget {
   final String? showAllLabel;
   final Function()? onShowAllPressed;
   final double itemsPerRow;
-  final Widget? Function(BuildContext, int)? itemsBuilder;
+  final Widget? Function(int) itemsBuilder;
   final double itemHeight;
 
   const DashboardItemsSummary({
     super.key,
     required this.title,
-    this.itemsBuilder,
+    required this.itemsBuilder,
     this.showAllLabel,
     this.onShowAllPressed,
     this.itemsPerRow = 2.3,
@@ -46,7 +46,7 @@ class _DashboardItemsSummaryState extends State<DashboardItemsSummary> {
                         padding: const EdgeInsets.only(left: 16.0, right: 16),
                         scrollDirection: Axis.horizontal,
                         itemExtent: _itemExtentCalculation(),
-                        itemBuilder: widget.itemsBuilder ?? _mockItemBuilder,
+                        itemBuilder: (_, index) => widget.itemsBuilder(index),
                       ),
                     ),
                   ),
@@ -63,19 +63,5 @@ class _DashboardItemsSummaryState extends State<DashboardItemsSummary> {
     final double _widthSize = MediaQuery.of(context).size.width;
 
     return _widthSize / (widget.itemsPerRow);
-  }
-
-  Widget? _mockItemBuilder(BuildContext context, int index) {
-    if (index >= 10) {
-      return null;
-    }
-
-    return Card.filled(
-      color: Theme.of(context).colorScheme.surfaceDim,
-      child: SizedBox(
-        height: 120,
-        child: Center(child: Text("Item ${index + 1}")),
-      ),
-    );
   }
 }

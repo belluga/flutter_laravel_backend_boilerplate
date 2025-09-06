@@ -20,7 +20,7 @@ class _FileCardState extends State<FileCard> {
       child: InkWell(
         onTap: _openFileExternal,
         child: Container(
-          color: Theme.of(context).colorScheme.surfaceDim,
+          color: Theme.of(context).colorScheme.surfaceContainer,
           padding: EdgeInsets.all(16),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,

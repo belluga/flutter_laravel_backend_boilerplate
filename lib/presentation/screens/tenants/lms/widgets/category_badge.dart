@@ -1,25 +1,29 @@
+import 'package:belluga_boilerplate/application/extensions/compute_on_color.dart';
 import 'package:flutter/material.dart';
 import 'package:belluga_boilerplate/domain/courses/course_category_model.dart';
 
-class CategoryBadge extends StatelessWidget {
+class CategoryBadge extends StatefulWidget {
   final CourseCategoryModel category;
 
   const CategoryBadge({super.key, required this.category});
 
   @override
+  State<CategoryBadge> createState() => _CategoryBadgeState();
+}
+
+class _CategoryBadgeState extends State<CategoryBadge> {
+  @override
   Widget build(BuildContext context) {
     final Color _color =
-        category.color.value ?? Theme.of(context).colorScheme.tertiary;
+        widget.category.color.value;
 
     return CircleAvatar(
-      backgroundColor: category.color.value,
+      backgroundColor: widget.category.color.value,
       radius: 16,
       child: Icon(
         Icons.category_outlined,
         size: 16,
-        color: _color.computeLuminance() > 0.5
-            ? Theme.of(context).colorScheme.primaryContainer
-            : Theme.of(context).colorScheme.onPrimaryContainer,
+        color: _color.computeIconColor(context),
       ),
     );
   }

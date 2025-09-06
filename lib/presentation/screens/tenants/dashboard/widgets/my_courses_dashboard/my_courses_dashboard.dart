@@ -47,7 +47,7 @@ class _MyCoursesDashboardState extends State<MyCoursesDashboard> {
     context.router.push(CoursesListRoute());
   }
 
-  Widget? _itemsBuilder(BuildContext context, int index) {
+  Widget? _itemsBuilder(int index) {
     final _myCoursesSummary = _controller.myCoursesSummaryStreamValue.value!;
 
     if (index >= _myCoursesSummary.items.length) {

@@ -17,7 +17,7 @@ class _MyCourseCardOnListState extends State<MyCourseCardOnList> {
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: Theme.of(context).colorScheme.surfaceDim,
+      color: Theme.of(context).colorScheme.surfaceContainer,
       child: InkWell(
         onTap: _navigateToCourse,
         child: ConstrainedBox(
@@ -63,12 +63,12 @@ class _MyCourseCardOnListState extends State<MyCourseCardOnList> {
                               child: ElevatedButton(
                                 onPressed: _navigateToCourse,
                                 style: ElevatedButton.styleFrom(
-                                  backgroundColor: Theme.of(
-                                    context,
-                                  ).colorScheme.primaryContainer,
-                                  foregroundColor: Theme.of(
-                                    context,
-                                  ).colorScheme.onPrimaryContainer,
+                                  // backgroundColor: Theme.of(
+                                  //   context,
+                                  // ).colorScheme.primaryContainer,
+                                  // foregroundColor: Theme.of(
+                                  //   context,
+                                  // ).colorScheme.onPrimaryContainer,
                                   padding: EdgeInsets.symmetric(horizontal: 8),
                                 ),
                                 child: Row(
@@ -77,9 +77,9 @@ class _MyCourseCardOnListState extends State<MyCourseCardOnList> {
                                   children: [
                                     Icon(
                                       Icons.play_arrow,
-                                      color: Theme.of(
-                                        context,
-                                      ).colorScheme.onPrimaryContainer,
+                                      // color: Theme.of(
+                                      //   context,
+                                      // ).colorScheme.onPrimaryContainer,
                                     ),
                                     SizedBox(width: 8),
                                     Text(

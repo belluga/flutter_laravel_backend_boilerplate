@@ -68,7 +68,7 @@ class _FastTrackCardState extends State<FastTrackCard> {
                   decoration: BoxDecoration(
                     color: Theme.of(
                       context,
-                    ).colorScheme.surfaceDim.withValues(alpha: 0.8),
+                    ).colorScheme.surfaceContainerLowest.withValues(alpha: 0.8),
                     borderRadius: BorderRadius.vertical(
                       bottom: Radius.circular(8),
                     ),

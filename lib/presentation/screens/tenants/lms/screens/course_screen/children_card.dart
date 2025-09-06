@@ -30,7 +30,7 @@ class _ChildrenCardState extends State<ChildrenCard> {
         onTap: _navigateToItem,
         child: Container(
           decoration: BoxDecoration(
-            color: Theme.of(context).colorScheme.surfaceDim,
+            color: Theme.of(context).colorScheme.surfaceContainer,
           ),
           padding: EdgeInsets.all(16),
           child: Row(

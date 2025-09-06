@@ -29,7 +29,7 @@ class _NoteCardState extends State<NoteCard> {
         onTap: () => widget.onCardTap(noteModel: widget.noteModel),
         child: IntrinsicHeight(
           child: Container(
-            color: Theme.of(context).colorScheme.surfaceDim,
+            color: Theme.of(context).colorScheme.surfaceContainer,
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [

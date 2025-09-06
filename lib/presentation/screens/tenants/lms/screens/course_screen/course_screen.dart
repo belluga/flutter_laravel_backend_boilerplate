@@ -59,34 +59,28 @@ class _CourseScreenState extends State<CourseScreen>
                   SizedBox(height: 16),
                   Padding(
                     padding: EdgeInsets.symmetric(horizontal: 16),
-                    child: Container(
-                      color: Theme.of(context).colorScheme.surfaceDim,
-                      child: TabBar(
-                        controller: _controller.tabController,
-                        dividerColor: Colors.transparent,
-                        indicatorSize: TabBarIndicatorSize.label,
-                        labelColor: Theme.of(context).colorScheme.onPrimary,
-                        tabs: List.generate(_controller.tabContentTypes.length, (
-                          index,
-                        ) {
-                          final TabContentType contentType =
-                              _controller.tabContentTypes[index];
-              
-                          switch (contentType) {
-                            case TabContentType.childrens:
-                              return Tab(
-                                text: courseModel
-                                    .childrensSummary
-                                    ?.label
-                                    .valueFormated,
-                              );
-                            case TabContentType.files:
-                              return Tab(text: 'Arquivos');
-                            case TabContentType.notes:
-                              return Tab(text: 'Anotações');
-                          }
-                        }),
-                      ),
+                    child: TabBar(
+                      controller: _controller.tabController,
+                      dividerColor: Colors.transparent,
+                      indicatorSize: TabBarIndicatorSize.label,
+                      tabs: List.generate(_controller.tabContentTypes.length, (
+                        index,
+                      ) {
+                        final TabContentType contentType =
+                            _controller.tabContentTypes[index];
+
+                        switch (contentType) {
+                          case TabContentType.childrens:
+                            return Tab(
+                              text: courseModel
+                                  .childrensSummary?.label.valueFormated,
+                            );
+                          case TabContentType.files:
+                            return Tab(text: 'Arquivos');
+                          case TabContentType.notes:
+                            return Tab(text: 'Anotações');
+                        }
+                      }),
                     ),
                   ),
                   Expanded(
@@ -100,7 +94,7 @@ class _CourseScreenState extends State<CourseScreen>
                           (index) {
                             final TabContentType contentType =
                                 _controller.tabContentTypes[index];
-              
+
                             switch (contentType) {
                               case TabContentType.childrens:
                                 return ChildrensList();

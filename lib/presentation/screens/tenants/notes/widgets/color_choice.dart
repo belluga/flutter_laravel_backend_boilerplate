@@ -1,3 +1,4 @@
+import 'package:belluga_boilerplate/application/extensions/color_shades.dart';
 import 'package:flutter/material.dart';
 
 class ColorChoice extends StatelessWidget {
@@ -27,14 +28,14 @@ class ColorChoice extends StatelessWidget {
               // shape: BoxShape.circle,
               borderRadius: BorderRadius.circular(8),
               border: isSelected
-                  ? Border.all(color: Colors.black, width: 2)
+                  ? Border.all(color: color.darken(0.4), width: 3)
                   : Border.all(color: Colors.transparent),
             ),
           ),
           if (isSelected)
             Icon(
               Icons.check,
-              color: Theme.of(context).colorScheme.onSecondary,
+              color: color.darken(0.4),
               size: 24,
             ),
         ],

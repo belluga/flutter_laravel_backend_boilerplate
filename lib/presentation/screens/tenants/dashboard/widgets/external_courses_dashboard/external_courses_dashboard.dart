@@ -47,7 +47,7 @@ class _ExternalCoursesDashboardState extends State<ExternalCoursesDashboard> {
     );
   }
 
-  Widget? _itemsBuilder(BuildContext context, int index) {
+  Widget? _itemsBuilder(int index) {
     final _externalCoursesSummary =
         _controller.externalCoursesSummaryStreamValue.value!;
 

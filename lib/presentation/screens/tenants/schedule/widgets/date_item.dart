@@ -1,3 +1,4 @@
+import 'package:belluga_boilerplate/application/extensions/compute_on_color.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:intl/intl.dart';
@@ -58,18 +59,25 @@ class _DateItemState extends State<DateItem> {
                   shape: BoxShape.circle,
                   border: Border.all(
                     color: _isToday()
-                        ? Theme.of(context).colorScheme.primary
+                        ? Theme.of(context).colorScheme.primaryContainer
                         : Colors.transparent,
                     width: 2,
                   ),
                 ),
                 child: CircleAvatar(
                   backgroundColor: widget.isSelected
-                      ? Theme.of(context).colorScheme.primary
+                      ? Theme.of(context).colorScheme.primaryContainer
                       : Colors.transparent,
-                  radius: 15,
-                  child: Text(widget.date.day.toString(),
-                      style: TextTheme.of(context).titleMedium),
+                  radius: 18,
+                  child: Text(
+                    widget.date.day.toString(),
+                    style: TextTheme.of(context).titleMedium?.copyWith(
+                          color: Theme.of(context)
+                              .colorScheme
+                              .primaryContainer
+                              .computeIconColor(context),
+                        ),
+                  ),
                 ),
               ),
               const SizedBox(height: 4),

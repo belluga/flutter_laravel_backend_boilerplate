@@ -24,11 +24,13 @@ class _NextVideoButtonState extends State<NextVideoButton> {
   Widget build(BuildContext context) {
     return Builder(
       builder: (context) {
-        final _buttonOpacity = _controller.contentVideoPlayerController.nextVideoController.getButtonOpacity(
+        final _buttonOpacity = _controller
+            .contentVideoPlayerController.nextVideoController
+            .getButtonOpacity(
           widget.videoPercentage,
         );
 
-        if(_buttonOpacity == 0.0){
+        if (_buttonOpacity == 0.0) {
           return SizedBox.shrink();
         }
 
@@ -42,7 +44,7 @@ class _NextVideoButtonState extends State<NextVideoButton> {
               child: Container(
                 padding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
                 decoration: BoxDecoration(
-                  color: Theme.of(context).colorScheme.surfaceDim,
+                  color: Theme.of(context).colorScheme.secondaryContainer,
                   borderRadius: BorderRadius.circular(8),
                 ),
                 child: Column(
@@ -62,20 +64,30 @@ class _NextVideoButtonState extends State<NextVideoButton> {
                                       decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(8),
                                         image: DecorationImage(
-                                          image: NetworkImage(widget.courseItem.thumb.thumbUri.toString(),
+                                          image: NetworkImage(
+                                            widget.courseItem.thumb.thumbUri
+                                                .toString(),
                                           ),
                                           colorFilter: ColorFilter.mode(
-                                            Colors.black.withAlpha(150),
+                                            Theme.of(context)
+                                                .colorScheme
+                                                .onSecondaryContainer
+                                                .withAlpha(150),
                                             BlendMode.darken,
                                           ),
                                           fit: BoxFit.cover,
-                                        ),  
+                                        ),
                                       ),
                                     ),
                                   ),
                                 ],
                               ),
-                              Icon(Icons.fast_forward),
+                              Icon(
+                                Icons.fast_forward,
+                                color: Theme.of(context)
+                                    .colorScheme
+                                    .secondaryContainer,
+                              ),
                             ],
                           ),
                         ),
@@ -88,7 +100,11 @@ class _NextVideoButtonState extends State<NextVideoButton> {
                           child: Text(
                             widget.courseItem.title.value,
                             maxLines: 2,
-                            style: TextTheme.of(context).labelSmall,
+                            style: TextTheme.of(context).labelSmall?.copyWith(
+                                  color: Theme.of(context)
+                                      .colorScheme
+                                      .onSecondaryContainer,
+                                ),
                           ),
                         ),
                       ],

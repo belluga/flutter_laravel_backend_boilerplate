@@ -45,7 +45,7 @@ class _NextEventsDashboardState extends State<NextEventsDashboard> {
     );
   }
 
-  Widget? _itemsBuilder(BuildContext context, int index) {
+  Widget? _itemsBuilder(int index) {
     final List<EventModel> _events =
         _controller.nextEventsStreamValue.value ?? [];
 
@@ -56,7 +56,7 @@ class _NextEventsDashboardState extends State<NextEventsDashboard> {
     final EventModel _currentEvent = _events[index];
 
     return Card.filled(
-      color: Theme.of(context).colorScheme.surfaceDim,
+      color: Theme.of(context).colorScheme.surfaceContainer,
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
         child: Row(

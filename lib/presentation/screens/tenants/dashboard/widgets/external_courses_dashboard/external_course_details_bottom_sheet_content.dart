@@ -14,21 +14,18 @@ class ExternalCourseDetailsBottomSheetContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // The main column holds all the content.
-    // We remove the default padding to allow the image to span the full width.
     return SafeArea(
       child: Column(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          // 1. A visual handle to indicate the sheet is draggable
           Center(
             child: Container(
               width: 40,
               height: 5,
               margin: const EdgeInsets.symmetric(vertical: 12.0),
               decoration: BoxDecoration(
-                color: Colors.grey[300],
+                color: Theme.of(context).colorScheme.onSurfaceVariant,
                 borderRadius: BorderRadius.circular(10),
               ),
             ),
@@ -53,16 +50,19 @@ class ExternalCourseDetailsBottomSheetContent extends StatelessWidget {
                 const SizedBox(height: 24),
                 ElevatedButton.icon(
                   onPressed: onExternalLinkClick,
-                  icon: const Icon(
+                  icon: Icon(
                     Icons.open_in_new,
-                  ), // A fitting icon for an external link
+                    color: Theme.of(context).colorScheme.onPrimaryContainer,
+                  ),
                   label: const Text('Acessar o curso'),
                   style: ElevatedButton.styleFrom(
                     minimumSize: const Size(
                       double.infinity,
                       50,
-                    ), // Full-width and taller button
-                    textStyle: const TextStyle(
+                    ),
+                    backgroundColor: Theme.of(context).colorScheme.primaryContainer,
+                    foregroundColor: Theme.of(context).colorScheme.onPrimaryContainer,
+                    textStyle: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.w600,
                     ),

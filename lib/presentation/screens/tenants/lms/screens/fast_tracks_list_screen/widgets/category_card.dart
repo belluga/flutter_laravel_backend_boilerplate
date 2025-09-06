@@ -1,3 +1,4 @@
+import 'package:belluga_boilerplate/application/extensions/compute_on_color.dart';
 import 'package:flutter/material.dart';
 import 'package:belluga_boilerplate/domain/courses/course_category_model.dart';
 
@@ -16,12 +17,10 @@ class CategoryCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: Theme.of(context).colorScheme.surfaceDim,
+      color: Theme.of(context).colorScheme.surfaceContainer,
       shape: RoundedRectangleBorder(
         side: BorderSide(
-          color: isSelected
-              ? Theme.of(context).colorScheme.secondary
-              : Colors.transparent,
+          color: isSelected ? categoryModel.color.value : Colors.transparent,
           width: isSelected ? 2 : 0,
         ),
         borderRadius: BorderRadius.circular(8),
@@ -42,7 +41,10 @@ class CategoryCard extends StatelessWidget {
                   ),
                   color: categoryModel.color.value,
                 ),
-                child: Icon(Icons.category),
+                child: Icon(
+                  Icons.category,
+                  color: categoryModel.color.value.computeIconColor(context),
+                ),
               ),
             ),
             Expanded(

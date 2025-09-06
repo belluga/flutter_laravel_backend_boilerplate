@@ -34,7 +34,7 @@ class _FastTracksLastRowState extends State<FastTracksLastRow> {
     );
   }
 
-  Widget? _itemsBuilder(BuildContext context, int index) {
+  Widget? _itemsBuilder(int index) {
     final _fastTracks = _controller.lastCreatedFastTracksStreamValue.value!;
 
     if (index >= _fastTracks.length) {

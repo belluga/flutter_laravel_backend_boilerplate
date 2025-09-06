@@ -129,7 +129,6 @@ class _AddNoteBottomModalState extends State<AddNoteBottomModal> {
                   },
                 ),
                 const SizedBox(height: 16),
-
                 Row(
                   children: [
                     if (widget.noteModel != null)
@@ -152,6 +151,14 @@ class _AddNoteBottomModalState extends State<AddNoteBottomModal> {
                       loadingStatusStreamValue:
                           _controller.savingNoteStreamValue,
                       label: 'Salvar',
+                      style: ButtonStyle(
+                        backgroundColor: WidgetStateProperty.all(
+                          Theme.of(context).colorScheme.secondary,
+                        ),
+                        foregroundColor: WidgetStatePropertyAll(
+                          Theme.of(context).colorScheme.onSecondary,
+                        ),
+                      ),
                     ),
                   ],
                 ),
