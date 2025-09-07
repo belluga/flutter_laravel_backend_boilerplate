@@ -3,7 +3,7 @@ import 'package:belluga_boilerplate/domain/schedule/event_action_item_types.dart
 import 'package:belluga_boilerplate/domain/schedule/event_action_model/event_action_external_navigation.dart';
 import 'package:belluga_boilerplate/domain/schedule/event_action_model/event_action_course_navigation.dart';
 import 'package:belluga_boilerplate/domain/schedule/event_action_types.dart';
-import 'package:belluga_boilerplate/domain/schedule/value_objects/event_action_Item_type_value.dart';
+import 'package:belluga_boilerplate/domain/schedule/value_objects/event_action_item_type_value.dart';
 import 'package:belluga_boilerplate/domain/value_objects/color_value.dart';
 import 'package:belluga_boilerplate/domain/value_objects/title_value.dart';
 import 'package:belluga_boilerplate/infrastructure/services/dal/dto/schedule/event_actions_dto.dart';

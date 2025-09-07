@@ -8,7 +8,6 @@ extension HexToColor on String {
       buffer.write('FF');
     }
     buffer.write(hex);
-    print(Color(int.parse(buffer.toString(), radix: 16)));
     return Color(int.parse(buffer.toString(), radix: 16));
   }
 }

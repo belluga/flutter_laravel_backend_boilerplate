@@ -7,7 +7,7 @@ import 'package:belluga_boilerplate/infrastructure/services/backend_contract.dar
 import 'package:belluga_boilerplate/infrastructure/services/dal/dao/mock_backend/mock_backend.dart';
 
 class Application extends ApplicationMobileContract {
-  Application({super.key});
+  const Application({super.key});
 
   @override
   AuthRepositoryContract<UserBelluga> initAuthRepository() {

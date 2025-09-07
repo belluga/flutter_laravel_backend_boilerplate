@@ -36,7 +36,7 @@ class ContentVideoPlayerController extends Disposable {
 
   Future<void> initializePlayer() async {
     final CourseItemModel? courseItem = currentCourseItemStreamValue.value;
-    ;
+
     if (courseItem == null) {
       throw Exception('No course item available to initialize the player.');
     }
