@@ -14,7 +14,6 @@ dependencies:
   auto_route: ^10.1.0+1
   cupertino_icons: ^1.0.8
   dio: ^5.8.0+1
-  flutter_dotenv: ^6.0.0
   flutter_html: ^3.0.0
   flutter_secure_storage: ^9.2.4
   flutter_svg: ^2.2.1

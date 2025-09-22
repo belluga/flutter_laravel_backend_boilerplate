@@ -10,7 +10,7 @@
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   <meta name="apple-mobile-web-app-title" content="belluga_now">
-  <link id="apple-touch-icon" rel="apple-touch-icon" href="icons/Icon-192.png">
+  <link id="apple-touch-icon" rel="apple-touch-icon" href="icon/icon-192x192.png">
   <link id="favicon" rel="icon" type="image/x-icon" href="favicon.ico">
   <title>Belluga Boilerplate</title>
   <link rel="manifest" href="manifest.json">
@@ -94,12 +94,12 @@
     window.addEventListener('DOMContentLoaded', (event) => {
       (async function () {
         try {
-          const response = await fetch('/api/branding/style');
+          const response = await fetch('/branding');
 
           if (response.ok) {
             const branding = await response.json();
             document.title = branding.title || document.title;
-            document.getElementById('favicon').href = branding.iconUrl || 'favicon.png';
+            document.getElementById('favicon').href = branding.iconUrl || 'favicon.ico';
 
             const splash = branding.splash;
             if (splash && splash.logoUrl) {

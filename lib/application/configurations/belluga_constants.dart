@@ -1,5 +1,4 @@
 import 'package:belluga_boilerplate/domain/app_data/app_data.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'dart:io' show Platform;
 import 'package:flutter/foundation.dart';
 import 'package:get_it/get_it.dart';
@@ -8,6 +7,7 @@ class BellugaConstants {
   static final settings = _SettingsConstants();
   static final api = _ApiConstants();
   static final sentry = _SentryConstants();
+  static final env = _EnvironmentConstants();
 }
 
 class _ApiConstants {
@@ -16,7 +16,7 @@ class _ApiConstants {
   String get adminUrl {
     final String _mainApi = '${_appData.schema}://${_appData.hostname}/admin/api';
 
-    final _environment = dotenv.env["ENV"] ?? "local";
+    final _environment = BellugaConstants.env.environment;
 
     if (kIsWeb) {
       return _mainApi;
@@ -32,7 +32,7 @@ class _ApiConstants {
   String get baseUrl {
     final String _mainApi = '${_appData.schema}://${_appData.hostname}/api';
 
-    final _environment = dotenv.env["ENV"] ?? "local";
+    final _environment = BellugaConstants.env.environment;
 
     if (kIsWeb) {
       return _mainApi;
@@ -44,6 +44,11 @@ class _ApiConstants {
       return _mainApi;
     }
   }
+}
+
+class _EnvironmentConstants {
+  String get environment =>  "local";
+  String get landlordDomain => "belluga.space";
 }
 
 class _SettingsConstants {

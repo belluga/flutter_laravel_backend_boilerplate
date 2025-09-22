@@ -18,7 +18,6 @@ import 'package:belluga_boilerplate/infrastructure/repositories/tenant_repositor
 import 'package:belluga_boilerplate/infrastructure/services/backend_contract.dart';
 import 'package:get_it/get_it.dart';
 import 'package:intl/intl_standalone.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:belluga_boilerplate/domain/repositories/tenant_repository_contract.dart';
 import 'package:stream_value/core/stream_value_builder.dart';
@@ -41,7 +40,6 @@ abstract class ApplicationContract extends StatefulWidget {
   @protected
   Future<void> initialSettings() async {
     WidgetsFlutterBinding.ensureInitialized();
-    await dotenv.load(fileName: ".env");
     await initializeDateFormatting();
     await findSystemLocale();
     await _initAppData();

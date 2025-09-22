@@ -1,3 +1,4 @@
+import 'package:belluga_boilerplate/application/configurations/belluga_constants.dart';
 import 'package:belluga_boilerplate/domain/app_data/app_data.dart';
 import 'package:belluga_boilerplate/domain/app_data/app_type.dart';
 import 'package:belluga_boilerplate/domain/tenant/value_objects/app_domain_value.dart';
@@ -6,7 +7,6 @@ import 'package:belluga_boilerplate/domain/tenant/value_objects/subdomain_value.
 import 'package:belluga_boilerplate/domain/tenant/value_objects/tenant_name_value.dart';
 import 'package:belluga_boilerplate/domain/theme_data_settings/logo_settings.dart';
 import 'package:belluga_boilerplate/domain/theme_data_settings/theme_data_settings.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:get_it/get_it.dart';
 
 class Tenant {
@@ -28,7 +28,7 @@ class Tenant {
 
   AppData get appData => GetIt.I.get<AppData>();
 
-  String get landlordUrl => dotenv.env['LANDLORD_DOMAIN']!;
+  String get landlordUrl => BellugaConstants.env.environment;
 
   String get subdomainFull => "${subdomain.value}.$landlordUrl";
 
