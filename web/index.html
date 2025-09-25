@@ -17,7 +17,6 @@
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
 
   <style>
-    /* Estilo do container principal do splash */
     #splash-screen {
       position: fixed;
       top: 0;
@@ -30,7 +29,6 @@
       background-color: #ffffff;
     }
 
-    /* --- MUDANÇA 1: CSS ATUALIZADO PARA A ANIMAÇÃO --- */
     #splash-logo-container {
       position: relative;
       width: 200px;
@@ -67,10 +65,7 @@
       }
     }
 
-    /* --- FIM DA MUDANÇA 1 --- */
-
-    /* Estilo do spinner de carregamento */
-    .loader {
+    /* .loader {
       border: 4px solid rgba(243, 243, 243, 0.8);
       border-top: 4px solid rgba(220, 220, 220, 0.8);
       border-radius: 50%;
@@ -87,52 +82,97 @@
       100% {
         transform: rotate(360deg);
       }
-    }
+    } */
   </style>
 
   <script>
     window.addEventListener('DOMContentLoaded', (event) => {
+      // Define a key for storing branding data in local storage.
+      const brandingCacheKey = 'tenantBrandingData';
+
+      // Reusable function to apply branding to the UI.
+      // This avoids code duplication.
+      const applyBranding = (branding) => {
+        console.log("applyBranding")
+        
+        if (!branding) return;
+
+        console.log(typeof branding);
+        console.log(branding)
+
+        console.log('update title')
+        // Update the page title
+        document.title = branding.title || document.title;
+
+        console.log('get background color');
+        // Safely access the background color from the nested object
+        const backgroundColor = branding.theme_data_settings?.light_scheme_data?.primary_seed_color;
+        console.log("backgroundColor: "+backgroundColor);
+
+        if (backgroundColor) {
+          const splashScreen = document.getElementById('splash-screen');
+
+          console.log('Attempting to apply background. Element found:', splashScreen); 
+
+          if (splashScreen) {
+            splashScreen.style.backgroundColor = backgroundColor;
+          }
+        }
+      };
+
+      // --- 1. Immediate Load from Cache ---
+      // Try to get and apply branding from local storage right away.
+      let cachedDataString = null;
+      try {
+        cachedDataString = localStorage.getItem(brandingCacheKey);
+        if (cachedDataString) {
+          const cachedBranding = JSON.parse(cachedDataString);
+          console.log('Branding loaded from cache.');
+          applyBranding(cachedBranding);
+        }
+      } catch (error) {
+        console.error('Failed to parse cached branding data.', error);
+        localStorage.removeItem(brandingCacheKey); // Clear corrupted data
+      }
+
+      // --- 2. Fetch Fresh Data from the Server ---
+      // This runs regardless of whether data was in the cache.
       (async function () {
         try {
-          const response = await fetch('/branding');
+          const response = await fetch('/environment');
 
           if (response.ok) {
-            const branding = await response.json();
-            document.title = branding.title || document.title;
-            document.getElementById('favicon').href = branding.iconUrl || 'favicon.ico';
+            const freshBranding = await response.json();
+            const freshBrandingString = JSON.stringify(freshBranding);
 
-            const splash = branding.splash;
-            if (splash && splash.logoUrl) {
-              document.getElementById('splash-screen').style.backgroundColor = splash.backgroundColor;
-              document.getElementById('splash-logo-background').src = splash.logoUrl;
-              document.getElementById('splash-logo-foreground').src = splash.logoUrl;
-              document.getElementById('splash-logo-container').style.display = 'block';
-              document.getElementById('splash-loader').style.display = 'none';
+            // --- 3. Compare and Update ---
+            // Only update the UI and cache if the new data is different.
+            if (freshBrandingString !== cachedDataString) {
+              console.log('New branding data fetched. Updating UI and cache.');
+              applyBranding(freshBranding);
+              localStorage.setItem(brandingCacheKey, freshBrandingString);
+            } else {
+              console.log('Branding data is already up to date.');
             }
-          }
-          else {
-            console.warn('API de branding não encontrada ou retornou erro. Carregando com estado padrão.');
-            document.getElementById('splash-loader').style.display = 'none';
-            document.getElementById('splash-screen').style.backgroundColor = '#FFFFFF';
-          }
 
+          } else {
+            console.warn('Branding API not found or returned an error. Using cached or default state.');
+          }
         } catch (error) {
-          console.error("Falha de rede ao buscar branding. Carregando com estado padrão.", error);
-          document.getElementById('splash-loader').style.display = 'none';
-          document.getElementById('splash-screen').style.backgroundColor = '#FFFFFF';
+          console.error("Network failure when fetching branding. Using cached or default state.", error);
         }
       })();
     });
-  </script>
+</script>
 </head>
 
 <body>
   <div id="splash-screen" class="splash">
-    <div id="splash-logo-container" style="display: none;">
-      <img id="splash-logo-background" class="splash-logo" alt="Logo background" />
-      <img id="splash-logo-foreground" class="splash-logo" alt="Logo foreground" />
+    <div id="splash-logo-container">
+      <img id="splash-logo-background" src="logo-light.png" class="splash-logo" alt="Logo background" />
+      <img id="splash-logo-foreground" src="logo-light.png" class="splash-logo" alt="Logo foreground" />
     </div>
-    <div id="splash-loader" class="loader"></div>
+    <!-- <div id="splash-loader" class="loader"></div> -->
   </div>
   <script src="flutter_bootstrap.js" async></script>
 </body>

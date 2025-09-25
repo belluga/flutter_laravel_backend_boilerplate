@@ -30,4 +30,28 @@ class ThemeDataSettings {
       useMaterial3: useMaterial3Value.value,
     );
   }
+
+  // Add this factory constructor inside your ThemeDataSettings class
+factory ThemeDataSettings.fromJson(Map<String, dynamic> json) {
+
+  final _darkSchemeData =  ColorSchemeData.fromJson(<String,dynamic>{
+      "brightness": "dark",
+      ...json['dark_scheme_data']
+    });
+
+  final _lightSchemeData = ColorSchemeData.fromJson(
+    <String,dynamic>{
+      "brightness": "light",
+      ...json['light_scheme_data']
+    }
+  );
+
+  final _useMateial3 =  UseMaterial3Value()..tryParse(json['use_material3']);
+
+  return ThemeDataSettings(
+    darkSchemeData: _darkSchemeData,
+    lightSchemeData: _lightSchemeData,
+    useMaterial3Value: _useMateial3,
+  );
+}
 }

@@ -1,18 +1,18 @@
+import 'package:belluga_boilerplate/infrastructure/services/notes_backend_contract.dart';
 import 'package:flutter/rendering.dart';
 import 'package:belluga_boilerplate/domain/notes/note_model.dart';
 import 'package:belluga_boilerplate/infrastructure/services/dal/dto/notes/note_dto.dart';
-import 'package:belluga_boilerplate/infrastructure/services/backend_contract.dart';
 import 'package:get_it/get_it.dart';
 import 'package:stream_value/core/stream_value.dart';
 
 abstract class NotesRepositoryContract {
-  BackendContract get backend => GetIt.I.get<BackendContract>();
+  NotesBackendContract get notesBackend => GetIt.I.get();
 
   final notesSteamValue = StreamValue<List<NoteModel>?>(defaultValue: null);
 
   Future<void> getNotes(String courseItemId) async {
     notesSteamValue.addValue(null);
-    final List<NoteDTO> _notesRaw = await backend.notes.getNotes(courseItemId);
+    final List<NoteDTO> _notesRaw = await notesBackend.getNotes(courseItemId);
 
     final _notes =
         _notesRaw.map((noteDto) => NoteModel.fromDTO(noteDto)).toList();
@@ -49,7 +49,7 @@ abstract class NotesRepositoryContract {
     required Color color,
     Duration? position,
   }) async {
-    await backend.notes.createNote(
+    await notesBackend.createNote(
       color: color,
       courseItemId: courseItemId,
       content: content,
@@ -65,7 +65,7 @@ abstract class NotesRepositoryContract {
     required Color color,
     Duration? position,
   }) async {
-    await backend.notes.updateNote(
+    await notesBackend.updateNote(
       id: id,
       color: color,
       courseItemId: courseItemId,
@@ -78,7 +78,7 @@ abstract class NotesRepositoryContract {
   Future<NoteModel?> getNote(
       {required String courseId, required String noteId}) async {
     final NoteDTO? _noteRaw =
-        await backend.notes.getNote(courseId: courseId, noteId: noteId);
+        await notesBackend.getNote(courseId: courseId, noteId: noteId);
     if (_noteRaw == null) {
       return null;
     }
@@ -92,7 +92,7 @@ abstract class NotesRepositoryContract {
       noteId: noteId,
     );
     if (_note != null) {
-      await backend.notes.deleteNote(noteId);
+      await notesBackend.deleteNote(noteId);
       await getNotes(_note.courseItemId.value);
     }
   }

@@ -1,12 +1,12 @@
 import 'package:belluga_boilerplate/domain/external_course/external_course_model.dart';
+import 'package:belluga_boilerplate/infrastructure/services/courses_backend_contract.dart';
 import 'package:belluga_boilerplate/infrastructure/services/dal/dto/external_course_dto.dart';
-import 'package:belluga_boilerplate/infrastructure/services/backend_contract.dart';
 import 'package:belluga_boilerplate/presentation/screens/tenants/dashboard/view_models/external_courses_summary.dart';
 import 'package:get_it/get_it.dart';
 import 'package:stream_value/core/stream_value.dart';
 
 abstract class ExternalCoursesRepositoryContract {
-  BackendContract get backend => GetIt.I.get<BackendContract>();
+  CoursesBackendContract get coursesBackend => GetIt.I.get();
 
   final externalCoursesSteamValue = StreamValue<List<ExternalCourseModel>?>(
     defaultValue: null,
@@ -28,7 +28,7 @@ abstract class ExternalCoursesRepositoryContract {
 
   Future<void> _refreshDashboardSummary() async {
     final List<ExternalCourseDTO> _dashboardSummary =
-        await backend.courses.getExternalCourses();
+        await coursesBackend.getExternalCourses();
 
     final _externalCourses = _dashboardSummary
         .map(

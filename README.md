@@ -5,7 +5,7 @@ Este guia é o passo a passo definitivo para adicionar um novo tenant ao projeto
 **Placeholders Usados:**
 * `<novo_tenant>`: O nome do novo flavor em minúsculas (ex: `unifast`).
 * `<NomeDoApp>`: O nome de exibição do aplicativo (ex: `Unifast App`).
-* `<com.empresa.novoapp>`: O ID único do aplicativo para a loja (ex: `com.unifast.app`).
+* `<com.empresa.novoapp>`: O ID único do aplicativo para a loja (ex: `com.boilerplatebellugatenant.app`).
 
 ### Pré-requisitos
 * Acesso ao `keytool` (parte do JDK).

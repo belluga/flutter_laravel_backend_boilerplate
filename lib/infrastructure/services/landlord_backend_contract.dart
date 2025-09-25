@@ -1,4 +1,4 @@
-import 'package:belluga_boilerplate/domain/landlord/landlord.dart';
+import 'package:belluga_boilerplate/domain/environment/landlord.dart';
 
 abstract class LandlordBackendContract {
 

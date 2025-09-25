@@ -47,8 +47,9 @@ class _ApiConstants {
 }
 
 class _EnvironmentConstants {
-  String get environment =>  "local";
+  String get environment =>  "stage";
   String get landlordDomain => "belluga.space";
+  String get schema => "https";
 }
 
 class _SettingsConstants {

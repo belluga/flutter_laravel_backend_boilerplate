@@ -1,10 +1,10 @@
-import 'package:belluga_boilerplate/infrastructure/services/backend_contract.dart';
+import 'package:belluga_boilerplate/infrastructure/services/auth_backend_contract.dart';
 import 'package:belluga_boilerplate/domain/user/user_contract.dart';
 import 'package:stream_value/core/stream_value.dart';
 
 abstract class AuthRepositoryContract<T extends UserContract> {
   
-  BackendContract get backend;
+  AuthBackendContract get authBackend;
 
   final userStreamValue = StreamValue<T?>();
 

@@ -1,6 +1,12 @@
-import 'package:belluga_boilerplate/domain/repositories/landlord_repository_contract.dart';
-import 'package:belluga_boilerplate/infrastructure/repositories/landlord_repository.dart';
+import 'package:belluga_boilerplate/domain/repositories/environment_repository_contract.dart';
+import 'package:belluga_boilerplate/infrastructure/repositories/courses_repository.dart';
+import 'package:belluga_boilerplate/infrastructure/repositories/environment_repository.dart';
+import 'package:belluga_boilerplate/infrastructure/repositories/external_courses_repository.dart';
+import 'package:belluga_boilerplate/infrastructure/repositories/notes_repository.dart';
+import 'package:belluga_boilerplate/infrastructure/repositories/schedule_repository.dart';
 import 'package:belluga_boilerplate/infrastructure/repositories/theme_repository.dart';
+import 'package:belluga_boilerplate/infrastructure/services/dal/dao/laravel_backend/laravel_environment_backend.dart';
+import 'package:belluga_boilerplate/infrastructure/services/environment_backend_contract.dart';
 import 'package:flutter/material.dart';
 import 'package:belluga_boilerplate/application/configurations/custom_scroll_behavior.dart';
 import 'package:belluga_boilerplate/application/router/app_router.dart';
@@ -10,22 +16,13 @@ import 'package:belluga_boilerplate/domain/repositories/external_courses_reposit
 import 'package:belluga_boilerplate/domain/repositories/courses_repository_contract.dart';
 import 'package:belluga_boilerplate/domain/repositories/notes_repository_contract.dart';
 import 'package:belluga_boilerplate/domain/repositories/schedule_repository_contract.dart';
-import 'package:belluga_boilerplate/infrastructure/repositories/courses_repository.dart';
-import 'package:belluga_boilerplate/infrastructure/repositories/external_courses_repository.dart';
-import 'package:belluga_boilerplate/infrastructure/repositories/notes_repository.dart';
-import 'package:belluga_boilerplate/infrastructure/repositories/schedule_repository.dart';
-import 'package:belluga_boilerplate/infrastructure/repositories/tenant_repository.dart';
-import 'package:belluga_boilerplate/infrastructure/services/backend_contract.dart';
 import 'package:get_it/get_it.dart';
 import 'package:intl/intl_standalone.dart';
 import 'package:intl/date_symbol_data_local.dart';
-import 'package:belluga_boilerplate/domain/repositories/tenant_repository_contract.dart';
 import 'package:stream_value/core/stream_value_builder.dart';
 
 abstract class ApplicationContract extends StatefulWidget {
   const ApplicationContract({super.key});
-
-  BackendContract initBackendRepository();
 
   AuthRepositoryContract initAuthRepository();
 
@@ -43,7 +40,6 @@ abstract class ApplicationContract extends StatefulWidget {
     await initializeDateFormatting();
     await findSystemLocale();
     await _initAppData();
-    await _initBackend();
     await _initTenant();
   }
 
@@ -53,25 +49,22 @@ abstract class ApplicationContract extends StatefulWidget {
     GetIt.I.registerSingleton<AppData>(appData);
   }
 
-  Future<void> _initBackend() async {
-    GetIt.I.registerSingleton<BackendContract>(initBackendRepository());
-  }
-
   Future<void> _initTenant() async {
-    final _tenant = TenantRepository();
-    await _tenant.init();
-    GetIt.I.registerSingleton<TenantRepositoryContract>(_tenant);
+    final laravelEnvironmentBackend = LaravelEnvironmentBackend();
+    await laravelEnvironmentBackend.init();
+
+    GetIt.I.registerLazySingleton<EnvironmentBackendContract>(
+      () => laravelEnvironmentBackend,
+    );
+
+    final _environmentRepository = EnvironmentRepository();
+    await _environmentRepository.init();
+    GetIt.I.registerLazySingleton<EnvironmentRepositoryContract>(
+      () => _environmentRepository,
+    );
   }
 
   Future<void> _initInjections() async {
-    
-    final _landlordRepository = LandlordRepository();
-    await _landlordRepository.init();
-
-    GetIt.I.registerLazySingleton<LandlordRepositoryContract>(
-      () => _landlordRepository,
-    );
-
     GetIt.I.registerLazySingleton(() => ThemeRepository());
 
     GetIt.I.registerLazySingleton<AuthRepositoryContract>(

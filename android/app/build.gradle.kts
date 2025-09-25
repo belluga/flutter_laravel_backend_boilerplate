@@ -11,7 +11,7 @@ import java.util.Properties
 import java.io.FileInputStream
 
 android {
-    namespace = "com.belluga_now"
+    namespace = "com.boilerplatebellugatenant.app"
     compileSdk = flutter.compileSdkVersion
     ndkVersion = "27.0.12077973"
 
@@ -25,7 +25,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "com.belluga_now"
+        applicationId = "com.boilerplatebellugatenant.app"
         minSdk = flutter.minSdkVersion
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode

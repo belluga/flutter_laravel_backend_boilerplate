@@ -1,17 +1,16 @@
 import 'package:belluga_boilerplate/domain/courses/course_category_model.dart';
 import 'package:belluga_boilerplate/domain/courses/course_item_model.dart';
 import 'package:belluga_boilerplate/domain/courses/course_base_model.dart';
+import 'package:belluga_boilerplate/infrastructure/services/courses_backend_contract.dart';
 import 'package:belluga_boilerplate/infrastructure/services/dal/dto/course/category_dto.dart';
 import 'package:belluga_boilerplate/infrastructure/services/dal/dto/course/course_item_summary_dto.dart';
 import 'package:belluga_boilerplate/infrastructure/services/dal/dto/course/course_item_dto.dart';
-
-import 'package:belluga_boilerplate/infrastructure/services/backend_contract.dart';
 import 'package:belluga_boilerplate/presentation/screens/tenants/dashboard/view_models/courses_summary.dart';
 import 'package:get_it/get_it.dart';
 import 'package:stream_value/core/stream_value.dart';
 
 abstract class CoursesRepositoryContract {
-  BackendContract get backend => GetIt.I.get<BackendContract>();
+  CoursesBackendContract get coursesBackend => GetIt.I.get();
 
   final myCoursesSummaryStreamValue = StreamValue<CoursesSummary?>(
     defaultValue: null,
@@ -42,7 +41,7 @@ abstract class CoursesRepositoryContract {
 
   Future<void> _refreshMyCoursesDashboardSummary() async {
     final List<CourseItemSummaryDTO> _dashboardSummary =
-        await backend.courses.getMyCourses();
+        await coursesBackend.getMyCourses();
 
     final _courses = _dashboardSummary
         .map((courseDto) => CourseBaseModel.fromDto(courseDto))
@@ -63,7 +62,7 @@ abstract class CoursesRepositoryContract {
 
   Future<void> _refreshFastTracksList() async {
     final List<CourseItemSummaryDTO> _dashboardSummary =
-        await backend.courses.getUnifastTracks();
+        await coursesBackend.getUnifastTracks();
 
     final _courses = _dashboardSummary
         .map((courseDto) => CourseBaseModel.fromDto(courseDto))
@@ -81,7 +80,7 @@ abstract class CoursesRepositoryContract {
 
   Future<void> _refreshFastTracksLastCreatedList() async {
     final List<CourseItemSummaryDTO> _coursesDtos =
-        await backend.courses.getLastFastTrackCourses();
+        await coursesBackend.getLastFastTrackCourses();
 
     _coursesDtos.sublist(0, 4);
 
@@ -94,7 +93,7 @@ abstract class CoursesRepositoryContract {
 
   Future<CourseItemModel> courseItemGetDetails(String courseId) async {
     final CourseItemDetailsDTO _courseDTO =
-        await backend.courses.courseItemGetDetails(
+        await coursesBackend.courseItemGetDetails(
       courseId,
     );
     return Future.value(CourseItemModel.fromDto(_courseDTO));
@@ -105,7 +104,7 @@ abstract class CoursesRepositoryContract {
       return Future.value(fastTracksCategoriesListStreamValue.value);
     }
     final List<CategoryDTO> _categoriesDTO =
-        await backend.courses.getFastTracksCategories();
+        await coursesBackend.getFastTracksCategories();
 
     final _categoriesModel = _categoriesDTO
         .map((category) => CourseCategoryModel.fromDto(category))
