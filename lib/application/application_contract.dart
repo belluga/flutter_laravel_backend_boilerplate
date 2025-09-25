@@ -1,16 +1,15 @@
-import 'package:belluga_boilerplate/domain/repositories/environment_repository_contract.dart';
+import 'package:belluga_boilerplate/infrastructure/repositories/app_data_repository.dart';
 import 'package:belluga_boilerplate/infrastructure/repositories/courses_repository.dart';
-import 'package:belluga_boilerplate/infrastructure/repositories/environment_repository.dart';
 import 'package:belluga_boilerplate/infrastructure/repositories/external_courses_repository.dart';
 import 'package:belluga_boilerplate/infrastructure/repositories/notes_repository.dart';
 import 'package:belluga_boilerplate/infrastructure/repositories/schedule_repository.dart';
 import 'package:belluga_boilerplate/infrastructure/repositories/theme_repository.dart';
-import 'package:belluga_boilerplate/infrastructure/services/dal/dao/laravel_backend/laravel_environment_backend.dart';
-import 'package:belluga_boilerplate/infrastructure/services/environment_backend_contract.dart';
+import 'package:belluga_boilerplate/infrastructure/services/dal/dao/laravel_backend/app_data_backend/app_data_backend.dart';
+import 'package:belluga_boilerplate/infrastructure/services/dal/dao/local/app_data_local_cache/app_data_local_cache_web.dart';
+import 'package:belluga_boilerplate/infrastructure/services/dal/dao/local/app_data_local_info_source/app_data_local_info_source.dart';
 import 'package:flutter/material.dart';
 import 'package:belluga_boilerplate/application/configurations/custom_scroll_behavior.dart';
 import 'package:belluga_boilerplate/application/router/app_router.dart';
-import 'package:belluga_boilerplate/domain/app_data/app_data.dart';
 import 'package:belluga_boilerplate/domain/repositories/auth_repository_contract.dart';
 import 'package:belluga_boilerplate/domain/repositories/external_courses_repository_contract.dart';
 import 'package:belluga_boilerplate/domain/repositories/courses_repository_contract.dart';
@@ -40,28 +39,23 @@ abstract class ApplicationContract extends StatefulWidget {
     await initializeDateFormatting();
     await findSystemLocale();
     await _initAppData();
-    await _initTenant();
   }
 
   Future<void> _initAppData() async {
-    final appData = AppData()..initialize();
-    await appData.initialize();
-    GetIt.I.registerSingleton<AppData>(appData);
-  }
+    
+    final _localCache = AppDataLocalCache();
+    final _backend = AppDataBackend();
+    final _localInfoSource = AppDataLocalInfoSource();
 
-  Future<void> _initTenant() async {
-    final laravelEnvironmentBackend = LaravelEnvironmentBackend();
-    await laravelEnvironmentBackend.init();
-
-    GetIt.I.registerLazySingleton<EnvironmentBackendContract>(
-      () => laravelEnvironmentBackend,
+    final appDataRepo = AppDataRepository(
+      localCache: _localCache,
+      backend: _backend,
+      localInfoSource: _localInfoSource,
     );
 
-    final _environmentRepository = EnvironmentRepository();
-    await _environmentRepository.init();
-    GetIt.I.registerLazySingleton<EnvironmentRepositoryContract>(
-      () => _environmentRepository,
-    );
+    await appDataRepo.init();
+
+    GetIt.I.registerSingleton<AppDataRepository>(appDataRepo);
   }
 
   Future<void> _initInjections() async {

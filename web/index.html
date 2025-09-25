@@ -118,6 +118,8 @@
             splashScreen.style.backgroundColor = backgroundColor;
           }
         }
+
+        window.dispatchEvent(new CustomEvent('brandingReady', { detail: branding }));
       };
 
       // --- 1. Immediate Load from Cache ---

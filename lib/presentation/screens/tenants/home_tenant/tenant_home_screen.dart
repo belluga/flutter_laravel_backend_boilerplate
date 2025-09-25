@@ -33,7 +33,7 @@ class _TenantHomeScreenState extends State<TenantHomeScreen> {
           mainAxisSize: MainAxisSize.min,
           children: [
             const Text("This is HOME"),
-            Text(_controller.tenant.nameValue.value),
+            Text(_controller.appData.nameValue.value),
             Text(BellugaConstants.settings.platform),
             ElevatedButton(
               key: WidgetKeys.auth.navigateToProtectedButton,

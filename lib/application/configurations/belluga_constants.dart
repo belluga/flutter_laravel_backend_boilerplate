@@ -1,7 +1,5 @@
-import 'package:belluga_boilerplate/domain/app_data/app_data.dart';
 import 'dart:io' show Platform;
 import 'package:flutter/foundation.dart';
-import 'package:get_it/get_it.dart';
 
 class BellugaConstants {
   static final settings = _SettingsConstants();
@@ -11,10 +9,9 @@ class BellugaConstants {
 }
 
 class _ApiConstants {
-  AppData get _appData => GetIt.I.get<AppData>();
 
   String get adminUrl {
-    final String _mainApi = '${_appData.schema}://${_appData.hostname}/admin/api';
+    final String _mainApi = '${Uri.base.scheme}://${Uri.base.host}/admin/api';
 
     final _environment = BellugaConstants.env.environment;
 
@@ -22,7 +19,7 @@ class _ApiConstants {
       return _mainApi;
     } else if (Platform.isAndroid) {
       return _environment == "local"
-          ? "http://10.0.2.2:5000/api"
+          ? "http://nginx/api"
           : _mainApi;
     } else {
       return _mainApi;
@@ -30,7 +27,7 @@ class _ApiConstants {
   }
 
   String get baseUrl {
-    final String _mainApi = '${_appData.schema}://${_appData.hostname}/api';
+    final String _mainApi = '${Uri.base.scheme}://${Uri.base.host}/api';
 
     final _environment = BellugaConstants.env.environment;
 
@@ -38,7 +35,7 @@ class _ApiConstants {
       return _mainApi;
     } else if (Platform.isAndroid) {
       return _environment == "local"
-          ? "http://10.0.2.2:5000/api"
+          ? "http://nginx/api"
           : _mainApi;
     } else {
       return _mainApi;

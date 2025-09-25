@@ -1,5 +1,5 @@
-import 'package:belluga_boilerplate/domain/repositories/environment_repository_contract.dart';
 import 'package:belluga_boilerplate/domain/theme_data_settings/theme_data_settings.dart';
+import 'package:belluga_boilerplate/infrastructure/repositories/app_data_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:stream_value/core/stream_value.dart';
@@ -10,10 +10,10 @@ class ThemeRepository {
     setTheme(Brightness.light);
   }
 
-  final _environmentRepository = GetIt.I.get<EnvironmentRepositoryContract>();
+  final _appData = GetIt.I.get<AppDataRepository>().appData;
 
 
-  ThemeDataSettings get settings => _environmentRepository.environment.themeDataSettings;
+  ThemeDataSettings get settings => _appData.themeDataSettings;
 
   final themeStreamValue = StreamValue<ThemeData?>();
 

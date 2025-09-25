@@ -1,4 +1,4 @@
-enum AppType {
+enum PlatformType {
   web,
   mobile,
   desktop,
