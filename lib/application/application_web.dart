@@ -1,12 +1,10 @@
-import 'package:belluga_now/application/application_web_contract.dart';
-import 'package:belluga_now/domain/repositories/auth_repository_contract.dart';
-import 'package:belluga_now/domain/user/user_belluga.dart';
-import 'package:belluga_now/infrastructure/repositories/auth_repository.dart';
-import 'package:belluga_now/infrastructure/services/dal/dao/backend_contract.dart';
-import 'package:belluga_now/infrastructure/services/dal/dao/mock_backend/mock_backend.dart';
+import 'package:belluga_boilerplate/application/application_web_contract.dart';
+import 'package:belluga_boilerplate/domain/repositories/auth_repository_contract.dart';
+import 'package:belluga_boilerplate/domain/user/user_belluga.dart';
+import 'package:belluga_boilerplate/infrastructure/repositories/auth_repository.dart';
 
 class Application extends ApplicationWebContract {
-  Application({super.key});
+  const Application({super.key});
 
   @override
   AuthRepositoryContract<UserBelluga> initAuthRepository() {
@@ -14,7 +12,4 @@ class Application extends ApplicationWebContract {
     _respository.init();
     return _respository;
   }
-
-  @override
-  BackendContract initBackendRepository() => MockBackend();
 }

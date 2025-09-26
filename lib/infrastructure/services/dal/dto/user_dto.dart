@@ -1,5 +1,5 @@
-import 'package:belluga_now/application/configurations/user_dto_labels.dart';
-import 'package:belluga_now/infrastructure/services/dal/dto/user_profile_dto.dart';
+import 'package:belluga_boilerplate/application/configurations/user_dto_labels.dart';
+import 'package:belluga_boilerplate/infrastructure/services/dal/dto/user_profile_dto.dart';
 
 class UserDTO {
   final String id;

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:belluga_now/application/application_contract.dart';
-import 'package:belluga_now/application/configurations/belluga_constants.dart';
+import 'package:belluga_boilerplate/application/application_contract.dart';
+import 'package:belluga_boilerplate/application/configurations/belluga_constants.dart';
 import 'package:get_it/get_it.dart';
 import 'dart:async';
 
 import 'package:flutter/widgets.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
-import 'package:belluga_now/application/application.dart';
+import 'package:belluga_boilerplate/application/application.dart';
 
 Future<void> main() async {
   GetIt.I.registerSingleton<ApplicationContract>(Application());
@@ -32,6 +32,13 @@ Future<void> main() async {
 }
 
 // void _initApp() {
+  
+
+
+
+
+
+
   
 //   runApp(
 //     Application(

@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:belluga_now/application/router/app_router.gr.dart';
-import 'package:belluga_now/domain/controllers/belluga_init_screen_controller_contract.dart';
+import 'package:belluga_boilerplate/application/router/app_router.gr.dart';
+import 'package:belluga_boilerplate/domain/controllers/belluga_init_screen_controller_contract.dart';
 import 'package:stream_value/core/stream_value.dart';
 
 final class InitScreenController extends BellugaInitScreenControllerContract {

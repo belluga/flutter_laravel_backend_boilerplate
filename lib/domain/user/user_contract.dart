@@ -1,5 +1,5 @@
-import 'package:belluga_now/application/configurations/belluga_constants.dart';
-import 'package:belluga_now/domain/user/user_profile_contract.dart';
+import 'package:belluga_boilerplate/application/configurations/belluga_constants.dart';
+import 'package:belluga_boilerplate/domain/user/user_profile_contract.dart';
 import 'package:platform_device_id_plus/platform_device_id.dart';
 import 'package:value_object_pattern/domain/value_objects/mongo_id_value.dart';
 

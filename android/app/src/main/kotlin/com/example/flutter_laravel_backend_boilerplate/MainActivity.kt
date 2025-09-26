@@ -1,4 +1,4 @@
-package com.belluga_now
+package com.boilerplatebellugatenant.app
 
 import io.flutter.embedding.android.FlutterActivity
 

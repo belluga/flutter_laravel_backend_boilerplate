@@ -1,15 +1,15 @@
+import 'package:belluga_boilerplate/domain/value_objects/color_required_value.dart';
 import 'package:flutter/material.dart';
-import 'package:belluga_now/domain/courses/value_objects/category_name.dart';
-import 'package:belluga_now/domain/value_objects/color_value.dart';
-import 'package:belluga_now/domain/courses/value_objects/slug_value.dart';
-import 'package:belluga_now/infrastructure/services/dal/dto/course/category_dto.dart';
+import 'package:belluga_boilerplate/domain/courses/value_objects/category_name.dart';
+import 'package:belluga_boilerplate/domain/courses/value_objects/slug_value.dart';
+import 'package:belluga_boilerplate/infrastructure/services/dal/dto/course/category_dto.dart';
 import 'package:value_object_pattern/domain/value_objects/mongo_id_value.dart';
 
 class CourseCategoryModel {
   MongoIDValue id;
   CategoryNameValue name;
   SlugValue slug;
-  ColorValue color;
+  ColorRequiredValue color;
 
   CourseCategoryModel({
     required this.id,
@@ -34,7 +34,7 @@ class CourseCategoryModel {
     final _id = MongoIDValue()..parse(dto.id);
     final _name = CategoryNameValue()..parse(dto.name);
     final _slug = SlugValue()..parse(dto.slug);
-    final _color = ColorValue(defaultValue: Colors.tealAccent)
+    final _color = ColorRequiredValue(defaultValue: Colors.tealAccent)
       ..tryParse(dto.colorHex);
 
     return CourseCategoryModel(

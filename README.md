@@ -1,176 +1,117 @@
 # Como Adicionar um Novo Tenant (Flavor)
 
-Este guia é um passo a passo objetivo para adicionar um novo tenant ao projeto, garantindo que ele tenha sua própria identidade (ID, nome, ícone), configuração e assinatura digital para as lojas.
+Este guia é o passo a passo definitivo para adicionar um novo tenant ao projeto. Ele reflete a arquitetura atual, que automatiza a maior parte da configuração do Android a partir de arquivos de propriedades e utiliza um backend para o branding dinâmico na web.
 
-Usaremos os seguintes placeholders:
-* `<novo_tenant>`: O nome do novo flavor em minúsculas (ex: `aracruz`).
-* `<NomeDoApp>`: O nome de exibição do aplicativo (ex: `Aracruz App`).
-* `<com.empresa.novoapp>`: O ID único do aplicativo para a loja (ex: `com.aracruz.app`).
+**Placeholders Usados:**
+* `<novo_tenant>`: O nome do novo flavor em minúsculas (ex: `unifast`).
+* `<NomeDoApp>`: O nome de exibição do aplicativo (ex: `Unifast App`).
+* `<com.empresa.novoapp>`: O ID único do aplicativo para a loja (ex: `com.boilerplatebellugatenant.app`).
 
 ### Pré-requisitos
-* Acesso ao `keytool` (parte do Java Development Kit).
+* Acesso ao `keytool` (parte do JDK).
 * Acesso a um ambiente macOS com Xcode para a configuração do iOS.
+* Dependências `flutter_launcher_icons` e `flutter_native_splash` configuradas.
 
-## Passo 1: Configuração da Assinatura Digital (Android)
+---
 
-Cada app precisa de uma chave única para a Google Play.
+### Passo 1: Configuração do Backend
+1.  **Cadastrar o Tenant:** Adicione o novo tenant ao seu banco de dados, incluindo seu `applicationId` para mobile e os domínios/subdomínios para web.
+2.  **Upload do Logo:** Use o endpoint de upload para enviar o logo principal do tenant. O backend se encarregará de gerar todos os tamanhos necessários (`favicon`, PWA, splash) e armazenar suas URLs públicas.
 
-1.  **Gerar Keystore:** No terminal, gere o arquivo de chave para o novo tenant.
+---
+
+### Passo 2: Configuração da Assinatura (Android)
+
+1.  **Gerar Keystore:** Gere o arquivo `.jks` para o novo tenant e coloque-o na pasta `android/keystores/`.
     ```bash
     keytool -genkey -v -keystore <novo_tenant>-release-key.jks -keyalg RSA -keysize 2048 -validity 10000 -alias <novo_tenant>-alias
     ```
 
-2.  **Mover Arquivo:** Mova o arquivo `<novo_tenant>-release-key.jks` gerado para a pasta `android/keystores/`.
+2.  **Criar Arquivo de Propriedades:**
+    * Na pasta `android/keystores/`, copie o arquivo `tenant.properties.example` e renomeie-o para `<novo_tenant>.properties`.
+    * Abra o novo arquivo e preencha todos os placeholders com os valores reais do tenant.
 
-3.  **Criar Propriedades:** Crie o arquivo `android/keystores/<novo_tenant>.properties`. Preencha com as senhas e informações da chave gerada.
-    ```properties
-    # android/keystores/<novo_tenant>.properties
-    storePassword=[SENHA_DO_KEYSTORE]
-    keyPassword=[SENHA_DA_CHAVE]
-    keyAlias=<novo_tenant>-alias
-    storeFile=<novo_tenant>-release-key.jks
+---
+
+### Passo 3: Geração de Ícones e Splash Screen (Mobile)
+
+1.  **Preparar Imagens:** Adicione os arquivos de imagem de alta resolução nas pastas de assets do tenant:
+    * `assets/tenants/<novo_tenant>/launcher_icons/adaptive_icon_foreground.png`
+    * `assets/tenants/<novo_tenant>/splash_screen/splash_logo.png`
+
+2.  **Criar Arquivos de Configuração YAML:** Crie os dois arquivos de configuração **dentro** da pasta do tenant.
+    * Crie `assets/tenants/<novo_tenant>/flutter_icons.yaml` para o **ícone do app**.
+        ```yaml
+        flutter_launcher_icons:
+          android: true
+          ios: true
+          image_path: "assets/tenants/<novo_tenant>/launcher_icons/adaptive_icon_foreground.png"
+          # ... outras configs de ícone adaptativo ...
+        ```
+    * Crie `assets/tenants/<novo_tenant>/splash.yaml` para a **splash screen**.
+        ```yaml
+        flutter_native_splash:
+          web: false # Importante para não interferir com a solução web
+          color: "#FFFFFF"
+          image: "assets/tenants/<novo_tenant>/splash_screen/splash_logo.png"
+          android_12:
+            color: "#FFFFFF"
+            image: "assets/tenants/<novo_tenant>/splash_screen/splash_logo.png"
+        ```
+
+3.  **Executar os Geradores:** Os comandos agora devem apontar para os caminhos corretos dos arquivos de configuração.
+    ```bash
+    # Gerar o ícone do app
+    dart run flutter_launcher_icons -f assets/tenants/<novo_tenant>/flutter_icons.yaml
+
+    # Gerar a splash screen
+    dart run flutter_native_splash:create --path=assets/tenants/<novo_tenant>/splash.yaml
     ```
 
-## Passo 2: Configuração do Projeto Android
+4.  **Organizar Ícones Gerados (Passo Manual):**
+    * **Android:** Mova as pastas `mipmap-*`/`drawable-*` geradas em `android/app/src/main/res/` para a pasta `android/app/src/`**`<novo_tenant>`**`/res/`.
+    * **iOS:** No Finder, renomeie `ios/Runner/Assets.xcassets/AppIcon.appiconset` para `AppIcon-<novo_tenant>.appiconset`. Arraste o novo asset para o Xcode e, nas **Build Settings**, configure o **Asset Catalog App Icon Set Name** para `AppIcon-<novo_tenant>`.
 
-1.  **Configurar `build.gradle.kts`:** Abra o arquivo `android/app/build.gradle.kts`.
-    * **Adicionar Flavor:** Dentro do bloco `productFlavors`, adicione o novo tenant.
-        ```kotlin
-        // ...
-        create("guarappari") { /* ... */ }
-        create("belluga") { /* ... */ }
-        
-        // Adicione este bloco para o novo tenant
-        create("<novo_tenant>") {
-            dimension = "tenant"
-            applicationId = "<com.empresa.novoapp>"
-        }
-        // ...
-        ```
-    * **Configurar Assinatura (IMPORTANTE):** Se esta é a primeira vez configurando um flavor de release, substitua o bloco `buildTypes` e adicione a lógica de `signingConfigs` para habilitar a assinatura correta.
-        ```kotlin
-        // No topo do arquivo, depois de 'plugins { ... }'
-        val keyProperties = java.util.Properties()
+---
 
-        android {
-            // ...
-            
-            // Adicione este bloco se não existir
-            signingConfigs {
-            }
+### Passo 4: Configuração Nativa (Android & iOS)
 
-            buildTypes {
-                getByName("release") {
-                    // Garante que a assinatura seja definida por flavor
-                    signingConfig = signingConfigs.findByName(name)
-                }
-            }
-            
-            flavorDimensions.add("tenant")
+* **Android:**
+    1.  Crie a pasta `android/app/src/<novo_tenant>/res/values/`.
+    2.  Crie um arquivo `strings.xml` dentro dela para definir o `<string name="app_name">`.
 
-            productFlavors {
-                // Itera sobre cada flavor para configurar a assinatura dinamicamente
-                forEach { flavor ->
-                    val flavorPropertiesFile = rootProject.file("keystores/${flavor.name}.properties")
-                    if (flavorPropertiesFile.exists()) {
-                        keyProperties.load(java.io.FileInputStream(flavorPropertiesFile))
-                        signingConfigs.create(flavor.name) {
-                            keyAlias = keyProperties["keyAlias"] as String
-                            keyPassword = keyProperties["keyPassword"] as String
-                            storePassword = keyProperties["storePassword"] as String
-                            storeFile = file("../keystores/${keyProperties["storeFile"]}")
-                        }
-                        flavor.signingConfig = signingConfigs.getByName(flavor.name)
-                    }
-                }
-                
-                // Definições dos seus flavors
-                create("guarappari") { /* ... */ }
-                create("belluga") { /* ... */ }
-                create("<novo_tenant>") {
-                    dimension = "tenant"
-                    applicationId = "<com.empresa.novoapp>"
-                }
-            }
-        }
-        ```
+* **iOS (via Xcode):**
+    1.  Duplique as Configurações de Build para `Debug-<novo_tenant>` e `Release-<novo_tenant>`.
+    2.  Crie e configure um novo "Scheme" chamado `<novo_tenant>`.
+    3.  Nas Build Settings, defina o **Product Bundle Identifier** e **APP_DISPLAY_NAME**.
+    4.  Configure a equipe de assinatura (Signing Team) correta.
 
-2.  **Definir Nome do App:**
-    * Crie a pasta: `android/app/src/<novo_tenant>/res/values/`.
-    * Crie o arquivo `strings.xml` dentro dela com o conteúdo:
-        ```xml
-        <?xml version="1.0" encoding="utf-8"?>
-        <resources>
-            <string name="app_name"> <NomeDoApp> </string>
-        </resources>
-        ```
+---
 
-3.  **Definir Ícone do App:**
-    * Crie a estrutura de pastas: `android/app/src/<novo_tenant>/res/`.
-    * Dentro dela, crie as pastas `mipmap-hdpi`, `mipmap-mdpi`, etc., e coloque os arquivos `ic_launcher.png` correspondentes.
+### Passo 5: Configuração do Código Dart
 
-## Passo 3: Configuração do Projeto iOS (Xcode)
+O `TenantRepository` identifica o tenant comparando o **ID do aplicativo** com a lista `AppDomains` de cada tenant. Garanta que o `<com.empresa.novoapp>` esteja incluído na fonte de dados que o `TenantRepository` consulta (seja um JSON local ou uma resposta de API).
 
-Abra o projeto `ios/Runner.workspace` no Xcode e siga os passos:
+---
 
-1.  **Duplicar Configurações de Build:**
-    * Selecione o projeto `Runner` > aba **Info** > **Configurations**.
-    * Clique no `+` e duplique as configurações `Debug` e `Release`, nomeando-as `Debug-<novo_tenant>` e `Release-<novo_tenant>`.
+### Passo 6: Configuração do VS Code
 
-2.  **Criar Novo "Scheme":**
-    * No menu de schemes (topo da janela), selecione **New Scheme...**.
-    * Nomeie o novo scheme como `<novo_tenant>`.
+Abra `.vscode/launch.json` e adicione uma nova configuração de execução para o `<novo_tenant>`, incluindo os `args` para `--flavor` e `--dart-define`.
 
-3.  **Configurar o Scheme:**
-    * No menu de schemes, selecione **Edit Scheme...**.
-    * Para as ações `Run`, `Test`, `Profile`, `Analyze`, e `Archive`, ajuste o **Build Configuration** para usar as novas configurações (`Debug-<novo_tenant>` ou `Release-<novo_tenant>`).
+---
 
-4.  **Definir Identidade do App:**
-    * Selecione o **TARGET** `Runner` > aba **Build Settings**.
-    * Procure e defina o valor de **Product Bundle Identifier** para `<com.empresa.novoapp>` nas configurações do `<novo_tenant>`.
-    * Procure e defina o valor da configuração **APP_DISPLAY_NAME** para `<NomeDoApp>` nas configurações do `<novo_tenant>`.
-
-5.  **Definir Assinatura Apple:**
-    * Vá para a aba **Signing & Capabilities**.
-    * Para as configurações `Debug-<novo_tenant>` e `Release-<novo_tenant>`, selecione o **Team** de desenvolvimento Apple correto (geralmente o do cliente).
-
-## Passo 4: Configuração do Código Dart
-
-1.  **Abra o `TenantRepository.dart`**:
-    * Localize o método `init()`. Este método é o responsável por carregar as informações do tenant com base no flavor que está rodando (lendo a variável de ambiente `FLAVOR`).
-    * Adicione a lógica necessária para reconhecer o `"<novo_tenant>"` e carregar os dados corretos para ele (seja de um mapa local, de uma API, etc.).
-
-## Passo 5: Configuração do VS Code
-
-1.  **Abra `.vscode/launch.json`:**
-2.  Adicione um novo objeto de configuração para o novo tenant, copiando e editando um existente:
-    ```json
-    {
-        "name": "<NomeDoApp> (Debug)",
-        "request": "launch",
-        "type": "dart",
-        "flutterMode": "debug",
-        "args": [
-            "--flavor",
-            "<novo_tenant>",
-            "--dart-define=FLAVOR=<novo_tenant>"
-        ]
-    }
-    ```
-
-## Passo 6: Verificação Final
-
-Após completar os passos, faça uma limpeza e execute o novo flavor para testar.
+### Passo 7: Verificação e Build Final
 
 1.  **Limpe o projeto:**
     ```bash
     fvm flutter clean
     ```
-2.  **Execute via terminal:**
+2.  **Teste em Debug (Mobile):**
     ```bash
     fvm flutter run --flavor <novo_tenant> --dart-define=FLAVOR=<novo_tenant>
     ```
-3.  **Execute via VS Code:**
-    * Vá para a aba "Run and Debug" (🐞).
-    * Selecione a nova configuração (`<NomeDoApp> (Debug)`) no menu dropdown.
-    * Clique no botão de "play".
+3.  **Gere o App Bundle para a Google Play:**
+    ```bash
+    fvm flutter build appbundle --flavor <novo_tenant>
+    ```
+4.  **Teste a Web:** Acesse o domínio/subdomínio correspondente. O branding deve ser carregado dinamicamente do backend.

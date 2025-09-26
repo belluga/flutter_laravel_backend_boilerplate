@@ -36,11 +36,11 @@ class _DashboardTitleRowState extends State<DashboardTitleRow> {
             if (widget.showAllLabel != null)
               ElevatedButton(
                 onPressed: widget.onShowAllPressed ?? () {},
-                style: Theme.of(context).elevatedButtonTheme.style?.copyWith(
-                  padding: WidgetStateProperty.all<EdgeInsetsGeometry>(
-                    EdgeInsets.symmetric(horizontal: 24, vertical: 4),
-                  ),
-                ),
+                // style: Theme.of(context).elevatedButtonTheme.style?.copyWith(
+                //   padding: WidgetStateProperty.all<EdgeInsetsGeometry>(
+                //     EdgeInsets.symmetric(horizontal: 24, vertical: 4),
+                //   ),
+                // ),
                 child: Text(
                   widget.showAllLabel ?? "",
                   style: TextTheme.of(context).labelSmall,
