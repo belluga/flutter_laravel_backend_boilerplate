@@ -5,7 +5,7 @@ import 'package:belluga_boilerplate/infrastructure/repositories/notes_repository
 import 'package:belluga_boilerplate/infrastructure/repositories/schedule_repository.dart';
 import 'package:belluga_boilerplate/infrastructure/repositories/theme_repository.dart';
 import 'package:belluga_boilerplate/infrastructure/services/dal/dao/laravel_backend/app_data_backend/app_data_backend.dart';
-import 'package:belluga_boilerplate/infrastructure/services/dal/dao/local/app_data_local_cache/app_data_local_cache_web.dart';
+import 'package:belluga_boilerplate/infrastructure/services/dal/dao/local/app_data_local_cache/app_data_local_cache.dart';
 import 'package:belluga_boilerplate/infrastructure/services/dal/dao/local/app_data_local_info_source/app_data_local_info_source.dart';
 import 'package:flutter/material.dart';
 import 'package:belluga_boilerplate/application/configurations/custom_scroll_behavior.dart';
