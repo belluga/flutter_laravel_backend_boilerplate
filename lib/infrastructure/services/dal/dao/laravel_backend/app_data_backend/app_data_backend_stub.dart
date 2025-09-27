@@ -16,9 +16,6 @@ class AppDataBackend implements AppDataBackendContract {
 
     final _packageInfo = await PackageInfo.fromPlatform();
 
-    print(_packageInfo.appName);
-    print(_packageInfo.packageName);
-
     try {
       final response = await _dio.get('/environment?app_domain=${_packageInfo.packageName}');
       return response.data as Map<String, dynamic>;

@@ -2,7 +2,6 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:belluga_boilerplate/application/configurations/widget_keys.dart';
 import 'package:belluga_boilerplate/domain/controllers/belluga_init_screen_controller_contract.dart';
-import 'package:belluga_boilerplate/presentation/init/controller/init_screen_controller.dart';
 import 'package:get_it/get_it.dart';
 
 @RoutePage()
@@ -14,7 +13,7 @@ class InitScreen extends StatefulWidget {
 }
 
 class _InitScreenState extends State<InitScreen> {
-  late final BellugaInitScreenControllerContract _controller;
+  final _controller = GetIt.I.get<BellugaInitScreenControllerContract>();
 
   @override
   void initState() {
@@ -31,10 +30,7 @@ class _InitScreenState extends State<InitScreen> {
   }
 
   Future<void> _init() async {
-    _controller =
-        GetIt.I.registerSingleton<BellugaInitScreenControllerContract>(
-      InitScreenController(),
-    );
+    
     await _controller.initialize();
 
     await Future.delayed(const Duration(milliseconds: 2000));

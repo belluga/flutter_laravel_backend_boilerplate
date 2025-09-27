@@ -10,8 +10,9 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:auto_route/auto_route.dart' as _i13;
-import 'package:flutter/material.dart' as _i14;
 import 'package:belluga_boilerplate/presentation/init/init_screen.dart' as _i7;
+import 'package:belluga_boilerplate/presentation/screens/landlord/home_landlord/landlord_home_screen.dart'
+    as _i8;
 import 'package:belluga_boilerplate/presentation/screens/tenants/auth/create_new_password/auth_create_new_password.dart'
     as _i1;
 import 'package:belluga_boilerplate/presentation/screens/tenants/auth/login/auth_login_screen.dart'
@@ -20,8 +21,6 @@ import 'package:belluga_boilerplate/presentation/screens/tenants/auth/recovery_p
     as _i10;
 import 'package:belluga_boilerplate/presentation/screens/tenants/dashboard/dashboard_screen.dart'
     as _i5;
-import 'package:belluga_boilerplate/presentation/screens/landlord/home_landlord/landlord_home_screen.dart'
-    as _i8;
 import 'package:belluga_boilerplate/presentation/screens/tenants/home_tenant/tenant_home_screen.dart'
     as _i12;
 import 'package:belluga_boilerplate/presentation/screens/tenants/lms/screens/course_screen/course_screen.dart'
@@ -34,6 +33,7 @@ import 'package:belluga_boilerplate/presentation/screens/tenants/profile/profile
     as _i9;
 import 'package:belluga_boilerplate/presentation/screens/tenants/schedule/screens/schedule_screen.dart'
     as _i11;
+import 'package:flutter/material.dart' as _i14;
 
 /// generated route for
 /// [_i1.AuthCreateNewPasswordScreen]

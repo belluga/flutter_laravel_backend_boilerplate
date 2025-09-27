@@ -64,5 +64,7 @@ class AppData {
   }
 
   bool get isTenant => typeValue.value == EnvironmentType.tenant;
-  bool get isSystemActive => typeValue.value != null;
+  
+  //TODO: check if system is initialized
+  bool get isSystemActive => typeValue.value.runtimeType == EnvironmentType;
 }

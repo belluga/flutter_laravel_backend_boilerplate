@@ -3,7 +3,8 @@ import 'package:flutter_web_plugins/flutter_web_plugins.dart';
 import 'package:video_player_web_hls/video_player_web_hls.dart';
 
 abstract class ApplicationWebContract extends ApplicationContract {
-  const ApplicationWebContract({super.key});
+  
+  ApplicationWebContract({super.key});
 
   @override
   Future<void> initialSettingsPlatform() async {
