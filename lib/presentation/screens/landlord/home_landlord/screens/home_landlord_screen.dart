@@ -1,29 +1,18 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:belluga_boilerplate/presentation/screens/landlord/home_landlord/controllers/landlord_home_screen_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:belluga_boilerplate/application/configurations/belluga_constants.dart';
 import 'package:get_it/get_it.dart';
 
-@RoutePage()
-class LandlordHomeScreen extends StatefulWidget {
-  const LandlordHomeScreen({super.key});
+class HomeLandlordScreen extends StatefulWidget {
+  const HomeLandlordScreen({super.key});
 
   @override
-  State<LandlordHomeScreen> createState() => _LandlordHomeScreenState();
+  State<HomeLandlordScreen> createState() => _HomeLandlordScreenState();
 }
 
-class _LandlordHomeScreenState extends State<LandlordHomeScreen> {
+class _HomeLandlordScreenState extends State<HomeLandlordScreen> {
 
-  late LandlordHomeScreenController _controller;
-
-  @override
-  void initState() {
-    super.initState();
-    _controller = GetIt.I.registerSingleton<LandlordHomeScreenController>(
-      LandlordHomeScreenController(),
-    );
-    _controller.init();
-  }
+  final _controller = GetIt.I.get<LandlordHomeScreenController>();
 
   @override
   Widget build(BuildContext context) {

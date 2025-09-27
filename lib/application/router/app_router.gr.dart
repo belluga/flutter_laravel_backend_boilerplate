@@ -10,33 +10,33 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:auto_route/auto_route.dart' as _i13;
-import 'package:flutter/material.dart' as _i14;
-import 'package:belluga_boilerplate/presentation/init/init_screen.dart' as _i7;
-import 'package:belluga_boilerplate/presentation/screens/tenants/auth/create_new_password/auth_create_new_password.dart'
+import 'package:belluga_boilerplate/presentation/init/init_route.dart' as _i8;
+import 'package:belluga_boilerplate/presentation/screens/landlord/home_landlord/home_landlord_route.dart'
+    as _i7;
+import 'package:belluga_boilerplate/presentation/screens/tenants/auth/auth_create_new_password_route.dart'
     as _i1;
-import 'package:belluga_boilerplate/presentation/screens/tenants/auth/login/auth_login_screen.dart'
+import 'package:belluga_boilerplate/presentation/screens/tenants/auth/auth_login_route.dart'
     as _i2;
-import 'package:belluga_boilerplate/presentation/screens/tenants/auth/recovery_password_bug/recovery_password_screen.dart'
+import 'package:belluga_boilerplate/presentation/screens/tenants/auth/recovery_password_route.dart'
     as _i10;
-import 'package:belluga_boilerplate/presentation/screens/tenants/dashboard/dashboard_screen.dart'
+import 'package:belluga_boilerplate/presentation/screens/tenants/dashboard/dashboard_route.dart'
     as _i5;
-import 'package:belluga_boilerplate/presentation/screens/landlord/home_landlord/landlord_home_screen.dart'
-    as _i8;
-import 'package:belluga_boilerplate/presentation/screens/tenants/home_tenant/tenant_home_screen.dart'
+import 'package:belluga_boilerplate/presentation/screens/tenants/home_tenant/home_tenant_route.dart'
     as _i12;
-import 'package:belluga_boilerplate/presentation/screens/tenants/lms/screens/course_screen/course_screen.dart'
+import 'package:belluga_boilerplate/presentation/screens/tenants/lms/screens/course_route.dart'
     as _i3;
-import 'package:belluga_boilerplate/presentation/screens/tenants/lms/screens/courses_list_screen/courses_list_screen.dart'
+import 'package:belluga_boilerplate/presentation/screens/tenants/lms/screens/courses_list_route.dart'
     as _i4;
-import 'package:belluga_boilerplate/presentation/screens/tenants/lms/screens/fast_tracks_list_screen/fast_tracks_list_screen.dart'
+import 'package:belluga_boilerplate/presentation/screens/tenants/lms/screens/fast_tracks_list_route.dart'
     as _i6;
-import 'package:belluga_boilerplate/presentation/screens/tenants/profile/profile_screen.dart'
+import 'package:belluga_boilerplate/presentation/screens/tenants/profile/profile_route.dart'
     as _i9;
-import 'package:belluga_boilerplate/presentation/screens/tenants/schedule/screens/schedule_screen.dart'
+import 'package:belluga_boilerplate/presentation/screens/tenants/schedule/schedule_route.dart'
     as _i11;
+import 'package:flutter/cupertino.dart' as _i14;
 
 /// generated route for
-/// [_i1.AuthCreateNewPasswordScreen]
+/// [_i1.AuthCreateNewPasswordRoute]
 class AuthCreateNewPasswordRoute extends _i13.PageRouteInfo<void> {
   const AuthCreateNewPasswordRoute({List<_i13.PageRouteInfo>? children})
       : super(AuthCreateNewPasswordRoute.name, initialChildren: children);
@@ -46,13 +46,13 @@ class AuthCreateNewPasswordRoute extends _i13.PageRouteInfo<void> {
   static _i13.PageInfo page = _i13.PageInfo(
     name,
     builder: (data) {
-      return const _i1.AuthCreateNewPasswordScreen();
+      return const _i1.AuthCreateNewPasswordRoute();
     },
   );
 }
 
 /// generated route for
-/// [_i2.AuthLoginScreen]
+/// [_i2.AuthLoginRoute]
 class AuthLoginRoute extends _i13.PageRouteInfo<void> {
   const AuthLoginRoute({List<_i13.PageRouteInfo>? children})
       : super(AuthLoginRoute.name, initialChildren: children);
@@ -62,13 +62,13 @@ class AuthLoginRoute extends _i13.PageRouteInfo<void> {
   static _i13.PageInfo page = _i13.PageInfo(
     name,
     builder: (data) {
-      return const _i2.AuthLoginScreen();
+      return const _i2.AuthLoginRoute();
     },
   );
 }
 
 /// generated route for
-/// [_i3.CourseScreen]
+/// [_i3.CourseRoute]
 class CourseRoute extends _i13.PageRouteInfo<CourseRouteArgs> {
   CourseRoute({
     _i14.Key? key,
@@ -91,7 +91,7 @@ class CourseRoute extends _i13.PageRouteInfo<CourseRouteArgs> {
         orElse: () =>
             CourseRouteArgs(courseItemId: pathParams.getString('courseItemId')),
       );
-      return _i3.CourseScreen(key: args.key, courseItemId: args.courseItemId);
+      return _i3.CourseRoute(key: args.key, courseItemId: args.courseItemId);
     },
   );
 }
@@ -120,7 +120,7 @@ class CourseRouteArgs {
 }
 
 /// generated route for
-/// [_i4.CoursesListScreen]
+/// [_i4.CoursesListRoute]
 class CoursesListRoute extends _i13.PageRouteInfo<void> {
   const CoursesListRoute({List<_i13.PageRouteInfo>? children})
       : super(CoursesListRoute.name, initialChildren: children);
@@ -130,13 +130,13 @@ class CoursesListRoute extends _i13.PageRouteInfo<void> {
   static _i13.PageInfo page = _i13.PageInfo(
     name,
     builder: (data) {
-      return const _i4.CoursesListScreen();
+      return const _i4.CoursesListRoute();
     },
   );
 }
 
 /// generated route for
-/// [_i5.DashboardScreen]
+/// [_i5.DashboardRoute]
 class DashboardRoute extends _i13.PageRouteInfo<void> {
   const DashboardRoute({List<_i13.PageRouteInfo>? children})
       : super(DashboardRoute.name, initialChildren: children);
@@ -146,13 +146,13 @@ class DashboardRoute extends _i13.PageRouteInfo<void> {
   static _i13.PageInfo page = _i13.PageInfo(
     name,
     builder: (data) {
-      return const _i5.DashboardScreen();
+      return const _i5.DashboardRoute();
     },
   );
 }
 
 /// generated route for
-/// [_i6.FastTrackListScreen]
+/// [_i6.FastTrackListRoute]
 class FastTrackListRoute extends _i13.PageRouteInfo<void> {
   const FastTrackListRoute({List<_i13.PageRouteInfo>? children})
       : super(FastTrackListRoute.name, initialChildren: children);
@@ -162,13 +162,29 @@ class FastTrackListRoute extends _i13.PageRouteInfo<void> {
   static _i13.PageInfo page = _i13.PageInfo(
     name,
     builder: (data) {
-      return const _i6.FastTrackListScreen();
+      return const _i6.FastTrackListRoute();
     },
   );
 }
 
 /// generated route for
-/// [_i7.InitScreen]
+/// [_i7.HomeLandlordRoute]
+class HomeLandlordRoute extends _i13.PageRouteInfo<void> {
+  const HomeLandlordRoute({List<_i13.PageRouteInfo>? children})
+      : super(HomeLandlordRoute.name, initialChildren: children);
+
+  static const String name = 'HomeLandlordRoute';
+
+  static _i13.PageInfo page = _i13.PageInfo(
+    name,
+    builder: (data) {
+      return const _i7.HomeLandlordRoute();
+    },
+  );
+}
+
+/// generated route for
+/// [_i8.InitRoute]
 class InitRoute extends _i13.PageRouteInfo<void> {
   const InitRoute({List<_i13.PageRouteInfo>? children})
       : super(InitRoute.name, initialChildren: children);
@@ -178,29 +194,13 @@ class InitRoute extends _i13.PageRouteInfo<void> {
   static _i13.PageInfo page = _i13.PageInfo(
     name,
     builder: (data) {
-      return const _i7.InitScreen();
+      return const _i8.InitRoute();
     },
   );
 }
 
 /// generated route for
-/// [_i8.LandlordHomeScreen]
-class LandlordHomeRoute extends _i13.PageRouteInfo<void> {
-  const LandlordHomeRoute({List<_i13.PageRouteInfo>? children})
-      : super(LandlordHomeRoute.name, initialChildren: children);
-
-  static const String name = 'LandlordHomeRoute';
-
-  static _i13.PageInfo page = _i13.PageInfo(
-    name,
-    builder: (data) {
-      return const _i8.LandlordHomeScreen();
-    },
-  );
-}
-
-/// generated route for
-/// [_i9.ProfileScreen]
+/// [_i9.ProfileRoute]
 class ProfileRoute extends _i13.PageRouteInfo<void> {
   const ProfileRoute({List<_i13.PageRouteInfo>? children})
       : super(ProfileRoute.name, initialChildren: children);
@@ -210,25 +210,22 @@ class ProfileRoute extends _i13.PageRouteInfo<void> {
   static _i13.PageInfo page = _i13.PageInfo(
     name,
     builder: (data) {
-      return const _i9.ProfileScreen();
+      return const _i9.ProfileRoute();
     },
   );
 }
 
 /// generated route for
-/// [_i10.RecoveryPasswordScreen]
+/// [_i10.RecoveryPasswordRoute]
 class RecoveryPasswordRoute
     extends _i13.PageRouteInfo<RecoveryPasswordRouteArgs> {
   RecoveryPasswordRoute({
     _i14.Key? key,
-    String? initialEmmail,
+    String? initialEmail,
     List<_i13.PageRouteInfo>? children,
   }) : super(
           RecoveryPasswordRoute.name,
-          args: RecoveryPasswordRouteArgs(
-            key: key,
-            initialEmmail: initialEmmail,
-          ),
+          args: RecoveryPasswordRouteArgs(key: key, initialEmail: initialEmail),
           initialChildren: children,
         );
 
@@ -240,39 +237,39 @@ class RecoveryPasswordRoute
       final args = data.argsAs<RecoveryPasswordRouteArgs>(
         orElse: () => const RecoveryPasswordRouteArgs(),
       );
-      return _i10.RecoveryPasswordScreen(
+      return _i10.RecoveryPasswordRoute(
         key: args.key,
-        initialEmmail: args.initialEmmail,
+        initialEmail: args.initialEmail,
       );
     },
   );
 }
 
 class RecoveryPasswordRouteArgs {
-  const RecoveryPasswordRouteArgs({this.key, this.initialEmmail});
+  const RecoveryPasswordRouteArgs({this.key, this.initialEmail});
 
   final _i14.Key? key;
 
-  final String? initialEmmail;
+  final String? initialEmail;
 
   @override
   String toString() {
-    return 'RecoveryPasswordRouteArgs{key: $key, initialEmmail: $initialEmmail}';
+    return 'RecoveryPasswordRouteArgs{key: $key, initialEmail: $initialEmail}';
   }
 
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     if (other is! RecoveryPasswordRouteArgs) return false;
-    return key == other.key && initialEmmail == other.initialEmmail;
+    return key == other.key && initialEmail == other.initialEmail;
   }
 
   @override
-  int get hashCode => key.hashCode ^ initialEmmail.hashCode;
+  int get hashCode => key.hashCode ^ initialEmail.hashCode;
 }
 
 /// generated route for
-/// [_i11.ScheduleScreen]
+/// [_i11.ScheduleRoute]
 class ScheduleRoute extends _i13.PageRouteInfo<void> {
   const ScheduleRoute({List<_i13.PageRouteInfo>? children})
       : super(ScheduleRoute.name, initialChildren: children);
@@ -282,13 +279,13 @@ class ScheduleRoute extends _i13.PageRouteInfo<void> {
   static _i13.PageInfo page = _i13.PageInfo(
     name,
     builder: (data) {
-      return const _i11.ScheduleScreen();
+      return const _i11.ScheduleRoute();
     },
   );
 }
 
 /// generated route for
-/// [_i12.TenantHomeScreen]
+/// [_i12.TenantHomeRoute]
 class TenantHomeRoute extends _i13.PageRouteInfo<void> {
   const TenantHomeRoute({List<_i13.PageRouteInfo>? children})
       : super(TenantHomeRoute.name, initialChildren: children);
@@ -298,7 +295,7 @@ class TenantHomeRoute extends _i13.PageRouteInfo<void> {
   static _i13.PageInfo page = _i13.PageInfo(
     name,
     builder: (data) {
-      return const _i12.TenantHomeScreen();
+      return const _i12.TenantHomeRoute();
     },
   );
 }

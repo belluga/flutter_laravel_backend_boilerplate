@@ -1,35 +1,30 @@
-import 'package:belluga_boilerplate/infrastructure/repositories/app_data_repository.dart';
-import 'package:belluga_boilerplate/infrastructure/repositories/courses_repository.dart';
-import 'package:belluga_boilerplate/infrastructure/repositories/external_courses_repository.dart';
-import 'package:belluga_boilerplate/infrastructure/repositories/notes_repository.dart';
-import 'package:belluga_boilerplate/infrastructure/repositories/schedule_repository.dart';
+import 'package:belluga_boilerplate/application/router/app_router.dart';
+import 'package:belluga_boilerplate/application/router/modular_app/module_settings.dart';
 import 'package:belluga_boilerplate/infrastructure/repositories/theme_repository.dart';
-import 'package:belluga_boilerplate/infrastructure/services/dal/dao/laravel_backend/app_data_backend/app_data_backend.dart';
-import 'package:belluga_boilerplate/infrastructure/services/dal/dao/local/app_data_local_cache/app_data_local_cache.dart';
-import 'package:belluga_boilerplate/infrastructure/services/dal/dao/local/app_data_local_info_source/app_data_local_info_source.dart';
 import 'package:flutter/material.dart';
 import 'package:belluga_boilerplate/application/configurations/custom_scroll_behavior.dart';
-import 'package:belluga_boilerplate/application/router/app_router.dart';
-import 'package:belluga_boilerplate/domain/repositories/auth_repository_contract.dart';
-import 'package:belluga_boilerplate/domain/repositories/external_courses_repository_contract.dart';
-import 'package:belluga_boilerplate/domain/repositories/courses_repository_contract.dart';
-import 'package:belluga_boilerplate/domain/repositories/notes_repository_contract.dart';
-import 'package:belluga_boilerplate/domain/repositories/schedule_repository_contract.dart';
 import 'package:get_it/get_it.dart';
+import 'package:get_it_modular_with_auto_route/get_it_modular_with_auto_route.dart';
 import 'package:intl/intl_standalone.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:stream_value/core/stream_value_builder.dart';
 
-abstract class ApplicationContract extends StatefulWidget {
-  const ApplicationContract({super.key});
+abstract class ApplicationContract extends ModularAppContract {
 
-  AuthRepositoryContract initAuthRepository();
+  ApplicationContract({super.key});
+
+  @override
+  final AppRouterContract appRouter = AppRouter();
+
+  @override
+  final ModuleSettingsContract moduleSettings = ModuleSettings();
 
   Future<void> initialSettingsPlatform();
 
+  @override
   Future<void> init() async {
+    await super.init();
     await initialSettings();
-    await _initInjections();
     await initialSettingsPlatform();
   }
 
@@ -38,47 +33,6 @@ abstract class ApplicationContract extends StatefulWidget {
     WidgetsFlutterBinding.ensureInitialized();
     await initializeDateFormatting();
     await findSystemLocale();
-    await _initAppData();
-  }
-
-  Future<void> _initAppData() async {
-    
-    final _localCache = AppDataLocalCache();
-    final _backend = AppDataBackend();
-    final _localInfoSource = AppDataLocalInfoSource();
-
-    final appDataRepo = AppDataRepository(
-      localCache: _localCache,
-      backend: _backend,
-      localInfoSource: _localInfoSource,
-    );
-
-    await appDataRepo.init();
-
-    GetIt.I.registerSingleton<AppDataRepository>(appDataRepo);
-  }
-
-  Future<void> _initInjections() async {
-    GetIt.I.registerLazySingleton(() => ThemeRepository());
-
-    GetIt.I.registerLazySingleton<AuthRepositoryContract>(
-      () => initAuthRepository(),
-    );
-
-    GetIt.I.registerLazySingleton<ExternalCoursesRepositoryContract>(
-      () => ExternalCoursesRepository(),
-    );
-
-    GetIt.I.registerLazySingleton<CoursesRepositoryContract>(
-      () => CoursesRepository(),
-    );
-
-    GetIt.I.registerLazySingleton<NotesRepositoryContract>(
-      () => NotesRepository(),
-    );
-
-    GetIt.I.registerLazySingleton<ScheduleRepositoryContract>(
-        () => ScheduleRepository());
   }
 
   @override
@@ -86,8 +40,6 @@ abstract class ApplicationContract extends StatefulWidget {
 }
 
 class _ApplicationContractState extends State<ApplicationContract> {
-  final _appRouter = AppRouter();
-
   final navigatorKey = GlobalKey<NavigatorState>();
 
   ThemeData getThemeData() {
@@ -103,17 +55,6 @@ class _ApplicationContractState extends State<ApplicationContract> {
           padding: EdgeInsets.symmetric(vertical: 16.0, horizontal: 32.0),
         ),
       ),
-      // inputDecorationTheme: InputDecorationTheme(
-      //   border: OutlineInputBorder(
-      //     borderRadius: BorderRadius.circular(4.0),
-      //   ),
-      //   focusedBorder: OutlineInputBorder(
-      //     borderRadius: BorderRadius.circular(4.0),
-      //   ),
-      //   errorBorder: OutlineInputBorder(
-      //     borderRadius: BorderRadius.circular(4.0),
-      //   ),
-      // ),
       colorScheme: ColorScheme.fromSeed(seedColor: Color(0xFF00E6B8)),
     );
   }
@@ -128,7 +69,7 @@ class _ApplicationContractState extends State<ApplicationContract> {
           return MaterialApp.router(
             theme: _themeData,
             scrollBehavior: CustomScrollBehavior(),
-            routerConfig: _appRouter.config(),
+            routerConfig: widget.appRouter.config()
           );
         });
   }

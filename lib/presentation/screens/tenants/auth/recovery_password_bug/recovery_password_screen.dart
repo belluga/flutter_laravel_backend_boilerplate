@@ -1,13 +1,11 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:belluga_boilerplate/domain/controllers/recovery_password_token_controller_contract.dart';
 import 'package:get_it/get_it.dart';
 
-@RoutePage()
 class RecoveryPasswordScreen extends StatefulWidget {
-  final String? initialEmmail;
+  final String? initialEmail;
 
-  const RecoveryPasswordScreen({super.key, this.initialEmmail});
+  const RecoveryPasswordScreen({super.key, this.initialEmail});
 
   @override
   State<RecoveryPasswordScreen> createState() => _RecoveryPasswordScreenState();
@@ -20,7 +18,7 @@ class _RecoveryPasswordScreenState extends State<RecoveryPasswordScreen> {
   void initState() {
     super.initState();
     _controller = GetIt.I.get<AuthRecoveryPasswordControllerContract>(
-      param1: widget.initialEmmail,
+      param1: widget.initialEmail,
     );
   }
 

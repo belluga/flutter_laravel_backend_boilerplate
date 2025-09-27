@@ -3,13 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:belluga_boilerplate/application/router/app_router.gr.dart';
 import 'package:belluga_boilerplate/domain/controllers/auth_login_controller_contract.dart';
 import 'package:belluga_boilerplate/presentation/common/widgets/main_logo/main_logo.dart';
-import 'package:belluga_boilerplate/presentation/screens/tenants/auth/login/controller/auth_login_controller.dart';
 import 'package:belluga_boilerplate/presentation/screens/tenants/auth/login/widgets/auth_header_expanded_content.dart';
 import 'package:belluga_boilerplate/presentation/screens/tenants/auth/login/widgets/auth_header_headline.dart';
 import 'package:belluga_boilerplate/presentation/screens/tenants/auth/login/widgets/auth_login_canva_content.dart';
 import 'package:get_it/get_it.dart';
 
-@RoutePage()
 class AuthLoginScreen extends StatefulWidget {
   const AuthLoginScreen({super.key});
 
@@ -19,15 +17,11 @@ class AuthLoginScreen extends StatefulWidget {
 
 class _AuthLoginScreenState extends State<AuthLoginScreen>
     with WidgetsBindingObserver {
-  late AuthLoginControllerContract _controller;
+  final _controller = GetIt.I.get<AuthLoginControllerContract>();
 
   @override
   void initState() {
     super.initState();
-    _controller = GetIt.I.registerSingleton<AuthLoginControllerContract>(
-      AuthLoginController(),
-    );
-
     _controller.generalErrorStreamValue.stream.listen(_onGeneralError);
     WidgetsBinding.instance.addObserver(this);
   }
@@ -113,7 +107,7 @@ class _AuthLoginScreenState extends State<AuthLoginScreen>
   Future<void> _navigateToPasswordRecover() async {
     final emailReturned = await context.router.push<String>(
       RecoveryPasswordRoute(
-        initialEmmail: _controller.authEmailFieldController.text,
+        initialEmail: _controller.authEmailFieldController.text,
       ),
     );
 
@@ -143,6 +137,5 @@ class _AuthLoginScreenState extends State<AuthLoginScreen>
   void dispose() {
     super.dispose();
     WidgetsBinding.instance.removeObserver(this);
-    GetIt.I.unregister<AuthLoginControllerContract>();
   }
 }

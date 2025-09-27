@@ -13,7 +13,6 @@ import 'package:stream_value/core/stream_value_builder.dart';
 import 'package:belluga_boilerplate/presentation/screens/tenants/lms/screens/course_screen/widgets/tabs/notes_list.dart';
 import 'package:belluga_boilerplate/presentation/screens/tenants/notes/widgets/add_note/add_note_bottom_modal.dart';
 
-@RoutePage()
 class CourseScreen extends StatefulWidget {
   final String courseItemId;
 
@@ -28,7 +27,7 @@ class CourseScreen extends StatefulWidget {
 
 class _CourseScreenState extends State<CourseScreen>
     with TickerProviderStateMixin {
-  late CourseScreenController _controller;
+  final _controller = GetIt.I.get<CourseScreenController>();
 
   @override
   void initState() {
@@ -47,6 +46,7 @@ class _CourseScreenState extends State<CourseScreen>
           streamValue: _controller.currentCourseItemStreamValue,
           onNullWidget: Center(child: CircularProgressIndicator()),
           builder: (context, courseModel) {
+
             return SafeArea(
               top: false,
               child: Column(
@@ -122,9 +122,7 @@ class _CourseScreenState extends State<CourseScreen>
   }
 
   void _initializeController() {
-    _controller = GetIt.I.registerSingleton<CourseScreenController>(
-      CourseScreenController(vsync: this),
-    );
+    _controller.vsync = this;
     _controller.setCourse(widget.courseItemId);
   }
 
@@ -159,10 +157,4 @@ class _CourseScreenState extends State<CourseScreen>
   void _navigateToParent() => _controller.backToParent();
 
   void _pop() => context.router.pop();
-
-  @override
-  void dispose() {
-    super.dispose();
-    GetIt.I.unregister<CourseScreenController>();
-  }
 }

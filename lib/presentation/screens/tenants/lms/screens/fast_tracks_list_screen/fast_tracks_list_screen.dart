@@ -1,4 +1,3 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:stream_value/core/stream_value_builder.dart';
 import 'package:belluga_boilerplate/domain/courses/course_category_model.dart';
@@ -10,7 +9,6 @@ import 'package:belluga_boilerplate/presentation/screens/tenants/lms/screens/fas
 import 'package:belluga_boilerplate/presentation/screens/tenants/lms/screens/fast_tracks_list_screen/widgets/fast_tracks_last_row.dart';
 import 'package:belluga_boilerplate/presentation/widgets/course_tracks_sliver.dart';
 
-@RoutePage()
 class FastTrackListScreen extends StatefulWidget {
   const FastTrackListScreen({super.key});
 
@@ -19,12 +17,11 @@ class FastTrackListScreen extends StatefulWidget {
 }
 
 class _FastTrackListScreenState extends State<FastTrackListScreen> {
-  late FastTracksListScreenController _controller;
+  final _controller = GetIt.I.get<FastTracksListScreenController>();
 
   @override
   void initState() {
     super.initState();
-    _controller = GetIt.I.registerSingleton(FastTracksListScreenController());
     _controller.init();
   }
 
@@ -67,11 +64,5 @@ class _FastTrackListScreenState extends State<FastTrackListScreen> {
         ],
       ),
     );
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-    GetIt.I.unregister<FastTracksListScreenController>();
   }
 }

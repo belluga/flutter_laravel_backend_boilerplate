@@ -11,7 +11,7 @@ class TenantRouteGuard extends AutoRouteGuard {
     if (_appData.isTenant) {
       resolver.next(true);
     } else {
-      router.push(const LandlordHomeRoute());
+      router.push(const HomeLandlordRoute());
     }
   }
 }

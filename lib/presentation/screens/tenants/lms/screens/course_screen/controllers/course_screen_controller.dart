@@ -11,9 +11,14 @@ import 'package:belluga_boilerplate/presentation/screens/tenants/lms/screens/cou
 import 'package:belluga_boilerplate/presentation/screens/tenants/lms/screens/course_screen/widgets/content_video_player/enums/tab_content_type.dart';
 
 class CourseScreenController implements Disposable {
-  final TickerProviderStateMixin vsync;
+  
+  TickerProviderStateMixin? _vsync;
+  
+  TickerProviderStateMixin get vsync => _vsync!;
 
-  CourseScreenController({required this.vsync});
+  set vsync(TickerProviderStateMixin newValue) => _vsync = newValue;
+
+  CourseScreenController();
 
   final _coursesRepository = GetIt.I.get<CoursesRepositoryContract>();
   final _notesRepository = GetIt.I.get<NotesRepositoryContract>();

@@ -6,7 +6,6 @@ import 'package:belluga_boilerplate/presentation/screens/tenants/auth/create_new
 import 'package:belluga_boilerplate/presentation/screens/tenants/auth/create_new_password/widgets/create_new_password_widget.dart';
 import 'package:get_it/get_it.dart';
 
-@RoutePage()
 class AuthCreateNewPasswordScreen extends StatefulWidget {
   const AuthCreateNewPasswordScreen({super.key});
 

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:belluga_boilerplate/presentation/screens/tenants/lms/screens/course_screen/controllers/course_screen_controller.dart';
 import 'package:belluga_boilerplate/presentation/screens/tenants/lms/screens/course_screen/widgets/empty_list_message.dart';
-import 'package:belluga_boilerplate/presentation/screens/tenants/lms/screens/course_screen/file_card.dart';
+import 'package:belluga_boilerplate/presentation/screens/tenants/lms/screens/course_screen/widgets/file_card.dart';
 import 'package:get_it/get_it.dart';
 import 'package:stream_value/core/stream_value_builder.dart';
 

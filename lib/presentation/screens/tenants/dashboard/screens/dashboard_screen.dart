@@ -13,7 +13,6 @@ import 'package:belluga_boilerplate/presentation/screens/tenants/dashboard/widge
 import 'package:belluga_boilerplate/presentation/screens/tenants/dashboard/widgets/my_courses_dashboard/my_courses_dashboard.dart';
 import 'package:belluga_boilerplate/presentation/widgets/course_tracks_sliver.dart';
 
-@RoutePage()
 class DashboardScreen extends StatefulWidget {
   const DashboardScreen({super.key});
 
@@ -22,14 +21,11 @@ class DashboardScreen extends StatefulWidget {
 }
 
 class _DashboardScreenState extends State<DashboardScreen> {
-  late MyCoursesDashboardController _controller;
+  final _controller = GetIt.I.get<MyCoursesDashboardController>();
 
   @override
   void initState() {
     super.initState();
-    _controller = GetIt.I.registerSingleton<MyCoursesDashboardController>(
-      MyCoursesDashboardController(),
-    );
     _controller.init();
   }
 
@@ -78,11 +74,5 @@ class _DashboardScreenState extends State<DashboardScreen> {
         ],
       ),
     );
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-    GetIt.I.unregister<MyCoursesDashboardController>();
   }
 }

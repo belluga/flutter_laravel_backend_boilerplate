@@ -12,7 +12,7 @@ class IsInitializedGuard extends AutoRouteGuard {
       resolver.next(true);
     } else {
       //TODO: Initialize system page
-      router.push(const LandlordHomeRoute());
+      router.push(const HomeLandlordRoute());
     }
   }
 }
