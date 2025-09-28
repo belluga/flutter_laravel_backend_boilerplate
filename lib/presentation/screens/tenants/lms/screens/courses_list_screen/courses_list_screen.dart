@@ -1,4 +1,3 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:belluga_boilerplate/domain/courses/course_base_model.dart';
 import 'package:belluga_boilerplate/presentation/screens/tenants/lms/screens/courses_list_screen/controllers/courses_list_screen_controller.dart';
@@ -6,7 +5,6 @@ import 'package:belluga_boilerplate/presentation/screens/tenants/lms/screens/cou
 import 'package:get_it/get_it.dart';
 import 'package:stream_value/core/stream_value_builder.dart';
 
-@RoutePage()
 class CoursesListScreen extends StatefulWidget {
   const CoursesListScreen({super.key});
 
@@ -58,11 +56,5 @@ class _CoursesListScreenState extends State<CoursesListScreen> {
         },
       ),
     );
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-    GetIt.I.unregister<CoursesListScreenController>();
   }
 }

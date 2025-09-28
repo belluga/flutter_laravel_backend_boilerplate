@@ -4,7 +4,6 @@ import 'package:belluga_boilerplate/application/configurations/widget_keys.dart'
 import 'package:belluga_boilerplate/domain/controllers/belluga_init_screen_controller_contract.dart';
 import 'package:get_it/get_it.dart';
 
-@RoutePage()
 class InitScreen extends StatefulWidget {
   const InitScreen({super.key});
 

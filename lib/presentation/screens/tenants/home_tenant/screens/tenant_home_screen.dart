@@ -6,7 +6,6 @@ import 'package:belluga_boilerplate/application/configurations/widget_keys.dart'
 import 'package:belluga_boilerplate/application/router/app_router.gr.dart';
 import 'package:belluga_boilerplate/presentation/screens/tenants/home_tenant/controllers/tenant_home_screen_controller.dart';
 
-@RoutePage()
 class TenantHomeScreen extends StatefulWidget {
   const TenantHomeScreen({super.key});
 
@@ -15,15 +14,7 @@ class TenantHomeScreen extends StatefulWidget {
 }
 
 class _TenantHomeScreenState extends State<TenantHomeScreen> {
-  late TenantHomeScreenController _controller;
-
-  @override
-  void initState() {
-    super.initState();
-    _controller = GetIt.I.registerSingleton<TenantHomeScreenController>(
-      TenantHomeScreenController(),
-    );
-  }
+  final _controller = GetIt.I.get<TenantHomeScreenController>();
 
   @override
   Widget build(BuildContext context) {
@@ -44,11 +35,5 @@ class _TenantHomeScreenState extends State<TenantHomeScreen> {
         ),
       ),
     );
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-    GetIt.I.unregister<TenantHomeScreenController>();
   }
 }

@@ -26,8 +26,6 @@ abstract class ApplicationContract extends ModularAppContract {
     await super.init();
     await initialSettings();
     await initialSettingsPlatform();
-    // await moduleSettings.init();
-    // appRouter.setChildModules(moduleSettings.childModules);
   }
 
   @protected

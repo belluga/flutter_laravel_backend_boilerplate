@@ -8,9 +8,7 @@ import 'package:belluga_boilerplate/presentation/widgets/back_button_belluga.dar
 import 'package:get_it/get_it.dart';
 import 'package:stream_value/core/stream_value_builder.dart';
 import 'package:value_object_pattern/domain/value_objects/full_name_value.dart';
-// import 'package:lottie/lottie.dart';
 
-@RoutePage()
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
 
@@ -19,15 +17,7 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
-  late final ProfileScreenController _controller;
-
-  @override
-  void initState() {
-    super.initState();
-    _controller = GetIt.I.registerSingleton<ProfileScreenController>(
-      ProfileScreenController(),
-    );
-  }
+  final _controller = GetIt.I.get<ProfileScreenController>();
 
   @override
   Widget build(BuildContext context) {
@@ -184,11 +174,5 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
   void _navigateToHome() {
     context.router.popUntilRoot();
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-    GetIt.I.unregister<ProfileScreenController>();
   }
 }
