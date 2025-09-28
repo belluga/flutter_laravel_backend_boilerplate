@@ -464,7 +464,7 @@ packages:
       path: "../../../flutter-packages/get_it_modular_with_auto_route"
       relative: true
     source: path
-    version: "1.0.0"
+    version: "1.1.0"
   glob:
     dependency: transitive
     description:

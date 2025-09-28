@@ -37,10 +37,4 @@ class _InitScreenState extends State<InitScreen> {
   }
 
   void _gotoInitialRoute() => context.router.replace(_controller.initialRoute);
-
-  @override
-  void dispose() {
-    super.dispose();
-    GetIt.I.unregister<BellugaInitScreenControllerContract>();
-  }
 }
