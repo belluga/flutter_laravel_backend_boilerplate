@@ -42,7 +42,6 @@
       width: 100%;
       height: 100%;
       object-fit: contain;
-      /* Mantém a proporção da imagem */
     }
 
     #splash-logo-background {
@@ -64,107 +63,69 @@
         mask-position: -50% 0;
       }
     }
-
-    /* .loader {
-      border: 4px solid rgba(243, 243, 243, 0.8);
-      border-top: 4px solid rgba(220, 220, 220, 0.8);
-      border-radius: 50%;
-      width: 40px;
-      height: 40px;
-      animation: spin 1s linear infinite;
-    }
-
-    @keyframes spin {
-      0% {
-        transform: rotate(0deg);
-      }
-
-      100% {
-        transform: rotate(360deg);
-      }
-    } */
   </style>
 
-  <script>
-    window.addEventListener('DOMContentLoaded', (event) => {
-      // Define a key for storing branding data in local storage.
-      const brandingCacheKey = 'tenantBrandingData';
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    const brandingCacheKey = 'tenantBrandingData';
+    let isBrandingDispatched = false;
 
-      // Reusable function to apply branding to the UI.
-      // This avoids code duplication.
-      const applyBranding = (branding) => {
-        console.log("applyBranding")
-        
-        if (!branding) return;
-
-        console.log(typeof branding);
-        console.log(branding)
-
-        console.log('update title')
-        // Update the page title
-        document.title = branding.title || document.title;
-
-        console.log('get background color');
-        // Safely access the background color from the nested object
-        const backgroundColor = branding.theme_data_settings?.light_scheme_data?.primary_seed_color;
-        console.log("backgroundColor: "+backgroundColor);
-
-        if (backgroundColor) {
-          const splashScreen = document.getElementById('splash-screen');
-
-          console.log('Attempting to apply background. Element found:', splashScreen); 
-
-          if (splashScreen) {
-            splashScreen.style.backgroundColor = backgroundColor;
-          }
-        }
-
+    const applyBranding = (branding) => {
+      if (isBrandingDispatched && branding) {
+      } else {
         window.dispatchEvent(new CustomEvent('brandingReady', { detail: branding }));
-      };
+        isBrandingDispatched = true;
+      }
+      
+      if (!branding) return;
 
-      // --- 1. Immediate Load from Cache ---
-      // Try to get and apply branding from local storage right away.
-      let cachedDataString = null;
+      document.title = branding.name || document.title;
+      const backgroundColor = branding.theme_data_settings?.light_scheme_data?.primary_seed_color;
+      
+      if (backgroundColor) {
+        const splashScreen = document.getElementById('splash-screen');
+        if (splashScreen) {
+          splashScreen.style.backgroundColor = backgroundColor;
+        }
+      }
+    };
+
+    let cachedDataString = null;
+    try {
+      cachedDataString = localStorage.getItem(brandingCacheKey);
+      if (cachedDataString) {
+        const cachedBranding = JSON.parse(cachedDataString);
+        console.log('Branding loaded from cache.');
+        applyBranding(cachedBranding);
+      }
+    } catch (error) {
+      console.error('Failed to parse cached branding data.', error);
+      localStorage.removeItem(brandingCacheKey);
+    }
+
+    (async function () {
       try {
-        cachedDataString = localStorage.getItem(brandingCacheKey);
-        if (cachedDataString) {
-          const cachedBranding = JSON.parse(cachedDataString);
-          console.log('Branding loaded from cache.');
-          applyBranding(cachedBranding);
+        const response = await fetch('/environment');
+        if (response.ok) {
+          const freshBranding = await response.json();
+          const freshBrandingString = JSON.stringify(freshBranding);
+
+          if (freshBrandingString !== cachedDataString) {
+            applyBranding(freshBranding);
+            localStorage.setItem(brandingCacheKey, freshBrandingString);
+          }
+        } else {
+          console.warn('Branding API returned an error. Using cached or default state.');
         }
       } catch (error) {
-        console.error('Failed to parse cached branding data.', error);
-        localStorage.removeItem(brandingCacheKey); // Clear corrupted data
-      }
-
-      // --- 2. Fetch Fresh Data from the Server ---
-      // This runs regardless of whether data was in the cache.
-      (async function () {
-        try {
-          const response = await fetch('/environment');
-
-          if (response.ok) {
-            const freshBranding = await response.json();
-            const freshBrandingString = JSON.stringify(freshBranding);
-
-            // --- 3. Compare and Update ---
-            // Only update the UI and cache if the new data is different.
-            if (freshBrandingString !== cachedDataString) {
-              console.log('New branding data fetched. Updating UI and cache.');
-              applyBranding(freshBranding);
-              localStorage.setItem(brandingCacheKey, freshBrandingString);
-            } else {
-              console.log('Branding data is already up to date.');
-            }
-
-          } else {
-            console.warn('Branding API not found or returned an error. Using cached or default state.');
-          }
-        } catch (error) {
-          console.error("Network failure when fetching branding. Using cached or default state.", error);
+        console.error("Network failure when fetching branding.", error);
+      } finally {
+        if (!isBrandingDispatched) {
+          applyBranding(null);
         }
-      })();
-    });
+      }
+    })();
+  });
 </script>
 </head>
 
@@ -174,7 +135,6 @@
       <img id="splash-logo-background" src="logo-light.png" class="splash-logo" alt="Logo background" />
       <img id="splash-logo-foreground" src="logo-light.png" class="splash-logo" alt="Logo foreground" />
     </div>
-    <!-- <div id="splash-loader" class="loader"></div> -->
   </div>
   <script src="flutter_bootstrap.js" async></script>
 </body>
