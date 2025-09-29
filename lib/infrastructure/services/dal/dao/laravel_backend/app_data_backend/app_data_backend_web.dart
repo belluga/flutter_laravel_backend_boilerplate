@@ -4,33 +4,37 @@ import 'dart:js_interop';
 import 'package:belluga_boilerplate/infrastructure/services/dal/dao/laravel_backend/app_data_backend/app_data_backend_contract.dart';
 import 'package:web/web.dart' as web;
 
-@JS()
-@anonymous
-extension type EventListenerOptions._(JSObject o) {
-  external factory EventListenerOptions({JSBoolean? once});
-}
+// This is a top-level function that binds to the global JavaScript JSON.stringify.
+@JS('JSON.stringify')
+external JSString stringify(JSAny? value);
+
+// --- REMOVED THE CUSTOM EventListenerOptions EXTENSION TYPE ---
 
 class AppDataBackend implements AppDataBackendContract {
   @override
   Future<Map<String, dynamic>> fetch() {
-
-    const String key = 'tenantBrandingData';
     final completer = Completer<Map<String, dynamic>>();
 
     final listener = (web.Event event) {
+      final customEvent = event as web.CustomEvent;
+      final jsDetail = customEvent.detail;
 
-      final freshDataString = web.window.localStorage.getItem(key);
-
-      if (freshDataString != null) {
-        completer.complete(jsonDecode(freshDataString) as Map<String, dynamic>);
+      if (jsDetail != null) {
+        final jsonString = stringify(jsDetail).toDart;
+        final data = jsonDecode(jsonString) as Map<String, dynamic>;
+        completer.complete(data);
       } else {
-        completer.completeError(
-            StateError('brandingReady event fired but no data found.'));
+        completer.complete({});
       }
     }.toJS;
 
-    web.window.addEventListener('brandingReady', listener,
-        EventListenerOptions(once: true.toJS).jsify()!);
+    // --- CORRECTED THIS CALL ---
+    // Use the built-in `web.AddEventListenerOptions` from the web package.
+    web.window.addEventListener(
+      'brandingReady',
+      listener,
+      web.AddEventListenerOptions(once: true),
+    );
 
     return completer.future;
   }
