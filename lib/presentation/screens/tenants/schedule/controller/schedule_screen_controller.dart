@@ -11,7 +11,7 @@ import 'package:belluga_boilerplate/domain/schedule/schedule_summary_model.dart'
 class ScheduleScreenController implements Disposable {
   final _scheduleRepository = GetIt.I.get<ScheduleRepositoryContract>();
 
-  final eventsStreamValue = StreamValue<List<EventModel>?>(defaultValue: null);
+  final eventsStreamValue = StreamValue<List<EventModel>?>();
 
   ScheduleScreenController() {
     visibleDatesStreamValue.stream.listen(updateCurrentMonth);
@@ -36,7 +36,7 @@ class ScheduleScreenController implements Disposable {
       StreamValue<List<DateTime>>(defaultValue: []);
 
   final scheduleSummaryStreamValue =
-      StreamValue<ScheduleSummaryModel?>(defaultValue: null);
+      StreamValue<ScheduleSummaryModel?>();
 
   int get initialIndex => scheduleSummaryStreamValue.value!.initialIndex;
 
