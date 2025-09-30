@@ -41,7 +41,7 @@ class _EventSearchScreenState extends State<EventSearchScreen> {
             hintText: 'Buscar eventos...',
             border: InputBorder.none,
             hintStyle: theme.textTheme.titleMedium?.copyWith(
-              color: colorScheme.onSurfaceVariant.withOpacity(0.6),
+              color: colorScheme.onSurfaceVariant.withAlpha((0.6 * 255 ).floor()),
             ),
           ),
           onChanged: _controller.searchEvents,

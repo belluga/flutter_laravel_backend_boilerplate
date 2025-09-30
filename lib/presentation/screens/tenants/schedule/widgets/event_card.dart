@@ -5,17 +5,22 @@ import 'package:intl/intl.dart';
 import 'package:belluga_boilerplate/domain/schedule/event_model.dart';
 import 'package:belluga_boilerplate/presentation/screens/tenants/schedule/widgets/event_action_button.dart';
 
-class EventCard extends StatelessWidget {
+class EventCard extends StatefulWidget {
   final EventModel event;
 
   const EventCard({super.key, required this.event});
 
   @override
+  State<EventCard> createState() => _EventCardState();
+}
+
+class _EventCardState extends State<EventCard> {
+  @override
   Widget build(BuildContext context) {
     return Card(
       color: Theme.of(context).colorScheme.surfaceDim,
       child: InkWell(
-        onTap: () => _showEventBottomSheet(context, event),
+        onTap: () => _showEventBottomSheet(context, widget.event),
         child: Padding(
           padding: EdgeInsetsGeometry.all(24.0),
           child: Column(
@@ -25,7 +30,7 @@ class EventCard extends StatelessWidget {
                 children: [
                   Expanded(
                     child: Text(
-                      event.title.value,
+                      widget.event.title.value,
                       style: TextTheme.of(context).titleMedium,
                     ),
                   ),
@@ -36,7 +41,7 @@ class EventCard extends StatelessWidget {
                 children: [
                   Expanded(
                     child: Text(
-                      "Data: ${DateFormat.MMMMEEEEd().format(event.dateTimeStart.value!)} às ${DateFormat.Hm().format(event.dateTimeStart.value!)}h",
+                      "Data: ${DateFormat.MMMMEEEEd().format(widget.event.dateTimeStart.value!)} às ${DateFormat.Hm().format(widget.event.dateTimeStart.value!)}h",
                       style: TextTheme.of(context).bodyMedium?.copyWith(
                           color: Theme.of(context).colorScheme.secondary),
                     ),
@@ -44,15 +49,15 @@ class EventCard extends StatelessWidget {
                 ],
               ),
               Html(
-                data: event.content.value,
+                data: widget.event.content.value,
                 shrinkWrap: true,
               ),
               Wrap(
                 spacing: 8,
                 children: List.generate(
-                    event.actions.length,
-                    (index) =>
-                        EventActionButton(eventAction: event.actions[index])),
+                    widget.event.actions.length,
+                    (index) => EventActionButton(
+                        eventAction: widget.event.actions[index])),
               ),
             ],
           ),
@@ -61,12 +66,21 @@ class EventCard extends StatelessWidget {
     );
   }
 
-  void _showEventBottomSheet(BuildContext context, EventModel event) {
-    showModalBottomSheet(
+  Future<void> _showEventBottomSheet(
+      BuildContext context, EventModel event) async {
+    
+    FocusScope.of(context).requestFocus(FocusNode());
+
+    await showModalBottomSheet(
       context: context,
       useSafeArea: false,
-      
       builder: (_) => EventBottomSheet(event: event),
     );
+
+    // _unfocus();
+  }
+
+  void _unfocus() {
+    FocusScope.of(context).unfocus();
   }
 }
