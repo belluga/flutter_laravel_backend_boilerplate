@@ -13,7 +13,7 @@ class NextEventsDashboardController {
   }
 
   Future<void> _getNextEvents() async {
-    final List<EventModel> _lastEvents = await _scheduleRepository.getLastEvents();
+    final List<EventModel> _lastEvents = await _scheduleRepository.getFutureEvents();
     nextEventsStreamValue.addValue(_lastEvents);
   }
   

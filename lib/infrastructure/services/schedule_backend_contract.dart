@@ -11,5 +11,7 @@ abstract class ScheduleBackendContract {
 
   Future<List<EventDTO>> filterEvents({String? typeId, String? itemId});
 
-  Future<List<EventDTO>> getLastEvents();
+  Future<List<EventDTO>> getFutureEvents();
+
+  Future<List<EventDTO>> getAllEvents();
 }

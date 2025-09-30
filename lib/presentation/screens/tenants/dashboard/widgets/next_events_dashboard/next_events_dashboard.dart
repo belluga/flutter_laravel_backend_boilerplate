@@ -17,12 +17,12 @@ class NextEventsDashboard extends StatefulWidget {
 }
 
 class _NextEventsDashboardState extends State<NextEventsDashboard> {
-  late NextEventsDashboardController _controller;
+
+  final _controller = GetIt.I.registerSingleton(NextEventsDashboardController());
 
   @override
   void initState() {
     super.initState();
-    _controller = GetIt.I.registerSingleton(NextEventsDashboardController());
     _controller.init();
   }
 

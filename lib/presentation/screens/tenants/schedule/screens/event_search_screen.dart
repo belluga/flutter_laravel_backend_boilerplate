@@ -1,6 +1,7 @@
 import 'package:belluga_boilerplate/domain/schedule/event_model.dart';
 import 'package:belluga_boilerplate/presentation/screens/tenants/schedule/controller/event_search_screen_controller.dart';
 import 'package:belluga_boilerplate/presentation/screens/tenants/schedule/widgets/event_card.dart';
+import 'package:belluga_boilerplate/presentation/widgets/icon_button_toggled.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:intl/intl.dart';
@@ -40,20 +41,20 @@ class _EventSearchScreenState extends State<EventSearchScreen> {
             hintText: 'Buscar eventos...',
             border: InputBorder.none,
             hintStyle: theme.textTheme.titleMedium?.copyWith(
-              color: colorScheme.onSurfaceVariant.withAlpha(180),
+              color: colorScheme.onSurfaceVariant.withOpacity(0.6),
             ),
           ),
           onChanged: _controller.searchEvents,
         ),
+        actionsPadding: EdgeInsets.only(right: 8),
         actions: [
-          if (_controller.searchController.text.isNotEmpty)
-            IconButton(
-              icon: const Icon(Icons.clear),
-              onPressed: () {
-                _controller.searchController.clear();
-                _controller.searchEvents('');
-              },
-            ),
+          IconButtonToggled(
+            selectedStateStreamValue: _controller.showHistoryStreamValue,
+            toggleFunction: _controller.toggleHistory,
+            iconData: Icons.history,
+            selectedTooltip: 'Ocultar eventos já finalizados',
+            unselectedTooltip: 'Mostrar eventos já finalizados',
+          ),
         ],
       ),
       body: StreamValueBuilder<List<EventModel>>(
@@ -62,10 +63,6 @@ class _EventSearchScreenState extends State<EventSearchScreen> {
           child: CircularProgressIndicator(),
         ),
         builder: (context, events) {
-          if (_controller.searchController.text.isEmpty) {
-            return _buildAllEvents(context);
-          }
-
           if (events.isEmpty) {
             return Center(
               child: Column(
@@ -74,7 +71,8 @@ class _EventSearchScreenState extends State<EventSearchScreen> {
                   Icon(
                     Icons.search_off,
                     size: 64,
-                    color: colorScheme.onSurfaceVariant.withAlpha((0.5 * 255).floor()),
+                    color: colorScheme.onSurfaceVariant
+                        .withAlpha((0.5 * 255).floor()),
                   ),
                   const SizedBox(height: 16),
                   Text(
@@ -94,24 +92,6 @@ class _EventSearchScreenState extends State<EventSearchScreen> {
     );
   }
 
-  Widget _buildAllEvents(BuildContext context) {
-    return StreamValueBuilder<List<EventModel>>(
-      streamValue: _controller.allEventsStreamValue,
-      onNullWidget: const Center(
-        child: CircularProgressIndicator(),
-      ),
-      builder: (context, events) {
-        if (events.isEmpty) {
-          return const Center(
-            child: Text('Nenhum evento localizado'),
-          );
-        }
-
-        return _buildGroupedEvents(context, events);
-      },
-    );
-  }
-
   Widget _buildGroupedEvents(BuildContext context, List<EventModel> events) {
     final theme = Theme.of(context);
     final colorScheme = theme.colorScheme;
@@ -119,7 +99,8 @@ class _EventSearchScreenState extends State<EventSearchScreen> {
     // Group events by date
     final Map<String, List<EventModel>> groupedEvents = {};
     for (var event in events) {
-      final dateKey = DateFormat('yyyy-MM-dd').format(event.dateTimeStart.value!);
+      final dateKey =
+          DateFormat('yyyy-MM-dd').format(event.dateTimeStart.value!);
       if (!groupedEvents.containsKey(dateKey)) {
         groupedEvents[dateKey] = [];
       }

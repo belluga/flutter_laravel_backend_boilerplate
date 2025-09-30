@@ -11,24 +11,59 @@ class EventSearchScreenController implements Disposable {
   final focusNode = FocusNode();
 
   final allEventsStreamValue = StreamValue<List<EventModel>?>();
+  final availableEventsStreamValue = StreamValue<List<EventModel>?>();
   final searchResultsStreamValue = StreamValue<List<EventModel>?>();
+  final showHistoryStreamValue = StreamValue<bool>(defaultValue: false);
 
   Future<void> init() async {
-    allEventsStreamValue.addValue(null);
-    searchResultsStreamValue.addValue(null);
+    await _populateAllEvents();
+    _updateAvailableEvents();
+  }
 
-    final List<EventModel> _allEvents = await _scheduleRepository.getLastEvents();
+  Future<void> _populateAllEvents() async {
+    final List<EventModel> _allEvents =
+        await _scheduleRepository.getAllEvents();
+    _allEvents.sort(
+        (a, b) => a.dateTimeStart.value!.compareTo(b.dateTimeStart.value!));
+    allEventsStreamValue.addValue(_allEvents);
+  }
 
+  void toggleHistory() {
+    final currentValue = showHistoryStreamValue.value;
+    showHistoryStreamValue.addValue(!currentValue);
+    _updateAvailableEvents();
+  }
+
+  void _updateAvailableEvents() {
+    final _showHistory = showHistoryStreamValue.value;
+
+    if (_showHistory) {
+      _makeAllEventsAvailable();
+    } else {
+      _makeOnlyFutureAvailable();
+    }
+
+    if (searchController.text.isNotEmpty) {
+      _performSearch();
+    } else {
+      searchResultsStreamValue.addValue(availableEventsStreamValue.value);
+    }
+  }
+
+  void _makeAllEventsAvailable() {
+    availableEventsStreamValue.addValue(allEventsStreamValue.value);
+  }
+
+  void _makeOnlyFutureAvailable() {
     final now = DateTime.now();
-    _allEvents.sort((a, b) => a.dateTimeStart.value!.compareTo(b.dateTimeStart.value!));
 
-    final upcomingEvents = _allEvents.where((event) =>
-      event.dateTimeStart.value!.isAfter(now) ||
-      event.dateTimeStart.value!.isAtSameMomentAs(now)
-    ).toList();
+    final filteredEvents = allEventsStreamValue.value
+        ?.where((event) =>
+            event.dateTimeStart.value!.isAfter(now) ||
+            event.dateTimeStart.value!.isAtSameMomentAs(now))
+        .toList();
 
-    allEventsStreamValue.addValue(upcomingEvents);
-    searchResultsStreamValue.addValue(upcomingEvents);
+    availableEventsStreamValue.addValue(filteredEvents);
   }
 
   void searchEvents(String query) {
@@ -37,12 +72,19 @@ class EventSearchScreenController implements Disposable {
       return;
     }
 
-    final allEvents = allEventsStreamValue.value ?? [];
-    final lowercaseQuery = query.toLowerCase();
+    _performSearch();
+  }
 
-    final filteredEvents = allEvents.where((event) {
-      final titleMatch = event.title.value.toLowerCase().contains(lowercaseQuery);
-      final contentMatch = (event.content.value ?? "").toLowerCase().contains(lowercaseQuery);
+  void _performSearch() {
+    final _availableEvents = availableEventsStreamValue.value;
+
+    final lowercaseQuery = searchController.text.toLowerCase();
+
+    final filteredEvents = _availableEvents?.where((event) {
+      final titleMatch =
+          event.title.value.toLowerCase().contains(lowercaseQuery);
+      final contentMatch =
+          (event.content.value ?? "").toLowerCase().contains(lowercaseQuery);
       final teacherMatch = event.teachers.any(
         (teacher) => teacher.name.value.toLowerCase().contains(lowercaseQuery),
       );
@@ -55,9 +97,10 @@ class EventSearchScreenController implements Disposable {
 
   @override
   void onDispose() {
-    allEventsStreamValue.dispose();
+    availableEventsStreamValue.dispose();
     searchResultsStreamValue.dispose();
-    searchController.dispose();
+    showHistoryStreamValue.dispose();
     focusNode.dispose();
+    searchController.dispose();
   }
 }

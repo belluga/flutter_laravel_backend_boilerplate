@@ -29,6 +29,7 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Agenda"),
+        actionsPadding: EdgeInsets.only(right: 8),
         actions: [
           IconButton(
             icon: const Icon(Icons.search),
