@@ -38,6 +38,7 @@ class _IconButtonToggledState extends State<IconButtonToggled> {
                     ? Theme.of(context).colorScheme.onPrimary
                     : Theme.of(context).colorScheme.onSurface,
               ),
+              visualDensity: VisualDensity.compact,
               disabledColor: Theme.of(context).colorScheme.onSurface,
               isSelected: isSelected,
               onPressed: widget.toggleFunction,

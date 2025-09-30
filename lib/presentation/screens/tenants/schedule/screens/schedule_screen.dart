@@ -63,7 +63,7 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
                       builder: (context, events) {
                         if (events.isEmpty) {
                           return Center(
-                            child: Text("Nenhum evento encontrado."),
+                            child: Text("Nenhum evento nesta data."),
                           );
                         }
                   

@@ -57,37 +57,40 @@ class _EventSearchScreenState extends State<EventSearchScreen> {
           ),
         ],
       ),
-      body: StreamValueBuilder<List<EventModel>>(
-        streamValue: _controller.searchResultsStreamValue,
-        onNullWidget: const Center(
-          child: CircularProgressIndicator(),
-        ),
-        builder: (context, events) {
-          if (events.isEmpty) {
-            return Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(
-                    Icons.search_off,
-                    size: 64,
-                    color: colorScheme.onSurfaceVariant
-                        .withAlpha((0.5 * 255).floor()),
-                  ),
-                  const SizedBox(height: 16),
-                  Text(
-                    'Nenhum resultado encontrado',
-                    style: theme.textTheme.titleMedium?.copyWith(
-                      color: colorScheme.onSurfaceVariant,
+      body: SafeArea(
+        top: false,
+        child: StreamValueBuilder<List<EventModel>>(
+          streamValue: _controller.searchResultsStreamValue,
+          onNullWidget: const Center(
+            child: CircularProgressIndicator(),
+          ),
+          builder: (context, events) {
+            if (events.isEmpty) {
+              return Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(
+                      Icons.search_off,
+                      size: 64,
+                      color: colorScheme.onSurfaceVariant
+                          .withAlpha((0.5 * 255).floor()),
                     ),
-                  ),
-                ],
-              ),
-            );
-          }
-
-          return _buildGroupedEvents(context, events);
-        },
+                    const SizedBox(height: 16),
+                    Text(
+                      'Nenhum resultado encontrado',
+                      style: theme.textTheme.titleMedium?.copyWith(
+                        color: colorScheme.onSurfaceVariant,
+                      ),
+                    ),
+                  ],
+                ),
+              );
+            }
+        
+            return _buildGroupedEvents(context, events);
+          },
+        ),
       ),
     );
   }
