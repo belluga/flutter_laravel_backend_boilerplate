@@ -6,6 +6,7 @@ import 'package:belluga_boilerplate/application/router/guards/auth_route_guard.d
 import 'package:belluga_boilerplate/application/router/guards/tenant_route_guard.dart';
 import 'package:belluga_boilerplate/domain/repositories/schedule_repository_contract.dart';
 import 'package:belluga_boilerplate/infrastructure/repositories/schedule_repository.dart';
+import 'package:belluga_boilerplate/presentation/screens/tenants/schedule/controller/event_search_screen_controller.dart';
 import 'package:belluga_boilerplate/presentation/screens/tenants/schedule/controller/schedule_screen_controller.dart';
 import 'package:get_it_modular_with_auto_route/get_it_modular_with_auto_route.dart';
 
@@ -20,6 +21,11 @@ class ScheduleModule extends ModuleContract {
   List<AutoRoute> get routes => [
         AutoRoute(
           path: "/agenda",
+          page: EventSearchRoute.page,
+          guards: [AuthRouteGuard(), TenantRouteGuard()],
+        ),
+        AutoRoute(
+          path: "/agenda/procurar",
           page: ScheduleRoute.page,
           guards: [AuthRouteGuard(), TenantRouteGuard()],
         ),
@@ -32,5 +38,6 @@ class ScheduleModule extends ModuleContract {
 
   void _registerControllers() {
     registerLazySingleton(() => ScheduleScreenController());
+    registerLazySingleton(() => EventSearchScreenController());
   }
 }

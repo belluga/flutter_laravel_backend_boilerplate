@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:stream_value/core/stream_value.dart';
 import 'package:belluga_boilerplate/application/extensions/is_same_day.dart';
@@ -102,7 +102,8 @@ class ScheduleScreenController implements Disposable {
 
     _visibleDates.removeWhere((element) => _invisibleDates.contains(element));
     _invisibleDates.clear();
-    final _firstDate = _visibleDates.first;
+
+    final _firstDate = _visibleDates.firstOrNull;
     firsVisibleDateStreamValue.addValue(_firstDate);
   }
 
