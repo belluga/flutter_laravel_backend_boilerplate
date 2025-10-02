@@ -1,6 +1,7 @@
 import 'package:belluga_boilerplate/domain/schedule/event_model.dart';
 import 'package:belluga_boilerplate/presentation/screens/tenants/schedule/controller/event_search_screen_controller.dart';
 import 'package:belluga_boilerplate/presentation/screens/tenants/schedule/widgets/event_card.dart';
+import 'package:belluga_boilerplate/presentation/widgets/back_button_belluga.dart';
 import 'package:belluga_boilerplate/presentation/widgets/icon_button_toggled.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
@@ -41,11 +42,14 @@ class _EventSearchScreenState extends State<EventSearchScreen> {
             hintText: 'Buscar eventos...',
             border: InputBorder.none,
             hintStyle: theme.textTheme.titleMedium?.copyWith(
-              color: colorScheme.onSurfaceVariant.withAlpha((0.6 * 255 ).floor()),
+              color:
+                  colorScheme.onSurfaceVariant.withAlpha((0.6 * 255).floor()),
             ),
           ),
           onChanged: _controller.searchEvents,
         ),
+        automaticallyImplyLeading: false,
+        leading: BackButtonBelluga(),
         actionsPadding: EdgeInsets.only(right: 8),
         actions: [
           IconButtonToggled(
@@ -87,7 +91,7 @@ class _EventSearchScreenState extends State<EventSearchScreen> {
                 ),
               );
             }
-        
+
             return _buildGroupedEvents(context, events);
           },
         ),

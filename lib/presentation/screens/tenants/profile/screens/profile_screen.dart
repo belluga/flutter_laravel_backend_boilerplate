@@ -1,10 +1,10 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:belluga_boilerplate/presentation/widgets/back_button_belluga.dart';
 import 'package:flutter/material.dart';
 import 'package:belluga_boilerplate/domain/attribute/attribute_model.dart';
 import 'package:belluga_boilerplate/domain/user/user_contract.dart';
 import 'package:belluga_boilerplate/presentation/screens/tenants/profile/controller/profile_screen_controller.dart';
 import 'package:belluga_boilerplate/presentation/widgets/attribute_field_list.dart';
-import 'package:belluga_boilerplate/presentation/widgets/back_button_belluga.dart';
 import 'package:get_it/get_it.dart';
 import 'package:stream_value/core/stream_value_builder.dart';
 import 'package:value_object_pattern/domain/value_objects/full_name_value.dart';
@@ -38,7 +38,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             color: Color(0xff000000),
           ),
         ),
-        leading: const BackButtonBelluga(),
+        leading: BackButtonBelluga(),
         actions: [
           IconButton(onPressed: _logout, icon: const Icon(Icons.exit_to_app)),
           Builder(

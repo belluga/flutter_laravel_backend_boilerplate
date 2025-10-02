@@ -13,13 +13,7 @@ class CoursesListScreen extends StatefulWidget {
 }
 
 class _CoursesListScreenState extends State<CoursesListScreen> {
-  late CoursesListScreenController _controller;
-
-  @override
-  void initState() {
-    super.initState();
-    _controller = GetIt.I.registerSingleton(CoursesListScreenController());
-  }
+  final _controller = GetIt.I.get<CoursesListScreenController>();
 
   @override
   Widget build(BuildContext context) {

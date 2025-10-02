@@ -461,10 +461,9 @@ packages:
   get_it_modular_with_auto_route:
     dependency: "direct main"
     description:
-      name: get_it_modular_with_auto_route
-      sha256: f948ea3888ecf1566482c5278242b4adcacbfa88e5f4c5ac468d294fee988599
-      url: "https://pub.dev"
-    source: hosted
+      path: "../../../flutter-packages/get_it_modular_with_auto_route"
+      relative: true
+    source: path
     version: "2.0.0"
   glob:
     dependency: transitive

@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:belluga_boilerplate/application/router/app_router.gr.dart';
+import 'package:belluga_boilerplate/presentation/widgets/back_button_belluga.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:stream_value/core/stream_value_builder.dart';
@@ -30,6 +31,8 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
       appBar: AppBar(
         title: const Text("Agenda"),
         actionsPadding: EdgeInsets.only(right: 8),
+        automaticallyImplyLeading: false,
+        leading: BackButtonBelluga(),
         actions: [
           IconButton(
             icon: const Icon(Icons.search),

@@ -68,7 +68,6 @@ class _EventCardState extends State<EventCard> {
 
   Future<void> _showEventBottomSheet(
       BuildContext context, EventModel event) async {
-    
     FocusScope.of(context).requestFocus(FocusNode());
 
     await showModalBottomSheet(
@@ -76,11 +75,5 @@ class _EventCardState extends State<EventCard> {
       useSafeArea: false,
       builder: (_) => EventBottomSheet(event: event),
     );
-
-    // _unfocus();
-  }
-
-  void _unfocus() {
-    FocusScope.of(context).unfocus();
   }
 }
