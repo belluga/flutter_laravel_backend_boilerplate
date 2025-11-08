@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:stream_value/core/stream_value.dart';
 import 'package:belluga_boilerplate/application/extensions/is_same_day.dart';
@@ -11,7 +11,7 @@ import 'package:belluga_boilerplate/domain/schedule/schedule_summary_model.dart'
 class ScheduleScreenController implements Disposable {
   final _scheduleRepository = GetIt.I.get<ScheduleRepositoryContract>();
 
-  final eventsStreamValue = StreamValue<List<EventModel>?>(defaultValue: null);
+  final eventsStreamValue = StreamValue<List<EventModel>?>();
 
   ScheduleScreenController() {
     visibleDatesStreamValue.stream.listen(updateCurrentMonth);
@@ -36,7 +36,7 @@ class ScheduleScreenController implements Disposable {
       StreamValue<List<DateTime>>(defaultValue: []);
 
   final scheduleSummaryStreamValue =
-      StreamValue<ScheduleSummaryModel?>(defaultValue: null);
+      StreamValue<ScheduleSummaryModel?>();
 
   int get initialIndex => scheduleSummaryStreamValue.value!.initialIndex;
 
@@ -102,7 +102,8 @@ class ScheduleScreenController implements Disposable {
 
     _visibleDates.removeWhere((element) => _invisibleDates.contains(element));
     _invisibleDates.clear();
-    final _firstDate = _visibleDates.first;
+
+    final _firstDate = _visibleDates.firstOrNull;
     firsVisibleDateStreamValue.addValue(_firstDate);
   }
 

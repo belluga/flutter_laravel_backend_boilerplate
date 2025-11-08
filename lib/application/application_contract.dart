@@ -23,9 +23,10 @@ abstract class ApplicationContract extends ModularAppContract {
 
   @override
   Future<void> init() async {
-    await super.init();
     await initialSettings();
     await initialSettingsPlatform();
+    await super.init();
+    
   }
 
   @protected

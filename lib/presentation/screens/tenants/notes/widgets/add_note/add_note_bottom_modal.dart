@@ -24,18 +24,16 @@ class AddNoteBottomModal extends StatefulWidget {
 }
 
 class _AddNoteBottomModalState extends State<AddNoteBottomModal> {
-  late AddNoteBottomModalController _controller;
+  final _controller = GetIt.I.get<AddNoteBottomModalController>();
 
   @override
   void initState() {
     super.initState();
 
-    _controller = GetIt.I.registerSingleton(
-      AddNoteBottomModalController(
-        courseItemModel: widget.courseItemModel,
-        currentVideoPosition: widget.currentVideoPosition,
-        noteModel: widget.noteModel,
-      ),
+    _controller.init(
+      courseItemModel: widget.courseItemModel,
+      currentVideoPosition: widget.currentVideoPosition,
+      noteModel: widget.noteModel,
     );
   }
 
@@ -182,11 +180,5 @@ class _AddNoteBottomModalState extends State<AddNoteBottomModal> {
 
   void _pop() {
     Navigator.pop(context);
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-    GetIt.I.unregister<AddNoteBottomModalController>();
   }
 }

@@ -93,7 +93,7 @@ class MockScheduleBackend extends ScheduleBackendContract {
   }
 
   @override
-  Future<List<EventDTO>> getLastEvents() async {
+  Future<List<EventDTO>> getFutureEvents() async {
     await Future.delayed(Duration(seconds: 2));
 
     final scheduleSummaryJson =
@@ -113,5 +113,20 @@ class MockScheduleBackend extends ScheduleBackendContract {
     }).toList();
 
     return _eventsOnDate.map((event) => EventDTO.fromJson(event)).toList();
+  }
+
+  @override
+  Future<List<EventDTO>> getAllEvents() async {
+    await Future.delayed(Duration(seconds: 2));
+
+    final scheduleSummaryJson =
+        await rootBundle.loadString('assets/mock/events.json');
+
+    final List<dynamic> _eventsSummaryItemsJsonList =
+        json.decode(scheduleSummaryJson);
+
+    final _events = _eventsSummaryItemsJsonList.cast<Map<String, dynamic>>();
+
+    return _events.map((event) => EventDTO.fromJson(event)).toList();
   }
 }

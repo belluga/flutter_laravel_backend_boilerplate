@@ -16,15 +16,11 @@ class ExternalCoursesDashboard extends StatefulWidget {
 }
 
 class _ExternalCoursesDashboardState extends State<ExternalCoursesDashboard> {
-  late ExternalCourseDashboardController _controller;
+  final _controller = GetIt.I.get<ExternalCourseDashboardController>();
 
   @override
   void initState() {
     super.initState();
-    GetIt.I.registerSingleton<ExternalCourseDashboardController>(
-      ExternalCourseDashboardController(),
-    );
-    _controller = GetIt.I.get<ExternalCourseDashboardController>();
     _controller.init();
   }
 
@@ -58,11 +54,5 @@ class _ExternalCoursesDashboardState extends State<ExternalCoursesDashboard> {
     final _course = _externalCoursesSummary.items[index];
 
     return ExternalCourseCard(course: _course);
-  }
-
-  @override
-  void dispose() {
-    GetIt.I.unregister<ExternalCourseDashboardController>();
-    super.dispose();
   }
 }

@@ -17,12 +17,12 @@ class NextEventsDashboard extends StatefulWidget {
 }
 
 class _NextEventsDashboardState extends State<NextEventsDashboard> {
-  late NextEventsDashboardController _controller;
+
+  final _controller = GetIt.I.get<NextEventsDashboardController>();
 
   @override
   void initState() {
     super.initState();
-    _controller = GetIt.I.registerSingleton(NextEventsDashboardController());
     _controller.init();
   }
 
@@ -92,10 +92,4 @@ class _NextEventsDashboardState extends State<NextEventsDashboard> {
   }
 
   void _navigateToSchedule() => context.router.push(const ScheduleRoute());
-
-  @override
-  void dispose() {
-    super.dispose();
-    GetIt.I.unregister<NextEventsDashboardController>();
-  }
 }

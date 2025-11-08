@@ -7,10 +7,9 @@ class BackButtonBelluga extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return IconButton(
-      onPressed: context.router.maybePop,
+      onPressed: context.router.back,
       icon: const Icon(
-        Icons.arrow_back_ios,
-        // color: Color(0xff212435),
+        Icons.arrow_back,
         size: 24,
       ),
     );

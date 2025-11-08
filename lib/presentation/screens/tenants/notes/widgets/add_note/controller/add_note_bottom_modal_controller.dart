@@ -6,20 +6,11 @@ import 'package:belluga_boilerplate/domain/notes/note_model.dart';
 import 'package:belluga_boilerplate/domain/repositories/notes_repository_contract.dart';
 
 class AddNoteBottomModalController {
-  final CourseItemModel courseItemModel;
-  final Duration? currentVideoPosition;
-  final NoteModel? noteModel;
+  late CourseItemModel courseItemModel;
+  late Duration? currentVideoPosition;
+  late NoteModel? noteModel;
 
-  AddNoteBottomModalController({
-    required this.courseItemModel,
-    this.currentVideoPosition,
-    this.noteModel,
-  }) {
-    if (noteModel != null) {
-      noteContentTextController.text = noteModel!.content.value;
-      colorSelectedStreamValue.addValue(noteModel!.color.value);
-    }
-  }
+  AddNoteBottomModalController();
 
   final notesRepository = GetIt.I.get<NotesRepositoryContract>();
 
@@ -31,6 +22,20 @@ class AddNoteBottomModalController {
 
   final savingNoteStreamValue = StreamValue<bool>(defaultValue: false);
   final deletingNoteStreamValue = StreamValue<bool>(defaultValue: false);
+
+  void init({ required CourseItemModel courseItemModel,
+  Duration? currentVideoPosition,
+  NoteModel? noteModel,}) {
+
+    this.courseItemModel = courseItemModel;
+    this.currentVideoPosition = currentVideoPosition;
+    this.noteModel = noteModel;
+
+    if (noteModel != null) {
+      noteContentTextController.text = noteModel.content.value;
+      colorSelectedStreamValue.addValue(noteModel.color.value);
+    }
+  }
 
   void changeColor(Color color) => colorSelectedStreamValue.addValue(color);
 

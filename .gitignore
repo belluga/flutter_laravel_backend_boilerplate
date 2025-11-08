@@ -50,3 +50,8 @@ app.*.map.json
 
 /android/keystores/*.jks
 /android/keystores/*.properties
+
+# Delphi-AI
+AGENTS.md
+delphi-ai
+foundation_documentation
