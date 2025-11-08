@@ -12,6 +12,11 @@ class ProfileScreenController {
   StreamValue<UserContract?> get userStreamValue =>
       _authRepository.userStreamValue;
 
+  final isEditingStreamValue = StreamValue<bool>(defaultValue: false);
+
+  void toggleEdit() =>
+      isEditingStreamValue.addValue(!isEditingStreamValue.value);
+
   Future<void> logout() => _authRepository.logout();
 
   void setTheme(Brightness brightness) {

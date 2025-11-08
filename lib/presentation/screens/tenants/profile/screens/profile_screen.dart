@@ -1,13 +1,13 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:belluga_boilerplate/presentation/widgets/back_button_belluga.dart';
-import 'package:flutter/material.dart';
-import 'package:belluga_boilerplate/domain/attribute/attribute_model.dart';
+import 'package:belluga_boilerplate/application/router/app_router.gr.dart';
 import 'package:belluga_boilerplate/domain/user/user_contract.dart';
 import 'package:belluga_boilerplate/presentation/screens/tenants/profile/controller/profile_screen_controller.dart';
-import 'package:belluga_boilerplate/presentation/widgets/attribute_field_list.dart';
+import 'package:belluga_boilerplate/presentation/screens/tenants/profile/widgets/network_section.dart';
+import 'package:belluga_boilerplate/presentation/screens/tenants/profile/widgets/profile_header.dart';
+import 'package:belluga_boilerplate/presentation/widgets/back_button_belluga.dart';
+import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:stream_value/core/stream_value_builder.dart';
-import 'package:value_object_pattern/domain/value_objects/full_name_value.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -19,147 +19,128 @@ class ProfileScreen extends StatefulWidget {
 class _ProfileScreenState extends State<ProfileScreen> {
   final _controller = GetIt.I.get<ProfileScreenController>();
 
+  late final TextEditingController _nameController;
+  late final TextEditingController _titleController;
+  late final TextEditingController _bioController;
+  late final TextEditingController _whatsappController;
+  late final TextEditingController _linkedinController;
+
+  @override
+  void initState() {
+    super.initState();
+    _nameController = TextEditingController(text: 'João Augusto Silva');
+    _titleController = TextEditingController(text: 'Customer Success');
+    _bioController = TextEditingController(
+        text: 'Atuo há mais de 10 anos no setor comercial...');
+    _whatsappController = TextEditingController(text: '+55 15 99999-9999');
+    _linkedinController =
+        TextEditingController(text: 'www.linkedin.com/in/joao-augusto-silva');
+  }
+
+  @override
+  void dispose() {
+    _nameController.dispose();
+    _titleController.dispose();
+    _bioController.dispose();
+    _whatsappController.dispose();
+    _linkedinController.dispose();
+    super.dispose();
+  }
+
+  void _toggleEdit() => _controller.toggleEdit();
+
+  void _saveProfile() {
+    // TODO: Implement actual data saving logic (e.g., API call, local database)
+    print('Saving data...');
+    _toggleEdit();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        title: Text('Meu Perfil'),
         elevation: 0,
-        centerTitle: true,
-        automaticallyImplyLeading: false,
-        // shape: RoundedRectangleBorder(
-        //   borderRadius: BorderRadius.zero,
-        // ),
-        title: const Text(
-          "Profile",
-          style: TextStyle(
-            fontWeight: FontWeight.w700,
-            fontStyle: FontStyle.normal,
-            fontSize: 20,
-            color: Color(0xff000000),
-          ),
-        ),
         leading: BackButtonBelluga(),
         actions: [
-          IconButton(onPressed: _logout, icon: const Icon(Icons.exit_to_app)),
-          Builder(
-            builder: (context) {
-              return IconButton(onPressed: () => _rightDrawer(context), icon: const Icon(Icons.settings));
-            }
+          IconButton(
+            icon: Icon(
+              Icons.edit,
+            ),
+            onPressed: _controller.toggleEdit,
           ),
+          Builder(builder: (context) {
+            return IconButton(
+              icon: Icon(
+                Icons.settings,
+              ),
+              onPressed: () => _rightDrawer(context),
+            );
+          }),
         ],
       ),
-      endDrawer: SafeArea(child: Drawer(
+      body: StreamValueBuilder<UserContract>(
+          streamValue: _controller.userStreamValue,
+          onNullWidget: SizedBox.shrink(),
+          builder: (context, asyncSnapshot) {
+            return StreamValueBuilder(
+                streamValue: _controller.isEditingStreamValue,
+                builder: (context, _isEditing) {
+                  return SingleChildScrollView(
+                    child: Column(
+                      children: [
+                        ProfileHeader(
+                          isEditing: _isEditing,
+                          onEditPressed: _toggleEdit,
+                          nameController: _nameController,
+                          titleController: _titleController,
+                          bioController: _bioController,
+                        ),
+                        NetworkSection(
+                          isEditing: _isEditing,
+                          whatsappController: _whatsappController,
+                          linkedinController: _linkedinController,
+                        ),
+                      ],
+                    ),
+                  );
+                });
+          }),
+      endDrawer: SafeArea(
+          child: Drawer(
         child: SingleChildScrollView(
           child: Column(
             children: [
               Row(
                 children: [
-                  IconButton(onPressed: () =>_controller.setTheme(Brightness.dark), icon: Icon(Icons.dark_mode)),
-                  IconButton(onPressed: () =>_controller.setTheme(Brightness.light), icon: Icon(Icons.light_mode)),
+                  IconButton(
+                      onPressed: () => _controller.setTheme(Brightness.dark),
+                      icon: Icon(Icons.dark_mode)),
+                  IconButton(
+                      onPressed: () => _controller.setTheme(Brightness.light),
+                      icon: Icon(Icons.light_mode)),
                 ],
               ),
             ],
           ),
         ),
       )),
-      body: Padding(
-        padding: const EdgeInsets.all(16),
-        child: StreamValueBuilder<UserContract>(
-          streamValue: _controller.userStreamValue,
-          onNullWidget: const SizedBox.shrink(),
-          builder: (context, user) {
-            return Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisSize: MainAxisSize.max,
-              children: [
-                Align(
-                  alignment: Alignment.center,
-                  child: Stack(
-                    alignment: Alignment.bottomRight,
-                    children: [
-                      Container(
-                        height: 120,
-                        width: 120,
-                        clipBehavior: Clip.antiAlias,
-                        decoration: const BoxDecoration(shape: BoxShape.circle),
-                        child: Image.network(
-                          "https://cdn.pixabay.com/photo/2020/05/17/20/21/cat-5183427_960_720.jpg",
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                      Container(
-                        alignment: Alignment.center,
-                        margin: const EdgeInsets.all(0),
-                        padding: const EdgeInsets.all(0),
-                        width: 40,
-                        height: 40,
-                        decoration: const BoxDecoration(
-                          color: Color(0xff3a57e8),
-                          shape: BoxShape.circle,
-                        ),
-                        child: const Icon(
-                          Icons.photo_camera,
-                          color: Color(0xffffffff),
-                          size: 20,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Expanded(
-                  child: AttributeFieldList(
-                    list: [
-                      AttributeModel<FullNameValue?>(
-                        label: "Nome",
-                        value: user.profile.nameValue,
-                        icons: Icons.photo_camera,
-                        hint: "Qual seu nome?",
-                        isEditable: true,
-                      ),
-                      AttributeModel<FullNameValue?>(
-                        label: "Nome",
-                        value: user.profile.nameValue,
-                        icons: Icons.photo_camera,
-                        hint: "Qual seu nome?",
-                        isEditable: true,
-                      ),
-                      AttributeModel<FullNameValue?>(
-                        label: "Nome",
-                        value: user.profile.nameValue,
-                        icons: Icons.photo_camera,
-                        hint: "Qual seu nome?",
-                        isEditable: true,
-                      ),
-                      AttributeModel<FullNameValue?>(
-                        label: "Nome",
-                        value: user.profile.nameValue,
-                        icons: Icons.photo_camera,
-                        hint: "Qual seu nome?",
-                        isEditable: true,
-                      ),
-                      AttributeModel<FullNameValue?>(
-                        label: "Nome",
-                        value: user.profile.nameValue,
-                        icons: Icons.photo_camera,
-                        hint: "Qual seu nome?",
-                        isEditable: true,
-                      ),
-                      AttributeModel<FullNameValue?>(
-                        label: "Nome",
-                        value: user.profile.nameValue,
-                        icons: Icons.photo_camera,
-                        hint: "Qual seu nome?",
-                        isEditable: true,
-                      ),
-                    ],
-                  ),
-                ),
-              ],
+      bottomNavigationBar: StreamValueBuilder(
+          streamValue: _controller.isEditingStreamValue,
+          onNullWidget: SizedBox.shrink(),
+          builder: (context, isEditing) {
+            if (isEditing == false) {
+              return SizedBox.shrink();
+            }
+
+            return Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: ElevatedButton(
+                onPressed: _saveProfile,
+                child: const Text('Salvar'),
+              ),
             );
-          },
-        ),
-      ),
+          }),
     );
   }
 
@@ -173,6 +154,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
   }
 
   void _navigateToHome() {
-    context.router.popUntilRoot();
+    if (mounted) {
+      context.router.replaceAll([DashboardRoute()]);
+    }
   }
 }
