@@ -37,53 +37,59 @@ class _MenuScreenState extends State<MenuScreen> {
         onTap: _handleNavigationTap,
       ),
       body: SafeArea(
-        child: ListView(
-          children: [
-            StreamValueBuilder<UserBelluga?>(
-              streamValue: _controller.userStreamValue,
-              onNullWidget: const SizedBox.shrink(),
-              builder: (context, user) {
-                final fullName = user?.profile.nameValue?.value ?? 'Convidado';
-                return MenuProfileHeader(
-                  fullName: fullName,
-                  subtitle: 'Meu Perfil',
-                  avatarInitials: _initialsFromFullName(fullName),
-                  onProfileTap: () => context.router.push(const ProfileRoute()),
-                  onLogoutTap: _handleLogoutTap,
-                );
-              },
-            ),
-            const Divider(
-              height: 16,
-              indent: 16,
-              endIndent: 16,
-            ),
-            StreamValueBuilder<List<MenuEntryModel>>(
-              streamValue: _controller.menuEntriesStreamValue,
-              onNullWidget: const SizedBox.shrink(),
-              builder: (context, entries) => Column(
-                children: [
-                  for (final entry in entries) ...[
-                    MenuEntryTile(
-                      entry: entry,
-                      onPressed: () => _handleEntryTap(entry),
-                      onToggleChanged:
-                          entry.actionType == MenuEntryActionType.toggle
-                              ? (value) => _controller.updateFocusMode(value)
-                              : null,
-                    ),
-                    if (entry != entries.last)
-                      Divider(
-                        height: 1,
-                        indent: 16,
-                        endIndent: 16,
-                        color: colorScheme.outlineVariant,
-                      ),
-                  ],
-                ],
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 8),
+          child: Column(
+            children: [
+              StreamValueBuilder<UserBelluga?>(
+                streamValue: _controller.userStreamValue,
+                onNullWidget: const SizedBox.shrink(),
+                builder: (context, user) {
+                  final fullName =
+                      user?.profile.nameValue?.value ?? 'Convidado';
+                  return MenuProfileHeader(
+                    fullName: fullName,
+                    subtitle: 'Meu Perfil',
+                    avatarInitials: _initialsFromFullName(fullName),
+                    onProfileTap: () =>
+                        context.router.push(const ProfileRoute()),
+                    onLogoutTap: _handleLogoutTap,
+                  );
+                },
               ),
-            ),
-          ],
+              Divider(
+                height: 1,
+                indent: 16,
+                endIndent: 16,
+              ),
+              Expanded(
+                child: StreamValueBuilder<List<MenuEntryModel>>(
+                  streamValue: _controller.menuEntriesStreamValue,
+                  onNullWidget: const SizedBox.shrink(),
+                  builder: (context, entries) => ListView.separated(
+                    padding: EdgeInsets.zero,
+                    itemCount: entries.length,
+                    itemBuilder: (context, index) {
+                      final entry = entries[index];
+                      return MenuEntryTile(
+                        entry: entry,
+                        onPressed: () => _handleEntryTap(entry),
+                        onToggleChanged:
+                            entry.actionType == MenuEntryActionType.toggle
+                                ? (value) => _controller.updateFocusMode(value)
+                                : null,
+                      );
+                    },
+                    separatorBuilder: (_, __) => Divider(
+                      height: 1,
+                      indent: 16,
+                      endIndent: 16,
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
