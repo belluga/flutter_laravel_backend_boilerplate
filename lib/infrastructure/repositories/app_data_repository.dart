@@ -23,10 +23,10 @@ class AppDataRepository {
   Future<void> init() async {
     Map<String, dynamic>? _remoteData = await _localCache.get();
 
-    // if (_remoteData == null) {
+    if (_remoteData == null) {
       _remoteData = await _fetchRemoteOrFallback();
       await _localCache.save(_remoteData);
-    // }
+    }
 
     final localInfo = await _localInfoSource.getInfo();
 

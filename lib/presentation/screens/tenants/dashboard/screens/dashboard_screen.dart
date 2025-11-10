@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:belluga_boilerplate/presentation/screens/tenants/common/widgets/tenant_bottom_navigation.dart';
 import 'package:belluga_boilerplate/presentation/widgets/sliver_dashboard_widget_animated.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
@@ -37,15 +38,9 @@ class _DashboardScreenState extends State<DashboardScreen> {
         automaticallyImplyLeading: false,
         actions: [ProfileActionButton()],
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.group),
-            label: 'Comunidades',
-          ),
-          BottomNavigationBarItem(icon: Icon(Icons.menu), label: 'Menu'),
-        ],
+      bottomNavigationBar: TenantBottomNavigation(
+        currentIndex: 0,
+        onTap: _handleNavigationTap,
       ),
       body: CustomScrollView(
         slivers: [
@@ -74,5 +69,18 @@ class _DashboardScreenState extends State<DashboardScreen> {
         ],
       ),
     );
+  }
+
+  void _handleNavigationTap(int index) {
+    if (index == 2) {
+      context.router.push(const TenantMenuRoute());
+      return;
+    }
+
+    if (index == 1) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Comunidades em breve')),
+      );
+    }
   }
 }

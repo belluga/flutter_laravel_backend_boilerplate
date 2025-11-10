@@ -15,6 +15,7 @@ import 'package:belluga_boilerplate/presentation/screens/tenants/auth/create_new
 import 'package:belluga_boilerplate/presentation/screens/tenants/dashboard/controllers/external_course_dashboard_controller.dart';
 import 'package:belluga_boilerplate/presentation/screens/tenants/dashboard/controllers/my_courses_dashboard_controller.dart';
 import 'package:belluga_boilerplate/presentation/screens/tenants/dashboard/controllers/next_events_dashboard_controller.dart';
+import 'package:belluga_boilerplate/presentation/screens/tenants/menu/controllers/menu_screen_controller.dart';
 import 'package:get_it_modular_with_auto_route/get_it_modular_with_auto_route.dart';
 
 class DashboardModule extends ModuleContract {
@@ -29,6 +30,14 @@ class DashboardModule extends ModuleContract {
         AutoRoute(
           path: "/dashboard",
           page: DashboardRoute.page,
+          guards: [
+            AuthRouteGuard(),
+            TenantRouteGuard(),
+          ],
+        ),
+        AutoRoute(
+          path: "/dashboard/menu",
+          page: TenantMenuRoute.page,
           guards: [
             AuthRouteGuard(),
             TenantRouteGuard(),
@@ -61,6 +70,7 @@ class DashboardModule extends ModuleContract {
 
     registerLazySingleton<CreatePasswordControllerContract>(() => CreatePasswordController());
 
+    registerLazySingleton(MenuScreenController.new);
 
     
 
