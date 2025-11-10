@@ -188,7 +188,7 @@
     },
     "content": {
       "video": {
-        "url": "https://b-vz-df032af7-1d1.tv.pandavideo.com.br/c82a12b4-d6a7-49d4-85ed-6e8677b5694c/playlist.m3u8",
+        "url": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
         "thumb": {
           "type": "image",
           "data": {
@@ -244,27 +244,25 @@
         }
       }
     },
-    "next": 
-      {
-        "id": "668f01b3d8c29c2a2b4c4e01",
-        "title": "Como Aproveitar o MBA",
-        "description": "Dicas para aproveitar ao máximo o MBA.",
-        "teachers": [
-          {
-            "id": "668ef5e3c789f2a1b3c9d1a4",
-            "name": "Roberto Shinyashiki",
-            "avatar_url": "https://classic.exame.com/wp-content/uploads/2016/10/size_960_16_9_roberto-shinyashiki.jpg",
-            "highlight": true
-          }
-        ],
-        "thumb": {
-          "type": "image",
-          "data": {
-            "url": "https://unifast.com.br/wp-content/uploads/2022/05/2.jpg"
-          }
+    "next": {
+      "id": "668f01b3d8c29c2a2b4c4e01",
+      "title": "Como Aproveitar o MBA",
+      "description": "Dicas para aproveitar ao máximo o MBA.",
+      "teachers": [
+        {
+          "id": "668ef5e3c789f2a1b3c9d1a4",
+          "name": "Roberto Shinyashiki",
+          "avatar_url": "https://classic.exame.com/wp-content/uploads/2016/10/size_960_16_9_roberto-shinyashiki.jpg",
+          "highlight": true
+        }
+      ],
+      "thumb": {
+        "type": "image",
+        "data": {
+          "url": "https://unifast.com.br/wp-content/uploads/2022/05/2.jpg"
         }
       }
-    
+    }
   },
   {
     "id": "668f01b3d8c29c2a2b4c4e01",
@@ -286,7 +284,7 @@
     },
     "content": {
       "video": {
-        "url": "https://b-vz-df032af7-1d1.tv.pandavideo.com.br/c82a12b4-d6a7-49d4-85ed-6e8677b5694c/playlist.m3u8",
+        "url": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
         "thumb": {
           "type": "image",
           "data": {
@@ -400,7 +398,7 @@
     },
     "content": {
       "video": {
-        "url": "https://b-vz-df032af7-1d1.tv.pandavideo.com.br/c82a12b4-d6a7-49d4-85ed-6e8677b5694c/playlist.m3u8",
+        "url": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4",
         "thumb": {
           "type": "image",
           "data": {
@@ -514,7 +512,7 @@
     },
     "content": {
       "video": {
-        "url": "https://b-vz-df032af7-1d1.tv.pandavideo.com.br/c82a12b4-d6a7-49d4-85ed-6e8677b5694c/playlist.m3u8",
+        "url": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4",
         "thumb": {
           "type": "image",
           "data": {
@@ -628,7 +626,7 @@
     },
     "content": {
       "video": {
-        "url": "https://b-vz-df032af7-1d1.tv.pandavideo.com.br/c82a12b4-d6a7-49d4-85ed-6e8677b5694c/playlist.m3u8",
+        "url": "https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
         "thumb": {
           "type": "image",
           "data": {
@@ -742,7 +740,7 @@
     },
     "content": {
       "video": {
-        "url": "https://b-vz-df032af7-1d1.tv.pandavideo.com.br/c82a12b4-d6a7-49d4-85ed-6e8677b5694c/playlist.m3u8",
+        "url": "https://storage.googleapis.com/gtv-videos-bucket/sample/WhatCarCanYouGet.mp4",
         "thumb": {
           "type": "image",
           "data": {
@@ -856,7 +854,7 @@
     },
     "content": {
       "video": {
-        "url": "https://b-vz-df032af7-1d1.tv.pandavideo.com.br/c82a12b4-d6a7-49d4-85ed-6e8677b5694c/playlist.m3u8",
+        "url": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
         "thumb": {
           "type": "image",
           "data": {
@@ -976,7 +974,7 @@
     },
     "content": {
       "video": {
-        "url": "https://b-vz-df032af7-1d1.tv.pandavideo.com.br/34461622-20b3-4ec2-92fb-4f343fe6e141/playlist.m3u8",
+        "url": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
         "thumb": {
           "type": "image",
           "data": {
@@ -1096,7 +1094,7 @@
     },
     "content": {
       "video": {
-        "url": "https://b-vz-df032af7-1d1.tv.pandavideo.com.br/0b0f69c1-10cb-454e-af86-0c9a55316267/playlist.m3u8",
+        "url": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4",
         "thumb": {
           "type": "image",
           "data": {
@@ -1216,7 +1214,7 @@
     },
     "content": {
       "video": {
-        "url": "https://b-vz-df032af7-1d1.tv.pandavideo.com.br/887ae09b-efe4-418d-af9c-b4e6c2eb1020/playlist.m3u8",
+        "url": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4",
         "thumb": {
           "type": "image",
           "data": {
@@ -1336,7 +1334,7 @@
     },
     "content": {
       "video": {
-        "url": "https://b-vz-df032af7-1d1.tv.pandavideo.com.br/0b0f69c1-10cb-454e-af86-0c9a55316267/playlist.m3u8",
+        "url": "https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
         "thumb": {
           "type": "image",
           "data": {
@@ -1456,7 +1454,7 @@
     },
     "content": {
       "video": {
-        "url": "https://b-vz-df032af7-1d1.tv.pandavideo.com.br/8e64d2cf-e231-461a-b30a-5adce489f290/playlist.m3u8",
+        "url": "https://storage.googleapis.com/gtv-videos-bucket/sample/WhatCarCanYouGet.mp4",
         "thumb": {
           "type": "image",
           "data": {
@@ -1576,7 +1574,7 @@
     },
     "content": {
       "video": {
-        "url": "https://b-vz-df032af7-1d1.tv.pandavideo.com.br/25a7ce21-6f23-4b7c-8235-d30939acf4b9/playlist.m3u8",
+        "url": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
         "thumb": {
           "type": "image",
           "data": {
@@ -1690,7 +1688,7 @@
     },
     "content": {
       "video": {
-        "url": "https://b-vz-df032af7-1d1.tv.pandavideo.com.br/d6553285-38c3-4943-b1e2-8d5269c5ac46/playlist.m3u8",
+        "url": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
         "thumb": {
           "type": "image",
           "data": {
@@ -1804,7 +1802,7 @@
     },
     "content": {
       "video": {
-        "url": "https://b-vz-df032af7-1d1.tv.pandavideo.com.br/fefa6c12-7265-472c-ad1d-e5c45b778e08/playlist.m3u8",
+        "url": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4",
         "thumb": {
           "type": "image",
           "data": {

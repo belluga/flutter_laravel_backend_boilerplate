@@ -1,7 +1,5 @@
-import 'package:belluga_boilerplate/presentation/screens/landlord/home_landlord/controllers/landlord_home_screen_controller.dart';
-import 'package:flutter/material.dart';
 import 'package:belluga_boilerplate/application/configurations/belluga_constants.dart';
-import 'package:get_it/get_it.dart';
+import 'package:flutter/material.dart';
 
 class HomeLandlordScreen extends StatefulWidget {
   const HomeLandlordScreen({super.key});
@@ -11,9 +9,6 @@ class HomeLandlordScreen extends StatefulWidget {
 }
 
 class _HomeLandlordScreenState extends State<HomeLandlordScreen> {
-
-  final _controller = GetIt.I.get<LandlordHomeScreenController>();
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

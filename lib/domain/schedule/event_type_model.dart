@@ -1,4 +1,4 @@
-import 'package:belluga_boilerplate/domain/courses/value_objects/slug_value.dart';
+import 'package:belluga_boilerplate/domain/learning_experience/value_objects/slug_value.dart';
 import 'package:belluga_boilerplate/domain/value_objects/color_value.dart';
 import 'package:belluga_boilerplate/domain/value_objects/description_value.dart';
 import 'package:belluga_boilerplate/domain/value_objects/title_value.dart';

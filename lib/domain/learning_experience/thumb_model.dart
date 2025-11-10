@@ -1,5 +1,5 @@
-import 'package:belluga_boilerplate/domain/courses/enums/thumb_types.dart';
-import 'package:belluga_boilerplate/domain/courses/value_objects/thumb_type_value.dart';
+import 'package:belluga_boilerplate/domain/learning_experience/enums/thumb_types.dart';
+import 'package:belluga_boilerplate/domain/learning_experience/value_objects/thumb_type_value.dart';
 import 'package:belluga_boilerplate/domain/value_objects/thumb_uri_value.dart';
 import 'package:belluga_boilerplate/infrastructure/services/dal/dto/thumb_dto.dart';
 

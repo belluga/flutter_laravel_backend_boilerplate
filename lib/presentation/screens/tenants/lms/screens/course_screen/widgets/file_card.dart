@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:belluga_boilerplate/domain/courses/file_model.dart';
+import 'package:belluga_boilerplate/domain/learning_experience/file_model.dart';
 import 'package:belluga_boilerplate/presentation/common/widgets/image_with_progress_indicator.dart';
 import 'package:url_launcher/url_launcher.dart';
 

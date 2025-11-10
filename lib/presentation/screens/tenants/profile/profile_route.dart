@@ -1,5 +1,4 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:belluga_boilerplate/application/router/app_router.gr.dart';
 import 'package:belluga_boilerplate/application/router/modular_app/modules/profile_module.dart';
 import 'package:belluga_boilerplate/presentation/screens/tenants/profile/screens/profile_screen.dart';
 import 'package:flutter/cupertino.dart';
@@ -12,7 +11,6 @@ class ProfileRoute extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ModuleScope<ProfileModule>(
-      onPopRoute: DashboardRoute(),
       child: ProfileScreen(),
     );
   }

@@ -1,4 +1,4 @@
-import 'package:belluga_boilerplate/domain/courses/value_objects/items_total_value.dart';
+import 'package:belluga_boilerplate/domain/learning_experience/value_objects/items_total_value.dart';
 import 'package:belluga_boilerplate/domain/value_objects/title_value.dart';
 import 'package:belluga_boilerplate/infrastructure/services/dal/dto/course/course_childrens_summary_dto.dart';
 

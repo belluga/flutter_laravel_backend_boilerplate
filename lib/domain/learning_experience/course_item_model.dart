@@ -1,10 +1,10 @@
-import 'package:belluga_boilerplate/domain/courses/course_category_model.dart';
-import 'package:belluga_boilerplate/domain/courses/course_content_model.dart';
-import 'package:belluga_boilerplate/domain/courses/course_childrens_summary.dart';
-import 'package:belluga_boilerplate/domain/courses/course_base_model.dart';
-import 'package:belluga_boilerplate/domain/courses/file_model.dart';
-import 'package:belluga_boilerplate/domain/courses/teacher_model.dart';
-import 'package:belluga_boilerplate/domain/courses/thumb_model.dart';
+import 'package:belluga_boilerplate/domain/learning_experience/course_category_model.dart';
+import 'package:belluga_boilerplate/domain/learning_experience/course_content_model.dart';
+import 'package:belluga_boilerplate/domain/learning_experience/course_childrens_summary.dart';
+import 'package:belluga_boilerplate/domain/learning_experience/course_base_model.dart';
+import 'package:belluga_boilerplate/domain/learning_experience/file_model.dart';
+import 'package:belluga_boilerplate/domain/learning_experience/teacher_model.dart';
+import 'package:belluga_boilerplate/domain/learning_experience/thumb_model.dart';
 import 'package:belluga_boilerplate/domain/value_objects/description_value.dart';
 import 'package:belluga_boilerplate/domain/value_objects/title_value.dart';
 import 'package:belluga_boilerplate/infrastructure/services/dal/dto/course/course_childrens_summary_dto.dart';

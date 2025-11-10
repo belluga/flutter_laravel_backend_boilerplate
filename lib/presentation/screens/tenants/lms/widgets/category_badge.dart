@@ -1,6 +1,6 @@
 import 'package:belluga_boilerplate/application/extensions/compute_on_color.dart';
 import 'package:flutter/material.dart';
-import 'package:belluga_boilerplate/domain/courses/course_category_model.dart';
+import 'package:belluga_boilerplate/domain/learning_experience/course_category_model.dart';
 
 class CategoryBadge extends StatefulWidget {
   final CourseCategoryModel category;

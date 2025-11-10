@@ -1,4 +1,4 @@
-import 'package:belluga_boilerplate/domain/courses/thumb_model.dart';
+import 'package:belluga_boilerplate/domain/learning_experience/thumb_model.dart';
 import 'package:belluga_boilerplate/domain/value_objects/description_value.dart';
 import 'package:belluga_boilerplate/domain/value_objects/title_value.dart';
 import 'package:belluga_boilerplate/infrastructure/services/dal/dto/course/files_dto.dart';

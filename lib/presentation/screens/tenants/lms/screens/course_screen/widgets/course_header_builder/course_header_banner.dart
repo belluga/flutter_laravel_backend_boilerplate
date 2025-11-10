@@ -1,8 +1,8 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:belluga_boilerplate/domain/courses/course_category_model.dart';
-import 'package:belluga_boilerplate/domain/courses/course_item_model.dart';
+import 'package:belluga_boilerplate/domain/learning_experience/course_category_model.dart';
+import 'package:belluga_boilerplate/domain/learning_experience/course_item_model.dart';
 import 'package:belluga_boilerplate/presentation/common/widgets/image_with_progress_indicator.dart';
 import 'package:belluga_boilerplate/presentation/screens/tenants/lms/widgets/category_chip.dart';
 

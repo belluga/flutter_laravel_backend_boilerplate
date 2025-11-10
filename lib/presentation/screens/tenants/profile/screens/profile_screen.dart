@@ -50,8 +50,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   void _toggleEdit() => _controller.toggleEdit();
 
   void _saveProfile() {
-    // TODO: Implement actual data saving logic (e.g., API call, local database)
-    print('Saving data...');
+    debugPrint('Saving data...');
     _toggleEdit();
   }
 
@@ -107,24 +106,30 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 });
           }),
       endDrawer: SafeArea(
-          child: Drawer(
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              Row(
-                children: [
-                  IconButton(
-                      onPressed: () => _controller.setTheme(Brightness.dark),
-                      icon: Icon(Icons.dark_mode)),
-                  IconButton(
-                      onPressed: () => _controller.setTheme(Brightness.light),
-                      icon: Icon(Icons.light_mode)),
-                ],
-              ),
-            ],
+        child: Drawer(
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                Row(
+                  children: [
+                    IconButton(
+                        onPressed: () => _controller.setTheme(Brightness.dark),
+                        icon: Icon(Icons.dark_mode)),
+                    IconButton(
+                        onPressed: () => _controller.setTheme(Brightness.light),
+                        icon: Icon(Icons.light_mode)),
+                  ],
+                ),
+                ListTile(
+                  leading: const Icon(Icons.logout),
+                  title: const Text('Sair'),
+                  onTap: _logout,
+                ),
+              ],
+            ),
           ),
         ),
-      )),
+      ),
       bottomNavigationBar: StreamValueBuilder(
           streamValue: _controller.isEditingStreamValue,
           onNullWidget: SizedBox.shrink(),
@@ -144,7 +149,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
     );
   }
 
-  void _rightDrawer(BuildContext context) async {
+  void _rightDrawer(BuildContext context) {
     Scaffold.of(context).openEndDrawer();
   }
 

@@ -1,8 +1,8 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:belluga_boilerplate/application/router/app_router.gr.dart';
-import 'package:belluga_boilerplate/domain/courses/course_category_model.dart';
-import 'package:belluga_boilerplate/domain/courses/course_base_model.dart';
+import 'package:belluga_boilerplate/domain/learning_experience/course_category_model.dart';
+import 'package:belluga_boilerplate/domain/learning_experience/course_base_model.dart';
 import 'package:belluga_boilerplate/presentation/common/widgets/image_with_progress_indicator.dart';
 import 'package:belluga_boilerplate/presentation/screens/tenants/lms/widgets/category_badge.dart';
 

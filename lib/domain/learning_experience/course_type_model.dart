@@ -1,5 +1,5 @@
-import 'package:belluga_boilerplate/domain/courses/value_objects/category_name.dart';
-import 'package:belluga_boilerplate/domain/courses/value_objects/slug_value.dart';
+import 'package:belluga_boilerplate/domain/learning_experience/value_objects/category_name.dart';
+import 'package:belluga_boilerplate/domain/learning_experience/value_objects/slug_value.dart';
 import 'package:belluga_boilerplate/infrastructure/services/dal/dto/course/course_type_dto.dart';
 import 'package:value_object_pattern/domain/value_objects/mongo_id_value.dart';
 

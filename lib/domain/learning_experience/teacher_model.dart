@@ -1,5 +1,5 @@
-import 'package:belluga_boilerplate/domain/courses/value_objects/expert_name_value.dart';
-import 'package:belluga_boilerplate/domain/courses/value_objects/teacher_is_highlight.dart';
+import 'package:belluga_boilerplate/domain/learning_experience/value_objects/expert_name_value.dart';
+import 'package:belluga_boilerplate/domain/learning_experience/value_objects/teacher_is_highlight.dart';
 import 'package:belluga_boilerplate/infrastructure/services/dal/dto/course/teacher_dto.dart';
 import 'package:value_object_pattern/domain/value_objects/uri_value.dart';
 

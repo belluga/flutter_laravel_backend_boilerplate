@@ -9,6 +9,8 @@ import 'package:belluga_boilerplate/domain/repositories/external_courses_reposit
 import 'package:belluga_boilerplate/domain/repositories/schedule_repository_contract.dart';
 import 'package:belluga_boilerplate/infrastructure/repositories/external_courses_repository.dart';
 import 'package:belluga_boilerplate/infrastructure/repositories/schedule_repository.dart';
+import 'package:belluga_boilerplate/domain/repositories/learning_experience_repository_contract.dart';
+import 'package:belluga_boilerplate/infrastructure/repositories/learning_experience_repository.dart';
 import 'package:belluga_boilerplate/presentation/screens/tenants/auth/create_new_password/controller/create_password_controller.dart';
 import 'package:belluga_boilerplate/presentation/screens/tenants/dashboard/controllers/external_course_dashboard_controller.dart';
 import 'package:belluga_boilerplate/presentation/screens/tenants/dashboard/controllers/my_courses_dashboard_controller.dart';
@@ -35,8 +37,13 @@ class DashboardModule extends ModuleContract {
       ];
 
   void _registerRepositories() {
+
+    registerLazySingleton<LearningExperienceRepositoryContract>(
+      () => LearningExperienceRepository()
+    );
+
     registerLazySingleton<ScheduleRepositoryContract>(
-      () => ScheduleRepository(),
+      () => ScheduleRepository()
     );
 
     registerLazySingleton<ExternalCoursesRepositoryContract>(

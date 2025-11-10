@@ -1,4 +1,4 @@
-import 'package:belluga_boilerplate/domain/courses/course_base_model.dart';
+import 'package:belluga_boilerplate/domain/learning_experience/course_base_model.dart';
 
 class CoursesSummary {
   final int total;
