@@ -157,18 +157,58 @@ class DashboardRoute extends _i15.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i6.EventSearchRoute]
-class EventSearchRoute extends _i15.PageRouteInfo<void> {
-  const EventSearchRoute({List<_i15.PageRouteInfo>? children})
-      : super(EventSearchRoute.name, initialChildren: children);
+class EventSearchRoute extends _i15.PageRouteInfo<EventSearchRouteArgs> {
+  EventSearchRoute({
+    _i16.Key? key,
+    bool autoFocusSearchField = true,
+    List<_i15.PageRouteInfo>? children,
+  }) : super(
+          EventSearchRoute.name,
+          args: EventSearchRouteArgs(
+            key: key,
+            autoFocusSearchField: autoFocusSearchField,
+          ),
+          initialChildren: children,
+        );
 
   static const String name = 'EventSearchRoute';
 
   static _i15.PageInfo page = _i15.PageInfo(
     name,
     builder: (data) {
-      return const _i6.EventSearchRoute();
+      final args = data.argsAs<EventSearchRouteArgs>(
+        orElse: () => const EventSearchRouteArgs(),
+      );
+      return _i6.EventSearchRoute(
+        key: args.key,
+        autoFocusSearchField: args.autoFocusSearchField,
+      );
     },
   );
+}
+
+class EventSearchRouteArgs {
+  const EventSearchRouteArgs({this.key, this.autoFocusSearchField = true});
+
+  final _i16.Key? key;
+
+  final bool autoFocusSearchField;
+
+  @override
+  String toString() {
+    return 'EventSearchRouteArgs{key: $key, autoFocusSearchField: $autoFocusSearchField}';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (other is! EventSearchRouteArgs) return false;
+    return key == other.key &&
+        autoFocusSearchField == other.autoFocusSearchField;
+  }
+
+  @override
+  int get hashCode => key.hashCode ^ autoFocusSearchField.hashCode;
 }
 
 /// generated route for

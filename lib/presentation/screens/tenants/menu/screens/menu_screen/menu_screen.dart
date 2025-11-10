@@ -108,8 +108,12 @@ class _MenuScreenState extends State<MenuScreen> {
 
   void _handleEntryTap(MenuEntryModel entry) {
     switch (entry.symbol) {
+      case MenuEntrySymbol.documents:
+      case MenuEntrySymbol.pendingDocuments:
+        context.router.push(const ScheduleRoute());
+        return;
       case MenuEntrySymbol.events:
-        context.router.push(const EventSearchRoute());
+        context.router.push(const ScheduleRoute());
         return;
       case MenuEntrySymbol.courses:
         context.router.push(const CoursesListRoute());

@@ -6,12 +6,19 @@ import 'package:get_it_modular_with_auto_route/get_it_modular_with_auto_route.da
 
 @RoutePage()
 class EventSearchRoute extends StatelessWidget {
-  const EventSearchRoute({super.key});
+  final bool autoFocusSearchField;
+
+  const EventSearchRoute({
+    super.key,
+    this.autoFocusSearchField = true,
+  });
 
   @override
   Widget build(BuildContext context) {
     return ModuleScope<ScheduleModule>(
-      child: EventSearchScreen(),
+      child: EventSearchScreen(
+        autoFocusSearchField: autoFocusSearchField,
+      ),
     );
   }
 }
