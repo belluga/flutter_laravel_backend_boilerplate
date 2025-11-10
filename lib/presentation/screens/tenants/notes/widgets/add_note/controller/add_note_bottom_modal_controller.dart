@@ -53,6 +53,11 @@ class AddNoteBottomModalController {
   }
 
   Future<void> saveNote() async {
+    
+    if(!_canSaveNote()){
+      return;
+    }
+
     if (noteModel == null) {
       await _createNote();
     } else {
@@ -61,10 +66,6 @@ class AddNoteBottomModalController {
   }
 
   Future<void> _updateNote() async {
-    if (noteModel == null || noteModel!.id == null) {
-      return;
-    }
-
     savingNoteStreamValue.addValue(true);
     await notesRepository.updateNote(
       id: noteModel!.id!.value,
@@ -85,5 +86,17 @@ class AddNoteBottomModalController {
       position: currentVideoPosition,
     );
     savingNoteStreamValue.addValue(false);
+  }
+
+  bool _canSaveNote() {
+    if (noteModel == null || noteModel!.id == null) {
+      return false;
+    }
+
+    if(savingNoteStreamValue.value == true){
+      return false;
+    }
+
+    return true;
   }
 }

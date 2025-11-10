@@ -83,9 +83,8 @@ class ModuleSettings extends ModuleSettingsContract {
       return _authBackend;
     });
 
-    GetIt.I.registerFactory<NotesBackendContract>(() {
-      final _authBackend = MockNotesBackend();
-      return _authBackend;
+    GetIt.I.registerLazySingleton<NotesBackendContract>(() {
+      return MockNotesBackend();
     });
   }
 }
