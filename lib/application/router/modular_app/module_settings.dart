@@ -9,6 +9,7 @@ import 'package:belluga_boilerplate/application/router/modular_app/modules/learn
 import 'package:belluga_boilerplate/application/router/modular_app/modules/notes_module.dart';
 import 'package:belluga_boilerplate/domain/repositories/auth_repository_contract.dart';
 import 'package:belluga_boilerplate/domain/repositories/courses_repository_contract.dart';
+import 'package:belluga_boilerplate/domain/repositories/enrollment_repository.dart';
 import 'package:belluga_boilerplate/infrastructure/repositories/app_data_repository.dart';
 import 'package:belluga_boilerplate/infrastructure/repositories/auth_repository.dart';
 import 'package:belluga_boilerplate/infrastructure/repositories/courses_repository.dart';
@@ -56,6 +57,7 @@ class ModuleSettings extends ModuleSettingsContract {
     GetIt.I.registerLazySingleton<CoursesRepositoryContract>(
       () => CoursesRepository(),
     );
+    GetIt.I.registerLazySingleton(() => EnrollmentRepository());
   }
 
   @override
