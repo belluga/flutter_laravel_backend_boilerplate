@@ -1,5 +1,6 @@
 import 'package:belluga_boilerplate/domain/learning_experience/course_item_model.dart';
 import 'package:belluga_boilerplate/domain/notes/note_model.dart';
+import 'package:belluga_boilerplate/presentation/common/widgets/bottom_sheet/belluga_bottom_sheet_scaffold.dart';
 import 'package:belluga_boilerplate/presentation/screens/tenants/notes/controllers/note_playback_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
@@ -58,70 +59,42 @@ class _NotePlaybackBottomSheetState extends State<NotePlaybackBottomSheet> {
 
   @override
   Widget build(BuildContext context) {
-    final colorScheme = Theme.of(context).colorScheme;
-    return SafeArea(
-      top: false,
-      child: Padding(
-        padding: EdgeInsets.only(
-          bottom: MediaQuery.of(context).viewInsets.bottom,
-        ),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-              child: Row(
-                children: [
-                  IconButton(
-                    icon: const Icon(Icons.close),
-                    onPressed: () => Navigator.of(context).pop(),
-                  ),
-                  const SizedBox(width: 8),
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          widget.courseItem.title.value,
-                          style: Theme.of(context).textTheme.titleMedium,
-                        ),
-                        if (widget.courseItem.parent != null)
-                          Text(
-                            widget.courseItem.parent!.title.value,
-                            style: Theme.of(context)
-                                .textTheme
-                                .bodySmall
-                                ?.copyWith(
-                                  color: colorScheme.onSurfaceVariant,
-                                ),
-                          ),
-                      ],
-                    ),
-                  ),
-                  if (widget.onNavigateToCourse != null)
-                    IconButton(
-                      icon: const Icon(Icons.open_in_new),
-                      onPressed: widget.onNavigateToCourse,
-                    ),
-                ],
-              ),
-            ),
-            AspectRatio(
-              aspectRatio: 16 / 9,
-              child: _buildVideoArea(),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(16),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-              _NoteCardLayout(note: widget.note),
-            ],
+    return BellugaBottomSheetScaffold(
+      leading: IconButton(
+        icon: const Icon(Icons.close),
+        onPressed: () => Navigator.of(context).pop(),
+      ),
+      title: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            widget.courseItem.title.value,
+            style: Theme.of(context).textTheme.titleMedium,
           ),
-        ),
-          ],
-        ),
+          if (widget.courseItem.parent != null)
+            Text(
+              widget.courseItem.parent!.title.value,
+              style: Theme.of(context).textTheme.bodySmall,
+            ),
+        ],
+      ),
+      actions: [
+        if (widget.onNavigateToCourse != null)
+          IconButton(
+            icon: const Icon(Icons.open_in_new),
+            onPressed: widget.onNavigateToCourse,
+          ),
+      ],
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          AspectRatio(
+            aspectRatio: 16 / 9,
+            child: _buildVideoArea(),
+          ),
+          const SizedBox(height: 16),
+          _NoteCardLayout(note: widget.note),
+        ],
       ),
     );
   }
