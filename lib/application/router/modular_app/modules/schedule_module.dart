@@ -1,7 +1,8 @@
 import 'dart:async';
 
 import 'package:auto_route/auto_route.dart';
-import 'package:belluga_boilerplate/application/router/app_router.gr.dart';
+import 'package:belluga_boilerplate/application/router/app_router.gr.dart'
+    as app_router;
 import 'package:belluga_boilerplate/application/router/guards/auth_route_guard.dart';
 import 'package:belluga_boilerplate/application/router/guards/tenant_route_guard.dart';
 import 'package:belluga_boilerplate/domain/repositories/schedule_repository_contract.dart';
@@ -21,12 +22,17 @@ class ScheduleModule extends ModuleContract {
   List<AutoRoute> get routes => [
         AutoRoute(
           path: "/agenda",
-          page: EventSearchRoute.page,
+          page: app_router.EventSearchRoute.page,
           guards: [AuthRouteGuard(), TenantRouteGuard()],
         ),
         AutoRoute(
           path: "/agenda/procurar",
-          page: ScheduleRoute.page,
+          page: app_router.ScheduleRoute.page,
+          guards: [AuthRouteGuard(), TenantRouteGuard()],
+        ),
+        AutoRoute(
+          path: "/agenda/:event_id",
+          page: app_router.EventItemRoute.page,
           guards: [AuthRouteGuard(), TenantRouteGuard()],
         ),
       ];

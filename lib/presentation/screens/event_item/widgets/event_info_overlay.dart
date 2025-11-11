@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
-import 'package:festou_app/domain/events/event_model.dart';
-import 'package:festou_app/presentation/screens/event_item/controller/event_item_controller.dart';
+import 'package:intl/intl.dart';
+import 'package:belluga_boilerplate/domain/schedule/event_model.dart';
+import 'package:belluga_boilerplate/presentation/screens/event_item/controller/event_item_controller.dart';
 
 class EventInfoOverlay extends StatefulWidget {
   final EventModel eventModel;
@@ -15,88 +16,79 @@ class EventInfoOverlay extends StatefulWidget {
 class _EventInfoOverlayState extends State<EventInfoOverlay> {
   final _controller = GetIt.I.get<EventItemController>();
 
+  String get _formattedDate {
+    final date = widget.eventModel.dateTimeStart.value;
+    if (date == null) return '';
+    final day = DateFormat.E().format(date).toUpperCase();
+    final fullDate = DateFormat('dd MMM yyyy', 'pt_BR').format(date);
+    final hour = DateFormat.Hm().format(date);
+    return '$day | $fullDate | $hour';
+  }
+
   @override
   Widget build(BuildContext context) {
+    final colorScheme = _controller.colorScheme;
+
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 16.0),
-      margin: const EdgeInsets.only(top: 16.0, bottom: 32.0),
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      margin: const EdgeInsets.only(top: 16, bottom: 32),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Row(
             children: [
-              BackButton(
-                color: _controller.colorScheme.onSecondary,
-              ),
+              BackButton(color: colorScheme.onSecondary),
               Expanded(
                 child: Text(
-                  widget.eventModel.title,
+                  widget.eventModel.title.value,
                   maxLines: 2,
                   textAlign: TextAlign.center,
+                  style: TextTheme.of(context).titleMedium?.copyWith(
+                        color: colorScheme.onPrimary,
+                      ),
                 ),
               ),
               IconButton.filled(
                 style: IconButton.styleFrom(
-                  backgroundColor: _controller.colorScheme.onPrimaryContainer,
-                  foregroundColor: _controller.colorScheme.onSecondary,
+                  backgroundColor: colorScheme.onPrimaryContainer,
+                  foregroundColor: colorScheme.onSecondary,
                 ),
                 onPressed: () {},
-                icon: Icon(
-                  Icons.share,
-                ),
-              )
+                icon: const Icon(Icons.share),
+              ),
             ],
           ),
           Column(
-            mainAxisSize: MainAxisSize.min,
             children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Icon(Icons.today),
-                  Text(
-                    "TER | 16 AGO | 2025 | 18:30",
-                  ),
+                  const Icon(Icons.today),
+                  const SizedBox(width: 8),
+                  Text(_formattedDate),
                 ],
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Expanded(
-                    child: Text(
-                      style: TextTheme.of(context).headlineMedium?.copyWith(
-                            color: _controller.colorScheme.onPrimary,
-                            fontWeight: FontWeight.bold,
-                          ),
-                      widget.eventModel.title,
-                      maxLines: 5,
-                      textAlign: TextAlign.center,
+              const SizedBox(height: 12),
+              Text(
+                widget.eventModel.title.value,
+                maxLines: 5,
+                textAlign: TextAlign.center,
+                style: TextTheme.of(context).headlineMedium?.copyWith(
+                      color: colorScheme.onPrimary,
+                      fontWeight: FontWeight.bold,
                     ),
-                  )
-                ],
               ),
-              SizedBox(
-                height: 8,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Chip(
-                    color: WidgetStateProperty.all(_controller.colorScheme.onSecondaryContainer),
-                    // backgroundColor:
-                    //     _controller.colorScheme.onSecondaryContainer,
-                    labelStyle: TextStyle(
-                      color: _controller.colorScheme.secondaryContainer,
-                    ),
-                    label: Text(
-                      "Categoria",
-                      style: TextTheme.of(context).labelSmall,
-                    ),
-                  )
-                ],
+              const SizedBox(height: 8),
+              Chip(
+                backgroundColor: colorScheme.onSecondaryContainer,
+                labelStyle: TextStyle(color: colorScheme.secondaryContainer),
+                label: Text(
+                  widget.eventModel.type.name.value,
+                  style: TextTheme.of(context).labelSmall,
+                ),
               ),
             ],
-          )
+          ),
         ],
       ),
     );

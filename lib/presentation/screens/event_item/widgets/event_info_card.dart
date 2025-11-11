@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
-import 'package:festou_app/domain/events/event_model.dart';
-import 'package:festou_app/presentation/screens/event_item/controller/event_item_controller.dart';
+import 'package:belluga_boilerplate/domain/schedule/event_model.dart';
+import 'package:belluga_boilerplate/presentation/screens/event_item/controller/event_item_controller.dart';
 
 class EventInfoCard extends StatefulWidget {
   final String title;
   final EventModel eventModel;
 
-  const EventInfoCard(
-      {super.key, required this.eventModel, required this.title});
+  const EventInfoCard({
+    super.key,
+    required this.eventModel,
+    required this.title,
+  });
 
   @override
   State<EventInfoCard> createState() => _EventInfoCardState();
@@ -17,13 +20,19 @@ class EventInfoCard extends StatefulWidget {
 class _EventInfoCardState extends State<EventInfoCard> {
   final _controller = GetIt.I.get<EventItemController>();
 
+  String get _contentAsText =>
+      widget.eventModel.content.value?.replaceAll(RegExp(r'<[^>]*>'), '') ??
+      '';
+
   @override
   Widget build(BuildContext context) {
+    final colorScheme = _controller.colorScheme;
+
     return Card(
       child: Container(
-        padding: EdgeInsets.all(24),
+        padding: const EdgeInsets.all(24),
         decoration: BoxDecoration(
-          color: _controller.colorScheme.surfaceContainer,
+          color: colorScheme.surfaceContainer,
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -32,39 +41,31 @@ class _EventInfoCardState extends State<EventInfoCard> {
               children: [
                 Icon(
                   Icons.message,
-                  color: _controller.colorScheme.onSurface,
+                  color: colorScheme.onSurface,
                 ),
-                SizedBox(width: 8),
-                Expanded(
-                    child: Text(
-                  widget.title,
-                  style: TextStyle(
-                    color: _controller.colorScheme.onSurface,
-                  ),
-                )),
-              ],
-            ),
-            Divider(),
-            Row(
-              children: [
+                const SizedBox(width: 8),
                 Expanded(
                   child: Text(
-                    widget.eventModel.description,
-                    style: TextStyle(
-                      color: _controller.colorScheme.onSurface,
-                    ),
+                    widget.title,
+                    style: TextStyle(color: colorScheme.onSurface),
                   ),
                 ),
               ],
             ),
-            Row(
-              children: [
-                TextButton(
-                  style: TextButton.styleFrom(
-                    foregroundColor: _controller.colorScheme.onPrimaryContainer,
-                  ),
-                  onPressed: () {}, child: Text("Saiba Mais"))
-              ],
+            const Divider(),
+            Text(
+              _contentAsText,
+              style: TextStyle(color: colorScheme.onSurface),
+            ),
+            Align(
+              alignment: Alignment.centerLeft,
+              child: TextButton(
+                style: TextButton.styleFrom(
+                  foregroundColor: colorScheme.onPrimaryContainer,
+                ),
+                onPressed: () {},
+                child: const Text("Saiba Mais"),
+              ),
             ),
           ],
         ),

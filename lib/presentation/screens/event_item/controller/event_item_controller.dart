@@ -2,39 +2,36 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
-import 'package:stream_value/main.dart';
-import 'package:festou_app/domain/events/event_model.dart';
-import 'package:festou_app/infrastructure/repositories/events_repository.dart';
+import 'package:stream_value/core/stream_value.dart';
+import 'package:belluga_boilerplate/domain/events/color_scheme_generator.dart';
+import 'package:belluga_boilerplate/domain/repositories/schedule_repository_contract.dart';
+import 'package:belluga_boilerplate/domain/schedule/event_model.dart';
 
-class EventItemController implements Disposable{
+class EventItemController implements Disposable {
+  final _scheduleRepository = GetIt.I.get<ScheduleRepositoryContract>();
 
-  final String eventSlug;
-  late ColorScheme colorScheme;
+  final eventStreamValue = StreamValue<EventModel?>();
+  final mainBuyButtomIsVisible = StreamValue<bool>(defaultValue: true);
 
-  EventItemController({required this.eventSlug}){
-    _init(eventSlug);
-
-    scrollController.addListener(checkBuyButtonVisibility);
-  }
+  final scrollController = ScrollController();
+  final mainButtonKey = GlobalKey();
 
   double _visibilityThreshold = 0.0;
 
-  final mainButtonKey = GlobalKey();
+  ColorScheme colorScheme = ColorScheme.fromSeed(seedColor: Colors.blue);
 
-  final scrollController = ScrollController();
-
-  final _eventsRepository = GetIt.I.get<EventsRepository>();
-
-  final eventStreamValue = StreamValue<EventModel?>();
-
-  final mainBuyButtomIsVisible = StreamValue<bool>(defaultValue: true);
+  EventItemController() {
+    scrollController.addListener(checkBuyButtonVisibility);
+  }
 
   EventModel get eventModel => eventStreamValue.value!;
 
-  Future<void> _init(String slug) async {
-    final EventModel _eventModel = await _eventsRepository.getEventBySlug(slug);
-    colorScheme = await _eventModel.getColorScheme();
-    eventStreamValue.addValue(_eventModel);
+  Future<void> init(String eventId) async {
+    final EventModel event = await _scheduleRepository.getEvent(eventId);
+    colorScheme = await ColorSchemeGenerator.fromImageUri(
+      event.thumb?.thumbUri.value,
+    );
+    eventStreamValue.addValue(event);
   }
 
   void setVisibilityThreshold(double threshold) {
@@ -42,7 +39,7 @@ class EventItemController implements Disposable{
   }
 
   void checkBuyButtonVisibility() {
-    if(_visibilityThreshold > scrollController.offset ){
+    if (_visibilityThreshold > scrollController.offset) {
       _buyButtomIsVisible();
     } else {
       _buyButtomIsInvisible();
@@ -57,7 +54,6 @@ class EventItemController implements Disposable{
   FutureOr onDispose() {
     scrollController.dispose();
     eventStreamValue.dispose();
-    mainBuyButtomIsVisible.dispose();    
+    mainBuyButtomIsVisible.dispose();
   }
-
 }

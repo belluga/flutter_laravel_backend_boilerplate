@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
-import 'package:festou_app/presentation/screens/event_item/controller/event_item_controller.dart';
+import 'package:belluga_boilerplate/presentation/screens/event_item/controller/event_item_controller.dart';
 
 class AnimatedBottomArea extends StatefulWidget {
   final bool isVisible;

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:festou_app/domain/events/event_model.dart';
+import 'package:belluga_boilerplate/presentation/common/widgets/image_with_progress_indicator.dart';
+import 'package:belluga_boilerplate/domain/schedule/event_model.dart';
 
 class EventThumbOverlay extends StatelessWidget {
   final EventModel eventModel;
@@ -12,16 +13,13 @@ class EventThumbOverlay extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Container(
-          padding: EdgeInsets.symmetric(horizontal: 30),
-          child: Image.network(eventModel.thumb.thumbUri.toString()),
-          // decoration: BoxDecoration(
-          //   color: Colors.black,
-          //   image: DecorationImage(
-          //     image: NetworkImage(
-          //         eventModel.thumb.thumbUri.toString()),
-          //     fit: BoxFit.contain,
-          //   ),
-          // ),
+          padding: const EdgeInsets.symmetric(horizontal: 30),
+          child: ImageWithProgressIndicator(
+            uri: eventModel.thumb?.thumbUri.value,
+            width: double.infinity,
+            height: 260,
+            borderRadius: BorderRadius.circular(24),
+          ),
         ),
       ],
     );

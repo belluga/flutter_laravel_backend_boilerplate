@@ -11,6 +11,8 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:auto_route/auto_route.dart' as _i17;
 import 'package:belluga_boilerplate/presentation/init/init_route.dart' as _i10;
+import 'package:belluga_boilerplate/presentation/screens/event_item/screens/event_item_screen.dart'
+    as _i6;
 import 'package:belluga_boilerplate/presentation/screens/landlord/home_landlord/home_landlord_route.dart'
     as _i9;
 import 'package:belluga_boilerplate/presentation/screens/tenants/auth/auth_create_new_password_route.dart'
@@ -20,15 +22,13 @@ import 'package:belluga_boilerplate/presentation/screens/tenants/auth/auth_login
 import 'package:belluga_boilerplate/presentation/screens/tenants/auth/recovery_password_route.dart'
     as _i13;
 import 'package:belluga_boilerplate/presentation/screens/tenants/dashboard/dashboard_route.dart'
-    as _i6;
+    as _i5;
 import 'package:belluga_boilerplate/presentation/screens/tenants/home_tenant/home_tenant_route.dart'
     as _i15;
-import 'package:belluga_boilerplate/presentation/screens/tenants/lms/screens/course_enrollment/course_enrollment_screen.dart'
-    as _i3;
 import 'package:belluga_boilerplate/presentation/screens/tenants/lms/screens/course_route.dart'
-    as _i4;
+    as _i3;
 import 'package:belluga_boilerplate/presentation/screens/tenants/lms/screens/courses_list_route.dart'
-    as _i5;
+    as _i4;
 import 'package:belluga_boilerplate/presentation/screens/tenants/lms/screens/fast_tracks_list_route.dart'
     as _i8;
 import 'package:belluga_boilerplate/presentation/screens/tenants/menu/menu_route.dart'
@@ -41,8 +41,8 @@ import 'package:belluga_boilerplate/presentation/screens/tenants/schedule/event_
     as _i7;
 import 'package:belluga_boilerplate/presentation/screens/tenants/schedule/schedule_route.dart'
     as _i14;
-import 'package:flutter/cupertino.dart' as _i19;
-import 'package:flutter/material.dart' as _i18;
+import 'package:flutter/cupertino.dart' as _i18;
+import 'package:flutter/material.dart' as _i19;
 
 /// generated route for
 /// [_i1.AuthCreateNewPasswordRoute]
@@ -77,67 +77,10 @@ class AuthLoginRoute extends _i17.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i3.CourseEnrollmentRoute]
-class CourseEnrollmentRoute
-    extends _i17.PageRouteInfo<CourseEnrollmentRouteArgs> {
-  CourseEnrollmentRoute({
-    _i18.Key? key,
-    required String courseItemId,
-    List<_i17.PageRouteInfo>? children,
-  }) : super(
-          CourseEnrollmentRoute.name,
-          args: CourseEnrollmentRouteArgs(key: key, courseItemId: courseItemId),
-          rawPathParams: {'courseItemId': courseItemId},
-          initialChildren: children,
-        );
-
-  static const String name = 'CourseEnrollmentRoute';
-
-  static _i17.PageInfo page = _i17.PageInfo(
-    name,
-    builder: (data) {
-      final pathParams = data.inheritedPathParams;
-      final args = data.argsAs<CourseEnrollmentRouteArgs>(
-        orElse: () => CourseEnrollmentRouteArgs(
-          courseItemId: pathParams.getString('courseItemId'),
-        ),
-      );
-      return _i3.CourseEnrollmentRoute(
-        key: args.key,
-        courseItemId: args.courseItemId,
-      );
-    },
-  );
-}
-
-class CourseEnrollmentRouteArgs {
-  const CourseEnrollmentRouteArgs({this.key, required this.courseItemId});
-
-  final _i18.Key? key;
-
-  final String courseItemId;
-
-  @override
-  String toString() {
-    return 'CourseEnrollmentRouteArgs{key: $key, courseItemId: $courseItemId}';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (other is! CourseEnrollmentRouteArgs) return false;
-    return key == other.key && courseItemId == other.courseItemId;
-  }
-
-  @override
-  int get hashCode => key.hashCode ^ courseItemId.hashCode;
-}
-
-/// generated route for
-/// [_i4.CourseRoute]
+/// [_i3.CourseRoute]
 class CourseRoute extends _i17.PageRouteInfo<CourseRouteArgs> {
   CourseRoute({
-    _i19.Key? key,
+    _i18.Key? key,
     required String courseItemId,
     List<_i17.PageRouteInfo>? children,
   }) : super(
@@ -157,7 +100,7 @@ class CourseRoute extends _i17.PageRouteInfo<CourseRouteArgs> {
         orElse: () =>
             CourseRouteArgs(courseItemId: pathParams.getString('courseItemId')),
       );
-      return _i4.CourseRoute(key: args.key, courseItemId: args.courseItemId);
+      return _i3.CourseRoute(key: args.key, courseItemId: args.courseItemId);
     },
   );
 }
@@ -165,7 +108,7 @@ class CourseRoute extends _i17.PageRouteInfo<CourseRouteArgs> {
 class CourseRouteArgs {
   const CourseRouteArgs({this.key, required this.courseItemId});
 
-  final _i19.Key? key;
+  final _i18.Key? key;
 
   final String courseItemId;
 
@@ -186,7 +129,7 @@ class CourseRouteArgs {
 }
 
 /// generated route for
-/// [_i5.CoursesListRoute]
+/// [_i4.CoursesListRoute]
 class CoursesListRoute extends _i17.PageRouteInfo<void> {
   const CoursesListRoute({List<_i17.PageRouteInfo>? children})
       : super(CoursesListRoute.name, initialChildren: children);
@@ -196,13 +139,13 @@ class CoursesListRoute extends _i17.PageRouteInfo<void> {
   static _i17.PageInfo page = _i17.PageInfo(
     name,
     builder: (data) {
-      return const _i5.CoursesListRoute();
+      return const _i4.CoursesListRoute();
     },
   );
 }
 
 /// generated route for
-/// [_i6.DashboardRoute]
+/// [_i5.DashboardRoute]
 class DashboardRoute extends _i17.PageRouteInfo<void> {
   const DashboardRoute({List<_i17.PageRouteInfo>? children})
       : super(DashboardRoute.name, initialChildren: children);
@@ -212,16 +155,68 @@ class DashboardRoute extends _i17.PageRouteInfo<void> {
   static _i17.PageInfo page = _i17.PageInfo(
     name,
     builder: (data) {
-      return const _i6.DashboardRoute();
+      return const _i5.DashboardRoute();
     },
   );
+}
+
+/// generated route for
+/// [_i6.EventItemScreen]
+class EventItemRoute extends _i17.PageRouteInfo<EventItemRouteArgs> {
+  EventItemRoute({
+    _i19.Key? key,
+    required String eventId,
+    List<_i17.PageRouteInfo>? children,
+  }) : super(
+          EventItemRoute.name,
+          args: EventItemRouteArgs(key: key, eventId: eventId),
+          rawPathParams: {'event_id': eventId},
+          initialChildren: children,
+        );
+
+  static const String name = 'EventItemRoute';
+
+  static _i17.PageInfo page = _i17.PageInfo(
+    name,
+    builder: (data) {
+      final pathParams = data.inheritedPathParams;
+      final args = data.argsAs<EventItemRouteArgs>(
+        orElse: () =>
+            EventItemRouteArgs(eventId: pathParams.getString('event_id')),
+      );
+      return _i6.EventItemScreen(key: args.key, eventId: args.eventId);
+    },
+  );
+}
+
+class EventItemRouteArgs {
+  const EventItemRouteArgs({this.key, required this.eventId});
+
+  final _i19.Key? key;
+
+  final String eventId;
+
+  @override
+  String toString() {
+    return 'EventItemRouteArgs{key: $key, eventId: $eventId}';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (other is! EventItemRouteArgs) return false;
+    return key == other.key && eventId == other.eventId;
+  }
+
+  @override
+  int get hashCode => key.hashCode ^ eventId.hashCode;
 }
 
 /// generated route for
 /// [_i7.EventSearchRoute]
 class EventSearchRoute extends _i17.PageRouteInfo<EventSearchRouteArgs> {
   EventSearchRoute({
-    _i19.Key? key,
+    _i18.Key? key,
     bool autoFocusSearchField = true,
     List<_i17.PageRouteInfo>? children,
   }) : super(
@@ -252,7 +247,7 @@ class EventSearchRoute extends _i17.PageRouteInfo<EventSearchRouteArgs> {
 class EventSearchRouteArgs {
   const EventSearchRouteArgs({this.key, this.autoFocusSearchField = true});
 
-  final _i19.Key? key;
+  final _i18.Key? key;
 
   final bool autoFocusSearchField;
 
@@ -358,7 +353,7 @@ class ProfileRoute extends _i17.PageRouteInfo<void> {
 class RecoveryPasswordRoute
     extends _i17.PageRouteInfo<RecoveryPasswordRouteArgs> {
   RecoveryPasswordRoute({
-    _i19.Key? key,
+    _i18.Key? key,
     String? initialEmail,
     List<_i17.PageRouteInfo>? children,
   }) : super(
@@ -386,7 +381,7 @@ class RecoveryPasswordRoute
 class RecoveryPasswordRouteArgs {
   const RecoveryPasswordRouteArgs({this.key, this.initialEmail});
 
-  final _i19.Key? key;
+  final _i18.Key? key;
 
   final String? initialEmail;
 

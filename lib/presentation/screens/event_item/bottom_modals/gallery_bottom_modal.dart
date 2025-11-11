@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-import 'package:festou_app/domain/thumb/gallery_item_model.dart';
-import 'package:festou_app/presentation/common/widgets/image_with_progress_indicator.dart';
+import 'package:belluga_boilerplate/presentation/common/widgets/image_with_progress_indicator.dart';
 
 class GalleryBottomModal extends StatelessWidget {
-  final List<GalleryItemModel> mediaItems;
+  final List<Uri?> mediaItems;
 
   const GalleryBottomModal({super.key, required this.mediaItems});
 
@@ -20,9 +19,9 @@ class GalleryBottomModal extends StatelessWidget {
           crossAxisSpacing: 4,
           itemCount: mediaItems.length,
           itemBuilder: (context, index) {
-            return ImageWithProgressIndicator(thumb: mediaItems[index]);
+            return ImageWithProgressIndicator(uri: mediaItems[index]);
           },
-        )
+        ),
       ],
     );
   }
