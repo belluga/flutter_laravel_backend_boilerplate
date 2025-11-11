@@ -106,16 +106,18 @@ class _NotesScreenState extends State<NotesScreen> {
     final courseItem = await _controller.loadCourseItem(
       note.courseItemId.value,
     );
-    if (!mounted) return;
+    if (!context.mounted) return;
+    final rootContext = context;
     await showModalBottomSheet<void>(
-      context: context,
+      context: rootContext,
       isScrollControlled: true,
-      builder: (context) => NotePlaybackBottomSheet(
+      builder: (sheetContext) => NotePlaybackBottomSheet(
         note: note,
         courseItem: courseItem,
         onNavigateToCourse: () {
-          Navigator.of(context).pop();
-          context.router.push(
+          Navigator.of(sheetContext).pop();
+          if (!rootContext.mounted) return;
+          rootContext.router.push(
             CourseRoute(courseItemId: courseItem.id.value),
           );
         },
