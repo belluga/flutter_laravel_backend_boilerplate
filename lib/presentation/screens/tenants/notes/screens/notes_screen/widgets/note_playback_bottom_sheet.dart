@@ -116,38 +116,10 @@ class _NotePlaybackBottomSheetState extends State<NotePlaybackBottomSheet> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    'Anotação',
-                    style: Theme.of(context).textTheme.titleSmall,
-                  ),
-                  const SizedBox(height: 8),
-                  Text(
-                    widget.note.content.value,
-                    style: Theme.of(context).textTheme.bodyMedium,
-                  ),
-                  if (widget.note.position.value != null) ...[
-                    const SizedBox(height: 12),
-                    Text(
-                      'Marcada em ${widget.note.position.valueFormated}',
-                      style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                            color: colorScheme.onSurfaceVariant,
-                          ),
-                    ),
-                  ],
-                  if (widget.onNavigateToCourse != null) ...[
-                    const SizedBox(height: 20),
-                    SizedBox(
-                      width: double.infinity,
-                      child: ElevatedButton.icon(
-                        onPressed: widget.onNavigateToCourse,
-                        icon: const Icon(Icons.play_circle_fill),
-                        label: const Text('Ir para o curso completo'),
-                      ),
-                    ),
-                  ],
-                ],
-              ),
-            ),
+              _NoteCardLayout(note: widget.note),
+            ],
+          ),
+        ),
           ],
         ),
       ),
@@ -192,6 +164,58 @@ class _NotePlaybackBottomSheetState extends State<NotePlaybackBottomSheet> {
               video.value.isPlaying ? Icons.pause_circle : Icons.play_circle,
               size: 56,
               color: Colors.white,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _NoteCardLayout extends StatelessWidget {
+  final NoteModel note;
+
+  const _NoteCardLayout({required this.note});
+
+  @override
+  Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+    return Card(
+      elevation: 0,
+      child: Row(
+        children: [
+          Container(
+            width: 8,
+            height: 80,
+            decoration: BoxDecoration(
+              color: note.color.value,
+              borderRadius: const BorderRadius.only(
+                topLeft: Radius.circular(12),
+                bottomLeft: Radius.circular(12),
+              ),
+            ),
+          ),
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.all(16),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    note.content.value,
+                    style: Theme.of(context).textTheme.bodyMedium,
+                  ),
+                  if (note.position.value != null) ...[
+                    const SizedBox(height: 8),
+                    Text(
+                      note.position.valueFormated,
+                      style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                            color: colorScheme.onSurfaceVariant,
+                          ),
+                    ),
+                  ],
+                ],
+              ),
             ),
           ),
         ],
