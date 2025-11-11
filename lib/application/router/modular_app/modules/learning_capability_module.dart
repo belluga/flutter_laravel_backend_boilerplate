@@ -9,6 +9,7 @@ import 'package:belluga_boilerplate/infrastructure/repositories/notes_repository
 import 'package:belluga_boilerplate/presentation/screens/tenants/lms/screens/course_screen/controllers/course_screen_controller.dart';
 import 'package:belluga_boilerplate/presentation/screens/tenants/lms/screens/courses_list_screen/controllers/courses_list_screen_controller.dart';
 import 'package:belluga_boilerplate/presentation/screens/tenants/lms/screens/fast_tracks_list_screen/controllers/fast_tracks_list_screen_controller.dart';
+import 'package:belluga_boilerplate/presentation/screens/tenants/notes/screens/notes_screen/controllers/notes_screen_controller.dart';
 import 'package:belluga_boilerplate/presentation/screens/tenants/notes/widgets/add_note/controller/add_note_bottom_modal_controller.dart';
 import 'package:get_it_modular_with_auto_route/get_it_modular_with_auto_route.dart';
 
@@ -30,6 +31,7 @@ class LearningCapabilityModule extends ModuleContract {
     registerLazySingleton(() => CourseScreenController());
     registerLazySingleton(() => CoursesListScreenController());
     registerLazySingleton(() => AddNoteBottomModalController());
+    registerLazySingleton(() => NotesScreenController());
   }
 
   @override

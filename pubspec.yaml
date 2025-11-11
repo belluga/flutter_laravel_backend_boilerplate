@@ -50,3 +50,7 @@ flutter:
   assets:
     - assets/images/
     - assets/mock/
+  fonts:
+    - family:  BellugaLeaning
+      fonts:
+       - asset: assets/fonts/BellugaLearning.ttf

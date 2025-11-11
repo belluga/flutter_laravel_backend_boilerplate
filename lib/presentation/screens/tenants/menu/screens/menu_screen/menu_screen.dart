@@ -121,6 +121,9 @@ class _MenuScreenState extends State<MenuScreen> {
       case MenuEntrySymbol.tracks:
         context.router.push(const FastTrackListRoute());
         return;
+      case MenuEntrySymbol.notes:
+        context.router.push(const NotesRoute());
+        return;
       default:
         _showPlaceholderMessage('${entry.label} em breve');
     }

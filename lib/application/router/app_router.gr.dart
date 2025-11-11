@@ -9,7 +9,7 @@
 // coverage:ignore-file
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:auto_route/auto_route.dart' as _i15;
+import 'package:auto_route/auto_route.dart' as _i16;
 import 'package:belluga_boilerplate/presentation/init/init_route.dart' as _i9;
 import 'package:belluga_boilerplate/presentation/screens/landlord/home_landlord/home_landlord_route.dart'
     as _i8;
@@ -18,11 +18,11 @@ import 'package:belluga_boilerplate/presentation/screens/tenants/auth/auth_creat
 import 'package:belluga_boilerplate/presentation/screens/tenants/auth/auth_login_route.dart'
     as _i2;
 import 'package:belluga_boilerplate/presentation/screens/tenants/auth/recovery_password_route.dart'
-    as _i11;
+    as _i12;
 import 'package:belluga_boilerplate/presentation/screens/tenants/dashboard/dashboard_route.dart'
     as _i5;
 import 'package:belluga_boilerplate/presentation/screens/tenants/home_tenant/home_tenant_route.dart'
-    as _i13;
+    as _i14;
 import 'package:belluga_boilerplate/presentation/screens/tenants/lms/screens/course_route.dart'
     as _i3;
 import 'package:belluga_boilerplate/presentation/screens/tenants/lms/screens/courses_list_route.dart'
@@ -30,24 +30,26 @@ import 'package:belluga_boilerplate/presentation/screens/tenants/lms/screens/cou
 import 'package:belluga_boilerplate/presentation/screens/tenants/lms/screens/fast_tracks_list_route.dart'
     as _i7;
 import 'package:belluga_boilerplate/presentation/screens/tenants/menu/menu_route.dart'
-    as _i14;
-import 'package:belluga_boilerplate/presentation/screens/tenants/profile/profile_route.dart'
+    as _i15;
+import 'package:belluga_boilerplate/presentation/screens/tenants/notes/screens/notes_route.dart'
     as _i10;
+import 'package:belluga_boilerplate/presentation/screens/tenants/profile/profile_route.dart'
+    as _i11;
 import 'package:belluga_boilerplate/presentation/screens/tenants/schedule/event_search_route.dart'
     as _i6;
 import 'package:belluga_boilerplate/presentation/screens/tenants/schedule/schedule_route.dart'
-    as _i12;
-import 'package:flutter/cupertino.dart' as _i16;
+    as _i13;
+import 'package:flutter/cupertino.dart' as _i17;
 
 /// generated route for
 /// [_i1.AuthCreateNewPasswordRoute]
-class AuthCreateNewPasswordRoute extends _i15.PageRouteInfo<void> {
-  const AuthCreateNewPasswordRoute({List<_i15.PageRouteInfo>? children})
+class AuthCreateNewPasswordRoute extends _i16.PageRouteInfo<void> {
+  const AuthCreateNewPasswordRoute({List<_i16.PageRouteInfo>? children})
       : super(AuthCreateNewPasswordRoute.name, initialChildren: children);
 
   static const String name = 'AuthCreateNewPasswordRoute';
 
-  static _i15.PageInfo page = _i15.PageInfo(
+  static _i16.PageInfo page = _i16.PageInfo(
     name,
     builder: (data) {
       return const _i1.AuthCreateNewPasswordRoute();
@@ -57,13 +59,13 @@ class AuthCreateNewPasswordRoute extends _i15.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i2.AuthLoginRoute]
-class AuthLoginRoute extends _i15.PageRouteInfo<void> {
-  const AuthLoginRoute({List<_i15.PageRouteInfo>? children})
+class AuthLoginRoute extends _i16.PageRouteInfo<void> {
+  const AuthLoginRoute({List<_i16.PageRouteInfo>? children})
       : super(AuthLoginRoute.name, initialChildren: children);
 
   static const String name = 'AuthLoginRoute';
 
-  static _i15.PageInfo page = _i15.PageInfo(
+  static _i16.PageInfo page = _i16.PageInfo(
     name,
     builder: (data) {
       return const _i2.AuthLoginRoute();
@@ -73,11 +75,11 @@ class AuthLoginRoute extends _i15.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i3.CourseRoute]
-class CourseRoute extends _i15.PageRouteInfo<CourseRouteArgs> {
+class CourseRoute extends _i16.PageRouteInfo<CourseRouteArgs> {
   CourseRoute({
-    _i16.Key? key,
+    _i17.Key? key,
     required String courseItemId,
-    List<_i15.PageRouteInfo>? children,
+    List<_i16.PageRouteInfo>? children,
   }) : super(
           CourseRoute.name,
           args: CourseRouteArgs(key: key, courseItemId: courseItemId),
@@ -87,7 +89,7 @@ class CourseRoute extends _i15.PageRouteInfo<CourseRouteArgs> {
 
   static const String name = 'CourseRoute';
 
-  static _i15.PageInfo page = _i15.PageInfo(
+  static _i16.PageInfo page = _i16.PageInfo(
     name,
     builder: (data) {
       final pathParams = data.inheritedPathParams;
@@ -103,7 +105,7 @@ class CourseRoute extends _i15.PageRouteInfo<CourseRouteArgs> {
 class CourseRouteArgs {
   const CourseRouteArgs({this.key, required this.courseItemId});
 
-  final _i16.Key? key;
+  final _i17.Key? key;
 
   final String courseItemId;
 
@@ -125,13 +127,13 @@ class CourseRouteArgs {
 
 /// generated route for
 /// [_i4.CoursesListRoute]
-class CoursesListRoute extends _i15.PageRouteInfo<void> {
-  const CoursesListRoute({List<_i15.PageRouteInfo>? children})
+class CoursesListRoute extends _i16.PageRouteInfo<void> {
+  const CoursesListRoute({List<_i16.PageRouteInfo>? children})
       : super(CoursesListRoute.name, initialChildren: children);
 
   static const String name = 'CoursesListRoute';
 
-  static _i15.PageInfo page = _i15.PageInfo(
+  static _i16.PageInfo page = _i16.PageInfo(
     name,
     builder: (data) {
       return const _i4.CoursesListRoute();
@@ -141,13 +143,13 @@ class CoursesListRoute extends _i15.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i5.DashboardRoute]
-class DashboardRoute extends _i15.PageRouteInfo<void> {
-  const DashboardRoute({List<_i15.PageRouteInfo>? children})
+class DashboardRoute extends _i16.PageRouteInfo<void> {
+  const DashboardRoute({List<_i16.PageRouteInfo>? children})
       : super(DashboardRoute.name, initialChildren: children);
 
   static const String name = 'DashboardRoute';
 
-  static _i15.PageInfo page = _i15.PageInfo(
+  static _i16.PageInfo page = _i16.PageInfo(
     name,
     builder: (data) {
       return const _i5.DashboardRoute();
@@ -157,11 +159,11 @@ class DashboardRoute extends _i15.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i6.EventSearchRoute]
-class EventSearchRoute extends _i15.PageRouteInfo<EventSearchRouteArgs> {
+class EventSearchRoute extends _i16.PageRouteInfo<EventSearchRouteArgs> {
   EventSearchRoute({
-    _i16.Key? key,
+    _i17.Key? key,
     bool autoFocusSearchField = true,
-    List<_i15.PageRouteInfo>? children,
+    List<_i16.PageRouteInfo>? children,
   }) : super(
           EventSearchRoute.name,
           args: EventSearchRouteArgs(
@@ -173,7 +175,7 @@ class EventSearchRoute extends _i15.PageRouteInfo<EventSearchRouteArgs> {
 
   static const String name = 'EventSearchRoute';
 
-  static _i15.PageInfo page = _i15.PageInfo(
+  static _i16.PageInfo page = _i16.PageInfo(
     name,
     builder: (data) {
       final args = data.argsAs<EventSearchRouteArgs>(
@@ -190,7 +192,7 @@ class EventSearchRoute extends _i15.PageRouteInfo<EventSearchRouteArgs> {
 class EventSearchRouteArgs {
   const EventSearchRouteArgs({this.key, this.autoFocusSearchField = true});
 
-  final _i16.Key? key;
+  final _i17.Key? key;
 
   final bool autoFocusSearchField;
 
@@ -213,13 +215,13 @@ class EventSearchRouteArgs {
 
 /// generated route for
 /// [_i7.FastTrackListRoute]
-class FastTrackListRoute extends _i15.PageRouteInfo<void> {
-  const FastTrackListRoute({List<_i15.PageRouteInfo>? children})
+class FastTrackListRoute extends _i16.PageRouteInfo<void> {
+  const FastTrackListRoute({List<_i16.PageRouteInfo>? children})
       : super(FastTrackListRoute.name, initialChildren: children);
 
   static const String name = 'FastTrackListRoute';
 
-  static _i15.PageInfo page = _i15.PageInfo(
+  static _i16.PageInfo page = _i16.PageInfo(
     name,
     builder: (data) {
       return const _i7.FastTrackListRoute();
@@ -229,13 +231,13 @@ class FastTrackListRoute extends _i15.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i8.HomeLandlordRoute]
-class HomeLandlordRoute extends _i15.PageRouteInfo<void> {
-  const HomeLandlordRoute({List<_i15.PageRouteInfo>? children})
+class HomeLandlordRoute extends _i16.PageRouteInfo<void> {
+  const HomeLandlordRoute({List<_i16.PageRouteInfo>? children})
       : super(HomeLandlordRoute.name, initialChildren: children);
 
   static const String name = 'HomeLandlordRoute';
 
-  static _i15.PageInfo page = _i15.PageInfo(
+  static _i16.PageInfo page = _i16.PageInfo(
     name,
     builder: (data) {
       return const _i8.HomeLandlordRoute();
@@ -245,13 +247,13 @@ class HomeLandlordRoute extends _i15.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i9.InitRoute]
-class InitRoute extends _i15.PageRouteInfo<void> {
-  const InitRoute({List<_i15.PageRouteInfo>? children})
+class InitRoute extends _i16.PageRouteInfo<void> {
+  const InitRoute({List<_i16.PageRouteInfo>? children})
       : super(InitRoute.name, initialChildren: children);
 
   static const String name = 'InitRoute';
 
-  static _i15.PageInfo page = _i15.PageInfo(
+  static _i16.PageInfo page = _i16.PageInfo(
     name,
     builder: (data) {
       return const _i9.InitRoute();
@@ -260,29 +262,45 @@ class InitRoute extends _i15.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i10.ProfileRoute]
-class ProfileRoute extends _i15.PageRouteInfo<void> {
-  const ProfileRoute({List<_i15.PageRouteInfo>? children})
-      : super(ProfileRoute.name, initialChildren: children);
+/// [_i10.NotesRoute]
+class NotesRoute extends _i16.PageRouteInfo<void> {
+  const NotesRoute({List<_i16.PageRouteInfo>? children})
+      : super(NotesRoute.name, initialChildren: children);
 
-  static const String name = 'ProfileRoute';
+  static const String name = 'NotesRoute';
 
-  static _i15.PageInfo page = _i15.PageInfo(
+  static _i16.PageInfo page = _i16.PageInfo(
     name,
     builder: (data) {
-      return const _i10.ProfileRoute();
+      return const _i10.NotesRoute();
     },
   );
 }
 
 /// generated route for
-/// [_i11.RecoveryPasswordRoute]
+/// [_i11.ProfileRoute]
+class ProfileRoute extends _i16.PageRouteInfo<void> {
+  const ProfileRoute({List<_i16.PageRouteInfo>? children})
+      : super(ProfileRoute.name, initialChildren: children);
+
+  static const String name = 'ProfileRoute';
+
+  static _i16.PageInfo page = _i16.PageInfo(
+    name,
+    builder: (data) {
+      return const _i11.ProfileRoute();
+    },
+  );
+}
+
+/// generated route for
+/// [_i12.RecoveryPasswordRoute]
 class RecoveryPasswordRoute
-    extends _i15.PageRouteInfo<RecoveryPasswordRouteArgs> {
+    extends _i16.PageRouteInfo<RecoveryPasswordRouteArgs> {
   RecoveryPasswordRoute({
-    _i16.Key? key,
+    _i17.Key? key,
     String? initialEmail,
-    List<_i15.PageRouteInfo>? children,
+    List<_i16.PageRouteInfo>? children,
   }) : super(
           RecoveryPasswordRoute.name,
           args: RecoveryPasswordRouteArgs(key: key, initialEmail: initialEmail),
@@ -291,13 +309,13 @@ class RecoveryPasswordRoute
 
   static const String name = 'RecoveryPasswordRoute';
 
-  static _i15.PageInfo page = _i15.PageInfo(
+  static _i16.PageInfo page = _i16.PageInfo(
     name,
     builder: (data) {
       final args = data.argsAs<RecoveryPasswordRouteArgs>(
         orElse: () => const RecoveryPasswordRouteArgs(),
       );
-      return _i11.RecoveryPasswordRoute(
+      return _i12.RecoveryPasswordRoute(
         key: args.key,
         initialEmail: args.initialEmail,
       );
@@ -308,7 +326,7 @@ class RecoveryPasswordRoute
 class RecoveryPasswordRouteArgs {
   const RecoveryPasswordRouteArgs({this.key, this.initialEmail});
 
-  final _i16.Key? key;
+  final _i17.Key? key;
 
   final String? initialEmail;
 
@@ -329,49 +347,49 @@ class RecoveryPasswordRouteArgs {
 }
 
 /// generated route for
-/// [_i12.ScheduleRoute]
-class ScheduleRoute extends _i15.PageRouteInfo<void> {
-  const ScheduleRoute({List<_i15.PageRouteInfo>? children})
+/// [_i13.ScheduleRoute]
+class ScheduleRoute extends _i16.PageRouteInfo<void> {
+  const ScheduleRoute({List<_i16.PageRouteInfo>? children})
       : super(ScheduleRoute.name, initialChildren: children);
 
   static const String name = 'ScheduleRoute';
 
-  static _i15.PageInfo page = _i15.PageInfo(
+  static _i16.PageInfo page = _i16.PageInfo(
     name,
     builder: (data) {
-      return const _i12.ScheduleRoute();
+      return const _i13.ScheduleRoute();
     },
   );
 }
 
 /// generated route for
-/// [_i13.TenantHomeRoute]
-class TenantHomeRoute extends _i15.PageRouteInfo<void> {
-  const TenantHomeRoute({List<_i15.PageRouteInfo>? children})
+/// [_i14.TenantHomeRoute]
+class TenantHomeRoute extends _i16.PageRouteInfo<void> {
+  const TenantHomeRoute({List<_i16.PageRouteInfo>? children})
       : super(TenantHomeRoute.name, initialChildren: children);
 
   static const String name = 'TenantHomeRoute';
 
-  static _i15.PageInfo page = _i15.PageInfo(
+  static _i16.PageInfo page = _i16.PageInfo(
     name,
     builder: (data) {
-      return const _i13.TenantHomeRoute();
+      return const _i14.TenantHomeRoute();
     },
   );
 }
 
 /// generated route for
-/// [_i14.TenantMenuRoute]
-class TenantMenuRoute extends _i15.PageRouteInfo<void> {
-  const TenantMenuRoute({List<_i15.PageRouteInfo>? children})
+/// [_i15.TenantMenuRoute]
+class TenantMenuRoute extends _i16.PageRouteInfo<void> {
+  const TenantMenuRoute({List<_i16.PageRouteInfo>? children})
       : super(TenantMenuRoute.name, initialChildren: children);
 
   static const String name = 'TenantMenuRoute';
 
-  static _i15.PageInfo page = _i15.PageInfo(
+  static _i16.PageInfo page = _i16.PageInfo(
     name,
     builder: (data) {
-      return const _i14.TenantMenuRoute();
+      return const _i15.TenantMenuRoute();
     },
   );
 }

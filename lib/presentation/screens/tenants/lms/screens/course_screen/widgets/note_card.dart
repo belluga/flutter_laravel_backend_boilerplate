@@ -7,12 +7,14 @@ class NoteCard extends StatefulWidget {
   final NoteModel noteModel;
   final void Function({NoteModel? noteModel}) onCardTap;
   final int index;
+  final void Function(NoteModel note)? onTimestampTap;
 
   const NoteCard({
     super.key,
     required this.noteModel,
     required this.onCardTap,
     required this.index,
+    this.onTimestampTap,
   });
 
   @override
@@ -64,7 +66,13 @@ class _NoteCardState extends State<NoteCard> {
                         const SizedBox(width: 24),
                         if (widget.noteModel.position.value != null)
                           InkWell(
-                            onTap: _navigateToVideoPosition,
+                            onTap: () {
+                              if (widget.onTimestampTap != null) {
+                                widget.onTimestampTap!(widget.noteModel);
+                              } else {
+                                _navigateToVideoPosition();
+                              }
+                            },
                             child: Padding(
                               padding: const EdgeInsets.symmetric(
                                 horizontal: .0,

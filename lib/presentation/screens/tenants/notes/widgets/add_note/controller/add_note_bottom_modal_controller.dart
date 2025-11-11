@@ -89,10 +89,6 @@ class AddNoteBottomModalController {
   }
 
   bool _canSaveNote() {
-    if (noteModel == null || noteModel!.id == null) {
-      return false;
-    }
-
     if(savingNoteStreamValue.value == true){
       return false;
     }
