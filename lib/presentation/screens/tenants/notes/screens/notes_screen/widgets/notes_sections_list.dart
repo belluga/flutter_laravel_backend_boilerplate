@@ -5,14 +5,12 @@ import 'package:flutter/material.dart';
 
 class NotesSectionsList extends StatelessWidget {
   final List<NotesSectionProjection> sections;
-  final ValueChanged<NoteModel> onTimestampTap;
   final ValueChanged<NoteModel> onNoteTap;
   final Color dividerColor;
 
   const NotesSectionsList({
     super.key,
     required this.sections,
-    required this.onTimestampTap,
     required this.onNoteTap,
     required this.dividerColor,
   });
@@ -78,7 +76,7 @@ class NotesSectionsList extends StatelessWidget {
                                 onNoteTap(noteModel);
                               }
                             },
-                            onTimestampTap: (note) => onTimestampTap(note),
+                            onTimeTap: () => onNoteTap(section.notes[i]),
                           ),
                         ),
                     ],

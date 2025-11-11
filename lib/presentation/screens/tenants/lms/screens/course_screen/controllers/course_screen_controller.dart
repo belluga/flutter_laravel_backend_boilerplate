@@ -64,6 +64,17 @@ class CourseScreenController implements Disposable {
     await _notesRepository.getNotes(courseItemId);
   }
 
+  void seekToNotePosition(NoteModel note) {
+    final Duration? position = note.position.value;
+    if (position == null) {
+      return;
+    }
+    final seekTo =
+        position > const Duration(seconds: 5) ? position - const Duration(seconds: 5) : Duration.zero;
+    contentVideoPlayerController.videoPlayerController.seekTo(seekTo);
+    contentVideoPlayerController.videoPlayerController.play();
+  }
+
   Future<void> _courseItemInit(String courseId) async {
     final _courseItemModel = await _learningRepository.loadCourseDetails(
       courseId,

@@ -29,13 +29,5 @@ class LearningCapabilityRoutes {
             TenantRouteGuard(),
           ],
         ),
-        AutoRoute(
-          path: '/notes',
-          page: NotesRoute.page,
-          guards: [
-            AuthRouteGuard(),
-            TenantRouteGuard(),
-          ],
-        ),
       ];
 }

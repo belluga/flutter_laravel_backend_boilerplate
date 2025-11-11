@@ -9,7 +9,6 @@ import 'package:belluga_boilerplate/presentation/screens/tenants/notes/screens/n
 import 'package:belluga_boilerplate/presentation/screens/tenants/notes/screens/notes_screen/widgets/notes_empty_state.dart';
 import 'package:belluga_boilerplate/presentation/screens/tenants/notes/screens/notes_screen/widgets/notes_filters_bar.dart';
 import 'package:belluga_boilerplate/presentation/screens/tenants/notes/screens/notes_screen/widgets/notes_sections_list.dart';
-import 'package:belluga_boilerplate/presentation/screens/tenants/notes/widgets/add_note/add_note_bottom_modal.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:stream_value/core/stream_value_builder.dart';
@@ -89,8 +88,7 @@ class _NotesScreenState extends State<NotesScreen> {
 
                       return NotesSectionsList(
                         sections: sections,
-                        onNoteTap: _openNoteEditor,
-                        onTimestampTap: _openNotePlayback,
+                        onNoteTap: _openNoteViewer,
                         dividerColor: colorScheme.outlineVariant,
                       );
                     },
@@ -104,7 +102,7 @@ class _NotesScreenState extends State<NotesScreen> {
     );
   }
 
-  Future<void> _openNoteEditor(NoteModel note) async {
+  Future<void> _openNoteViewer(NoteModel note) async {
     final courseItem = await _controller.loadCourseItem(
       note.courseItemId.value,
     );
@@ -112,27 +110,17 @@ class _NotesScreenState extends State<NotesScreen> {
     await showModalBottomSheet<void>(
       context: context,
       isScrollControlled: true,
-      builder: (context) => AddNoteBottomModal(
-        courseItemModel: courseItem,
-        currentVideoPosition: note.position.value,
-        noteModel: note,
-      ),
-    );
-    await _controller.refreshNode(note.courseItemId.value);
-  }
-
-  Future<void> _openNotePlayback(NoteModel note) async {
-    final courseItem = await _controller.loadCourseItem(
-      note.courseItemId.value,
-    );
-    if (!mounted) return;
-    await showModalBottomSheet<void>(
-      context: context,
-      isScrollControlled: true,
-      builder: (_) => NotePlaybackBottomSheet(
+      builder: (context) => NotePlaybackBottomSheet(
         note: note,
         courseItem: courseItem,
+        onNavigateToCourse: () {
+          Navigator.of(context).pop();
+          context.router.push(
+            CourseRoute(courseItemId: courseItem.id.value),
+          );
+        },
       ),
     );
   }
+
 }

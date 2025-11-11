@@ -6,6 +6,7 @@ import 'package:belluga_boilerplate/application/router/modular_app/modules/initi
 import 'package:belluga_boilerplate/application/router/modular_app/modules/profile_module.dart';
 import 'package:belluga_boilerplate/application/router/modular_app/modules/schedule_module.dart';
 import 'package:belluga_boilerplate/application/router/modular_app/modules/learning_capability_module.dart';
+import 'package:belluga_boilerplate/application/router/modular_app/modules/notes_module.dart';
 import 'package:belluga_boilerplate/domain/repositories/auth_repository_contract.dart';
 import 'package:belluga_boilerplate/domain/repositories/courses_repository_contract.dart';
 import 'package:belluga_boilerplate/infrastructure/repositories/app_data_repository.dart';
@@ -65,6 +66,7 @@ class ModuleSettings extends ModuleSettingsContract {
     await registerSubModule(LearningCapabilityModule());
     await registerSubModule(ProfileModule());
     await registerSubModule(ScheduleModule());
+    await registerSubModule(NotesModule());
   }
 
   void _registerBackendFactories() {

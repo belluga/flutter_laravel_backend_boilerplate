@@ -30,8 +30,9 @@ class LearningCapabilityModule extends ModuleContract {
     registerLazySingleton(() => FastTracksListScreenController());
     registerLazySingleton(() => CourseScreenController());
     registerLazySingleton(() => CoursesListScreenController());
-    registerLazySingleton(() => AddNoteBottomModalController());
     registerLazySingleton(() => NotesScreenController());
+
+    registerFactory(() => AddNoteBottomModalController());
   }
 
   @override
