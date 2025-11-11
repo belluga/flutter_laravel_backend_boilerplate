@@ -19,52 +19,116 @@ class NotesSectionsList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.separated(
-      itemBuilder: (context, sectionIndex) {
-        final section = sections[sectionIndex];
+    final groupedSections = _groupSectionsByCourse(sections);
+    return ListView.builder(
+      itemCount: groupedSections.length,
+      itemBuilder: (context, courseIndex) {
+        final courseGroup = groupedSections[courseIndex];
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              section.title,
-              style: Theme.of(context).textTheme.titleMedium,
+              courseGroup.courseTitle,
+              style: Theme.of(context).textTheme.titleLarge,
             ),
-            if (section.subtitle != null) ...[
-              const SizedBox(height: 2),
-              Text(
-                section.subtitle!,
-                style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                      color: Theme.of(context).colorScheme.onSurfaceVariant,
-                    ),
-              ),
-            ],
             const SizedBox(height: 12),
-            Column(
-              children: [
-                for (var i = 0; i < section.notes.length; i++)
+            ...List.generate(courseGroup.sections.length, (sectionIndex) {
+              final section = courseGroup.sections[sectionIndex];
+              return Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
                   Padding(
-                    padding: EdgeInsets.only(bottom: i == section.notes.length - 1 ? 0 : 12),
-                    child: NoteCard(
-                      noteModel: section.notes[i],
-                      index: i,
-                      onCardTap: ({noteModel}) {
-                        if (noteModel != null) {
-                          onNoteTap(noteModel);
-                        }
-                      },
-                      onTimestampTap: (note) => onTimestampTap(note),
+                    padding: const EdgeInsets.symmetric(vertical: 8),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          section.title,
+                          style: Theme.of(context).textTheme.titleMedium,
+                        ),
+                        if (section.subtitle != null) ...[
+                          const SizedBox(height: 2),
+                          Text(
+                            section.subtitle!,
+                            style: Theme.of(context)
+                                .textTheme
+                                .bodySmall
+                                ?.copyWith(
+                                  color: Theme.of(context)
+                                      .colorScheme
+                                      .onSurfaceVariant,
+                                ),
+                          ),
+                        ],
+                      ],
                     ),
                   ),
-              ],
-            ),
+                  Column(
+                    children: [
+                      for (var i = 0; i < section.notes.length; i++)
+                        Padding(
+                          padding: EdgeInsets.only(
+                              bottom:
+                                  i == section.notes.length - 1 ? 0 : 12),
+                          child: NoteCard(
+                            noteModel: section.notes[i],
+                            index: i,
+                            onCardTap: ({noteModel}) {
+                              if (noteModel != null) {
+                                onNoteTap(noteModel);
+                              }
+                            },
+                            onTimestampTap: (note) => onTimestampTap(note),
+                          ),
+                        ),
+                    ],
+                  ),
+                  if (sectionIndex != courseGroup.sections.length - 1)
+                    Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 12),
+                      child: Divider(
+                        color: dividerColor,
+                      ),
+                    ),
+                ],
+              );
+            }),
+            if (courseIndex != groupedSections.length - 1)
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 24),
+                child: Divider(
+                  color: dividerColor,
+                  thickness: 2,
+                ),
+              ),
           ],
         );
       },
-      separatorBuilder: (_, __) => Padding(
-        padding: const EdgeInsets.symmetric(vertical: 16),
-        child: Divider(color: dividerColor),
-      ),
-      itemCount: sections.length,
     );
   }
+
+  List<_CourseSectionGroup> _groupSectionsByCourse(
+    List<NotesSectionProjection> sections,
+  ) {
+    final Map<String, _CourseSectionGroup> grouped = {};
+    final order = <String>[];
+    for (final section in sections) {
+      if (!grouped.containsKey(section.courseTitle)) {
+        grouped[section.courseTitle] =
+            _CourseSectionGroup(courseTitle: section.courseTitle);
+        order.add(section.courseTitle);
+      }
+      grouped[section.courseTitle]!.sections.add(section);
+    }
+    return order.map((title) => grouped[title]!).toList();
+  }
+}
+
+class _CourseSectionGroup {
+  final String courseTitle;
+  final List<NotesSectionProjection> sections;
+
+  _CourseSectionGroup({
+    required this.courseTitle,
+  }) : sections = [];
 }

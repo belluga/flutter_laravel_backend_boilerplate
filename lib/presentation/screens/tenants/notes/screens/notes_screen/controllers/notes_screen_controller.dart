@@ -21,6 +21,9 @@ class NotesScreenController implements Disposable {
   final coursesStreamValue = StreamValue<List<CourseBaseModel>>(
     defaultValue: const [],
   );
+  final filteredCoursesStreamValue = StreamValue<List<CourseBaseModel>>(
+    defaultValue: const [],
+  );
   final selectedCourseIdStreamValue = StreamValue<String?>(defaultValue: null);
   final filterLevelsStreamValue =
       StreamValue<List<NotesFilterLevelProjection>>(defaultValue: const []);
@@ -61,6 +64,7 @@ class NotesScreenController implements Disposable {
     for (var i = 0; i < courses.length; i++) {
       _nodeOrderIndex[courses[i].id.value] = i;
     }
+    _updateCoursesWithNotes();
     if (selectedCourseIdStreamValue.value == null) {
       _refreshNotes();
     }
@@ -332,6 +336,7 @@ class NotesScreenController implements Disposable {
         subtitle: breadcrumb.pathLeadingText,
         notes: notes,
         orderKey: breadcrumb.orderKey,
+        courseTitle: breadcrumb.courseTitle,
       );
     } catch (error) {
       debugPrint(
@@ -373,11 +378,15 @@ class NotesScreenController implements Disposable {
     final trailing = orderedSegments.isNotEmpty
         ? orderedSegments.last.title
         : 'Anotações';
+    final courseTitle = orderedSegments.isNotEmpty
+        ? orderedSegments.first.title
+        : 'Curso';
 
     return _BreadcrumbMetadata(
       orderKey: orderKey,
       pathLeadingText: leading,
       trailingTitle: trailing,
+      courseTitle: courseTitle,
     );
   }
 
@@ -385,6 +394,7 @@ class NotesScreenController implements Disposable {
   FutureOr onDispose() {
     _coursesSubscription?.cancel();
     coursesStreamValue.dispose();
+    filteredCoursesStreamValue.dispose();
     selectedCourseIdStreamValue.dispose();
     filterLevelsStreamValue.dispose();
     sectionsStreamValue.dispose();
@@ -402,6 +412,7 @@ class NotesScreenController implements Disposable {
     _notesIndexLoaded = true;
     _subtreeHasNotesCache.clear();
     _orderKeyCache.clear();
+    _updateCoursesWithNotes();
   }
 
   Future<bool> _hasNotesInSubtree(String nodeId) async {
@@ -422,6 +433,22 @@ class NotesScreenController implements Disposable {
     }
     _subtreeHasNotesCache[nodeId] = false;
     return false;
+  }
+
+  Future<void> _updateCoursesWithNotes() async {
+    final courses = coursesStreamValue.value;
+    if (courses.isEmpty) {
+      filteredCoursesStreamValue.addValue(const []);
+      return;
+    }
+    await _ensureNotesIndex();
+    final filtered = <CourseBaseModel>[];
+    for (final course in courses) {
+      if (await _hasNotesInSubtree(course.id.value)) {
+        filtered.add(course);
+      }
+    }
+    filteredCoursesStreamValue.addValue(filtered);
   }
 }
 
@@ -453,9 +480,11 @@ class _BreadcrumbMetadata {
     required this.orderKey,
     required this.trailingTitle,
     this.pathLeadingText,
+    required this.courseTitle,
   });
 
   final List<int> orderKey;
   final String trailingTitle;
   final String? pathLeadingText;
+  final String courseTitle;
 }

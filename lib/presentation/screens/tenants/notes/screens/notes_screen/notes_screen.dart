@@ -44,7 +44,7 @@ class _NotesScreenState extends State<NotesScreen> {
           child: Column(
             children: [
               StreamValueBuilder<List<CourseBaseModel>>(
-                streamValue: _controller.coursesStreamValue,
+                streamValue: _controller.filteredCoursesStreamValue,
                 onNullWidget: const SizedBox.shrink(),
                 builder: (context, courses) => StreamValueBuilder<String?>(
                   streamValue: _controller.selectedCourseIdStreamValue,
