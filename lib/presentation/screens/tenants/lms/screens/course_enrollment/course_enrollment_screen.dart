@@ -8,20 +8,20 @@ import 'package:belluga_boilerplate/domain/repositories/learning_experience_repo
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 
-@RoutePage()
-class CourseEnrollmentRoute extends StatefulWidget {
+@RoutePage(name: 'CourseEnrollmentRoute')
+class CourseEnrollmentScreen extends StatefulWidget {
   final String courseItemId;
 
-  const CourseEnrollmentRoute({
+  const CourseEnrollmentScreen({
     super.key,
     @PathParam('courseItemId') required this.courseItemId,
   });
 
   @override
-  State<CourseEnrollmentRoute> createState() => _CourseEnrollmentRouteState();
+  State<CourseEnrollmentScreen> createState() => _CourseEnrollmentScreenState();
 }
 
-class _CourseEnrollmentRouteState extends State<CourseEnrollmentRoute> {
+class _CourseEnrollmentScreenState extends State<CourseEnrollmentScreen> {
   final _learningRepository =
       GetIt.I.get<LearningExperienceRepositoryContract>();
   final _enrollmentRepository = GetIt.I.get<EnrollmentRepository>();
