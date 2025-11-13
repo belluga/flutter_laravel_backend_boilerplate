@@ -4,15 +4,15 @@
     "configurations": [
         {
             // O nome que vai aparecer no menu do VS Code
-            "name": "Festou",
+            "name": "Belluga",
             "request": "launch",
             "type": "dart",
             "flutterMode": "debug",
             // Aqui está a mágica: os argumentos que você usava no terminal
             "args": [
                 "--flavor",
-                "festou",
-                "--dart-define=FLAVOR=festou"
+                "belluga",
+                "--dart-define=FLAVOR=belluga"
             ]
         },
         {
