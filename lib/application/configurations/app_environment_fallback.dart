@@ -1,10 +1,10 @@
 const Map<String, dynamic> kLocalEnvironmentFallback = {
-  "name": "Belluga Mock Environment",
+  "name": "Belluga Mock Learning",
   "type": "landlord",
-  "main_domain": "https://belluga.space",
+  "main_domain": "https://unifast.online",
   "domains": [
-    "https://belluga.space",
-    "https://mock.belluga.space",
+    "https://unifast.online",
+    "https://mock.unifast.online",
   ],
   "app_domains": [
     "com.belluga.boilerplate",

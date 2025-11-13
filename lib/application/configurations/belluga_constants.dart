@@ -45,7 +45,7 @@ class _ApiConstants {
 
 class _EnvironmentConstants {
   String get environment =>  "stage";
-  String get landlordDomain => "belluga.space";
+  String get landlordDomain => "unifast.online";
   String get schema => "https";
 }
 
