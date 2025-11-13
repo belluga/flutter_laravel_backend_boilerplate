@@ -1,11 +1,16 @@
 import 'package:belluga_boilerplate/domain/repositories/enrollment_repository.dart';
+import 'package:get_it/get_it.dart';
 
 class CourseEnrollmentService {
-  CourseEnrollmentService(this._enrollmentRepository);
+  CourseEnrollmentService({
+    EnrollmentRepository? enrollmentRepository,
+  }) : _enrollmentRepository = enrollmentRepository;
 
-  final EnrollmentRepository _enrollmentRepository;
+  final EnrollmentRepository? _enrollmentRepository;
 
   Future<void> enroll(String courseId) {
-    return _enrollmentRepository.enroll(courseId);
+    final repo =
+        _enrollmentRepository ?? GetIt.I.get<EnrollmentRepository>();
+    return repo.enroll(courseId);
   }
 }

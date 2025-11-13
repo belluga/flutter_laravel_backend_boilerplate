@@ -1,4 +1,3 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:stream_value/core/stream_value_builder.dart';
@@ -10,13 +9,12 @@ import 'package:belluga_boilerplate/presentation/screens/event_item/widgets/even
 import 'package:belluga_boilerplate/presentation/screens/event_item/widgets/header.dart';
 import 'package:belluga_boilerplate/presentation/screens/event_item/widgets/sliver_photo_gallery.dart';
 
-@RoutePage()
 class EventItemScreen extends StatefulWidget {
-  final String eventId;
+  final EventModel event;
 
   const EventItemScreen({
     super.key,
-    @PathParam('event_id') required this.eventId,
+    required this.event,
   });
 
   @override
@@ -30,7 +28,7 @@ class _EventItemScreenState extends State<EventItemScreen> {
   void initState() {
     super.initState();
     _registerController();
-    _controller.init(widget.eventId);
+    _controller.init(widget.event);
   }
 
   void _registerController() {

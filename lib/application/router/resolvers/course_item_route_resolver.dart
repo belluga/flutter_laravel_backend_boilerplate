@@ -1,12 +1,15 @@
-import 'package:belluga_boilerplate/application/router/resolvers/route_model_resolver.dart';
+import 'package:get_it_modular_with_auto_route/get_it_modular_with_auto_route.dart';
 import 'package:belluga_boilerplate/domain/learning_experience/course_item_model.dart';
 import 'package:belluga_boilerplate/domain/repositories/learning_experience_repository_contract.dart';
+import 'package:get_it/get_it.dart';
 
 class CourseItemRouteResolver
     implements RouteModelResolver<CourseItemModel> {
-  CourseItemRouteResolver(this._learningRepository);
+  CourseItemRouteResolver({
+    LearningExperienceRepositoryContract? learningRepository,
+  }) : _learningRepository = learningRepository;
 
-  final LearningExperienceRepositoryContract _learningRepository;
+  final LearningExperienceRepositoryContract? _learningRepository;
 
   @override
   Future<CourseItemModel> resolve(RouteResolverParams params) {
@@ -18,6 +21,8 @@ class CourseItemRouteResolver
         'Course ID must be provided',
       );
     }
-    return _learningRepository.loadCourseDetails(courseId);
+    final repo = _learningRepository ??
+        GetIt.I.get<LearningExperienceRepositoryContract>();
+    return repo.loadCourseDetails(courseId);
   }
 }

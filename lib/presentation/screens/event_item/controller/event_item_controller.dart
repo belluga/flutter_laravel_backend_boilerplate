@@ -4,12 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:stream_value/core/stream_value.dart';
 import 'package:belluga_boilerplate/domain/events/color_scheme_generator.dart';
-import 'package:belluga_boilerplate/domain/repositories/schedule_repository_contract.dart';
 import 'package:belluga_boilerplate/domain/schedule/event_model.dart';
 
 class EventItemController implements Disposable {
-  final _scheduleRepository = GetIt.I.get<ScheduleRepositoryContract>();
-
   final eventStreamValue = StreamValue<EventModel?>();
   final mainBuyButtomIsVisible = StreamValue<bool>(defaultValue: true);
 
@@ -26,8 +23,7 @@ class EventItemController implements Disposable {
 
   EventModel get eventModel => eventStreamValue.value!;
 
-  Future<void> init(String eventId) async {
-    final EventModel event = await _scheduleRepository.getEvent(eventId);
+  Future<void> init(EventModel event) async {
     colorScheme = await ColorSchemeGenerator.fromImageUri(
       event.thumb?.thumbUri.value,
     );

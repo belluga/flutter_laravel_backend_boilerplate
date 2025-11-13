@@ -11,7 +11,7 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:auto_route/auto_route.dart' as _i18;
 import 'package:belluga_boilerplate/presentation/init/init_route.dart' as _i11;
-import 'package:belluga_boilerplate/presentation/screens/event_item/screens/event_item_screen.dart'
+import 'package:belluga_boilerplate/presentation/screens/event_item/event_item_route.dart'
     as _i7;
 import 'package:belluga_boilerplate/presentation/screens/landlord/home_landlord/home_landlord_route.dart'
     as _i10;
@@ -220,7 +220,7 @@ class DashboardRoute extends _i18.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i7.EventItemScreen]
+/// [_i7.EventItemRoute]
 class EventItemRoute extends _i18.PageRouteInfo<EventItemRouteArgs> {
   EventItemRoute({
     _i19.Key? key,
@@ -243,7 +243,7 @@ class EventItemRoute extends _i18.PageRouteInfo<EventItemRouteArgs> {
         orElse: () =>
             EventItemRouteArgs(eventId: pathParams.getString('event_id')),
       );
-      return _i7.EventItemScreen(key: args.key, eventId: args.eventId);
+      return _i7.EventItemRoute(key: args.key, eventId: args.eventId);
     },
   );
 }

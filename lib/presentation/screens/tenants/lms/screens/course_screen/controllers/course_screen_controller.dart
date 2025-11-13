@@ -48,6 +48,12 @@ class CourseScreenController implements Disposable {
     changeCurrentCourseItem(_courseId);
   }
 
+  Future<void> initializeWithCourse(CourseItemModel course) async {
+    await _learningRepository.ensureMyCoursesSummary();
+    currentCourseItemStreamValue.addValue(course);
+    _tabControllerInit();
+  }
+
   Future<void> setCourse(String courseItemId) async {
     await _learningRepository.ensureMyCoursesSummary();
     await _courseItemInit(courseItemId);

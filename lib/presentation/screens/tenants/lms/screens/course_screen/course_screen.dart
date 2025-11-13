@@ -14,11 +14,11 @@ import 'package:get_it/get_it.dart';
 import 'package:stream_value/core/stream_value_builder.dart';
 
 class CourseScreen extends StatefulWidget {
-  final String courseItemId;
+  final CourseItemModel course;
 
   const CourseScreen({
     super.key,
-    @PathParam('courseItemId') required this.courseItemId,
+    required this.course,
   });
 
   @override
@@ -123,7 +123,7 @@ class _CourseScreenState extends State<CourseScreen>
 
   void _initializeController() {
     _controller.vsync = this;
-    _controller.setCourse(widget.courseItemId);
+    _controller.initializeWithCourse(widget.course);
   }
 
   void _showNotesAddBottomSheet({NoteModel? noteModel}) {
