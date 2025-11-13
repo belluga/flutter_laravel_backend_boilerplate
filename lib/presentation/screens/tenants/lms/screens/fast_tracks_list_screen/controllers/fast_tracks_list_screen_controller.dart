@@ -1,9 +1,9 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:belluga_boilerplate/domain/courses/course_category_model.dart';
-import 'package:belluga_boilerplate/domain/courses/course_base_model.dart';
-import 'package:belluga_boilerplate/domain/repositories/courses_repository_contract.dart';
+import 'package:belluga_boilerplate/domain/learning_experience/course_category_model.dart';
+import 'package:belluga_boilerplate/domain/learning_experience/course_base_model.dart';
+import 'package:belluga_boilerplate/domain/repositories/learning_experience_repository_contract.dart';
 import 'package:get_it/get_it.dart';
 import 'package:stream_value/core/stream_value.dart';
 
@@ -23,18 +23,19 @@ class FastTracksListScreenController implements Disposable {
     getFastTracksList();
   }
 
-  final _coursesRepository = GetIt.I.get<CoursesRepositoryContract>();
+  final _learningRepository =
+      GetIt.I.get<LearningExperienceRepositoryContract>();
 
   final scrollController = ScrollController();
 
   StreamValue<List<CourseBaseModel>?> get _courseStreamValue =>
-      _coursesRepository.fastTracksListStreamValue;
+      _learningRepository.fastTracksListStreamValue;
 
   StreamValue<List<CourseCategoryModel>?> get categoriesStreamValue =>
-      _coursesRepository.fastTracksCategoriesListStreamValue;
+      _learningRepository.fastTracksCategoriesStreamValue;
 
   StreamValue<List<CourseBaseModel>?> get lastCreatedFastTracksStreamValue =>
-      _coursesRepository.lastCreatedfastTracksStreamValue;
+      _learningRepository.lastCreatedFastTracksStreamValue;
 
   late StreamValue<List<CourseBaseModel>?> filteredCoursesStreamValue;
 
@@ -42,15 +43,15 @@ class FastTracksListScreenController implements Disposable {
       StreamValue<List<CourseCategoryModel>?>();
 
   Future<void> getFastTracksList() async {
-    await _coursesRepository.getFastTracksList();
+    await _learningRepository.ensureFastTracksCatalog();
   }
 
   Future<void> getFastTracksCategories() async {
-    await _coursesRepository.getFastTracksCategories();
+    await _learningRepository.ensureFastTrackCategories();
   }
 
   Future<void> getlastCreatedFastTracks() async {
-    await _coursesRepository.getFastTracksLastCreatedList();
+    await _learningRepository.ensureFastTrackHighlights();
   }
 
   Future<void> filterByCategory(CourseCategoryModel category) async {

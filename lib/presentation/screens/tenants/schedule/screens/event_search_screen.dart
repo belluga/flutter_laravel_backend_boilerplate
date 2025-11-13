@@ -9,7 +9,12 @@ import 'package:intl/intl.dart';
 import 'package:stream_value/core/stream_value_builder.dart';
 
 class EventSearchScreen extends StatefulWidget {
-  const EventSearchScreen({super.key});
+  final bool autoFocusSearchField;
+
+  const EventSearchScreen({
+    super.key,
+    this.autoFocusSearchField = true,
+  });
 
   @override
   State<EventSearchScreen> createState() => _EventSearchScreenState();
@@ -22,9 +27,11 @@ class _EventSearchScreenState extends State<EventSearchScreen> {
   void initState() {
     super.initState();
     _controller.init();
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      _controller.focusNode.requestFocus();
-    });
+    if (widget.autoFocusSearchField) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        _controller.focusNode.requestFocus();
+      });
+    }
   }
 
   @override

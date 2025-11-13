@@ -12,35 +12,26 @@ abstract class NotesRepositoryContract {
 
   Future<void> getNotes(String courseItemId) async {
     notesSteamValue.addValue(null);
-    final List<NoteDTO> _notesRaw = await notesBackend.getNotes(courseItemId);
+    final notes = await loadNotesForCourse(courseItemId);
+    notesSteamValue.addValue(notes);
+  }
 
-    final _notes =
-        _notesRaw.map((noteDto) => NoteModel.fromDTO(noteDto)).toList();
+  Future<List<NoteModel>> loadNotesForCourse(String courseItemId) async {
+    final List<NoteDTO> notesRaw = await notesBackend.getNotes(courseItemId);
+    final notes = notesRaw.map(NoteModel.fromDTO).toList();
+    notes.sort(_compareNotes);
+    return notes;
+  }
 
-    _notes.sort((a, b) {
-      if (a.position.value == null && b.position.value == null) {
-        return 0;
-      }
-
-      final Duration? _a = a.position.value;
-      final Duration? _b = b.position.value;
-
-      if (_a == null && _b == null) {
-        return 0;
-      }
-
-      if (_a == null) {
-        return 1;
-      }
-
-      if (_b == null) {
-        return -1;
-      }
-
-      return _a.compareTo(_b);
+  Future<Map<String, List<NoteModel>>> loadNotesByCourse() async {
+    final grouped = await notesBackend.getNotesByCourse();
+    final result = <String, List<NoteModel>>{};
+    grouped.forEach((courseId, noteList) {
+      final models = noteList.map(NoteModel.fromDTO).toList();
+      models.sort(_compareNotes);
+      result[courseId] = models;
     });
-
-    notesSteamValue.addValue(_notes);
+    return result;
   }
 
   Future<void> createNote({
@@ -95,5 +86,24 @@ abstract class NotesRepositoryContract {
       await notesBackend.deleteNote(noteId);
       await getNotes(_note.courseItemId.value);
     }
+  }
+
+  int _compareNotes(NoteModel a, NoteModel b) {
+    final Duration? positionA = a.position.value;
+    final Duration? positionB = b.position.value;
+
+    if (positionA == null && positionB == null) {
+      return 0;
+    }
+
+    if (positionA == null) {
+      return 1;
+    }
+
+    if (positionB == null) {
+      return -1;
+    }
+
+    return positionA.compareTo(positionB);
   }
 }

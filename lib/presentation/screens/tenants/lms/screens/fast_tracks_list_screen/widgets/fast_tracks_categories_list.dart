@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:stream_value/main.dart';
-import 'package:belluga_boilerplate/domain/courses/course_category_model.dart';
+import 'package:belluga_boilerplate/domain/learning_experience/course_category_model.dart';
 import 'package:belluga_boilerplate/presentation/common/widgets/dashboard_title_row.dart';
 import 'package:belluga_boilerplate/presentation/screens/tenants/lms/screens/fast_tracks_list_screen/controllers/fast_tracks_list_screen_controller.dart';
 import 'package:belluga_boilerplate/presentation/screens/tenants/lms/screens/fast_tracks_list_screen/widgets/category_card.dart';

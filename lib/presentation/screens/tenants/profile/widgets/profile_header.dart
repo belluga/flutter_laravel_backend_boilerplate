@@ -50,7 +50,7 @@ class ProfileHeader extends StatelessWidget {
                 top: 10,
                 right: 10,
                 child: CircleAvatar(
-                  backgroundColor: colorScheme.surface.withOpacity(0.9),
+                  backgroundColor: colorScheme.surface.withValues(alpha: 0.9),
                   child: IconButton(
                     icon: Icon(Icons.camera_alt, color: colorScheme.onSurface),
                     onPressed: () => showImagePickerModal(context),
@@ -62,7 +62,7 @@ class ProfileHeader extends StatelessWidget {
                   top: 160,
                   right: 20,
                   child: IconButton(
-                    icon: Icon(Icons.edit, color: colorScheme.onBackground),
+                    icon: Icon(Icons.edit, color: colorScheme.onSurface),
                     onPressed: onEditPressed,
                   ),
                 ),

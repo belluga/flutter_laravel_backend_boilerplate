@@ -1,0 +1,6 @@
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "assets/tenants/festou/launcher_icons/adaptive_icon_foreground.png"
+  adaptive_icon_background: "#ffffff"
+  adaptive_icon_foreground: "assets/tenants/festou/launcher_icons/adaptive_icon_foreground.png"

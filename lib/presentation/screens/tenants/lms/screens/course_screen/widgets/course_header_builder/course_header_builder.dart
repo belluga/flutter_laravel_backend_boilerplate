@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:belluga_boilerplate/domain/courses/course_content_model.dart';
-import 'package:belluga_boilerplate/domain/courses/course_item_model.dart';
+import 'package:belluga_boilerplate/domain/learning_experience/course_content_model.dart';
+import 'package:belluga_boilerplate/domain/learning_experience/course_item_model.dart';
 import 'package:belluga_boilerplate/presentation/screens/tenants/lms/screens/course_screen/widgets/course_header_builder/course_header_banner.dart';
 import 'package:belluga_boilerplate/presentation/screens/tenants/lms/screens/course_screen/widgets/course_header_builder/course_header_html.dart';
 import 'package:belluga_boilerplate/presentation/screens/tenants/lms/screens/course_screen/widgets/course_header_builder/course_header_video.dart';

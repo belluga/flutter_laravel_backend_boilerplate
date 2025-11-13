@@ -1,18 +1,19 @@
-import 'package:belluga_boilerplate/domain/courses/course_base_model.dart';
-import 'package:belluga_boilerplate/domain/repositories/courses_repository_contract.dart';
+import 'package:belluga_boilerplate/domain/learning_experience/course_base_model.dart';
+import 'package:belluga_boilerplate/domain/repositories/learning_experience_repository_contract.dart';
 import 'package:belluga_boilerplate/presentation/screens/tenants/dashboard/view_models/courses_summary.dart';
 import 'package:get_it/get_it.dart';
 import 'package:stream_value/core/stream_value.dart';
 
 class MyCoursesDashboardController {
-  final _myCoursesRepository = GetIt.I.get<CoursesRepositoryContract>();
+  final _learningRepository =
+      GetIt.I.get<LearningExperienceRepositoryContract>();
 
   StreamValue<CoursesSummary?> get myCoursesSummaryStreamValue {
-    return _myCoursesRepository.myCoursesSummaryStreamValue;
+    return _learningRepository.myCoursesSummaryStreamValue;
   }
 
   StreamValue<List<CourseBaseModel>?> get fastTracksItemsStreamValue {
-    return _myCoursesRepository.fastTracksListStreamValue;
+    return _learningRepository.fastTracksListStreamValue;
   }
 
   final navigationPreferenceStreamValue = StreamValue<bool>(
@@ -25,8 +26,8 @@ class MyCoursesDashboardController {
   }
 
   Future<void> _getMyCoursesSummary() async =>
-      await _myCoursesRepository.getMyCoursesDashboardSummary();
+      await _learningRepository.ensureMyCoursesSummary();
 
   Future<void> _getFastTracksItems() async =>
-      await _myCoursesRepository.getFastTracksList();
+      await _learningRepository.ensureFastTracksCatalog();
 }

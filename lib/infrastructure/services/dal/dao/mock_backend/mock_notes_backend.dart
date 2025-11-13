@@ -16,6 +16,26 @@ class MockNotesBackend extends NotesBackendContract with MockFunctions {
   }
 
   @override
+  Future<Map<String, List<NoteDTO>>> getNotesByCourse() async {
+    await Future.delayed(const Duration(milliseconds: 400));
+    final result = <String, List<NoteDTO>>{};
+    _notes.forEach((key, value) {
+      result[key] = value
+          .map(
+            (note) => NoteDTO(
+              id: note.id,
+              courseItemId: note.courseItemId,
+              content: note.content,
+              position: note.position,
+              colorHex: note.colorHex,
+            ),
+          )
+          .toList();
+    });
+    return result;
+  }
+
+  @override
   Future<void> createNote({
     required String courseItemId,
     required String content,

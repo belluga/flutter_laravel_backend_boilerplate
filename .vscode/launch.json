@@ -4,7 +4,7 @@
     "configurations": [
         {
             // O nome que vai aparecer no menu do VS Code
-            "name": "Belluga - Tenant (Debug)",
+            "name": "Belluga",
             "request": "launch",
             "type": "dart",
             "flutterMode": "debug",

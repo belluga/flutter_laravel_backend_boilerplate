@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:get_it/get_it.dart';
 import 'package:belluga_boilerplate/domain/notes/note_model.dart';
-import 'package:belluga_boilerplate/presentation/screens/tenants/lms/screens/course_screen/controllers/course_screen_controller.dart';
 
 class NoteCard extends StatefulWidget {
   final NoteModel noteModel;
   final void Function({NoteModel? noteModel}) onCardTap;
   final int index;
+  final VoidCallback? onTimeTap;
 
   const NoteCard({
     super.key,
     required this.noteModel,
     required this.onCardTap,
     required this.index,
+    this.onTimeTap,
   });
 
   @override
@@ -20,8 +20,6 @@ class NoteCard extends StatefulWidget {
 }
 
 class _NoteCardState extends State<NoteCard> {
-  final _controller = GetIt.I.get<CourseScreenController>();
-
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -64,7 +62,7 @@ class _NoteCardState extends State<NoteCard> {
                         const SizedBox(width: 24),
                         if (widget.noteModel.position.value != null)
                           InkWell(
-                            onTap: _navigateToVideoPosition,
+                            onTap: widget.onTimeTap,
                             child: Padding(
                               padding: const EdgeInsets.symmetric(
                                 horizontal: .0,
@@ -84,17 +82,5 @@ class _NoteCardState extends State<NoteCard> {
         ),
       ),
     );
-  }
-
-  void _navigateToVideoPosition() {
-    final Duration? _position = widget.noteModel.position.value;
-
-    if (_position != null) {
-      final Duration _seekTo = _position - Duration(seconds: 5);
-      _controller.contentVideoPlayerController.videoPlayerController.seekTo(
-        _seekTo,
-      );
-      _controller.contentVideoPlayerController.videoPlayerController.play();
-    }
   }
 }

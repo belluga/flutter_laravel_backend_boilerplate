@@ -1,3 +1,5 @@
+import 'package:auto_route/auto_route.dart';
+import 'package:belluga_boilerplate/application/router/app_router.gr.dart';
 import 'package:belluga_boilerplate/presentation/screens/tenants/schedule/widgets/event_bottom_sheet.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
@@ -20,7 +22,8 @@ class _EventCardState extends State<EventCard> {
     return Card(
       color: Theme.of(context).colorScheme.surfaceDim,
       child: InkWell(
-        onTap: () => _showEventBottomSheet(context, widget.event),
+        onTap: () => _navigateToEvent(context),
+        onLongPress: () => _showEventBottomSheet(context, widget.event),
         child: Padding(
           padding: EdgeInsetsGeometry.all(24.0),
           child: Column(
@@ -75,5 +78,9 @@ class _EventCardState extends State<EventCard> {
       useSafeArea: false,
       builder: (_) => EventBottomSheet(event: event),
     );
+  }
+
+  void _navigateToEvent(BuildContext context) {
+    context.router.push(EventItemRoute(eventId: widget.event.id.value));
   }
 }

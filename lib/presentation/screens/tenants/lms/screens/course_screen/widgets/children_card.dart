@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:belluga_boilerplate/domain/courses/course_base_model.dart';
+import 'package:belluga_boilerplate/domain/learning_experience/course_base_model.dart';
 import 'package:belluga_boilerplate/presentation/common/widgets/image_with_progress_indicator.dart';
 import 'package:get_it/get_it.dart';
 import 'package:belluga_boilerplate/presentation/screens/tenants/lms/screens/course_screen/controllers/course_screen_controller.dart';

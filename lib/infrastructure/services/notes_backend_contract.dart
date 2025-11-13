@@ -3,6 +3,7 @@ import 'package:belluga_boilerplate/infrastructure/services/dal/dto/notes/note_d
 
 abstract class NotesBackendContract {
   Future<List<NoteDTO>> getNotes(String courseItemId);
+  Future<Map<String, List<NoteDTO>>> getNotesByCourse();
   Future<void> createNote({
     required String courseItemId,
     required String content,

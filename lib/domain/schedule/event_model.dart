@@ -1,5 +1,5 @@
-import 'package:belluga_boilerplate/domain/courses/teacher_model.dart';
-import 'package:belluga_boilerplate/domain/courses/thumb_model.dart';
+import 'package:belluga_boilerplate/domain/learning_experience/teacher_model.dart';
+import 'package:belluga_boilerplate/domain/learning_experience/thumb_model.dart';
 import 'package:belluga_boilerplate/domain/schedule/event_action_model/event_action_model.dart';
 import 'package:belluga_boilerplate/domain/schedule/event_type_model.dart';
 import 'package:belluga_boilerplate/domain/value_objects/title_value.dart';

@@ -1,6 +1,5 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:flutter/material.dart';
-import 'package:belluga_boilerplate/domain/courses/course_item_model.dart';
+import 'package:belluga_boilerplate/domain/learning_experience/course_item_model.dart';
 import 'package:belluga_boilerplate/domain/notes/note_model.dart';
 import 'package:belluga_boilerplate/presentation/screens/tenants/lms/screens/course_screen/controllers/course_screen_controller.dart';
 import 'package:belluga_boilerplate/presentation/screens/tenants/lms/screens/course_screen/widgets/content_video_player/enums/tab_content_type.dart';
@@ -8,17 +7,18 @@ import 'package:belluga_boilerplate/presentation/screens/tenants/lms/screens/cou
 import 'package:belluga_boilerplate/presentation/screens/tenants/lms/screens/course_screen/widgets/course_header_builder/course_header_builder.dart';
 import 'package:belluga_boilerplate/presentation/screens/tenants/lms/screens/course_screen/widgets/tabs/childrens_list.dart';
 import 'package:belluga_boilerplate/presentation/screens/tenants/lms/screens/course_screen/widgets/tabs/files_list.dart';
-import 'package:get_it/get_it.dart';
-import 'package:stream_value/core/stream_value_builder.dart';
 import 'package:belluga_boilerplate/presentation/screens/tenants/lms/screens/course_screen/widgets/tabs/notes_list.dart';
 import 'package:belluga_boilerplate/presentation/screens/tenants/notes/widgets/add_note/add_note_bottom_modal.dart';
+import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
+import 'package:stream_value/core/stream_value_builder.dart';
 
 class CourseScreen extends StatefulWidget {
-  final String courseItemId;
+  final CourseItemModel course;
 
   const CourseScreen({
     super.key,
-    @PathParam('courseItemId') required this.courseItemId,
+    required this.course,
   });
 
   @override
@@ -123,7 +123,7 @@ class _CourseScreenState extends State<CourseScreen>
 
   void _initializeController() {
     _controller.vsync = this;
-    _controller.setCourse(widget.courseItemId);
+    _controller.initializeWithCourse(widget.course);
   }
 
   void _showNotesAddBottomSheet({NoteModel? noteModel}) {

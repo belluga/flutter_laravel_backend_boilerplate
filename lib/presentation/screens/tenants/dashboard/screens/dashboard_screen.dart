@@ -1,10 +1,11 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:belluga_boilerplate/presentation/screens/tenants/common/widgets/tenant_bottom_navigation.dart';
 import 'package:belluga_boilerplate/presentation/widgets/sliver_dashboard_widget_animated.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:stream_value/core/stream_value_builder.dart';
 import 'package:belluga_boilerplate/application/router/app_router.gr.dart';
-import 'package:belluga_boilerplate/domain/courses/course_base_model.dart';
+import 'package:belluga_boilerplate/domain/learning_experience/course_base_model.dart';
 import 'package:belluga_boilerplate/presentation/common/widgets/main_logo/main_logo.dart';
 import 'package:belluga_boilerplate/presentation/common/widgets/profile_action_button/profile_action_button.dart';
 import 'package:belluga_boilerplate/presentation/screens/tenants/dashboard/controllers/my_courses_dashboard_controller.dart';
@@ -37,15 +38,9 @@ class _DashboardScreenState extends State<DashboardScreen> {
         automaticallyImplyLeading: false,
         actions: [ProfileActionButton()],
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.group),
-            label: 'Comunidades',
-          ),
-          BottomNavigationBarItem(icon: Icon(Icons.menu), label: 'Menu'),
-        ],
+      bottomNavigationBar: TenantBottomNavigation(
+        currentIndex: 0,
+        onTap: _handleNavigationTap,
       ),
       body: CustomScrollView(
         slivers: [
@@ -74,5 +69,18 @@ class _DashboardScreenState extends State<DashboardScreen> {
         ],
       ),
     );
+  }
+
+  void _handleNavigationTap(int index) {
+    if (index == 2) {
+      context.router.push(const TenantMenuRoute());
+      return;
+    }
+
+    if (index == 1) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Comunidades em breve')),
+      );
+    }
   }
 }

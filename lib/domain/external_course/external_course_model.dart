@@ -1,4 +1,4 @@
-import 'package:belluga_boilerplate/domain/courses/thumb_model.dart';
+import 'package:belluga_boilerplate/domain/learning_experience/thumb_model.dart';
 import 'package:belluga_boilerplate/domain/external_course/value_objects/external_course_description_value.dart';
 import 'package:belluga_boilerplate/domain/external_course/value_objects/external_course_initial_password_value.dart';
 import 'package:belluga_boilerplate/domain/external_course/value_objects/external_course_platform_uri_value.dart';

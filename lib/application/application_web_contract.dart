@@ -1,10 +1,8 @@
 import 'package:belluga_boilerplate/application/application_contract.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_web_plugins/flutter_web_plugins.dart';
 import 'package:video_player_web_hls/video_player_web_hls.dart';
 
 abstract class ApplicationWebContract extends ApplicationContract {
-  
   ApplicationWebContract({super.key});
 
   @override

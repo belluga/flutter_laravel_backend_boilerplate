@@ -43,7 +43,11 @@ class _NotesListState extends State<NotesList> {
               notesList.length,
               (index) => NoteCard(
                 onCardTap: widget.onCardTap,
-                noteModel: notesList[index], index: index),
+                noteModel: notesList[index],
+                index: index,
+                onTimeTap: () =>
+                    _controller.seekToNotePosition(notesList[index]),
+              ),
             ),
           ),
         );

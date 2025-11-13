@@ -4,7 +4,9 @@ import 'package:auto_route/auto_route.dart';
 import 'package:belluga_boilerplate/application/router/app_router.gr.dart';
 import 'package:belluga_boilerplate/application/router/guards/auth_route_guard.dart';
 import 'package:belluga_boilerplate/application/router/guards/tenant_route_guard.dart';
+import 'package:belluga_boilerplate/application/router/resolvers/event_item_route_resolver.dart';
 import 'package:belluga_boilerplate/domain/repositories/schedule_repository_contract.dart';
+import 'package:belluga_boilerplate/domain/schedule/event_model.dart';
 import 'package:belluga_boilerplate/infrastructure/repositories/schedule_repository.dart';
 import 'package:belluga_boilerplate/presentation/screens/tenants/schedule/controller/event_search_screen_controller.dart';
 import 'package:belluga_boilerplate/presentation/screens/tenants/schedule/controller/schedule_screen_controller.dart';
@@ -15,6 +17,7 @@ class ScheduleModule extends ModuleContract {
   FutureOr<void> registerDependencies() {
     _registerRepositories();
     _registerControllers();
+    _registerResolvers();
   }
 
   @override
@@ -29,15 +32,23 @@ class ScheduleModule extends ModuleContract {
           page: ScheduleRoute.page,
           guards: [AuthRouteGuard(), TenantRouteGuard()],
         ),
+        AutoRoute(
+          path: "/agenda/:event_id",
+          page: EventItemRoute.page,
+          guards: [AuthRouteGuard(), TenantRouteGuard()],
+        ),
       ];
 
   void _registerRepositories() {
-    registerLazySingleton<ScheduleRepositoryContract>(
-        () => ScheduleRepository());
+    registerLazySingleton<ScheduleRepositoryContract>(ScheduleRepository.new);
+  }
+
+  void _registerResolvers() {
+    registerRouteResolver<EventModel>(EventItemRouteResolver.new);
   }
 
   void _registerControllers() {
-    registerLazySingleton(() => ScheduleScreenController());
-    registerLazySingleton(() => EventSearchScreenController());
+    registerLazySingleton(ScheduleScreenController.new);
+    registerLazySingleton(EventSearchScreenController.new);
   }
 }

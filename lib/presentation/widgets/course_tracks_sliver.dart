@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:belluga_boilerplate/domain/courses/course_base_model.dart';
+import 'package:belluga_boilerplate/domain/learning_experience/course_base_model.dart';
 import 'package:belluga_boilerplate/presentation/common/widgets/dashboard_title_row.dart';
 import 'package:belluga_boilerplate/presentation/widgets/fast_track_card.dart';
 

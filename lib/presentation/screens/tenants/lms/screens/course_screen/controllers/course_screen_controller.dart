@@ -1,9 +1,9 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:belluga_boilerplate/domain/courses/course_item_model.dart';
+import 'package:belluga_boilerplate/domain/learning_experience/course_item_model.dart';
 import 'package:belluga_boilerplate/domain/notes/note_model.dart';
-import 'package:belluga_boilerplate/domain/repositories/courses_repository_contract.dart';
+import 'package:belluga_boilerplate/domain/repositories/learning_experience_repository_contract.dart';
 import 'package:get_it/get_it.dart';
 import 'package:stream_value/core/stream_value.dart';
 import 'package:belluga_boilerplate/domain/repositories/notes_repository_contract.dart';
@@ -11,16 +11,16 @@ import 'package:belluga_boilerplate/presentation/screens/tenants/lms/screens/cou
 import 'package:belluga_boilerplate/presentation/screens/tenants/lms/screens/course_screen/widgets/content_video_player/enums/tab_content_type.dart';
 
 class CourseScreenController implements Disposable {
-  
   TickerProviderStateMixin? _vsync;
-  
+
   TickerProviderStateMixin get vsync => _vsync!;
 
   set vsync(TickerProviderStateMixin newValue) => _vsync = newValue;
 
   CourseScreenController();
 
-  final _coursesRepository = GetIt.I.get<CoursesRepositoryContract>();
+  final _learningRepository =
+      GetIt.I.get<LearningExperienceRepositoryContract>();
   final _notesRepository = GetIt.I.get<NotesRepositoryContract>();
 
   final contentVideoPlayerController = ContentVideoPlayerController();
@@ -48,8 +48,14 @@ class CourseScreenController implements Disposable {
     changeCurrentCourseItem(_courseId);
   }
 
+  Future<void> initializeWithCourse(CourseItemModel course) async {
+    await _learningRepository.ensureMyCoursesSummary();
+    currentCourseItemStreamValue.addValue(course);
+    _tabControllerInit();
+  }
+
   Future<void> setCourse(String courseItemId) async {
-    await _coursesRepository.getMyCoursesDashboardSummary();
+    await _learningRepository.ensureMyCoursesSummary();
     await _courseItemInit(courseItemId);
     _tabControllerInit();
   }
@@ -64,8 +70,19 @@ class CourseScreenController implements Disposable {
     await _notesRepository.getNotes(courseItemId);
   }
 
+  void seekToNotePosition(NoteModel note) {
+    final Duration? position = note.position.value;
+    if (position == null) {
+      return;
+    }
+    final seekTo =
+        position > const Duration(seconds: 5) ? position - const Duration(seconds: 5) : Duration.zero;
+    contentVideoPlayerController.videoPlayerController.seekTo(seekTo);
+    contentVideoPlayerController.videoPlayerController.play();
+  }
+
   Future<void> _courseItemInit(String courseId) async {
-    final _courseItemModel = await _coursesRepository.courseItemGetDetails(
+    final _courseItemModel = await _learningRepository.loadCourseDetails(
       courseId,
     );
     currentCourseItemStreamValue.addValue(_courseItemModel);
@@ -114,7 +131,7 @@ class CourseScreenController implements Disposable {
       tabContentTypes.add(TabContentType.files);
     }
 
-    if(currentCourseItemStreamValue.value!.hasVideoContent) {
+    if (currentCourseItemStreamValue.value!.hasVideoContent) {
       tabContentTypes.add(TabContentType.notes);
     }
 

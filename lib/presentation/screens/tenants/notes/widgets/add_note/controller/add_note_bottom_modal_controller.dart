@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:stream_value/core/stream_value.dart';
-import 'package:belluga_boilerplate/domain/courses/course_item_model.dart';
+import 'package:belluga_boilerplate/domain/learning_experience/course_item_model.dart';
 import 'package:belluga_boilerplate/domain/notes/note_model.dart';
 import 'package:belluga_boilerplate/domain/repositories/notes_repository_contract.dart';
 
@@ -53,6 +53,11 @@ class AddNoteBottomModalController {
   }
 
   Future<void> saveNote() async {
+    
+    if(!_canSaveNote()){
+      return;
+    }
+
     if (noteModel == null) {
       await _createNote();
     } else {
@@ -61,10 +66,6 @@ class AddNoteBottomModalController {
   }
 
   Future<void> _updateNote() async {
-    if (noteModel == null || noteModel!.id == null) {
-      return;
-    }
-
     savingNoteStreamValue.addValue(true);
     await notesRepository.updateNote(
       id: noteModel!.id!.value,
@@ -85,5 +86,13 @@ class AddNoteBottomModalController {
       position: currentVideoPosition,
     );
     savingNoteStreamValue.addValue(false);
+  }
+
+  bool _canSaveNote() {
+    if(savingNoteStreamValue.value == true){
+      return false;
+    }
+
+    return true;
   }
 }
