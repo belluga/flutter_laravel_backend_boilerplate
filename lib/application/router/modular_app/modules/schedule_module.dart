@@ -40,19 +40,15 @@ class ScheduleModule extends ModuleContract {
       ];
 
   void _registerRepositories() {
-    registerLazySingleton<ScheduleRepositoryContract>(
-        () => ScheduleRepository());
-    
+    registerLazySingleton<ScheduleRepositoryContract>(ScheduleRepository.new);
   }
 
   void _registerResolvers() {
-    registerRouteResolver<EventModel>(
-      () => EventItemRouteResolver(),
-    );
+    registerRouteResolver<EventModel>(EventItemRouteResolver.new);
   }
 
   void _registerControllers() {
-    registerLazySingleton(() => ScheduleScreenController());
-    registerLazySingleton(() => EventSearchScreenController());
+    registerLazySingleton(ScheduleScreenController.new);
+    registerLazySingleton(EventSearchScreenController.new);
   }
 }

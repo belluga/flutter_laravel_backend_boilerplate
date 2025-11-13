@@ -2,13 +2,14 @@ import 'package:get_it_modular_with_auto_route/get_it_modular_with_auto_route.da
 import 'package:belluga_boilerplate/domain/repositories/schedule_repository_contract.dart';
 import 'package:belluga_boilerplate/domain/schedule/event_model.dart';
 import 'package:get_it/get_it.dart';
+import 'package:meta/meta.dart';
 
 class EventItemRouteResolver
     implements RouteModelResolver<EventModel> {
-  EventItemRouteResolver({ScheduleRepositoryContract? scheduleRepository})
-      : _scheduleRepository = scheduleRepository;
+  EventItemRouteResolver({@visibleForTesting ScheduleRepositoryContract? scheduleRepository})
+      : _scheduleRepository = scheduleRepository ?? GetIt.I.get<ScheduleRepositoryContract>();
 
-  final ScheduleRepositoryContract? _scheduleRepository;
+  final ScheduleRepositoryContract _scheduleRepository;
 
   @override
   @override
@@ -21,8 +22,6 @@ class EventItemRouteResolver
         'Event ID must be provided',
       );
     }
-    final repo =
-        _scheduleRepository ?? GetIt.I.get<ScheduleRepositoryContract>();
-    return repo.getEvent(eventId);
+    return _scheduleRepository.getEvent(eventId);
   }
 }

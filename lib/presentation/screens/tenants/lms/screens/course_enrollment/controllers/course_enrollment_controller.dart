@@ -1,11 +1,14 @@
-import 'package:belluga_boilerplate/domain/services/course_enrollment_service.dart';
+import 'package:belluga_boilerplate/domain/repositories/enrollment_repository.dart';
 import 'package:get_it/get_it.dart';
+import 'package:meta/meta.dart';
 import 'package:stream_value/core/stream_value.dart';
 
 class CourseEnrollmentController with Disposable {
-  CourseEnrollmentController(this._enrollmentService);
+  CourseEnrollmentController({
+    @visibleForTesting EnrollmentRepository? enrollmentRepository,
+  }) : _enrollmentRepository = enrollmentRepository ?? GetIt.I.get<EnrollmentRepository>();
 
-  final CourseEnrollmentService _enrollmentService;
+  final EnrollmentRepository _enrollmentRepository;
 
   final isEnrollingStreamValue = StreamValue<bool>(defaultValue: false);
 
@@ -14,7 +17,7 @@ class CourseEnrollmentController with Disposable {
       return false;
     }
     isEnrollingStreamValue.addValue(true);
-    await _enrollmentService.enroll(courseId);
+    await _enrollmentRepository.enroll(courseId);
     isEnrollingStreamValue.addValue(false);
     return true;
   }
