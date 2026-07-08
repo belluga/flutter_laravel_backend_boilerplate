@@ -9,10 +9,10 @@
   <meta name="description" content="A new Flutter project.">
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="belluga_now">
+  <meta name="apple-mobile-web-app-title" content="platform_boilerplate">
   <link id="apple-touch-icon" rel="apple-touch-icon" href="icon/icon-192x192.png">
   <link id="favicon" rel="icon" type="image/x-icon" href="favicon.ico">
-  <title>Belluga Boilerplate</title>
+  <title>Platform Boilerplate</title>
   <link rel="manifest" href="manifest.json">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
 
@@ -105,7 +105,7 @@
 
     (async function () {
       try {
-        const response = await fetch('/environment');
+        const response = await fetch('/api/v1/environment');
         if (response.ok) {
           const freshBranding = await response.json();
           const freshBrandingString = JSON.stringify(freshBranding);

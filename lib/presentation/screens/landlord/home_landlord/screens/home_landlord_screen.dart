@@ -16,7 +16,7 @@ class _HomeLandlordScreenState extends State<HomeLandlordScreen> {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            const Text("This is Landlord HOME (Belluga NOW)"),
+            const Text("Landlord home placeholder"),
             Text(BellugaConstants.settings.platform),
             // ElevatedButton(
             //   key: WidgetKeys.auth.navigateToProtectedButton,

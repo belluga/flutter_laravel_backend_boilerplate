@@ -33,7 +33,7 @@
                 "color_hex": "#FFA600",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://upload.unifast.online"
+                    "external_url": "https://uploads.example.test"
                 }
             }
         ]
@@ -72,7 +72,7 @@
                 "color_hex": "#45B7D1",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://drive.unifast.online/oficinas"
+                    "external_url": "https://resources.example.test/workshops"
                 }
             }
         ]
@@ -111,7 +111,7 @@
                 "color_hex": "#FF6B6B",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://meet.unifast.online"
+                    "external_url": "https://meet.example.test"
                 }
             },
             {
@@ -120,7 +120,7 @@
                 "color_hex": "#6c757d",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://docs.unifast.online/mentoria.pdf"
+                    "external_url": "https://docs.example.test/guide.pdf"
                 }
             }
         ]
@@ -159,7 +159,7 @@
                 "color_hex": "#FF6B6B",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://meet.unifast.online"
+                    "external_url": "https://meet.example.test"
                 }
             },
             {
@@ -168,7 +168,7 @@
                 "color_hex": "#6c757d",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://docs.unifast.online/mentoria.pdf"
+                    "external_url": "https://docs.example.test/guide.pdf"
                 }
             }
         ]
@@ -207,7 +207,7 @@
                 "color_hex": "#4ECDC4",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://eventos.unifast.online/webinars"
+                    "external_url": "https://events.example.test/webinars"
                 }
             },
             {
@@ -255,7 +255,7 @@
                 "color_hex": "#45B7D1",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://drive.unifast.online/oficinas"
+                    "external_url": "https://resources.example.test/workshops"
                 }
             }
         ]
@@ -294,7 +294,7 @@
                 "color_hex": "#FFA600",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://upload.unifast.online"
+                    "external_url": "https://uploads.example.test"
                 }
             }
         ]
@@ -333,7 +333,7 @@
                 "color_hex": "#4ECDC4",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://eventos.unifast.online/webinars"
+                    "external_url": "https://events.example.test/webinars"
                 }
             },
             {
@@ -381,7 +381,7 @@
                 "color_hex": "#4ECDC4",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://eventos.unifast.online/webinars"
+                    "external_url": "https://events.example.test/webinars"
                 }
             },
             {
@@ -429,7 +429,7 @@
                 "color_hex": "#45B7D1",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://drive.unifast.online/oficinas"
+                    "external_url": "https://resources.example.test/workshops"
                 }
             }
         ]
@@ -468,7 +468,7 @@
                 "color_hex": "#FFA600",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://upload.unifast.online"
+                    "external_url": "https://uploads.example.test"
                 }
             }
         ]
@@ -507,7 +507,7 @@
                 "color_hex": "#FF6B6B",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://meet.unifast.online"
+                    "external_url": "https://meet.example.test"
                 }
             },
             {
@@ -516,7 +516,7 @@
                 "color_hex": "#6c757d",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://docs.unifast.online/mentoria.pdf"
+                    "external_url": "https://docs.example.test/guide.pdf"
                 }
             }
         ]
@@ -555,7 +555,7 @@
                 "color_hex": "#FF6B6B",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://meet.unifast.online"
+                    "external_url": "https://meet.example.test"
                 }
             },
             {
@@ -564,7 +564,7 @@
                 "color_hex": "#6c757d",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://docs.unifast.online/mentoria.pdf"
+                    "external_url": "https://docs.example.test/guide.pdf"
                 }
             }
         ]
@@ -603,7 +603,7 @@
                 "color_hex": "#FFA600",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://upload.unifast.online"
+                    "external_url": "https://uploads.example.test"
                 }
             }
         ]
@@ -642,7 +642,7 @@
                 "color_hex": "#4ECDC4",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://eventos.unifast.online/webinars"
+                    "external_url": "https://events.example.test/webinars"
                 }
             },
             {
@@ -690,7 +690,7 @@
                 "color_hex": "#45B7D1",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://drive.unifast.online/oficinas"
+                    "external_url": "https://resources.example.test/workshops"
                 }
             }
         ]
@@ -729,7 +729,7 @@
                 "color_hex": "#FF6B6B",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://meet.unifast.online"
+                    "external_url": "https://meet.example.test"
                 }
             },
             {
@@ -738,7 +738,7 @@
                 "color_hex": "#6c757d",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://docs.unifast.online/mentoria.pdf"
+                    "external_url": "https://docs.example.test/guide.pdf"
                 }
             }
         ]
@@ -777,7 +777,7 @@
                 "color_hex": "#FFA600",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://upload.unifast.online"
+                    "external_url": "https://uploads.example.test"
                 }
             }
         ]
@@ -816,7 +816,7 @@
                 "color_hex": "#4ECDC4",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://eventos.unifast.online/webinars"
+                    "external_url": "https://events.example.test/webinars"
                 }
             },
             {
@@ -864,7 +864,7 @@
                 "color_hex": "#4ECDC4",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://eventos.unifast.online/webinars"
+                    "external_url": "https://events.example.test/webinars"
                 }
             },
             {
@@ -912,7 +912,7 @@
                 "color_hex": "#FF6B6B",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://meet.unifast.online"
+                    "external_url": "https://meet.example.test"
                 }
             },
             {
@@ -921,7 +921,7 @@
                 "color_hex": "#6c757d",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://docs.unifast.online/mentoria.pdf"
+                    "external_url": "https://docs.example.test/guide.pdf"
                 }
             }
         ]
@@ -960,7 +960,7 @@
                 "color_hex": "#45B7D1",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://drive.unifast.online/oficinas"
+                    "external_url": "https://resources.example.test/workshops"
                 }
             }
         ]
@@ -999,7 +999,7 @@
                 "color_hex": "#45B7D1",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://drive.unifast.online/oficinas"
+                    "external_url": "https://resources.example.test/workshops"
                 }
             }
         ]
@@ -1038,7 +1038,7 @@
                 "color_hex": "#FFA600",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://upload.unifast.online"
+                    "external_url": "https://uploads.example.test"
                 }
             }
         ]
@@ -1077,7 +1077,7 @@
                 "color_hex": "#FF6B6B",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://meet.unifast.online"
+                    "external_url": "https://meet.example.test"
                 }
             },
             {
@@ -1086,7 +1086,7 @@
                 "color_hex": "#6c757d",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://docs.unifast.online/mentoria.pdf"
+                    "external_url": "https://docs.example.test/guide.pdf"
                 }
             }
         ]
@@ -1125,7 +1125,7 @@
                 "color_hex": "#45B7D1",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://drive.unifast.online/oficinas"
+                    "external_url": "https://resources.example.test/workshops"
                 }
             }
         ]
@@ -1164,7 +1164,7 @@
                 "color_hex": "#4ECDC4",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://eventos.unifast.online/webinars"
+                    "external_url": "https://events.example.test/webinars"
                 }
             },
             {
@@ -1212,7 +1212,7 @@
                 "color_hex": "#FFA600",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://upload.unifast.online"
+                    "external_url": "https://uploads.example.test"
                 }
             }
         ]
@@ -1251,7 +1251,7 @@
                 "color_hex": "#FF6B6B",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://meet.unifast.online"
+                    "external_url": "https://meet.example.test"
                 }
             },
             {
@@ -1260,7 +1260,7 @@
                 "color_hex": "#6c757d",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://docs.unifast.online/mentoria.pdf"
+                    "external_url": "https://docs.example.test/guide.pdf"
                 }
             }
         ]
@@ -1299,7 +1299,7 @@
                 "color_hex": "#FFA600",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://upload.unifast.online"
+                    "external_url": "https://uploads.example.test"
                 }
             }
         ]
@@ -1338,7 +1338,7 @@
                 "color_hex": "#4ECDC4",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://eventos.unifast.online/webinars"
+                    "external_url": "https://events.example.test/webinars"
                 }
             },
             {
@@ -1386,7 +1386,7 @@
                 "color_hex": "#45B7D1",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://drive.unifast.online/oficinas"
+                    "external_url": "https://resources.example.test/workshops"
                 }
             }
         ]
@@ -1425,7 +1425,7 @@
                 "color_hex": "#FF6B6B",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://meet.unifast.online"
+                    "external_url": "https://meet.example.test"
                 }
             },
             {
@@ -1434,7 +1434,7 @@
                 "color_hex": "#6c757d",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://docs.unifast.online/mentoria.pdf"
+                    "external_url": "https://docs.example.test/guide.pdf"
                 }
             }
         ]
@@ -1473,7 +1473,7 @@
                 "color_hex": "#FF6B6B",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://meet.unifast.online"
+                    "external_url": "https://meet.example.test"
                 }
             },
             {
@@ -1482,7 +1482,7 @@
                 "color_hex": "#6c757d",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://docs.unifast.online/mentoria.pdf"
+                    "external_url": "https://docs.example.test/guide.pdf"
                 }
             }
         ]
@@ -1521,7 +1521,7 @@
                 "color_hex": "#45B7D1",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://drive.unifast.online/oficinas"
+                    "external_url": "https://resources.example.test/workshops"
                 }
             }
         ]
@@ -1560,7 +1560,7 @@
                 "color_hex": "#FFA600",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://upload.unifast.online"
+                    "external_url": "https://uploads.example.test"
                 }
             }
         ]
@@ -1599,7 +1599,7 @@
                 "color_hex": "#4ECDC4",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://eventos.unifast.online/webinars"
+                    "external_url": "https://events.example.test/webinars"
                 }
             },
             {
@@ -1647,7 +1647,7 @@
                 "color_hex": "#45B7D1",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://drive.unifast.online/oficinas"
+                    "external_url": "https://resources.example.test/workshops"
                 }
             }
         ]
@@ -1686,7 +1686,7 @@
                 "color_hex": "#4ECDC4",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://eventos.unifast.online/webinars"
+                    "external_url": "https://events.example.test/webinars"
                 }
             },
             {
@@ -1734,7 +1734,7 @@
                 "color_hex": "#45B7D1",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://drive.unifast.online/oficinas"
+                    "external_url": "https://resources.example.test/workshops"
                 }
             }
         ]
@@ -1773,7 +1773,7 @@
                 "color_hex": "#FF6B6B",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://meet.unifast.online"
+                    "external_url": "https://meet.example.test"
                 }
             },
             {
@@ -1782,7 +1782,7 @@
                 "color_hex": "#6c757d",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://docs.unifast.online/mentoria.pdf"
+                    "external_url": "https://docs.example.test/guide.pdf"
                 }
             }
         ]
@@ -1821,7 +1821,7 @@
                 "color_hex": "#4ECDC4",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://eventos.unifast.online/webinars"
+                    "external_url": "https://events.example.test/webinars"
                 }
             },
             {
@@ -1869,7 +1869,7 @@
                 "color_hex": "#FFA600",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://upload.unifast.online"
+                    "external_url": "https://uploads.example.test"
                 }
             }
         ]
@@ -1908,7 +1908,7 @@
                 "color_hex": "#FFA600",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://upload.unifast.online"
+                    "external_url": "https://uploads.example.test"
                 }
             }
         ]
@@ -1947,7 +1947,7 @@
                 "color_hex": "#4ECDC4",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://eventos.unifast.online/webinars"
+                    "external_url": "https://events.example.test/webinars"
                 }
             },
             {
@@ -1995,7 +1995,7 @@
                 "color_hex": "#FFA600",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://upload.unifast.online"
+                    "external_url": "https://uploads.example.test"
                 }
             }
         ]
@@ -2034,7 +2034,7 @@
                 "color_hex": "#FF6B6B",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://meet.unifast.online"
+                    "external_url": "https://meet.example.test"
                 }
             },
             {
@@ -2043,7 +2043,7 @@
                 "color_hex": "#6c757d",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://docs.unifast.online/mentoria.pdf"
+                    "external_url": "https://docs.example.test/guide.pdf"
                 }
             }
         ]
@@ -2082,7 +2082,7 @@
                 "color_hex": "#45B7D1",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://drive.unifast.online/oficinas"
+                    "external_url": "https://resources.example.test/workshops"
                 }
             }
         ]
@@ -2121,7 +2121,7 @@
                 "color_hex": "#45B7D1",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://drive.unifast.online/oficinas"
+                    "external_url": "https://resources.example.test/workshops"
                 }
             }
         ]
@@ -2160,7 +2160,7 @@
                 "color_hex": "#FF6B6B",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://meet.unifast.online"
+                    "external_url": "https://meet.example.test"
                 }
             },
             {
@@ -2169,7 +2169,7 @@
                 "color_hex": "#6c757d",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://docs.unifast.online/mentoria.pdf"
+                    "external_url": "https://docs.example.test/guide.pdf"
                 }
             }
         ]
@@ -2208,7 +2208,7 @@
                 "color_hex": "#4ECDC4",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://eventos.unifast.online/webinars"
+                    "external_url": "https://events.example.test/webinars"
                 }
             },
             {
@@ -2256,7 +2256,7 @@
                 "color_hex": "#FF6B6B",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://meet.unifast.online"
+                    "external_url": "https://meet.example.test"
                 }
             },
             {
@@ -2265,7 +2265,7 @@
                 "color_hex": "#6c757d",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://docs.unifast.online/mentoria.pdf"
+                    "external_url": "https://docs.example.test/guide.pdf"
                 }
             }
         ]
@@ -2304,7 +2304,7 @@
                 "color_hex": "#45B7D1",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://drive.unifast.online/oficinas"
+                    "external_url": "https://resources.example.test/workshops"
                 }
             }
         ]
@@ -2343,7 +2343,7 @@
                 "color_hex": "#FFA600",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://upload.unifast.online"
+                    "external_url": "https://uploads.example.test"
                 }
             }
         ]
@@ -2382,7 +2382,7 @@
                 "color_hex": "#4ECDC4",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://eventos.unifast.online/webinars"
+                    "external_url": "https://events.example.test/webinars"
                 }
             },
             {
@@ -2430,7 +2430,7 @@
                 "color_hex": "#FFA600",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://upload.unifast.online"
+                    "external_url": "https://uploads.example.test"
                 }
             }
         ]
@@ -2469,7 +2469,7 @@
                 "color_hex": "#FF6B6B",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://meet.unifast.online"
+                    "external_url": "https://meet.example.test"
                 }
             },
             {
@@ -2478,7 +2478,7 @@
                 "color_hex": "#6c757d",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://docs.unifast.online/mentoria.pdf"
+                    "external_url": "https://docs.example.test/guide.pdf"
                 }
             }
         ]
@@ -2517,7 +2517,7 @@
                 "color_hex": "#45B7D1",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://drive.unifast.online/oficinas"
+                    "external_url": "https://resources.example.test/workshops"
                 }
             }
         ]
@@ -2556,7 +2556,7 @@
                 "color_hex": "#4ECDC4",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://eventos.unifast.online/webinars"
+                    "external_url": "https://events.example.test/webinars"
                 }
             },
             {
@@ -2604,7 +2604,7 @@
                 "color_hex": "#FFA600",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://upload.unifast.online"
+                    "external_url": "https://uploads.example.test"
                 }
             }
         ]
@@ -2643,7 +2643,7 @@
                 "color_hex": "#4ECDC4",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://eventos.unifast.online/webinars"
+                    "external_url": "https://events.example.test/webinars"
                 }
             },
             {
@@ -2691,7 +2691,7 @@
                 "color_hex": "#FF6B6B",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://meet.unifast.online"
+                    "external_url": "https://meet.example.test"
                 }
             },
             {
@@ -2700,7 +2700,7 @@
                 "color_hex": "#6c757d",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://docs.unifast.online/mentoria.pdf"
+                    "external_url": "https://docs.example.test/guide.pdf"
                 }
             }
         ]
@@ -2739,7 +2739,7 @@
                 "color_hex": "#45B7D1",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://drive.unifast.online/oficinas"
+                    "external_url": "https://resources.example.test/workshops"
                 }
             }
         ]
@@ -2778,7 +2778,7 @@
                 "color_hex": "#FFA600",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://upload.unifast.online"
+                    "external_url": "https://uploads.example.test"
                 }
             }
         ]
@@ -2817,7 +2817,7 @@
                 "color_hex": "#45B7D1",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://drive.unifast.online/oficinas"
+                    "external_url": "https://resources.example.test/workshops"
                 }
             }
         ]
@@ -2856,7 +2856,7 @@
                 "color_hex": "#4ECDC4",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://eventos.unifast.online/webinars"
+                    "external_url": "https://events.example.test/webinars"
                 }
             },
             {
@@ -2904,7 +2904,7 @@
                 "color_hex": "#FF6B6B",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://meet.unifast.online"
+                    "external_url": "https://meet.example.test"
                 }
             },
             {
@@ -2913,7 +2913,7 @@
                 "color_hex": "#6c757d",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://docs.unifast.online/mentoria.pdf"
+                    "external_url": "https://docs.example.test/guide.pdf"
                 }
             }
         ]
@@ -2952,7 +2952,7 @@
                 "color_hex": "#FF6B6B",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://meet.unifast.online"
+                    "external_url": "https://meet.example.test"
                 }
             },
             {
@@ -2961,7 +2961,7 @@
                 "color_hex": "#6c757d",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://docs.unifast.online/mentoria.pdf"
+                    "external_url": "https://docs.example.test/guide.pdf"
                 }
             }
         ]
@@ -3000,7 +3000,7 @@
                 "color_hex": "#FFA600",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://upload.unifast.online"
+                    "external_url": "https://uploads.example.test"
                 }
             }
         ]
@@ -3039,7 +3039,7 @@
                 "color_hex": "#45B7D1",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://drive.unifast.online/oficinas"
+                    "external_url": "https://resources.example.test/workshops"
                 }
             }
         ]
@@ -3078,7 +3078,7 @@
                 "color_hex": "#4ECDC4",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://eventos.unifast.online/webinars"
+                    "external_url": "https://events.example.test/webinars"
                 }
             },
             {
@@ -3126,7 +3126,7 @@
                 "color_hex": "#4ECDC4",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://eventos.unifast.online/webinars"
+                    "external_url": "https://events.example.test/webinars"
                 }
             },
             {
@@ -3174,7 +3174,7 @@
                 "color_hex": "#FF6B6B",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://meet.unifast.online"
+                    "external_url": "https://meet.example.test"
                 }
             },
             {
@@ -3183,7 +3183,7 @@
                 "color_hex": "#6c757d",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://docs.unifast.online/mentoria.pdf"
+                    "external_url": "https://docs.example.test/guide.pdf"
                 }
             }
         ]
@@ -3222,7 +3222,7 @@
                 "color_hex": "#45B7D1",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://drive.unifast.online/oficinas"
+                    "external_url": "https://resources.example.test/workshops"
                 }
             }
         ]
@@ -3261,7 +3261,7 @@
                 "color_hex": "#FFA600",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://upload.unifast.online"
+                    "external_url": "https://uploads.example.test"
                 }
             }
         ]
@@ -3300,7 +3300,7 @@
                 "color_hex": "#FFA600",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://upload.unifast.online"
+                    "external_url": "https://uploads.example.test"
                 }
             }
         ]
@@ -3339,7 +3339,7 @@
                 "color_hex": "#FF6B6B",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://meet.unifast.online"
+                    "external_url": "https://meet.example.test"
                 }
             },
             {
@@ -3348,7 +3348,7 @@
                 "color_hex": "#6c757d",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://docs.unifast.online/mentoria.pdf"
+                    "external_url": "https://docs.example.test/guide.pdf"
                 }
             }
         ]
@@ -3387,7 +3387,7 @@
                 "color_hex": "#4ECDC4",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://eventos.unifast.online/webinars"
+                    "external_url": "https://events.example.test/webinars"
                 }
             },
             {
@@ -3435,7 +3435,7 @@
                 "color_hex": "#45B7D1",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://drive.unifast.online/oficinas"
+                    "external_url": "https://resources.example.test/workshops"
                 }
             }
         ]
@@ -3474,7 +3474,7 @@
                 "color_hex": "#FF6B6B",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://meet.unifast.online"
+                    "external_url": "https://meet.example.test"
                 }
             },
             {
@@ -3483,7 +3483,7 @@
                 "color_hex": "#6c757d",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://docs.unifast.online/mentoria.pdf"
+                    "external_url": "https://docs.example.test/guide.pdf"
                 }
             }
         ]
@@ -3522,7 +3522,7 @@
                 "color_hex": "#FFA600",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://upload.unifast.online"
+                    "external_url": "https://uploads.example.test"
                 }
             }
         ]
@@ -3561,7 +3561,7 @@
                 "color_hex": "#45B7D1",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://drive.unifast.online/oficinas"
+                    "external_url": "https://resources.example.test/workshops"
                 }
             }
         ]
@@ -3600,7 +3600,7 @@
                 "color_hex": "#FF6B6B",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://meet.unifast.online"
+                    "external_url": "https://meet.example.test"
                 }
             },
             {
@@ -3609,7 +3609,7 @@
                 "color_hex": "#6c757d",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://docs.unifast.online/mentoria.pdf"
+                    "external_url": "https://docs.example.test/guide.pdf"
                 }
             }
         ]
@@ -3648,7 +3648,7 @@
                 "color_hex": "#4ECDC4",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://eventos.unifast.online/webinars"
+                    "external_url": "https://events.example.test/webinars"
                 }
             },
             {
@@ -3696,7 +3696,7 @@
                 "color_hex": "#FFA600",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://upload.unifast.online"
+                    "external_url": "https://uploads.example.test"
                 }
             }
         ]
@@ -3735,7 +3735,7 @@
                 "color_hex": "#45B7D1",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://drive.unifast.online/oficinas"
+                    "external_url": "https://resources.example.test/workshops"
                 }
             }
         ]
@@ -3774,7 +3774,7 @@
                 "color_hex": "#FFA600",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://upload.unifast.online"
+                    "external_url": "https://uploads.example.test"
                 }
             }
         ]
@@ -3813,7 +3813,7 @@
                 "color_hex": "#FF6B6B",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://meet.unifast.online"
+                    "external_url": "https://meet.example.test"
                 }
             },
             {
@@ -3822,7 +3822,7 @@
                 "color_hex": "#6c757d",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://docs.unifast.online/mentoria.pdf"
+                    "external_url": "https://docs.example.test/guide.pdf"
                 }
             }
         ]
@@ -3861,7 +3861,7 @@
                 "color_hex": "#4ECDC4",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://eventos.unifast.online/webinars"
+                    "external_url": "https://events.example.test/webinars"
                 }
             },
             {
@@ -3909,7 +3909,7 @@
                 "color_hex": "#4ECDC4",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://eventos.unifast.online/webinars"
+                    "external_url": "https://events.example.test/webinars"
                 }
             },
             {
@@ -3957,7 +3957,7 @@
                 "color_hex": "#45B7D1",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://drive.unifast.online/oficinas"
+                    "external_url": "https://resources.example.test/workshops"
                 }
             }
         ]
@@ -3996,7 +3996,7 @@
                 "color_hex": "#FFA600",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://upload.unifast.online"
+                    "external_url": "https://uploads.example.test"
                 }
             }
         ]
@@ -4035,7 +4035,7 @@
                 "color_hex": "#4ECDC4",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://eventos.unifast.online/webinars"
+                    "external_url": "https://events.example.test/webinars"
                 }
             },
             {
@@ -4083,7 +4083,7 @@
                 "color_hex": "#FF6B6B",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://meet.unifast.online"
+                    "external_url": "https://meet.example.test"
                 }
             },
             {
@@ -4092,7 +4092,7 @@
                 "color_hex": "#6c757d",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://docs.unifast.online/mentoria.pdf"
+                    "external_url": "https://docs.example.test/guide.pdf"
                 }
             }
         ]
@@ -4131,7 +4131,7 @@
                 "color_hex": "#45B7D1",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://drive.unifast.online/oficinas"
+                    "external_url": "https://resources.example.test/workshops"
                 }
             }
         ]
@@ -4170,7 +4170,7 @@
                 "color_hex": "#FFA600",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://upload.unifast.online"
+                    "external_url": "https://uploads.example.test"
                 }
             }
         ]
@@ -4209,7 +4209,7 @@
                 "color_hex": "#45B7D1",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://drive.unifast.online/oficinas"
+                    "external_url": "https://resources.example.test/workshops"
                 }
             }
         ]
@@ -4248,7 +4248,7 @@
                 "color_hex": "#4ECDC4",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://eventos.unifast.online/webinars"
+                    "external_url": "https://events.example.test/webinars"
                 }
             },
             {
@@ -4296,7 +4296,7 @@
                 "color_hex": "#FF6B6B",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://meet.unifast.online"
+                    "external_url": "https://meet.example.test"
                 }
             },
             {
@@ -4305,7 +4305,7 @@
                 "color_hex": "#6c757d",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://docs.unifast.online/mentoria.pdf"
+                    "external_url": "https://docs.example.test/guide.pdf"
                 }
             }
         ]
@@ -4344,7 +4344,7 @@
                 "color_hex": "#FF6B6B",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://meet.unifast.online"
+                    "external_url": "https://meet.example.test"
                 }
             },
             {
@@ -4353,7 +4353,7 @@
                 "color_hex": "#6c757d",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://docs.unifast.online/mentoria.pdf"
+                    "external_url": "https://docs.example.test/guide.pdf"
                 }
             }
         ]
@@ -4392,7 +4392,7 @@
                 "color_hex": "#FFA600",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://upload.unifast.online"
+                    "external_url": "https://uploads.example.test"
                 }
             }
         ]
@@ -4431,7 +4431,7 @@
                 "color_hex": "#FFA600",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://upload.unifast.online"
+                    "external_url": "https://uploads.example.test"
                 }
             }
         ]
@@ -4470,7 +4470,7 @@
                 "color_hex": "#4ECDC4",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://eventos.unifast.online/webinars"
+                    "external_url": "https://events.example.test/webinars"
                 }
             },
             {
@@ -4518,7 +4518,7 @@
                 "color_hex": "#45B7D1",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://drive.unifast.online/oficinas"
+                    "external_url": "https://resources.example.test/workshops"
                 }
             }
         ]
@@ -4557,7 +4557,7 @@
                 "color_hex": "#4ECDC4",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://eventos.unifast.online/webinars"
+                    "external_url": "https://events.example.test/webinars"
                 }
             },
             {
@@ -4605,7 +4605,7 @@
                 "color_hex": "#FF6B6B",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://meet.unifast.online"
+                    "external_url": "https://meet.example.test"
                 }
             },
             {
@@ -4614,7 +4614,7 @@
                 "color_hex": "#6c757d",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://docs.unifast.online/mentoria.pdf"
+                    "external_url": "https://docs.example.test/guide.pdf"
                 }
             }
         ]
@@ -4653,7 +4653,7 @@
                 "color_hex": "#45B7D1",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://drive.unifast.online/oficinas"
+                    "external_url": "https://resources.example.test/workshops"
                 }
             }
         ]
@@ -4692,7 +4692,7 @@
                 "color_hex": "#FFA600",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://upload.unifast.online"
+                    "external_url": "https://uploads.example.test"
                 }
             }
         ]
@@ -4731,7 +4731,7 @@
                 "color_hex": "#FFA600",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://upload.unifast.online"
+                    "external_url": "https://uploads.example.test"
                 }
             }
         ]
@@ -4770,7 +4770,7 @@
                 "color_hex": "#FF6B6B",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://meet.unifast.online"
+                    "external_url": "https://meet.example.test"
                 }
             },
             {
@@ -4779,7 +4779,7 @@
                 "color_hex": "#6c757d",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://docs.unifast.online/mentoria.pdf"
+                    "external_url": "https://docs.example.test/guide.pdf"
                 }
             }
         ]
@@ -4818,7 +4818,7 @@
                 "color_hex": "#45B7D1",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://drive.unifast.online/oficinas"
+                    "external_url": "https://resources.example.test/workshops"
                 }
             }
         ]
@@ -4857,7 +4857,7 @@
                 "color_hex": "#45B7D1",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://drive.unifast.online/oficinas"
+                    "external_url": "https://resources.example.test/workshops"
                 }
             }
         ]
@@ -4896,7 +4896,7 @@
                 "color_hex": "#4ECDC4",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://eventos.unifast.online/webinars"
+                    "external_url": "https://events.example.test/webinars"
                 }
             },
             {
@@ -4944,7 +4944,7 @@
                 "color_hex": "#FF6B6B",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://meet.unifast.online"
+                    "external_url": "https://meet.example.test"
                 }
             },
             {
@@ -4953,7 +4953,7 @@
                 "color_hex": "#6c757d",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://docs.unifast.online/mentoria.pdf"
+                    "external_url": "https://docs.example.test/guide.pdf"
                 }
             }
         ]
@@ -4992,7 +4992,7 @@
                 "color_hex": "#45B7D1",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://drive.unifast.online/oficinas"
+                    "external_url": "https://resources.example.test/workshops"
                 }
             }
         ]
@@ -5031,7 +5031,7 @@
                 "color_hex": "#FF6B6B",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://meet.unifast.online"
+                    "external_url": "https://meet.example.test"
                 }
             },
             {
@@ -5040,7 +5040,7 @@
                 "color_hex": "#6c757d",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://docs.unifast.online/mentoria.pdf"
+                    "external_url": "https://docs.example.test/guide.pdf"
                 }
             }
         ]
@@ -5079,7 +5079,7 @@
                 "color_hex": "#4ECDC4",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://eventos.unifast.online/webinars"
+                    "external_url": "https://events.example.test/webinars"
                 }
             },
             {
@@ -5127,7 +5127,7 @@
                 "color_hex": "#FFA600",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://upload.unifast.online"
+                    "external_url": "https://uploads.example.test"
                 }
             }
         ]
@@ -5166,7 +5166,7 @@
                 "color_hex": "#FFA600",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://upload.unifast.online"
+                    "external_url": "https://uploads.example.test"
                 }
             }
         ]
@@ -5205,7 +5205,7 @@
                 "color_hex": "#4ECDC4",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://eventos.unifast.online/webinars"
+                    "external_url": "https://events.example.test/webinars"
                 }
             },
             {
@@ -5253,7 +5253,7 @@
                 "color_hex": "#FF6B6B",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://meet.unifast.online"
+                    "external_url": "https://meet.example.test"
                 }
             },
             {
@@ -5262,7 +5262,7 @@
                 "color_hex": "#6c757d",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://docs.unifast.online/mentoria.pdf"
+                    "external_url": "https://docs.example.test/guide.pdf"
                 }
             }
         ]
@@ -5301,7 +5301,7 @@
                 "color_hex": "#45B7D1",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://drive.unifast.online/oficinas"
+                    "external_url": "https://resources.example.test/workshops"
                 }
             }
         ]
@@ -5340,7 +5340,7 @@
                 "color_hex": "#FFA600",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://upload.unifast.online"
+                    "external_url": "https://uploads.example.test"
                 }
             }
         ]
@@ -5379,7 +5379,7 @@
                 "color_hex": "#4ECDC4",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://eventos.unifast.online/webinars"
+                    "external_url": "https://events.example.test/webinars"
                 }
             },
             {
@@ -5427,7 +5427,7 @@
                 "color_hex": "#45B7D1",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://drive.unifast.online/oficinas"
+                    "external_url": "https://resources.example.test/workshops"
                 }
             }
         ]
@@ -5466,7 +5466,7 @@
                 "color_hex": "#FF6B6B",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://meet.unifast.online"
+                    "external_url": "https://meet.example.test"
                 }
             },
             {
@@ -5475,7 +5475,7 @@
                 "color_hex": "#6c757d",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://docs.unifast.online/mentoria.pdf"
+                    "external_url": "https://docs.example.test/guide.pdf"
                 }
             }
         ]
@@ -5514,7 +5514,7 @@
                 "color_hex": "#FFA600",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://upload.unifast.online"
+                    "external_url": "https://uploads.example.test"
                 }
             }
         ]
@@ -5553,7 +5553,7 @@
                 "color_hex": "#4ECDC4",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://eventos.unifast.online/webinars"
+                    "external_url": "https://events.example.test/webinars"
                 }
             },
             {
@@ -5601,7 +5601,7 @@
                 "color_hex": "#4ECDC4",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://eventos.unifast.online/webinars"
+                    "external_url": "https://events.example.test/webinars"
                 }
             },
             {
@@ -5649,7 +5649,7 @@
                 "color_hex": "#FF6B6B",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://meet.unifast.online"
+                    "external_url": "https://meet.example.test"
                 }
             },
             {
@@ -5658,7 +5658,7 @@
                 "color_hex": "#6c757d",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://docs.unifast.online/mentoria.pdf"
+                    "external_url": "https://docs.example.test/guide.pdf"
                 }
             }
         ]
@@ -5697,7 +5697,7 @@
                 "color_hex": "#FFA600",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://upload.unifast.online"
+                    "external_url": "https://uploads.example.test"
                 }
             }
         ]
@@ -5736,7 +5736,7 @@
                 "color_hex": "#45B7D1",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://drive.unifast.online/oficinas"
+                    "external_url": "https://resources.example.test/workshops"
                 }
             }
         ]
@@ -5775,7 +5775,7 @@
                 "color_hex": "#45B7D1",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://drive.unifast.online/oficinas"
+                    "external_url": "https://resources.example.test/workshops"
                 }
             }
         ]
@@ -5814,7 +5814,7 @@
                 "color_hex": "#FF6B6B",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://meet.unifast.online"
+                    "external_url": "https://meet.example.test"
                 }
             },
             {
@@ -5823,7 +5823,7 @@
                 "color_hex": "#6c757d",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://docs.unifast.online/mentoria.pdf"
+                    "external_url": "https://docs.example.test/guide.pdf"
                 }
             }
         ]
@@ -5862,7 +5862,7 @@
                 "color_hex": "#FFA600",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://upload.unifast.online"
+                    "external_url": "https://uploads.example.test"
                 }
             }
         ]
@@ -5901,7 +5901,7 @@
                 "color_hex": "#4ECDC4",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://eventos.unifast.online/webinars"
+                    "external_url": "https://events.example.test/webinars"
                 }
             },
             {
@@ -5949,7 +5949,7 @@
                 "color_hex": "#45B7D1",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://drive.unifast.online/oficinas"
+                    "external_url": "https://resources.example.test/workshops"
                 }
             }
         ]
@@ -5988,7 +5988,7 @@
                 "color_hex": "#4ECDC4",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://eventos.unifast.online/webinars"
+                    "external_url": "https://events.example.test/webinars"
                 }
             },
             {
@@ -6036,7 +6036,7 @@
                 "color_hex": "#FF6B6B",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://meet.unifast.online"
+                    "external_url": "https://meet.example.test"
                 }
             },
             {
@@ -6045,7 +6045,7 @@
                 "color_hex": "#6c757d",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://docs.unifast.online/mentoria.pdf"
+                    "external_url": "https://docs.example.test/guide.pdf"
                 }
             }
         ]
@@ -6084,7 +6084,7 @@
                 "color_hex": "#45B7D1",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://drive.unifast.online/oficinas"
+                    "external_url": "https://resources.example.test/workshops"
                 }
             }
         ]
@@ -6123,7 +6123,7 @@
                 "color_hex": "#FFA600",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://upload.unifast.online"
+                    "external_url": "https://uploads.example.test"
                 }
             }
         ]
@@ -6162,7 +6162,7 @@
                 "color_hex": "#FF6B6B",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://meet.unifast.online"
+                    "external_url": "https://meet.example.test"
                 }
             },
             {
@@ -6171,7 +6171,7 @@
                 "color_hex": "#6c757d",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://docs.unifast.online/mentoria.pdf"
+                    "external_url": "https://docs.example.test/guide.pdf"
                 }
             }
         ]
@@ -6210,7 +6210,7 @@
                 "color_hex": "#FFA600",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://upload.unifast.online"
+                    "external_url": "https://uploads.example.test"
                 }
             }
         ]
@@ -6249,7 +6249,7 @@
                 "color_hex": "#45B7D1",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://drive.unifast.online/oficinas"
+                    "external_url": "https://resources.example.test/workshops"
                 }
             }
         ]
@@ -6288,7 +6288,7 @@
                 "color_hex": "#4ECDC4",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://eventos.unifast.online/webinars"
+                    "external_url": "https://events.example.test/webinars"
                 }
             },
             {
@@ -6336,7 +6336,7 @@
                 "color_hex": "#FFA600",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://upload.unifast.online"
+                    "external_url": "https://uploads.example.test"
                 }
             }
         ]
@@ -6375,7 +6375,7 @@
                 "color_hex": "#4ECDC4",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://eventos.unifast.online/webinars"
+                    "external_url": "https://events.example.test/webinars"
                 }
             },
             {
@@ -6423,7 +6423,7 @@
                 "color_hex": "#FF6B6B",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://meet.unifast.online"
+                    "external_url": "https://meet.example.test"
                 }
             },
             {
@@ -6432,7 +6432,7 @@
                 "color_hex": "#6c757d",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://docs.unifast.online/mentoria.pdf"
+                    "external_url": "https://docs.example.test/guide.pdf"
                 }
             }
         ]
@@ -6471,7 +6471,7 @@
                 "color_hex": "#45B7D1",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://drive.unifast.online/oficinas"
+                    "external_url": "https://resources.example.test/workshops"
                 }
             }
         ]
@@ -6510,7 +6510,7 @@
                 "color_hex": "#FF6B6B",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://meet.unifast.online"
+                    "external_url": "https://meet.example.test"
                 }
             },
             {
@@ -6519,7 +6519,7 @@
                 "color_hex": "#6c757d",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://docs.unifast.online/mentoria.pdf"
+                    "external_url": "https://docs.example.test/guide.pdf"
                 }
             }
         ]
@@ -6558,7 +6558,7 @@
                 "color_hex": "#4ECDC4",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://eventos.unifast.online/webinars"
+                    "external_url": "https://events.example.test/webinars"
                 }
             },
             {
@@ -6606,7 +6606,7 @@
                 "color_hex": "#FFA600",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://upload.unifast.online"
+                    "external_url": "https://uploads.example.test"
                 }
             }
         ]
@@ -6645,7 +6645,7 @@
                 "color_hex": "#4ECDC4",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://eventos.unifast.online/webinars"
+                    "external_url": "https://events.example.test/webinars"
                 }
             },
             {
@@ -6693,7 +6693,7 @@
                 "color_hex": "#45B7D1",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://drive.unifast.online/oficinas"
+                    "external_url": "https://resources.example.test/workshops"
                 }
             }
         ]
@@ -6732,7 +6732,7 @@
                 "color_hex": "#FFA600",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://upload.unifast.online"
+                    "external_url": "https://uploads.example.test"
                 }
             }
         ]
@@ -6771,7 +6771,7 @@
                 "color_hex": "#FF6B6B",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://meet.unifast.online"
+                    "external_url": "https://meet.example.test"
                 }
             },
             {
@@ -6780,7 +6780,7 @@
                 "color_hex": "#6c757d",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://docs.unifast.online/mentoria.pdf"
+                    "external_url": "https://docs.example.test/guide.pdf"
                 }
             }
         ]
@@ -6819,7 +6819,7 @@
                 "color_hex": "#4ECDC4",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://eventos.unifast.online/webinars"
+                    "external_url": "https://events.example.test/webinars"
                 }
             },
             {
@@ -6867,7 +6867,7 @@
                 "color_hex": "#FF6B6B",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://meet.unifast.online"
+                    "external_url": "https://meet.example.test"
                 }
             },
             {
@@ -6876,7 +6876,7 @@
                 "color_hex": "#6c757d",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://docs.unifast.online/mentoria.pdf"
+                    "external_url": "https://docs.example.test/guide.pdf"
                 }
             }
         ]
@@ -6915,7 +6915,7 @@
                 "color_hex": "#45B7D1",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://drive.unifast.online/oficinas"
+                    "external_url": "https://resources.example.test/workshops"
                 }
             }
         ]
@@ -6954,7 +6954,7 @@
                 "color_hex": "#FFA600",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://upload.unifast.online"
+                    "external_url": "https://uploads.example.test"
                 }
             }
         ]
@@ -6993,7 +6993,7 @@
                 "color_hex": "#FF6B6B",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://meet.unifast.online"
+                    "external_url": "https://meet.example.test"
                 }
             },
             {
@@ -7002,7 +7002,7 @@
                 "color_hex": "#6c757d",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://docs.unifast.online/mentoria.pdf"
+                    "external_url": "https://docs.example.test/guide.pdf"
                 }
             }
         ]
@@ -7041,7 +7041,7 @@
                 "color_hex": "#FFA600",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://upload.unifast.online"
+                    "external_url": "https://uploads.example.test"
                 }
             }
         ]
@@ -7080,7 +7080,7 @@
                 "color_hex": "#4ECDC4",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://eventos.unifast.online/webinars"
+                    "external_url": "https://events.example.test/webinars"
                 }
             },
             {
@@ -7128,7 +7128,7 @@
                 "color_hex": "#45B7D1",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://drive.unifast.online/oficinas"
+                    "external_url": "https://resources.example.test/workshops"
                 }
             }
         ]
@@ -7167,7 +7167,7 @@
                 "color_hex": "#FF6B6B",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://meet.unifast.online"
+                    "external_url": "https://meet.example.test"
                 }
             },
             {
@@ -7176,7 +7176,7 @@
                 "color_hex": "#6c757d",
                 "open_in": "external",
                 "open_data": {
-                    "external_url": "https://docs.unifast.online/mentoria.pdf"
+                    "external_url": "https://docs.example.test/guide.pdf"
                 }
             }
         ]
