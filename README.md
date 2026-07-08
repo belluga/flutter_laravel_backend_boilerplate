@@ -28,8 +28,10 @@ Este guia é o passo a passo definitivo para adicionar um novo tenant ao projeto
     ```
 
 2.  **Criar Arquivo de Propriedades:**
-    * Na pasta `android/keystores/`, copie o arquivo `tenant.properties.example` e renomeie-o para `<novo_tenant>.properties`.
-    * Abra o novo arquivo e preencha todos os placeholders com os valores reais do tenant.
+    * Na pasta `android/keystores/`, copie o arquivo `tenant.properties.example` e renomeie-o para `<novo_tenant>.properties`. Exemplos prontos:
+        * `landlord.properties` → `applicationId=com.bellugalearning.app`, alias `release`, senha `6xzjiggF`.
+        * `unifast.properties` → `applicationId=com.bellugalearning.unifast.app`, alias `release`, senha `ahbW2gTE`.
+    * Abra o novo arquivo e preencha todos os placeholders com os valores reais do tenant, além de definir o nome do arquivo `.jks` (ex.: `unifast-release-key.jks`) que deve estar dentro desta mesma pasta.
 
 ---
 
