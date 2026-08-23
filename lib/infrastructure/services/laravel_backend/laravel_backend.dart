@@ -120,8 +120,8 @@
 //   }
 
 //   @override
-//   Future<List<CourseItemSummaryDTO>> getUnifastTracks() async {
-//     //TODO: Implement this method to fetch Unifast Tracks.
+//   Future<List<CourseItemSummaryDTO>> getFastTracks() async {
+//     //TODO: Implement this method to fetch fast tracks.
 //     final response = await dio.post(
 //       BellugaConstants.api.baseUrl + _Paths.loginCheck,
 //       options: Options(headers: _getAuthenticatedHeaders()),
