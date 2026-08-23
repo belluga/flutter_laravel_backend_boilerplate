@@ -31,13 +31,22 @@ class ThemeDataSettings {
     );
   }
 
-  // Add this factory constructor inside your ThemeDataSettings class
   factory ThemeDataSettings.fromJson(Map<String, dynamic> json) {
     final _darkSchemeData = ColorSchemeData.fromJson(
-        <String, dynamic>{"brightness": "dark", ...json['dark_scheme_data']});
+      _resolveSchemeData(
+        json: json,
+        brightness: 'dark',
+        schemeKey: 'dark_scheme_data',
+      ),
+    );
 
     final _lightSchemeData = ColorSchemeData.fromJson(
-        <String, dynamic>{"brightness": "light", ...json['light_scheme_data']});
+      _resolveSchemeData(
+        json: json,
+        brightness: 'light',
+        schemeKey: 'light_scheme_data',
+      ),
+    );
 
     final dynamic _rawUseMaterial = json['use_material3'];
     final _useMateial3 = UseMaterial3Value()
@@ -52,5 +61,27 @@ class ThemeDataSettings {
       lightSchemeData: _lightSchemeData,
       useMaterial3Value: _useMateial3,
     );
+  }
+
+  static Map<String, dynamic> _resolveSchemeData({
+    required Map<String, dynamic> json,
+    required String brightness,
+    required String schemeKey,
+  }) {
+    final schemeData = json[schemeKey];
+    if (schemeData is Map) {
+      return <String, dynamic>{
+        "brightness": brightness,
+        ...Map<String, dynamic>.from(schemeData),
+      };
+    }
+
+    return <String, dynamic>{
+      "brightness": brightness,
+      "primary_seed_color": json['primary_seed_color'] ?? '#6750A4',
+      "secondary_seed_color": json['secondary_seed_color'] ??
+          json['primary_seed_color'] ??
+          '#625B71',
+    };
   }
 }

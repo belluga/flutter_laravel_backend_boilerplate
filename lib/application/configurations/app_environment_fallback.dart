@@ -11,14 +11,9 @@ const Map<String, dynamic> kLocalEnvironmentFallback = {
     "com.example.boilerplate.mock",
   ],
   "theme_data_settings": {
+    "brightness_default": "light",
     "use_material3": true,
-    "light_scheme_data": {
-      "primary_seed_color": "#6750A4",
-      "secondary_seed_color": "#625B71",
-    },
-    "dark_scheme_data": {
-      "primary_seed_color": "#6750A4",
-      "secondary_seed_color": "#625B71",
-    },
+    "primary_seed_color": "#6750A4",
+    "secondary_seed_color": "#625B71",
   },
 };
