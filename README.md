@@ -3,9 +3,9 @@
 Este guia é o passo a passo definitivo para adicionar um novo tenant ao projeto. Ele reflete a arquitetura atual, que automatiza a maior parte da configuração do Android a partir de arquivos de propriedades e utiliza um backend para o branding dinâmico na web.
 
 **Placeholders Usados:**
-* `<novo_tenant>`: O nome do novo flavor em minúsculas (ex: `unifast`).
-* `<NomeDoApp>`: O nome de exibição do aplicativo (ex: `Unifast App`).
-* `<com.empresa.novoapp>`: O ID único do aplicativo para a loja (ex: `com.boilerplatebellugatenant.app`).
+* `<novo_tenant>`: O nome do novo flavor em minúsculas (ex: `tenantalpha`).
+* `<NomeDoApp>`: O nome de exibição do aplicativo (ex: `Tenant Alpha App`).
+* `<com.empresa.novoapp>`: O ID único do aplicativo para a loja (ex: `com.example.tenantalpha.app`).
 
 ### Pré-requisitos
 * Acesso ao `keytool` (parte do JDK).
@@ -28,10 +28,10 @@ Este guia é o passo a passo definitivo para adicionar um novo tenant ao projeto
     ```
 
 2.  **Criar Arquivo de Propriedades:**
-    * Na pasta `android/keystores/`, copie o arquivo `tenant.properties.example` e renomeie-o para `<novo_tenant>.properties`. Exemplos prontos:
-        * `landlord.properties` → `applicationId=com.bellugalearning.app`, alias `release`, senha `6xzjiggF`.
-        * `unifast.properties` → `applicationId=com.bellugalearning.unifast.app`, alias `release`, senha `ahbW2gTE`.
-    * Abra o novo arquivo e preencha todos os placeholders com os valores reais do tenant, além de definir o nome do arquivo `.jks` (ex.: `unifast-release-key.jks`) que deve estar dentro desta mesma pasta.
+    * Na pasta `android/keystores/`, copie o arquivo `tenant.properties.example` e renomeie-o para `<novo_tenant>.properties`. Exemplos neutros:
+        * `tenantalpha.properties` → `applicationId=com.example.tenantalpha.app`, alias `tenantalpha-alias`, campos de assinatura definidos pelo seu time.
+        * `tenantbeta.properties` → `applicationId=com.example.tenantbeta.app`, alias `tenantbeta-alias`, campos de assinatura definidos pelo seu time.
+    * Abra o novo arquivo e preencha todos os placeholders com os valores reais do tenant, além de definir o nome do arquivo `.jks` (ex.: `tenantalpha-release-key.jks`) que deve estar dentro desta mesma pasta.
 
 ---
 
