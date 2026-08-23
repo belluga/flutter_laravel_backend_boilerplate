@@ -46,10 +46,9 @@ class AuthRecoveryPasswordController
           emailController.value,
           codigoEnviado!,
         );
-        // Simulate a successful response
       }
     } catch (e) {
-      error.addValue("Erro ao enviar o email de recuperação de senha.");
+      error.addValue("Could not submit the recovery request.");
     }
 
     loading.addValue(false);

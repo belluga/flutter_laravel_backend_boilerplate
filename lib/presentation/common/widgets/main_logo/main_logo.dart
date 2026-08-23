@@ -13,21 +13,20 @@ class MainLogo extends StatefulWidget {
 }
 
 class _MainLogoState extends State<MainLogo> {
-
   final _controller = MainLogoController();
 
   @override
   Widget build(BuildContext context) {
     return StreamValueBuilder<ThemeData>(
-      streamValue: _controller.themeDataStreamValue,
-      builder: (context, themeData) {
-        return ImageWithProgressIndicator(
-          width: 90,
-          height: 36,
-          uri: getLogoUri(themeData),
-        );
-      }
-    );
+        streamValue: _controller.themeDataStreamValue,
+        builder: (context, themeData) {
+          return ImageWithProgressIndicator(
+            width: 90,
+            height: 36,
+            uri: getLogoUri(themeData),
+            fit: BoxFit.contain,
+          );
+        });
   }
 
   Uri getLogoUri(ThemeData themeData) {
@@ -35,7 +34,7 @@ class _MainLogoState extends State<MainLogo> {
 
     late String _logoPath;
 
-    switch(_brigthness){
+    switch (_brigthness) {
       case Brightness.dark:
         _logoPath = "logo-dark.png";
         break;
@@ -43,9 +42,9 @@ class _MainLogoState extends State<MainLogo> {
         _logoPath = "logo-light.png";
         break;
     }
-    
+
     final _appData = GetIt.I.get<AppDataRepository>().appData;
-    
+
     return _appData.mainDomainValue.value.resolve(_logoPath);
   }
 }

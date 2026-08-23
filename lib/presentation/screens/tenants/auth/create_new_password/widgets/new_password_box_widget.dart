@@ -9,10 +9,10 @@ class NewPasswordBoxWidget extends FormFieldBelluga {
   });
 
   @override
-  String get label => "Senha";
+  String get label => "Password";
 
   @override
-  String get hint => "Nova senha";
+  String get hint => "Create a new password";
 
   @override
   TextInputType get inputType => TextInputType.visiblePassword;

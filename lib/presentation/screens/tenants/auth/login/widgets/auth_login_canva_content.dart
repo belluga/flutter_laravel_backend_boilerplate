@@ -45,7 +45,18 @@ class _AuthLoginCanvaContentState extends State<AuthLoginCanvaContent>
             return Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                Text("Entrar", style: TextTheme.of(context).titleLarge),
+                Text(
+                  "Tenant Sign In",
+                  style: TextTheme.of(context).titleLarge,
+                ),
+                const SizedBox(height: 8),
+                Text(
+                  "Use the shared boilerplate sign-in form.",
+                  style: TextTheme.of(context).bodyMedium?.copyWith(
+                        color: Theme.of(context).colorScheme.onSurfaceVariant,
+                      ),
+                  textAlign: TextAlign.center,
+                ),
                 const SizedBox(height: 20),
               ],
             );
@@ -60,13 +71,13 @@ class _AuthLoginCanvaContentState extends State<AuthLoginCanvaContent>
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const Text(
-                  "Esqueci minha senha.",
+                  "Need to reset access?",
                   style: TextStyle(fontSize: 12),
                 ),
                 TextButton(
                   onPressed: widget.navigateToPasswordRecover,
                   child: const Text(
-                    "Recuperar agora",
+                    "Recover now",
                     style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
                   ),
                 ),
@@ -79,7 +90,7 @@ class _AuthLoginCanvaContentState extends State<AuthLoginCanvaContent>
         ButtonLoading(
           onPressed: tryLoginWithEmailPassword,
           loadingStatusStreamValue: _controller.buttonLoadingValue,
-          label: "Entrar",
+          label: "Sign In",
         ),
         // const SizedBox(height: 30),
       ],

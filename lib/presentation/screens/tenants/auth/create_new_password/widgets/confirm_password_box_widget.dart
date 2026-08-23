@@ -9,10 +9,10 @@ class ConfirmPasswordBoxWidget extends FormFieldBelluga {
   });
 
   @override
-  String get label => "Confirmar senha";
+  String get label => "Confirm password";
 
   @override
-  String get hint => "Sua senha";
+  String get hint => "Repeat your new password";
 
   @override
   TextInputType get inputType => TextInputType.visiblePassword;
