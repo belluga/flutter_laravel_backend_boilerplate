@@ -1,8 +1,11 @@
 import 'dart:async';
 
+import 'package:belluga_boilerplate/application/router/modular_app/modules/account_workspace_module.dart';
 import 'package:belluga_boilerplate/application/router/modular_app/modules/auth_module.dart';
 import 'package:belluga_boilerplate/application/router/modular_app/modules/dashboard_module.dart';
+import 'package:belluga_boilerplate/application/router/modular_app/modules/home_module.dart';
 import 'package:belluga_boilerplate/application/router/modular_app/modules/initialization_module.dart';
+import 'package:belluga_boilerplate/application/router/modular_app/modules/landlord_module.dart';
 import 'package:belluga_boilerplate/application/router/modular_app/modules/profile_module.dart';
 import 'package:belluga_boilerplate/application/router/modular_app/modules/schedule_module.dart';
 import 'package:belluga_boilerplate/application/router/modular_app/modules/learning_capability_module.dart';
@@ -63,9 +66,12 @@ class ModuleSettings extends ModuleSettingsContract {
   @override
   Future<void> initializeSubmodules() async {
     await registerSubModule(InitializationModule());
+    await registerSubModule(HomeModule());
     await registerSubModule(AuthModule());
     await registerSubModule(DashboardModule());
+    await registerSubModule(AccountWorkspaceModule());
     await registerSubModule(LearningCapabilityModule());
+    await registerSubModule(LandlordModule());
     await registerSubModule(ProfileModule());
     await registerSubModule(ScheduleModule());
     await registerSubModule(NotesModule());
