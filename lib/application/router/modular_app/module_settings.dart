@@ -17,6 +17,8 @@ import 'package:belluga_boilerplate/infrastructure/repositories/app_data_reposit
 import 'package:belluga_boilerplate/infrastructure/repositories/auth_repository.dart';
 import 'package:belluga_boilerplate/infrastructure/repositories/courses_repository.dart';
 import 'package:belluga_boilerplate/infrastructure/repositories/theme_repository.dart';
+import 'package:belluga_boilerplate/domain/repositories/telemetry_repository_contract.dart';
+import 'package:belluga_boilerplate/infrastructure/repositories/telemetry_repository.dart';
 import 'package:belluga_boilerplate/infrastructure/services/auth_backend_contract.dart';
 import 'package:belluga_boilerplate/infrastructure/services/courses_backend_contract.dart';
 import 'package:belluga_boilerplate/infrastructure/services/dal/dao/laravel_backend/app_data_backend/app_data_backend.dart';
@@ -56,6 +58,14 @@ class ModuleSettings extends ModuleSettingsContract {
     await appDataRepo.init();
 
     GetIt.I.registerSingleton<AppDataRepository>(appDataRepo);
+    final telemetryRepository = TelemetryRepository(
+      appDataRepository: appDataRepo,
+      authRepository: _authRepository,
+    );
+    await telemetryRepository.init();
+    GetIt.I.registerSingleton<TelemetryRepositoryContract>(
+      telemetryRepository,
+    );
     GetIt.I.registerLazySingleton(() => ThemeRepository());
     GetIt.I.registerLazySingleton<CoursesRepositoryContract>(
       () => CoursesRepository(),
