@@ -116,7 +116,7 @@ class TelemetryRepository implements TelemetryRepositoryContract {
   }
 
   String get _deviceId {
-    final value = _appDataRepository.appData.device.value?.trim();
-    return value == null || value.isEmpty ? 'anonymous-device' : value;
+    final value = _appDataRepository.appData.device.value.trim();
+    return value.isEmpty ? 'anonymous-device' : value;
   }
 }
