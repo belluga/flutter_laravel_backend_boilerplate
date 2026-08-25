@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:belluga_now/domain/auth/errors/belluga_auth_errors.dart';
-import 'package:belluga_now/domain/repositories/auth_repository_contract.dart';
-import 'package:belluga_now/presentation/screens/auth/login/controller/form_field_controller_password_login.dart';
+import 'package:belluga_boilerplate/domain/auth/errors/belluga_auth_errors.dart';
+import 'package:belluga_boilerplate/domain/repositories/auth_repository_contract.dart';
+import 'package:belluga_boilerplate/presentation/screens/tenants/auth/login/controller/form_field_controller_password_login.dart';
 import 'package:get_it/get_it.dart';
 import 'package:stream_value/core/stream_value.dart';
 
@@ -33,12 +33,12 @@ abstract class CreatePasswordControllerContract extends Disposable {
   late FormFieldControllerPasswordLogin newPasswordController;
   late FormFieldControllerPasswordLogin confirmPasswordController;
 
-  void cleanNewPasswordError(_) => newPasswordController.cleanError();
-  void cleanConfirmPasswordError(_) => confirmPasswordController.cleanError();
+  void cleanNewPasswordError() => newPasswordController.cleanError();
+  void cleanConfirmPasswordError() => confirmPasswordController.cleanError();
 
   void _cleanAllErrors() {
-    cleanNewPasswordError(null);
-    cleanConfirmPasswordError(null);
+    cleanNewPasswordError();
+    cleanConfirmPasswordError();
     generalErrorStreamValue.addValue(null);
   }
 
@@ -53,7 +53,7 @@ abstract class CreatePasswordControllerContract extends Disposable {
     try {
       if (validate()) {
         if (newPasswordController.value != confirmPasswordController.value) {
-          generalErrorStreamValue.addValue("As senhas não são iguais.");
+          generalErrorStreamValue.addValue("Passwords do not match.");
         } else {
           await _authRepository.createNewPassword(
             newPasswordController.value,
@@ -64,7 +64,7 @@ abstract class CreatePasswordControllerContract extends Disposable {
     } on BellugaAuthError catch (e) {
       generalErrorStreamValue.addValue(e.message);
     } catch (e) {
-      generalErrorStreamValue.addValue("Erro ao criar a senha.");
+      generalErrorStreamValue.addValue("Could not create the password.");
     }
 
     buttonLoadingValue.addValue(false);

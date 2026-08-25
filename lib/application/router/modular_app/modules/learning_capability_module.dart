@@ -1,0 +1,52 @@
+import 'dart:async';
+
+import 'package:auto_route/auto_route.dart';
+import 'package:belluga_boilerplate/domain/learning_experience/course_item_model.dart';
+import 'package:belluga_boilerplate/domain/repositories/learning_experience_repository_contract.dart';
+import 'package:belluga_boilerplate/domain/repositories/notes_repository_contract.dart';
+import 'package:belluga_boilerplate/infrastructure/repositories/learning_experience_repository.dart';
+import 'package:belluga_boilerplate/application/router/modular_app/modules/learning_capability_routes.dart';
+import 'package:belluga_boilerplate/infrastructure/repositories/notes_repository.dart';
+import 'package:belluga_boilerplate/presentation/screens/tenants/lms/screens/course_enrollment/controllers/course_enrollment_controller.dart';
+import 'package:belluga_boilerplate/application/router/resolvers/course_item_route_resolver.dart';
+import 'package:belluga_boilerplate/presentation/screens/tenants/lms/screens/course_screen/controllers/course_screen_controller.dart';
+import 'package:belluga_boilerplate/presentation/screens/tenants/lms/screens/courses_list_screen/controllers/courses_list_screen_controller.dart';
+import 'package:belluga_boilerplate/presentation/screens/tenants/lms/screens/fast_tracks_list_screen/controllers/fast_tracks_list_screen_controller.dart';
+import 'package:belluga_boilerplate/presentation/screens/tenants/notes/screens/notes_screen/controllers/notes_screen_controller.dart';
+import 'package:belluga_boilerplate/presentation/screens/tenants/notes/widgets/add_note/controller/add_note_bottom_modal_controller.dart';
+import 'package:get_it_modular_with_auto_route/get_it_modular_with_auto_route.dart';
+
+class LearningCapabilityModule extends ModuleContract {
+  LearningCapabilityModule() : _routes = LearningCapabilityRoutes();
+
+  final LearningCapabilityRoutes _routes;
+
+  @override
+  FutureOr<void> registerDependencies() async {
+    _registerRepositories();
+    _registerControllers();
+    _registerResolvers();
+  }
+
+  void _registerRepositories() {
+    registerLazySingleton<NotesRepositoryContract>(NotesRepository.new);
+    registerLazySingleton<LearningExperienceRepositoryContract>(
+        LearningExperienceRepository.new);
+  }
+
+  void _registerControllers() {
+    registerLazySingleton(FastTracksListScreenController.new);
+    registerLazySingleton(CourseScreenController.new);
+    registerLazySingleton(CoursesListScreenController.new);
+    registerLazySingleton(NotesScreenController.new);
+    registerLazySingleton(CourseEnrollmentController.new);
+    registerFactory(AddNoteBottomModalController.new);
+  }
+
+  void _registerResolvers() {
+    registerRouteResolver<CourseItemModel>(CourseItemRouteResolver.new);
+  }
+
+  @override
+  List<AutoRoute> get routes => _routes.build();
+}

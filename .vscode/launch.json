@@ -4,29 +4,30 @@
     "configurations": [
         {
             // O nome que vai aparecer no menu do VS Code
-            "name": "GuarAppari (Debug)",
+            "name": "Belluga",
             "request": "launch",
             "type": "dart",
             "flutterMode": "debug",
             // Aqui está a mágica: os argumentos que você usava no terminal
             "args": [
                 "--flavor",
-                "guarappari",
-                "--dart-define=FLAVOR=guarappari"
-            ]
-        },
-        {
-            // Exemplo para um segundo flavor
-            "name": "Belluga (Debug)",
-            "request": "launch",
-            "type": "dart",
-            "flutterMode": "debug",
-            "args": [
-                "--flavor",
                 "belluga",
                 "--dart-define=FLAVOR=belluga"
             ]
-        }
+        },
+        {
+            // O nome que vai aparecer no menu do VS Code
+            "name": "Platform Boilerplate - Landlord (Debug)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "debug",
+            // Aqui está a mágica: os argumentos que você usava no terminal
+            "args": [
+                "--flavor",
+                "landlord",
+                "--dart-define=FLAVOR=landlord"
+            ]
+        },
         // Você pode adicionar mais configurações para "profile" ou "release" aqui
     ]
 }

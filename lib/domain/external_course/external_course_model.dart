@@ -1,9 +1,9 @@
-import 'package:belluga_now/domain/courses/thumb_model.dart';
-import 'package:belluga_now/domain/external_course/value_objects/external_course_description_value.dart';
-import 'package:belluga_now/domain/external_course/value_objects/external_course_initial_password_value.dart';
-import 'package:belluga_now/domain/external_course/value_objects/external_course_platform_uri_value.dart';
-import 'package:belluga_now/domain/external_course/value_objects/external_course_title_value.dart';
-import 'package:belluga_now/infrastructure/services/dal/dto/external_course_dto.dart';
+import 'package:belluga_boilerplate/domain/learning_experience/thumb_model.dart';
+import 'package:belluga_boilerplate/domain/external_course/value_objects/external_course_description_value.dart';
+import 'package:belluga_boilerplate/domain/external_course/value_objects/external_course_initial_password_value.dart';
+import 'package:belluga_boilerplate/domain/external_course/value_objects/external_course_platform_uri_value.dart';
+import 'package:belluga_boilerplate/domain/external_course/value_objects/external_course_title_value.dart';
+import 'package:belluga_boilerplate/infrastructure/services/dal/dto/external_course_dto.dart';
 
 class ExternalCourseModel {
   final ThumbModel thumb;

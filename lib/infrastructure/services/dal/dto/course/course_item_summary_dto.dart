@@ -1,6 +1,6 @@
-import 'package:belluga_now/infrastructure/services/dal/dto/course/category_dto.dart';
-import 'package:belluga_now/infrastructure/services/dal/dto/course/teacher_dto.dart';
-import 'package:belluga_now/infrastructure/services/dal/dto/thumb_dto.dart';
+import 'package:belluga_boilerplate/infrastructure/services/dal/dto/course/category_dto.dart';
+import 'package:belluga_boilerplate/infrastructure/services/dal/dto/course/teacher_dto.dart';
+import 'package:belluga_boilerplate/infrastructure/services/dal/dto/thumb_dto.dart';
 
 class CourseItemSummaryDTO {
   String id;

@@ -11,7 +11,7 @@ import java.util.Properties
 import java.io.FileInputStream
 
 android {
-    namespace = "com.belluga_now"
+    namespace = "com.platform_boilerplate"
     compileSdk = flutter.compileSdkVersion
     ndkVersion = "27.0.12077973"
 
@@ -25,7 +25,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "com.belluga_now"
+        applicationId = "com.platform_boilerplate"
         minSdk = flutter.minSdkVersion
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode
@@ -48,24 +48,28 @@ android {
         val keystoresDir = rootProject.file("keystores")
 
         if (keystoresDir.exists() && keystoresDir.isDirectory()) {
-            keystoresDir.listFiles { _, name -> name.endsWith(".properties") }?.forEach { propertiesFile ->
-                val flavorName = propertiesFile.nameWithoutExtension
-                val flavorProperties = Properties()
-                flavorProperties.load(FileInputStream(propertiesFile))
+            keystoresDir.walkTopDown()
+                .filter { it.isFile && it.extension == "properties" }
+                .forEach { propertiesFile ->
+                    val flavorName = propertiesFile.nameWithoutExtension
+                    val flavorProperties = Properties()
+                    flavorProperties.load(FileInputStream(propertiesFile))
+                    val storeFileName = flavorProperties["storeFile"] as String
+                    val storeFileDir = propertiesFile.parentFile ?: keystoresDir
 
-                signingConfigs.create(flavorName) {
-                    keyAlias = flavorProperties["keyAlias"] as String
-                    keyPassword = flavorProperties["keyPassword"] as String
-                    storePassword = flavorProperties["storePassword"] as String
-                    storeFile = rootProject.file("keystores/${flavorProperties["storeFile"]}")
+                    signingConfigs.create(flavorName) {
+                        keyAlias = flavorProperties["keyAlias"] as String
+                        keyPassword = flavorProperties["keyPassword"] as String
+                        storePassword = flavorProperties["storePassword"] as String
+                        storeFile = storeFileDir.resolve(storeFileName)
+                    }
+
+                    create(flavorName) {
+                        dimension = "tenant"
+                        applicationId = flavorProperties["applicationId"] as String
+                        signingConfig = signingConfigs.getByName(flavorName)
+                    }
                 }
-                
-                create(flavorName) {
-                    dimension = "tenant"
-                    applicationId = flavorProperties["applicationId"] as String
-                    signingConfig = signingConfigs.getByName(flavorName)
-                }
-            }
         }
     }
 }

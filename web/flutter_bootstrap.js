@@ -1,24 +1,39 @@
 {{flutter_js}}
 {{flutter_build_config}}
 
-const loading = document.createElement('div');
-document.body.appendChild(loading);
-loading.textContent = "Carregando...";
-
-// _flutter.buildConfig = { "engineRevision": "edd8546116457bdf1c5bdfb13ecb9463d2bb5ed4", "builds": [{ "compileTarget": "dart2js", "renderer": "auto", "mainJsPath": "main.dart.js" }] };
-
 var appDataJS = {
     'hostname': window.location.hostname,
     'href': window.location.href,
     'port': window.location.port,
   };
 
-_flutter.loader.load({
-  onEntrypointLoaded: async function(engineInitializer) {
-    loading.textContent = "Initializing engine...";
-    const appRunner = await engineInitializer.initializeEngine();
+function hideSplashScreen() {
+  const splashScreen = document.getElementById('splash-screen');
+  if (splashScreen) {
+    splashScreen.remove();
+  }
+}
 
-    loading.textContent = "Running app...";
+function hideSplashWhenReady() {
+  let attempts = 0;
+  const interval = window.setInterval(() => {
+    attempts += 1;
+    if (document.querySelector('flt-glass-pane') || attempts >= 120) {
+      window.clearInterval(interval);
+      hideSplashScreen();
+    }
+  }, 250);
+}
+
+_flutter.loader.load({
+  config: {
+    useLocalCanvasKit: true,
+    canvasKitBaseUrl: 'canvaskit/',
+    canvasKitVariant: 'full',
+  },
+  onEntrypointLoaded: async function(engineInitializer) {
+    const appRunner = await engineInitializer.initializeEngine();
     await appRunner.runApp();
+    hideSplashWhenReady();
   }
 });

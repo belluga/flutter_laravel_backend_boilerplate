@@ -41,13 +41,13 @@
     ],
     "files": [
       {
-        "url": "https://campus.unifast.com.br/wp-content/uploads/2024/08/CIENCIAS-DA-MENTE-Manual-do-Aluno-Fast-University.pdf",
+        "url": "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
         "title": "Manual do Aluno",
         "description": "MANUAL DO ALUNO Pós-graduação em Terapia Integrativa:Desenvolvimento Humano como Modelo de Negócios",
         "thumb": {
           "type": "image",
           "data": {
-            "url": "https://robertoshinyashiki.unifast.com.br/wp-content/uploads/2025/04/selo-mec-1024x1024.png"
+            "url": "https://placehold.co/1024x1024/png"
           }
         }
       }
@@ -73,7 +73,7 @@
           "thumb": {
             "type": "image",
             "data": {
-              "url": "https://campus.unifast.com.br/wp-content/uploads/2024/04/9.png"
+              "url": "https://placehold.co/1024x1024/png"
             }
           }
         },
@@ -92,7 +92,7 @@
           "thumb": {
             "type": "image",
             "data": {
-              "url": "https://campus.unifast.com.br/wp-content/uploads/2024/07/8.png"
+              "url": "https://placehold.co/1024x1024/png"
             }
           }
         },
@@ -117,7 +117,7 @@
           "thumb": {
             "type": "image",
             "data": {
-              "url": "https://campus.unifast.com.br/wp-content/uploads/2024/07/10.png"
+              "url": "https://placehold.co/1024x1024/png"
             }
           }
         },
@@ -135,14 +135,14 @@
             {
               "id": "668ef5e3c789f2a1b3c9e1n4",
               "name": "Eugenio Pachelle",
-              "avatar_url": "https://unifast.com.br/wp-content/uploads/2022/09/Eugenio-Pachele.png",
+              "avatar_url": "https://placehold.co/1024x1024/png",
               "highlight": false
             }
           ],
           "thumb": {
             "type": "image",
             "data": {
-              "url": "https://campus.unifast.com.br/wp-content/uploads/2024/07/11.png"
+              "url": "https://placehold.co/1024x1024/png"
             }
           }
         },
@@ -161,7 +161,7 @@
           "thumb": {
             "type": "image",
             "data": {
-              "url": "https://campus.unifast.com.br/wp-content/uploads/2024/07/14.png"
+              "url": "https://placehold.co/1024x1024/png"
             }
           }
         }
@@ -183,12 +183,12 @@
     "thumb": {
       "type": "image",
       "data": {
-        "url": "https://unifast.com.br/wp-content/uploads/2022/05/2.jpg"
+        "url": "https://placehold.co/1024x1024/png"
       }
     },
     "content": {
       "video": {
-        "url": "https://b-vz-df032af7-1d1.tv.pandavideo.com.br/c82a12b4-d6a7-49d4-85ed-6e8677b5694c/playlist.m3u8",
+        "url": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
         "thumb": {
           "type": "image",
           "data": {
@@ -202,7 +202,7 @@
     },
     "files": [
       {
-        "url": "https://campus.unifast.com.br/wp-content/uploads/2024/07/mba-infograficos.pdf",
+        "url": "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
         "title": "Infográficos do MBA",
         "description": "Infográficos – Psicologia do Líder Poderoso",
         "thumb": {
@@ -213,7 +213,7 @@
         }
       },
       {
-        "url": "https://campus.unifast.com.br/wp-content/uploads/2024/07/disciplina-01-psicologia-do-lider-poderoso-apostila.pdf",
+        "url": "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
         "title": "Apostila",
         "description": "disciplina-01-psicologia-do-lider-poderoso-apostila",
         "thumb": {
@@ -240,31 +240,29 @@
       "thumb": {
         "type": "image",
         "data": {
-          "url": "https://campus.unifast.com.br/wp-content/uploads/2024/04/9.png"
+          "url": "https://placehold.co/1024x1024/png"
         }
       }
     },
-    "next": 
-      {
-        "id": "668f01b3d8c29c2a2b4c4e01",
-        "title": "Como Aproveitar o MBA",
-        "description": "Dicas para aproveitar ao máximo o MBA.",
-        "teachers": [
-          {
-            "id": "668ef5e3c789f2a1b3c9d1a4",
-            "name": "Roberto Shinyashiki",
-            "avatar_url": "https://classic.exame.com/wp-content/uploads/2016/10/size_960_16_9_roberto-shinyashiki.jpg",
-            "highlight": true
-          }
-        ],
-        "thumb": {
-          "type": "image",
-          "data": {
-            "url": "https://unifast.com.br/wp-content/uploads/2022/05/2.jpg"
-          }
+    "next": {
+      "id": "668f01b3d8c29c2a2b4c4e01",
+      "title": "Como Aproveitar o MBA",
+      "description": "Dicas para aproveitar ao máximo o MBA.",
+      "teachers": [
+        {
+          "id": "668ef5e3c789f2a1b3c9d1a4",
+          "name": "Roberto Shinyashiki",
+          "avatar_url": "https://classic.exame.com/wp-content/uploads/2016/10/size_960_16_9_roberto-shinyashiki.jpg",
+          "highlight": true
+        }
+      ],
+      "thumb": {
+        "type": "image",
+        "data": {
+          "url": "https://placehold.co/1024x1024/png"
         }
       }
-    
+    }
   },
   {
     "id": "668f01b3d8c29c2a2b4c4e01",
@@ -281,12 +279,12 @@
     "thumb": {
       "type": "image",
       "data": {
-        "url": "https://unifast.com.br/wp-content/uploads/2022/05/2.jpg"
+        "url": "https://placehold.co/1024x1024/png"
       }
     },
     "content": {
       "video": {
-        "url": "https://b-vz-df032af7-1d1.tv.pandavideo.com.br/c82a12b4-d6a7-49d4-85ed-6e8677b5694c/playlist.m3u8",
+        "url": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
         "thumb": {
           "type": "image",
           "data": {
@@ -300,7 +298,7 @@
     },
     "files": [
       {
-        "url": "https://campus.unifast.com.br/wp-content/uploads/2024/07/mba-infograficos.pdf",
+        "url": "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
         "title": "Infográficos do MBA",
         "description": "Infográficos – Psicologia do Líder Poderoso",
         "thumb": {
@@ -311,7 +309,7 @@
         }
       },
       {
-        "url": "https://campus.unifast.com.br/wp-content/uploads/2024/07/disciplina-01-psicologia-do-lider-poderoso-apostila.pdf",
+        "url": "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
         "title": "Apostila",
         "description": "disciplina-01-psicologia-do-lider-poderoso-apostila",
         "thumb": {
@@ -337,7 +335,7 @@
       "thumb": {
         "type": "image",
         "data": {
-          "url": "https://unifast.com.br/wp-content/uploads/2022/05/2.jpg"
+          "url": "https://placehold.co/1024x1024/png"
         }
       }
     },
@@ -356,7 +354,7 @@
       "thumb": {
         "type": "image",
         "data": {
-          "url": "https://campus.unifast.com.br/wp-content/uploads/2024/04/9.png"
+          "url": "https://placehold.co/1024x1024/png"
         }
       }
     },
@@ -375,7 +373,7 @@
       "thumb": {
         "type": "image",
         "data": {
-          "url": "https://unifast.com.br/wp-content/uploads/2022/05/2.jpg"
+          "url": "https://placehold.co/1024x1024/png"
         }
       }
     }
@@ -395,12 +393,12 @@
     "thumb": {
       "type": "image",
       "data": {
-        "url": "https://unifast.com.br/wp-content/uploads/2022/05/2.jpg"
+        "url": "https://placehold.co/1024x1024/png"
       }
     },
     "content": {
       "video": {
-        "url": "https://b-vz-df032af7-1d1.tv.pandavideo.com.br/c82a12b4-d6a7-49d4-85ed-6e8677b5694c/playlist.m3u8",
+        "url": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4",
         "thumb": {
           "type": "image",
           "data": {
@@ -414,7 +412,7 @@
     },
     "files": [
       {
-        "url": "https://campus.unifast.com.br/wp-content/uploads/2024/07/mba-infograficos.pdf",
+        "url": "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
         "title": "Infográficos do MBA",
         "description": "Infográficos – Psicologia do Líder Poderoso",
         "thumb": {
@@ -425,7 +423,7 @@
         }
       },
       {
-        "url": "https://campus.unifast.com.br/wp-content/uploads/2024/07/disciplina-01-psicologia-do-lider-poderoso-apostila.pdf",
+        "url": "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
         "title": "Apostila",
         "description": "disciplina-01-psicologia-do-lider-poderoso-apostila",
         "thumb": {
@@ -451,7 +449,7 @@
       "thumb": {
         "type": "image",
         "data": {
-          "url": "https://unifast.com.br/wp-content/uploads/2022/05/2.jpg"
+          "url": "https://placehold.co/1024x1024/png"
         }
       }
     },
@@ -470,7 +468,7 @@
       "thumb": {
         "type": "image",
         "data": {
-          "url": "https://campus.unifast.com.br/wp-content/uploads/2024/04/9.png"
+          "url": "https://placehold.co/1024x1024/png"
         }
       }
     },
@@ -489,7 +487,7 @@
       "thumb": {
         "type": "image",
         "data": {
-          "url": "https://unifast.com.br/wp-content/uploads/2022/05/2.jpg"
+          "url": "https://placehold.co/1024x1024/png"
         }
       }
     }
@@ -509,12 +507,12 @@
     "thumb": {
       "type": "image",
       "data": {
-        "url": "https://unifast.com.br/wp-content/uploads/2022/05/2.jpg"
+        "url": "https://placehold.co/1024x1024/png"
       }
     },
     "content": {
       "video": {
-        "url": "https://b-vz-df032af7-1d1.tv.pandavideo.com.br/c82a12b4-d6a7-49d4-85ed-6e8677b5694c/playlist.m3u8",
+        "url": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4",
         "thumb": {
           "type": "image",
           "data": {
@@ -528,7 +526,7 @@
     },
     "files": [
       {
-        "url": "https://campus.unifast.com.br/wp-content/uploads/2024/07/infograficos-disciplina-2.pdf",
+        "url": "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
         "title": "Infográficos do MBA",
         "description": "Infográficos - Metódo Master Power",
         "thumb": {
@@ -539,7 +537,7 @@
         }
       },
       {
-        "url": "https://campus.unifast.com.br/wp-content/uploads/2024/07/apostila-02-metodo-master-power-2.pdf",
+        "url": "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
         "title": "Apostila",
         "description": "apostila-02-metodo-master-power-2",
         "thumb": {
@@ -565,7 +563,7 @@
       "thumb": {
         "type": "image",
         "data": {
-          "url": "https://unifast.com.br/wp-content/uploads/2022/05/2.jpg"
+          "url": "https://placehold.co/1024x1024/png"
         }
       }
     },
@@ -584,7 +582,7 @@
       "thumb": {
         "type": "image",
         "data": {
-          "url": "https://campus.unifast.com.br/wp-content/uploads/2024/07/8.png"
+          "url": "https://placehold.co/1024x1024/png"
         }
       }
     },
@@ -603,7 +601,7 @@
       "thumb": {
         "type": "image",
         "data": {
-          "url": "https://unifast.com.br/wp-content/uploads/2022/05/2.jpg"
+          "url": "https://placehold.co/1024x1024/png"
         }
       }
     }
@@ -623,12 +621,12 @@
     "thumb": {
       "type": "image",
       "data": {
-        "url": "https://unifast.com.br/wp-content/uploads/2022/05/2.jpg"
+        "url": "https://placehold.co/1024x1024/png"
       }
     },
     "content": {
       "video": {
-        "url": "https://b-vz-df032af7-1d1.tv.pandavideo.com.br/c82a12b4-d6a7-49d4-85ed-6e8677b5694c/playlist.m3u8",
+        "url": "https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
         "thumb": {
           "type": "image",
           "data": {
@@ -642,7 +640,7 @@
     },
     "files": [
       {
-        "url": "https://campus.unifast.com.br/wp-content/uploads/2024/07/infograficos-disciplina-2.pdf",
+        "url": "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
         "title": "Infográficos do MBA",
         "description": "Infográficos - Metódo Master Power",
         "thumb": {
@@ -653,7 +651,7 @@
         }
       },
       {
-        "url": "https://campus.unifast.com.br/wp-content/uploads/2024/07/apostila-02-metodo-master-power-2.pdf",
+        "url": "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
         "title": "Apostila",
         "description": "apostila-02-metodo-master-power-2",
         "thumb": {
@@ -679,7 +677,7 @@
       "thumb": {
         "type": "image",
         "data": {
-          "url": "https://unifast.com.br/wp-content/uploads/2022/05/2.jpg"
+          "url": "https://placehold.co/1024x1024/png"
         }
       }
     },
@@ -698,7 +696,7 @@
       "thumb": {
         "type": "image",
         "data": {
-          "url": "https://campus.unifast.com.br/wp-content/uploads/2024/07/8.png"
+          "url": "https://placehold.co/1024x1024/png"
         }
       }
     },
@@ -717,7 +715,7 @@
       "thumb": {
         "type": "image",
         "data": {
-          "url": "https://unifast.com.br/wp-content/uploads/2022/05/2.jpg"
+          "url": "https://placehold.co/1024x1024/png"
         }
       }
     }
@@ -737,12 +735,12 @@
     "thumb": {
       "type": "image",
       "data": {
-        "url": "https://unifast.com.br/wp-content/uploads/2022/05/2.jpg"
+        "url": "https://placehold.co/1024x1024/png"
       }
     },
     "content": {
       "video": {
-        "url": "https://b-vz-df032af7-1d1.tv.pandavideo.com.br/c82a12b4-d6a7-49d4-85ed-6e8677b5694c/playlist.m3u8",
+        "url": "https://storage.googleapis.com/gtv-videos-bucket/sample/WhatCarCanYouGet.mp4",
         "thumb": {
           "type": "image",
           "data": {
@@ -756,7 +754,7 @@
     },
     "files": [
       {
-        "url": "https://campus.unifast.com.br/wp-content/uploads/2024/07/infograficos-disciplina-2.pdf",
+        "url": "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
         "title": "Infográficos do MBA",
         "description": "Infográficos - Metódo Master Power",
         "thumb": {
@@ -767,7 +765,7 @@
         }
       },
       {
-        "url": "https://campus.unifast.com.br/wp-content/uploads/2024/07/apostila-02-metodo-master-power-2.pdf",
+        "url": "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
         "title": "Apostila",
         "description": "apostila-02-metodo-master-power-2",
         "thumb": {
@@ -793,7 +791,7 @@
       "thumb": {
         "type": "image",
         "data": {
-          "url": "https://unifast.com.br/wp-content/uploads/2022/05/2.jpg"
+          "url": "https://placehold.co/1024x1024/png"
         }
       }
     },
@@ -812,7 +810,7 @@
       "thumb": {
         "type": "image",
         "data": {
-          "url": "https://campus.unifast.com.br/wp-content/uploads/2024/07/8.png"
+          "url": "https://placehold.co/1024x1024/png"
         }
       }
     },
@@ -856,7 +854,7 @@
     },
     "content": {
       "video": {
-        "url": "https://b-vz-df032af7-1d1.tv.pandavideo.com.br/c82a12b4-d6a7-49d4-85ed-6e8677b5694c/playlist.m3u8",
+        "url": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
         "thumb": {
           "type": "image",
           "data": {
@@ -870,7 +868,7 @@
     },
     "files": [
       {
-        "url": "https://campus.unifast.com.br/wp-content/uploads/2024/07/infograficos-disciplina-interativo.pdf",
+        "url": "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
         "title": "Infográficos do MBA",
         "description": "Infográficos - Fundamentos Empresariais",
         "thumb": {
@@ -881,7 +879,7 @@
         }
       },
       {
-        "url": "https://campus.unifast.com.br/wp-content/uploads/2024/07/apostila-3-fundamentos-empresariais.pdf",
+        "url": "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
         "title": "Apostila",
         "description": "apostila-3-fundamentos-empresariais",
         "thumb": {
@@ -907,7 +905,7 @@
       "thumb": {
         "type": "image",
         "data": {
-          "url": "https://unifast.com.br/wp-content/uploads/2022/05/2.jpg"
+          "url": "https://placehold.co/1024x1024/png"
         }
       }
     },
@@ -932,7 +930,7 @@
       "thumb": {
         "type": "image",
         "data": {
-          "url": "https://campus.unifast.com.br/wp-content/uploads/2024/07/10.png"
+          "url": "https://placehold.co/1024x1024/png"
         }
       }
     },
@@ -976,7 +974,7 @@
     },
     "content": {
       "video": {
-        "url": "https://b-vz-df032af7-1d1.tv.pandavideo.com.br/34461622-20b3-4ec2-92fb-4f343fe6e141/playlist.m3u8",
+        "url": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
         "thumb": {
           "type": "image",
           "data": {
@@ -990,7 +988,7 @@
     },
     "files": [
       {
-        "url": "https://campus.unifast.com.br/wp-content/uploads/2024/07/infograficos-disciplina-interativo.pdf",
+        "url": "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
         "title": "Infográficos do MBA",
         "description": "Infográficos - Fundamentos Empresariais",
         "thumb": {
@@ -1001,7 +999,7 @@
         }
       },
       {
-        "url": "https://campus.unifast.com.br/wp-content/uploads/2024/07/apostila-3-fundamentos-empresariais.pdf",
+        "url": "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
         "title": "Apostila",
         "description": "apostila-3-fundamentos-empresariais",
         "thumb": {
@@ -1052,7 +1050,7 @@
       "thumb": {
         "type": "image",
         "data": {
-          "url": "https://campus.unifast.com.br/wp-content/uploads/2024/07/10.png"
+          "url": "https://placehold.co/1024x1024/png"
         }
       }
     },
@@ -1096,7 +1094,7 @@
     },
     "content": {
       "video": {
-        "url": "https://b-vz-df032af7-1d1.tv.pandavideo.com.br/0b0f69c1-10cb-454e-af86-0c9a55316267/playlist.m3u8",
+        "url": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4",
         "thumb": {
           "type": "image",
           "data": {
@@ -1110,7 +1108,7 @@
     },
     "files": [
       {
-        "url": "https://campus.unifast.com.br/wp-content/uploads/2024/07/infograficos-disciplina-interativo.pdf",
+        "url": "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
         "title": "Infográficos do MBA",
         "description": "Infográficos - Fundamentos Empresariais",
         "thumb": {
@@ -1121,7 +1119,7 @@
         }
       },
       {
-        "url": "https://campus.unifast.com.br/wp-content/uploads/2024/07/apostila-3-fundamentos-empresariais.pdf",
+        "url": "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
         "title": "Apostila",
         "description": "apostila-3-fundamentos-empresariais",
         "thumb": {
@@ -1172,7 +1170,7 @@
       "thumb": {
         "type": "image",
         "data": {
-          "url": "https://campus.unifast.com.br/wp-content/uploads/2024/07/10.png"
+          "url": "https://placehold.co/1024x1024/png"
         }
       }
     },
@@ -1184,7 +1182,7 @@
         {
           "id": "668ef5e3c789f2a1b3c9e1n4",
           "name": "Eugenio Pachelle",
-          "avatar_url": "https://unifast.com.br/wp-content/uploads/2022/09/Eugenio-Pachele.png",
+          "avatar_url": "https://placehold.co/1024x1024/png",
           "highlight": true
         }
       ],
@@ -1204,7 +1202,7 @@
       {
         "id": "668ef5e3c789f2a1b3c9e1n4",
         "name": "Eugenio Pachelle",
-        "avatar_url": "https://unifast.com.br/wp-content/uploads/2022/09/Eugenio-Pachele.png",
+        "avatar_url": "https://placehold.co/1024x1024/png",
         "highlight": true
       }
     ],
@@ -1216,7 +1214,7 @@
     },
     "content": {
       "video": {
-        "url": "https://b-vz-df032af7-1d1.tv.pandavideo.com.br/887ae09b-efe4-418d-af9c-b4e6c2eb1020/playlist.m3u8",
+        "url": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4",
         "thumb": {
           "type": "image",
           "data": {
@@ -1230,7 +1228,7 @@
     },
     "files": [
       {
-        "url": "https://campus.unifast.com.br/wp-content/uploads/2024/07/infograficos-disciplina-4-gestao-e-cultura-evolutiva.pdf",
+        "url": "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
         "title": "Infográficos do MBA",
         "description": "infograficos-disciplina-4-gestao-e-cultura-evolutiva",
         "thumb": {
@@ -1241,7 +1239,7 @@
         }
       },
       {
-        "url": "https://campus.unifast.com.br/wp-content/uploads/2024/07/apostila-4-1-gestao-e-cultura-evolutiva.pdf",
+        "url": "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
         "title": "Apostila",
         "description": "apostila-4-1-gestao-e-cultura-evolutiva",
         "thumb": {
@@ -1285,14 +1283,14 @@
         {
           "id": "668ef5e3c789f2a1b3c9e1n4",
           "name": "Eugenio Pachelle",
-          "avatar_url": "https://unifast.com.br/wp-content/uploads/2022/09/Eugenio-Pachele.png",
+          "avatar_url": "https://placehold.co/1024x1024/png",
           "highlight": false
         }
       ],
       "thumb": {
         "type": "image",
         "data": {
-          "url": "https://campus.unifast.com.br/wp-content/uploads/2024/07/11.png"
+          "url": "https://placehold.co/1024x1024/png"
         }
       }
     },
@@ -1304,7 +1302,7 @@
         {
           "id": "668ef5e3c789f2a1b3c9e1n4",
           "name": "Eugenio Pachelle",
-          "avatar_url": "https://unifast.com.br/wp-content/uploads/2022/09/Eugenio-Pachele.png",
+          "avatar_url": "https://placehold.co/1024x1024/png",
           "highlight": true
         }
       ],
@@ -1324,7 +1322,7 @@
       {
         "id": "668ef5e3c789f2a1b3c9e1n4",
         "name": "Eugenio Pachelle",
-        "avatar_url": "https://unifast.com.br/wp-content/uploads/2022/09/Eugenio-Pachele.png",
+        "avatar_url": "https://placehold.co/1024x1024/png",
         "highlight": true
       }
     ],
@@ -1336,7 +1334,7 @@
     },
     "content": {
       "video": {
-        "url": "https://b-vz-df032af7-1d1.tv.pandavideo.com.br/0b0f69c1-10cb-454e-af86-0c9a55316267/playlist.m3u8",
+        "url": "https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
         "thumb": {
           "type": "image",
           "data": {
@@ -1350,7 +1348,7 @@
     },
     "files": [
       {
-        "url": "https://campus.unifast.com.br/wp-content/uploads/2024/07/infograficos-disciplina-4-gestao-e-cultura-evolutiva.pdf",
+        "url": "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
         "title": "Infográficos do MBA",
         "description": "infograficos-disciplina-4-gestao-e-cultura-evolutiva",
         "thumb": {
@@ -1361,7 +1359,7 @@
         }
       },
       {
-        "url": "https://campus.unifast.com.br/wp-content/uploads/2024/07/apostila-4-1-gestao-e-cultura-evolutiva.pdf",
+        "url": "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
         "title": "Apostila",
         "description": "apostila-4-1-gestao-e-cultura-evolutiva",
         "thumb": {
@@ -1380,7 +1378,7 @@
         {
           "id": "668ef5e3c789f2a1b3c9e1n4",
           "name": "Eugenio Pachelle",
-          "avatar_url": "https://unifast.com.br/wp-content/uploads/2022/09/Eugenio-Pachele.png",
+          "avatar_url": "https://placehold.co/1024x1024/png",
           "highlight": true
         }
       ],
@@ -1405,14 +1403,14 @@
         {
           "id": "668ef5e3c789f2a1b3c9e1n4",
           "name": "Eugenio Pachelle",
-          "avatar_url": "https://unifast.com.br/wp-content/uploads/2022/09/Eugenio-Pachele.png",
+          "avatar_url": "https://placehold.co/1024x1024/png",
           "highlight": false
         }
       ],
       "thumb": {
         "type": "image",
         "data": {
-          "url": "https://campus.unifast.com.br/wp-content/uploads/2024/07/11.png"
+          "url": "https://placehold.co/1024x1024/png"
         }
       }
     },
@@ -1424,7 +1422,7 @@
         {
           "id": "668ef5e3c789f2a1b3c9e1n4",
           "name": "Eugenio Pachelle",
-          "avatar_url": "https://unifast.com.br/wp-content/uploads/2022/09/Eugenio-Pachele.png",
+          "avatar_url": "https://placehold.co/1024x1024/png",
           "highlight": true
         }
       ],
@@ -1444,7 +1442,7 @@
       {
         "id": "668ef5e3c789f2a1b3c9e1n4",
         "name": "Eugenio Pachelle",
-        "avatar_url": "https://unifast.com.br/wp-content/uploads/2022/09/Eugenio-Pachele.png",
+        "avatar_url": "https://placehold.co/1024x1024/png",
         "highlight": true
       }
     ],
@@ -1456,7 +1454,7 @@
     },
     "content": {
       "video": {
-        "url": "https://b-vz-df032af7-1d1.tv.pandavideo.com.br/8e64d2cf-e231-461a-b30a-5adce489f290/playlist.m3u8",
+        "url": "https://storage.googleapis.com/gtv-videos-bucket/sample/WhatCarCanYouGet.mp4",
         "thumb": {
           "type": "image",
           "data": {
@@ -1470,7 +1468,7 @@
     },
     "files": [
       {
-        "url": "https://campus.unifast.com.br/wp-content/uploads/2024/07/infograficos-disciplina-4-gestao-e-cultura-evolutiva.pdf",
+        "url": "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
         "title": "Infográficos do MBA",
         "description": "infograficos-disciplina-4-gestao-e-cultura-evolutiva",
         "thumb": {
@@ -1481,7 +1479,7 @@
         }
       },
       {
-        "url": "https://campus.unifast.com.br/wp-content/uploads/2024/07/apostila-4-1-gestao-e-cultura-evolutiva.pdf",
+        "url": "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
         "title": "Apostila",
         "description": "apostila-4-1-gestao-e-cultura-evolutiva",
         "thumb": {
@@ -1500,7 +1498,7 @@
         {
           "id": "668ef5e3c789f2a1b3c9e1n4",
           "name": "Eugenio Pachelle",
-          "avatar_url": "https://unifast.com.br/wp-content/uploads/2022/09/Eugenio-Pachele.png",
+          "avatar_url": "https://placehold.co/1024x1024/png",
           "highlight": true
         }
       ],
@@ -1525,14 +1523,14 @@
         {
           "id": "668ef5e3c789f2a1b3c9e1n4",
           "name": "Eugenio Pachelle",
-          "avatar_url": "https://unifast.com.br/wp-content/uploads/2022/09/Eugenio-Pachele.png",
+          "avatar_url": "https://placehold.co/1024x1024/png",
           "highlight": false
         }
       ],
       "thumb": {
         "type": "image",
         "data": {
-          "url": "https://campus.unifast.com.br/wp-content/uploads/2024/07/11.png"
+          "url": "https://placehold.co/1024x1024/png"
         }
       }
     },
@@ -1551,7 +1549,7 @@
       "thumb": {
         "type": "image",
         "data": {
-          "url": "https://unifast.com.br/wp-content/uploads/2022/05/2.jpg"
+          "url": "https://placehold.co/1024x1024/png"
         }
       }
     }
@@ -1571,12 +1569,12 @@
     "thumb": {
       "type": "image",
       "data": {
-        "url": "https://unifast.com.br/wp-content/uploads/2022/05/2.jpg"
+        "url": "https://placehold.co/1024x1024/png"
       }
     },
     "content": {
       "video": {
-        "url": "https://b-vz-df032af7-1d1.tv.pandavideo.com.br/25a7ce21-6f23-4b7c-8235-d30939acf4b9/playlist.m3u8",
+        "url": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
         "thumb": {
           "type": "image",
           "data": {
@@ -1590,7 +1588,7 @@
     },
     "files": [
       {
-        "url": "https://campus.unifast.com.br/wp-content/uploads/2024/07/infografico-disciplina-5.pdf",
+        "url": "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
         "title": "Infográficos do MBA",
         "description": "infografico-disciplina-5",
         "thumb": {
@@ -1601,7 +1599,7 @@
         }
       },
       {
-        "url": "https://campus.unifast.com.br/wp-content/uploads/2024/07/apostila-5-inteligencia-afetiva.pdf",
+        "url": "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
         "title": "Apostila",
         "description": "apostila-5-inteligencia-afetiva",
         "thumb": {
@@ -1620,7 +1618,7 @@
         {
           "id": "668ef5e3c789f2a1b3c9e1n4",
           "name": "Eugenio Pachelle",
-          "avatar_url": "https://unifast.com.br/wp-content/uploads/2022/09/Eugenio-Pachele.png",
+          "avatar_url": "https://placehold.co/1024x1024/png",
           "highlight": true
         }
       ],
@@ -1646,7 +1644,7 @@
       "thumb": {
         "type": "image",
         "data": {
-          "url": "https://campus.unifast.com.br/wp-content/uploads/2024/07/14.png"
+          "url": "https://placehold.co/1024x1024/png"
         }
       }
     },
@@ -1665,7 +1663,7 @@
       "thumb": {
         "type": "image",
         "data": {
-          "url": "https://unifast.com.br/wp-content/uploads/2022/05/2.jpg"
+          "url": "https://placehold.co/1024x1024/png"
         }
       }
     }
@@ -1685,12 +1683,12 @@
     "thumb": {
       "type": "image",
       "data": {
-        "url": "https://unifast.com.br/wp-content/uploads/2022/05/2.jpg"
+        "url": "https://placehold.co/1024x1024/png"
       }
     },
     "content": {
       "video": {
-        "url": "https://b-vz-df032af7-1d1.tv.pandavideo.com.br/d6553285-38c3-4943-b1e2-8d5269c5ac46/playlist.m3u8",
+        "url": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
         "thumb": {
           "type": "image",
           "data": {
@@ -1704,7 +1702,7 @@
     },
     "files": [
       {
-        "url": "https://campus.unifast.com.br/wp-content/uploads/2024/07/infografico-disciplina-5.pdf",
+        "url": "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
         "title": "Infográficos do MBA",
         "description": "infografico-disciplina-5",
         "thumb": {
@@ -1715,7 +1713,7 @@
         }
       },
       {
-        "url": "https://campus.unifast.com.br/wp-content/uploads/2024/07/apostila-5-inteligencia-afetiva.pdf",
+        "url": "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
         "title": "Apostila",
         "description": "apostila-5-inteligencia-afetiva",
         "thumb": {
@@ -1741,7 +1739,7 @@
       "thumb": {
         "type": "image",
         "data": {
-          "url": "https://unifast.com.br/wp-content/uploads/2022/05/2.jpg"
+          "url": "https://placehold.co/1024x1024/png"
         }
       }
     },
@@ -1760,7 +1758,7 @@
       "thumb": {
         "type": "image",
         "data": {
-          "url": "https://campus.unifast.com.br/wp-content/uploads/2024/07/14.png"
+          "url": "https://placehold.co/1024x1024/png"
         }
       }
     },
@@ -1779,7 +1777,7 @@
       "thumb": {
         "type": "image",
         "data": {
-          "url": "https://unifast.com.br/wp-content/uploads/2022/05/2.jpg"
+          "url": "https://placehold.co/1024x1024/png"
         }
       }
     }
@@ -1799,12 +1797,12 @@
     "thumb": {
       "type": "image",
       "data": {
-        "url": "https://unifast.com.br/wp-content/uploads/2022/05/2.jpg"
+        "url": "https://placehold.co/1024x1024/png"
       }
     },
     "content": {
       "video": {
-        "url": "https://b-vz-df032af7-1d1.tv.pandavideo.com.br/fefa6c12-7265-472c-ad1d-e5c45b778e08/playlist.m3u8",
+        "url": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4",
         "thumb": {
           "type": "image",
           "data": {
@@ -1818,7 +1816,7 @@
     },
     "files": [
       {
-        "url": "https://campus.unifast.com.br/wp-content/uploads/2024/07/infografico-disciplina-5.pdf",
+        "url": "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
         "title": "Infográficos do MBA",
         "description": "infografico-disciplina-5",
         "thumb": {
@@ -1829,7 +1827,7 @@
         }
       },
       {
-        "url": "https://campus.unifast.com.br/wp-content/uploads/2024/07/apostila-5-inteligencia-afetiva.pdf",
+        "url": "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
         "title": "Apostila",
         "description": "apostila-5-inteligencia-afetiva",
         "thumb": {
@@ -1855,7 +1853,7 @@
       "thumb": {
         "type": "image",
         "data": {
-          "url": "https://unifast.com.br/wp-content/uploads/2022/05/2.jpg"
+          "url": "https://placehold.co/1024x1024/png"
         }
       }
     },
@@ -1874,7 +1872,7 @@
       "thumb": {
         "type": "image",
         "data": {
-          "url": "https://campus.unifast.com.br/wp-content/uploads/2024/07/14.png"
+          "url": "https://placehold.co/1024x1024/png"
         }
       }
     },

@@ -1,0 +1,22 @@
+{
+  "name": "BellugaIcons",
+  "css_prefix_text": "",
+  "css_use_suffix": false,
+  "hinting": true,
+  "units_per_em": 1000,
+  "ascent": 850,
+  "glyphs": [
+    {
+      "uid": "c116c18983825a9b32a23a62fd18e1e6",
+      "css": "sticky-note",
+      "code": 62025,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "b9ca73befd583b2197a56a68045c9c0c",
+      "css": "sticky-note-outline",
+      "code": 62026,
+      "src": "fontawesome"
+    }
+  ]
+}

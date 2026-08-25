@@ -34,10 +34,7 @@ class ButtonLoading extends StatelessWidget {
                       width: 14,
                       height: 14,
                       child: Center(
-                        child: CircularProgressIndicator(
-                          color: Theme.of(context).colorScheme.secondary,
-                          strokeWidth: 4,
-                        ),
+                        child: CircularProgressIndicator(strokeWidth: 4),
                       ),
                     ),
                   SizedBox(
@@ -45,9 +42,6 @@ class ButtonLoading extends StatelessWidget {
                   ), // Space between icon and text
                   Text(
                     label,
-                    style: TextTheme.of(context).titleMedium?.copyWith(
-                      color: Theme.of(context).colorScheme.onPrimary,
-                    ),
                   ),
                   if (loadingStatus) SizedBox(width: 32, height: 32),
                 ],

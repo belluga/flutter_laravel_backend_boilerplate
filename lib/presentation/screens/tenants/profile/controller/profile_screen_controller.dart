@@ -1,0 +1,25 @@
+import 'package:belluga_boilerplate/domain/repositories/auth_repository_contract.dart';
+import 'package:belluga_boilerplate/domain/user/user_contract.dart';
+import 'package:belluga_boilerplate/infrastructure/repositories/theme_repository.dart';
+import 'package:flutter/services.dart';
+import 'package:get_it/get_it.dart';
+import 'package:stream_value/core/stream_value.dart';
+
+class ProfileScreenController {
+  final _authRepository = GetIt.I.get<AuthRepositoryContract>();
+  final _themeRepository = GetIt.I.get<ThemeRepository>();
+
+  StreamValue<UserContract?> get userStreamValue =>
+      _authRepository.userStreamValue;
+
+  final isEditingStreamValue = StreamValue<bool>(defaultValue: false);
+
+  void toggleEdit() =>
+      isEditingStreamValue.addValue(!isEditingStreamValue.value);
+
+  Future<void> logout() => _authRepository.logout();
+
+  void setTheme(Brightness brightness) {
+    _themeRepository.setTheme(brightness);
+  }
+}

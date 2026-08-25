@@ -1,0 +1,98 @@
+import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
+import 'package:stream_value/core/stream_value.dart';
+import 'package:belluga_boilerplate/domain/learning_experience/course_item_model.dart';
+import 'package:belluga_boilerplate/domain/notes/note_model.dart';
+import 'package:belluga_boilerplate/domain/repositories/notes_repository_contract.dart';
+
+class AddNoteBottomModalController {
+  late CourseItemModel courseItemModel;
+  late Duration? currentVideoPosition;
+  late NoteModel? noteModel;
+
+  AddNoteBottomModalController();
+
+  final notesRepository = GetIt.I.get<NotesRepositoryContract>();
+
+  final noteContentTextController = TextEditingController();
+
+  final colorSelectedStreamValue = StreamValue<Color>(
+    defaultValue: Colors.yellow.shade200,
+  );
+
+  final savingNoteStreamValue = StreamValue<bool>(defaultValue: false);
+  final deletingNoteStreamValue = StreamValue<bool>(defaultValue: false);
+
+  void init({ required CourseItemModel courseItemModel,
+  Duration? currentVideoPosition,
+  NoteModel? noteModel,}) {
+
+    this.courseItemModel = courseItemModel;
+    this.currentVideoPosition = currentVideoPosition;
+    this.noteModel = noteModel;
+
+    if (noteModel != null) {
+      noteContentTextController.text = noteModel.content.value;
+      colorSelectedStreamValue.addValue(noteModel.color.value);
+    }
+  }
+
+  void changeColor(Color color) => colorSelectedStreamValue.addValue(color);
+
+  Future<void> deleteNote() async {
+    if (noteModel == null || noteModel!.id == null) {
+      return;
+    }
+
+    deletingNoteStreamValue.addValue(true);
+    await notesRepository.deleteNote(
+      courseId: noteModel!.courseItemId.value,
+      noteId: noteModel!.id!.value,
+    );
+    deletingNoteStreamValue.addValue(false);
+  }
+
+  Future<void> saveNote() async {
+    
+    if(!_canSaveNote()){
+      return;
+    }
+
+    if (noteModel == null) {
+      await _createNote();
+    } else {
+      await _updateNote();
+    }
+  }
+
+  Future<void> _updateNote() async {
+    savingNoteStreamValue.addValue(true);
+    await notesRepository.updateNote(
+      id: noteModel!.id!.value,
+      courseItemId: courseItemModel.id.value,
+      content: noteContentTextController.text,
+      color: colorSelectedStreamValue.value,
+      position: noteModel?.position.value,
+    );
+    savingNoteStreamValue.addValue(false);
+  }
+
+  Future<void> _createNote() async {
+    savingNoteStreamValue.addValue(true);
+    await notesRepository.createNote(
+      courseItemId: courseItemModel.id.value,
+      content: noteContentTextController.text,
+      color: colorSelectedStreamValue.value,
+      position: currentVideoPosition,
+    );
+    savingNoteStreamValue.addValue(false);
+  }
+
+  bool _canSaveNote() {
+    if(savingNoteStreamValue.value == true){
+      return false;
+    }
+
+    return true;
+  }
+}

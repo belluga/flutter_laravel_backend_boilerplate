@@ -1,28 +1,25 @@
-import 'package:belluga_now/domain/app_data/app_data.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'dart:io' show Platform;
 import 'package:flutter/foundation.dart';
-import 'package:get_it/get_it.dart';
 
 class BellugaConstants {
   static final settings = _SettingsConstants();
   static final api = _ApiConstants();
   static final sentry = _SentryConstants();
+  static final env = _EnvironmentConstants();
 }
 
 class _ApiConstants {
-  AppData get _appData => GetIt.I.get<AppData>();
 
   String get adminUrl {
-    final String _mainApi = '${_appData.schema}://${_appData.hostname}/admin/api';
+    final String _mainApi = '${Uri.base.scheme}://${Uri.base.host}/admin/api';
 
-    final _environment = dotenv.env["ENV"] ?? "local";
+    final _environment = BellugaConstants.env.environment;
 
     if (kIsWeb) {
       return _mainApi;
     } else if (Platform.isAndroid) {
       return _environment == "local"
-          ? "http://10.0.2.2:5000/api"
+          ? "http://nginx/api"
           : _mainApi;
     } else {
       return _mainApi;
@@ -30,15 +27,15 @@ class _ApiConstants {
   }
 
   String get baseUrl {
-    final String _mainApi = '${_appData.schema}://${_appData.hostname}/api';
+    final String _mainApi = '${Uri.base.scheme}://${Uri.base.host}/api';
 
-    final _environment = dotenv.env["ENV"] ?? "local";
+    final _environment = BellugaConstants.env.environment;
 
     if (kIsWeb) {
       return _mainApi;
     } else if (Platform.isAndroid) {
       return _environment == "local"
-          ? "http://10.0.2.2:5000/api"
+          ? "http://nginx/api"
           : _mainApi;
     } else {
       return _mainApi;
@@ -46,8 +43,20 @@ class _ApiConstants {
   }
 }
 
+class _EnvironmentConstants {
+  String get environment =>
+      const String.fromEnvironment('APP_ENVIRONMENT', defaultValue: 'local');
+  String get landlordDomain =>
+      const String.fromEnvironment('LANDLORD_DOMAIN', defaultValue: 'localhost');
+  String get schema =>
+      const String.fromEnvironment('LANDLORD_SCHEMA', defaultValue: 'http');
+  String get bootstrapBaseUrl => const String.fromEnvironment(
+    'BOOTSTRAP_BASE_URL',
+    defaultValue: '',
+  );
+}
+
 class _SettingsConstants {
-  String get appID => "com.belluga_now";
   String get platform {
     if (kIsWeb) {
       return "web";
@@ -68,9 +77,14 @@ class _SettingsConstants {
 }
 
 class _SentryConstants {
-  String get url =>
-      "https://1acd2d544ea17269485f5a38c663d0e0@o4504503783784448.ingest.sentry.io/4506716088500224";
-  double get tracesSampleRate => 1.0;
+  String get url => const String.fromEnvironment('SENTRY_DSN', defaultValue: '');
+  double get tracesSampleRate {
+    const raw = String.fromEnvironment(
+      'SENTRY_TRACES_SAMPLE_RATE',
+      defaultValue: '0.0',
+    );
+    return double.tryParse(raw) ?? 0.0;
+  }
 }
 
 // class AssetsPath {

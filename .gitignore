@@ -48,4 +48,15 @@ app.*.map.json
 # FVM Version Cache
 .fvm/
 
-/android/keystores/
+/android/keystores/*.jks
+/android/keystores/*.properties
+
+# Delphi-AI
+AGENTS.md
+scripts
+delphi-ai
+foundation_documentation
+.agent
+.agent/
+.agents
+.agents/
