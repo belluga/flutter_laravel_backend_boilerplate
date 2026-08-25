@@ -11,7 +11,7 @@ import java.util.Properties
 import java.io.FileInputStream
 
 android {
-    namespace = "com.boilerplatebellugatenant.app"
+    namespace = "com.platform_boilerplate"
     compileSdk = flutter.compileSdkVersion
     ndkVersion = "27.0.12077973"
 
@@ -25,7 +25,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "com.boilerplatebellugatenant.app"
+        applicationId = "com.platform_boilerplate"
         minSdk = flutter.minSdkVersion
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode

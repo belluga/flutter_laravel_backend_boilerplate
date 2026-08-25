@@ -53,7 +53,7 @@ abstract class CreatePasswordControllerContract extends Disposable {
     try {
       if (validate()) {
         if (newPasswordController.value != confirmPasswordController.value) {
-          generalErrorStreamValue.addValue("As senhas não são iguais.");
+          generalErrorStreamValue.addValue("Passwords do not match.");
         } else {
           await _authRepository.createNewPassword(
             newPasswordController.value,
@@ -64,7 +64,7 @@ abstract class CreatePasswordControllerContract extends Disposable {
     } on BellugaAuthError catch (e) {
       generalErrorStreamValue.addValue(e.message);
     } catch (e) {
-      generalErrorStreamValue.addValue("Erro ao criar a senha.");
+      generalErrorStreamValue.addValue("Could not create the password.");
     }
 
     buttonLoadingValue.addValue(false);

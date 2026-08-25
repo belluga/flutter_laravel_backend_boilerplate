@@ -6,7 +6,7 @@ import 'package:belluga_boilerplate/infrastructure/services/dal/dto/external_cou
 abstract class CoursesBackendContract {
   Future<List<ExternalCourseDTO>> getExternalCourses();
   Future<List<CourseItemSummaryDTO>> getMyCourses();
-  Future<List<CourseItemSummaryDTO>> getUnifastTracks();
+  Future<List<CourseItemSummaryDTO>> getFastTracks();
   Future<List<CourseItemSummaryDTO>> getLastFastTrackCourses();
   Future<CourseItemDetailsDTO> courseItemGetDetails(String courseId);
   Future<List<CategoryDTO>> getFastTracksCategories();

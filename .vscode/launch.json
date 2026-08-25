@@ -17,7 +17,7 @@
         },
         {
             // O nome que vai aparecer no menu do VS Code
-            "name": "Belluga NOW - Landlord (Debug)",
+            "name": "Platform Boilerplate - Landlord (Debug)",
             "request": "launch",
             "type": "dart",
             "flutterMode": "debug",

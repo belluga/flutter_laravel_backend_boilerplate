@@ -87,7 +87,7 @@ class MenuScreenController {
       ),
       MenuEntryModel(
         id: 'tracks',
-        label: 'Trilhas da Unifast',
+        label: 'Fast Tracks',
         caption: 'Percursos recomendados',
         symbol: MenuEntrySymbol.tracks,
         actionType: MenuEntryActionType.navigation,

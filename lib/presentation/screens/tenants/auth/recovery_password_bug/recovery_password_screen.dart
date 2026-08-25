@@ -1,85 +1,51 @@
+import 'package:auto_route/auto_route.dart';
+import 'package:belluga_boilerplate/application/router/app_router.gr.dart';
+import 'package:belluga_boilerplate/presentation/screens/tenants/auth/widgets/auth_flow_shell.dart';
 import 'package:flutter/material.dart';
-import 'package:belluga_boilerplate/domain/controllers/recovery_password_token_controller_contract.dart';
-import 'package:get_it/get_it.dart';
 
-class RecoveryPasswordScreen extends StatefulWidget {
+class RecoveryPasswordScreen extends StatelessWidget {
   final String? initialEmail;
 
   const RecoveryPasswordScreen({super.key, this.initialEmail});
 
   @override
-  State<RecoveryPasswordScreen> createState() => _RecoveryPasswordScreenState();
-}
-
-class _RecoveryPasswordScreenState extends State<RecoveryPasswordScreen> {
-  late AuthRecoveryPasswordControllerContract _controller;
-
-  @override
-  void initState() {
-    super.initState();
-    _controller = GetIt.I.get<AuthRecoveryPasswordControllerContract>(
-      param1: widget.initialEmail,
-    );
-  }
-
-  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Stack(
-        children: [
-          Column(
+    return AuthFlowShell(
+      heroEyebrow: 'Recovery',
+      heroTitle: 'Password recovery is a downstream extension point.',
+      heroDescription:
+          'The upstream boilerplate keeps this route generic while downstream products wire their own recovery delivery flow.',
+      sectionTitle: 'Recovery placeholder',
+      sectionDescription:
+          'Use this surface to connect email, SMS, or tenant-specific recovery behavior in downstream projects.',
+      child: Card(
+        child: Padding(
+          padding: const EdgeInsets.all(24),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(
-                width: double.infinity,
-                height: MediaQuery.of(context).size.height * 0.50,
-                child: Image.asset(
-                  'assets/images/tela_login.jpeg',
-                  fit: BoxFit.cover,
-                ),
-              ),
-              Expanded(
-                child: SingleChildScrollView(
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                    child: Column(
-                      children: [
-                        const SizedBox(height: 20),
-                        const Text(
-                          "Recuperar Senha",
-                          style: TextStyle(
-                            fontSize: 22,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        const SizedBox(height: 20),
-                      ],
+              Text(
+                'No reset transport is implemented in the upstream boilerplate.',
+                style: TextTheme.of(context).titleMedium?.copyWith(
+                      fontWeight: FontWeight.w600,
                     ),
-                  ),
-                ),
+              ),
+              const SizedBox(height: 12),
+              Text(
+                initialEmail == null || initialEmail!.trim().isEmpty
+                    ? 'Downstream projects should replace this placeholder with their own recovery transport and verification flow.'
+                    : 'The last sign-in email was "${initialEmail!}". Downstream projects should replace this placeholder with their own recovery transport and verification flow.',
+                style: TextTheme.of(context).bodyMedium,
+              ),
+              const SizedBox(height: 20),
+              FilledButton(
+                onPressed: () => context.router.replace(const AuthLoginRoute()),
+                child: const Text('Back to Sign In'),
               ),
             ],
           ),
-          Positioned(
-            bottom: 0,
-            left: 0,
-            right: 0,
-            child: SizedBox(
-              width: double.infinity,
-              height: 40,
-              child: Image.asset(
-                'assets/images/rodape.jpeg',
-                fit: BoxFit.cover,
-              ),
-            ),
-          ),
-        ],
+        ),
       ),
     );
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-    _controller.onDispose();
   }
 }

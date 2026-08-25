@@ -1,24 +1,19 @@
 const Map<String, dynamic> kLocalEnvironmentFallback = {
-  "name": "Belluga Mock Learning",
+  "name": "Boilerplate Demo",
   "type": "landlord",
-  "main_domain": "https://unifast.online",
+  "main_domain": "https://example.test",
   "domains": [
-    "https://unifast.online",
-    "https://mock.unifast.online",
+    "https://example.test",
+    "https://mock.example.test",
   ],
   "app_domains": [
-    "com.belluga.boilerplate",
-    "com.belluga.mock.school",
+    "com.example.boilerplate",
+    "com.example.boilerplate.mock",
   ],
   "theme_data_settings": {
+    "brightness_default": "light",
     "use_material3": true,
-    "light_scheme_data": {
-      "primary_seed_color": "#6750A4",
-      "secondary_seed_color": "#625B71",
-    },
-    "dark_scheme_data": {
-      "primary_seed_color": "#6750A4",
-      "secondary_seed_color": "#625B71",
-    },
+    "primary_seed_color": "#6750A4",
+    "secondary_seed_color": "#625B71",
   },
 };

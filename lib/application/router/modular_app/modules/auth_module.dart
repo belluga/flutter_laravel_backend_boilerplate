@@ -25,6 +25,10 @@ class AuthModule extends ModuleContract {
           path: "/recover_password",
           page: RecoveryPasswordRoute.page,
         ),
+        AutoRoute(
+          path: "/create_new_password",
+          page: AuthCreateNewPasswordRoute.page,
+        ),
         // AutoRoute(page: AuthPasswordRecoverRoute.page),
         // AutoRoute(page: AuthPasswordRecoverConfirmationRoute.page),
       ];

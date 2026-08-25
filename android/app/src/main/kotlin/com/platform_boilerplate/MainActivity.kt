@@ -1,4 +1,4 @@
-package com.boilerplatebellugatenant.app
+package com.platform_boilerplate
 
 import io.flutter.embedding.android.FlutterActivity
 

@@ -44,9 +44,16 @@ class _ApiConstants {
 }
 
 class _EnvironmentConstants {
-  String get environment =>  "stage";
-  String get landlordDomain => "unifast.online";
-  String get schema => "https";
+  String get environment =>
+      const String.fromEnvironment('APP_ENVIRONMENT', defaultValue: 'local');
+  String get landlordDomain =>
+      const String.fromEnvironment('LANDLORD_DOMAIN', defaultValue: 'localhost');
+  String get schema =>
+      const String.fromEnvironment('LANDLORD_SCHEMA', defaultValue: 'http');
+  String get bootstrapBaseUrl => const String.fromEnvironment(
+    'BOOTSTRAP_BASE_URL',
+    defaultValue: '',
+  );
 }
 
 class _SettingsConstants {
@@ -70,9 +77,14 @@ class _SettingsConstants {
 }
 
 class _SentryConstants {
-  String get url =>
-      "https://1acd2d544ea17269485f5a38c663d0e0@o4504503783784448.ingest.sentry.io/4506716088500224";
-  double get tracesSampleRate => 1.0;
+  String get url => const String.fromEnvironment('SENTRY_DSN', defaultValue: '');
+  double get tracesSampleRate {
+    const raw = String.fromEnvironment(
+      'SENTRY_TRACES_SAMPLE_RATE',
+      defaultValue: '0.0',
+    );
+    return double.tryParse(raw) ?? 0.0;
+  }
 }
 
 // class AssetsPath {

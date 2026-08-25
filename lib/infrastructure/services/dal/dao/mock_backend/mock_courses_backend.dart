@@ -30,9 +30,9 @@ class MockCoursesBackend extends CoursesBackendContract with MockFunctions {
   }
 
   @override
-  Future<List<CourseItemSummaryDTO>> getUnifastTracks() async {
-    final _unifastTracksList = await _unifastTracks();
-    final _courses = _unifastTracksList
+  Future<List<CourseItemSummaryDTO>> getFastTracks() async {
+    final _fastTracksList = await _fastTracks();
+    final _courses = _fastTracksList
         .map((item) => CourseItemSummaryDTO.fromJson(item))
         .toList();
 
@@ -41,9 +41,9 @@ class MockCoursesBackend extends CoursesBackendContract with MockFunctions {
 
   @override
   Future<List<CourseItemSummaryDTO>> getLastFastTrackCourses() async {
-    final _unifastTracksList = await _unifastTracks();
-    _unifastTracksList.sublist(0, 3);
-    final _courses = _unifastTracksList
+    final _fastTracksList = await _fastTracks();
+    _fastTracksList.sublist(0, 3);
+    final _courses = _fastTracksList
         .map((item) => CourseItemSummaryDTO.fromJson(item))
         .toList();
 
@@ -146,7 +146,7 @@ class MockCoursesBackend extends CoursesBackendContract with MockFunctions {
     // }
   }
 
-  Future<List<Map<String, dynamic>>> _unifastTracks() async {
+  Future<List<Map<String, dynamic>>> _fastTracks() async {
     // if (kDebugMode) {
     final fastTracksJson =
         await rootBundle.loadString('assets/mock/fastTrack.json');

@@ -1,4 +1,4 @@
-import 'package:belluga_boilerplate/application/fonts/belluga_learning_icons.dart';
+import 'package:belluga_boilerplate/application/fonts/belluga_icons.dart';
 import 'package:belluga_boilerplate/domain/notes/note_model.dart';
 import 'package:belluga_boilerplate/presentation/screens/tenants/lms/screens/course_screen/controllers/course_screen_controller.dart';
 import 'package:belluga_boilerplate/presentation/screens/tenants/lms/screens/course_screen/widgets/content_video_player/enums/tab_content_type.dart';
@@ -33,7 +33,7 @@ class _CourseFloatingActionButtonsState extends State<CourseFloatingActionButton
           onPressed: widget.onPressed,
           backgroundColor: Theme.of(context).colorScheme.secondary,
           child: Icon(
-            BellugaLearning.sticky_note,
+            BellugaIcons.sticky_note,
             color: Theme.of(context).colorScheme.onSecondary,
           ),
         );

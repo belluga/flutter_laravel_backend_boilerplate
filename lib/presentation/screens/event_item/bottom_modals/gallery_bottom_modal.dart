@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:belluga_boilerplate/presentation/common/widgets/image_with_progress_indicator.dart';
 
 class GalleryBottomModal extends StatelessWidget {
@@ -12,12 +11,15 @@ class GalleryBottomModal extends StatelessWidget {
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-        MasonryGridView.count(
+        GridView.builder(
           shrinkWrap: true,
-          crossAxisCount: 4,
-          mainAxisSpacing: 4,
-          crossAxisSpacing: 4,
+          physics: const NeverScrollableScrollPhysics(),
           itemCount: mediaItems.length,
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 4,
+            mainAxisSpacing: 4,
+            crossAxisSpacing: 4,
+          ),
           itemBuilder: (context, index) {
             return ImageWithProgressIndicator(uri: mediaItems[index]);
           },

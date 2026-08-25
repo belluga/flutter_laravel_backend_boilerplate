@@ -5,6 +5,7 @@ class ImageWithProgressIndicator extends StatelessWidget {
   final double width;
   final double height;
   final BorderRadius? borderRadius;
+  final BoxFit fit;
 
   const ImageWithProgressIndicator({
     super.key,
@@ -12,6 +13,7 @@ class ImageWithProgressIndicator extends StatelessWidget {
     this.width = 80,
     this.height = 80,
     this.borderRadius,
+    this.fit = BoxFit.cover,
   });
 
   @override
@@ -34,7 +36,7 @@ class ImageWithProgressIndicator extends StatelessWidget {
         _uri.toString(),
         width: width,
         height: height,
-        fit: BoxFit.cover,
+        fit: fit,
         loadingBuilder: (BuildContext context, Widget child,
             ImageChunkEvent? loadingProgress) {
           if (loadingProgress == null) {

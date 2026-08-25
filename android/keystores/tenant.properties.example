@@ -1,5 +1,5 @@
-applicationId=<tenant_app_id> # example: com.yourapp.br
+applicationId=<tenant_app_id> # example: com.example.tenantalpha.app
 storePassword=<storePassword>
 keyPassword=<keyPassword>
-keyAlias=<tenant>-alias # example: unifast-alias
-storeFile=<tenant>-release-key.jks # example: unifast-release-key.jks
+keyAlias=<tenant>-alias # example: tenantalpha-alias
+storeFile=<tenant>-release-key.jks # example: tenantalpha-release-key.jks

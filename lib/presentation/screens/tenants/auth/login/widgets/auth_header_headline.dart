@@ -1,34 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:belluga_boilerplate/application/configurations/assets_constants.dart';
 
 class AuthHeaderHeadline extends StatelessWidget {
   const AuthHeaderHeadline({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 50,
-      child: Stack(
-        alignment: Alignment.bottomCenter,
+    final colorScheme = Theme.of(context).colorScheme;
+
+    return Container(
+      color: colorScheme.surface,
+      padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
+      child: Row(
         children: [
-          Container(
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage(AssetsConstants.login.headerBackground),
-                fit: BoxFit.cover,
-                alignment: Alignment.bottomCenter,
-              ),
-            ),
-            child: SizedBox.expand(),
-          ),
-          Container(
-            color: Colors.transparent,
-            height: 50,
-            alignment: Alignment.center,
+          Icon(Icons.login_rounded, color: colorScheme.primary),
+          const SizedBox(width: 12),
+          Expanded(
             child: Text(
-              "Bem vindo à educação do Futuro",
+              "Continue to the tenant workspace",
               style: TextTheme.of(context).titleMedium?.copyWith(
-                    color: Theme.of(context).colorScheme.secondary,
+                    color: colorScheme.onSurface,
+                    fontWeight: FontWeight.w600,
                   ),
             ),
           ),

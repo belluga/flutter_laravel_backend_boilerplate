@@ -1,4 +1,4 @@
-import 'package:belluga_boilerplate/application/fonts/belluga_learning_icons.dart';
+import 'package:belluga_boilerplate/application/fonts/belluga_icons.dart';
 import 'package:flutter/material.dart';
 
 class EmptyListNotes extends StatelessWidget {
@@ -30,7 +30,7 @@ class EmptyListNotes extends StatelessWidget {
                       child: Icon(
                         color: Theme.of(context).colorScheme.onSecondary,
                         size: 16,
-                        BellugaLearning.sticky_note,
+                        BellugaIcons.sticky_note,
                       ),
                     ),
                     Text(

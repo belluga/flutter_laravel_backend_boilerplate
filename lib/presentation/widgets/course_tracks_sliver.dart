@@ -22,7 +22,7 @@ class CourseTracksSliver extends StatelessWidget {
       slivers: [
         SliverToBoxAdapter(
           child: DashboardTitleRow(
-            title: "Trilhas Unifast",
+            title: "Fast Tracks",
             showAllLabel: showAllLabel,
             onShowAllPressed: onShowAllPressed,
           ),

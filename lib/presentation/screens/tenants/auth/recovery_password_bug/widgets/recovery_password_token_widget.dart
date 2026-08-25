@@ -15,7 +15,7 @@ class RecoveryPasswordTokenWidget extends StatelessWidget {
     return Column(
       children: [
         const Text(
-          "Insira o código que foi enviado no seu email",
+          "Enter the verification code sent to your email",
           style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
         ),
         const SizedBox(height: 16),

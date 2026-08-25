@@ -3,9 +3,17 @@
 Este guia é o passo a passo definitivo para adicionar um novo tenant ao projeto. Ele reflete a arquitetura atual, que automatiza a maior parte da configuração do Android a partir de arquivos de propriedades e utiliza um backend para o branding dinâmico na web.
 
 **Placeholders Usados:**
-* `<novo_tenant>`: O nome do novo flavor em minúsculas (ex: `unifast`).
-* `<NomeDoApp>`: O nome de exibição do aplicativo (ex: `Unifast App`).
-* `<com.empresa.novoapp>`: O ID único do aplicativo para a loja (ex: `com.boilerplatebellugatenant.app`).
+* `<novo_tenant>`: O nome do novo flavor em minúsculas (ex: `tenantalpha`).
+* `<NomeDoApp>`: O nome de exibição do aplicativo (ex: `Tenant Alpha App`).
+* `<com.empresa.novoapp>`: O ID único do aplicativo para a loja (ex: `com.example.tenantalpha.app`).
+
+## Telemetry e Push
+
+O bootstrap Flutter usa a origem de `main_domain` retornada pelo endpoint de ambiente e monta o transporte em `/api/v1/`. `APP_URL` não deve ser transformada em subdomínio do tenant para esse fluxo.
+
+O backend pode fornecer configurações opcionais em `telemetry_settings.trackers` e `firebase_settings`. Sem essas configurações, o app mantém o startup funcional, não usa credenciais hardcoded e deixa a entrega externa desabilitada. A integração usa `event_tracker_handler` e `push_handler` na linha `0.2.x`, com `$insert_id`, outcomes, bearer token, fetch de dados e action reporting fornecidos pelos pacotes.
+
+O boilerplate possui rota própria para detalhe de evento (`/agenda/:event_id`), mas não possui domínio ou rota de convites. Payloads de convite são ignorados com segurança até existir um TODO específico para essa superfície. Chrome/web é um alvo aceito para testes; configuração real Android/iOS, Firebase files e credenciais não fazem parte do baseline genérico.
 
 ### Pré-requisitos
 * Acesso ao `keytool` (parte do JDK).
@@ -28,8 +36,10 @@ Este guia é o passo a passo definitivo para adicionar um novo tenant ao projeto
     ```
 
 2.  **Criar Arquivo de Propriedades:**
-    * Na pasta `android/keystores/`, copie o arquivo `tenant.properties.example` e renomeie-o para `<novo_tenant>.properties`.
-    * Abra o novo arquivo e preencha todos os placeholders com os valores reais do tenant.
+    * Na pasta `android/keystores/`, copie o arquivo `tenant.properties.example` e renomeie-o para `<novo_tenant>.properties`. Exemplos neutros:
+        * `tenantalpha.properties` → `applicationId=com.example.tenantalpha.app`, alias `tenantalpha-alias`, campos de assinatura definidos pelo seu time.
+        * `tenantbeta.properties` → `applicationId=com.example.tenantbeta.app`, alias `tenantbeta-alias`, campos de assinatura definidos pelo seu time.
+    * Abra o novo arquivo e preencha todos os placeholders com os valores reais do tenant, além de definir o nome do arquivo `.jks` (ex.: `tenantalpha-release-key.jks`) que deve estar dentro desta mesma pasta.
 
 ---
 
